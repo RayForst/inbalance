@@ -1,0 +1,98 @@
+<template lang="pug">
+  .product
+    .image-wrap.bg-image(
+      :style="{ backgroundImage: 'url(/uploads/' + image + ')' }"
+    )
+    .vertical-container 
+      .name {{ content.name }}
+      .desc {{ content['ProductSubcategory.name'] }}
+    router-link(:to="{ name: 'product', params: { slug: content.slug } }").ui-button Discover more
+</template>
+
+<script>
+export default {
+  props: ["content"],
+  name: "product",
+  data() {
+    return {};
+  },
+  methods: {
+    goProduct(result) {
+      console.log("GO PRODUCT", this.content.slug);
+      this.$router.push({
+        name: "product",
+        params: {
+          slug: this.content.slug
+        }
+      });
+    }
+  },
+  computed: {
+    image() {
+      return this.content.hasOwnProperty("images")
+        ? this.content.images.split(",")[0]
+        : "default.png";
+    }
+  }
+};
+</script>
+
+
+<style lang="stylus" scoped>
+@import './../../assets/css/_variables';
+
+.product {
+  max-width: 280px;
+  margin: auto;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-bottom: 20px;
+  height: 100%;
+  box-sizing: border-box;
+
+  @media $media_sm {
+    padding: 0 32px;
+    max-width: 350px;
+  }
+
+  @media $media_lg {
+    padding: 0;
+    padding-bottom: 50px;
+  }
+
+  .ui-button {
+    margin-top: auto;
+  }
+}
+
+.name {
+  font-family: 'Lora', sans-serif;
+  font-size: 20px;
+  line-height: 1.33em;
+  margin-bottom: 10px;
+}
+
+.desc {
+  line-height: 1.63;
+  font-weight: 300;
+  font-size: 16px;
+  color: $c_gray;
+}
+
+.image-wrap {
+  box-shadow: -1px 13px 20px 0 rgba(197, 197, 197, 0.31);
+  background-image: url('https://cdn.shopify.com/s/files/1/1068/2502/products/aloe-infusion-single-bottles-9oz-front-white_a55f74b6-753c-4ab1-8d9b-0aef6dbbe9e0.jpg?v=1508692828');
+  display: flex;
+  position: relative;
+  width: 100%;
+
+  &:before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+    background: #fff;
+  }
+}
+</style>
