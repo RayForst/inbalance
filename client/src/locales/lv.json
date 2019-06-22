@@ -1,6 +1,17 @@
 {
   "message": "Labdien",
   "menu": {
-    "products": "Products"
+    "categories": {
+      "wellness": "WELLNESS ПРОЦЕДУРЫ",
+      "events": "МЕРОПРИЯТИЯ",
+      "contacts": "СВЯЗАТЬСЯ С НАМИ",
+      "articles": "СТАТЬИ"
+    },
+    "links": {
+      "products": "Products",
+      "calendar": "Календарь мероприятий",
+      "contacts": "Наши контакты",
+      "blog": "Блог"
+    }
   }
 }

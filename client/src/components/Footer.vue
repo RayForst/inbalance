@@ -10,10 +10,10 @@
               )
                 template(v-for="column, index in menu")
                   nav(v-if="i == column.categoryIndex")
-                    h4 {{ column.category }}
+                    h4 {{ categoryText(column) }}
                     ul
                       li(v-for="link in column.links ")
-                        a.footer-link.ui-link(href="#") {{ link.title }}               
+                        a.footer-link.ui-link(href="#") {{ text(link) }}               
           hr  
           .row.contacts
             .col-xs-12.col-md-12.col-lg-2.center-xs.start-lg.first-lg.middle-xs
@@ -41,6 +41,16 @@ export default {
   computed: {
     menu: function() {
       return this.$store.state.menu;
+    }
+  },
+  methods: {
+    categoryText(menuItem) {
+      return menuItem.hasOwnProperty("i18n")
+        ? this.$t(menuItem.category)
+        : menuItem.category;
+    },
+    text(link) {
+      return link.hasOwnProperty("i18n") ? this.$t(link.title) : link.title;
     }
   },
   components: {

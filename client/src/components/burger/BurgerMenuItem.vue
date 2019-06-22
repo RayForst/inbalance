@@ -4,7 +4,7 @@
       @click.native="close" 
       :to="{ name: menuItem.link }"
       :class="{ active: hover }"
-    ) {{ menuItem.category }}
+    ) {{ categoryText(menuItem) }}
     transition(name="fade" mode="out-in")
       span.popup(
         v-show="hover"
@@ -36,6 +36,11 @@ export default {
         route.params = { slug: link.route.slug };
 
       return route;
+    },
+    categoryText(menuItem) {
+      return menuItem.hasOwnProperty("i18n")
+        ? this.$t(menuItem.category)
+        : menuItem.category;
     },
     text(link) {
       return link.hasOwnProperty("i18n") ? this.$t(link.title) : link.title;

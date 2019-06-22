@@ -12,7 +12,7 @@ export default new Vuex.Store({
         categoryIndex: 1,
         links: [
           {
-            title: 'menu.products',
+            title: 'menu.links.products',
             i18n: true,
             route: {
               name: 'products',
@@ -26,7 +26,7 @@ export default new Vuex.Store({
         categoryIndex: 1,
         links: [
           {
-            title: 'menu.products',
+            title: 'menu.links.products',
             i18n: true,
             route: {
               name: 'products',
@@ -36,7 +36,8 @@ export default new Vuex.Store({
         ],
       },
       {
-        category: 'WELLNESS ПРОЦЕДУРЫ',
+        category: 'menu.categories.wellness',
+        i18n: true,
         categoryIndex: 3,
         links: [],
       },
@@ -45,7 +46,7 @@ export default new Vuex.Store({
         categoryIndex: 2,
         links: [
           {
-            title: 'menu.products',
+            title: 'menu.links.products',
             i18n: true,
             route: {
               name: 'products',
@@ -55,11 +56,13 @@ export default new Vuex.Store({
         ],
       },
       {
-        category: 'МЕРОПРИЯТИЯ',
+        category: 'menu.categories.events',
+        i18n: true,
         categoryIndex: 3,
         links: [
           {
-            title: 'Календарь мероприятий',
+            title: 'menu.links.calendar',
+            i18n: true,
             route: {
               name: 'events',
             },
@@ -67,11 +70,13 @@ export default new Vuex.Store({
         ],
       },
       {
-        category: 'СВЯЗАТЬСЯ С НАМИ',
+        category: 'menu.categories.contacts',
+        i18n: true,
         categoryIndex: 4,
         links: [
           {
-            title: 'Наши контакты',
+            title: 'menu.links.contacts',
+            i18n: true,
             route: {
               name: 'contacts',
             },
@@ -79,11 +84,13 @@ export default new Vuex.Store({
         ],
       },
       {
-        category: 'СТАТЬИ',
+        category: 'menu.categories.articles',
+        i18n: true,
         categoryIndex: 4,
         links: [
           {
-            title: 'Блог',
+            title: 'menu.links.blog',
+            i18n: true,
             route: {
               name: 'articles',
             },
@@ -96,10 +103,8 @@ export default new Vuex.Store({
     setupCategories(state, payload) {
       state.menu[0].category = payload[0].name;
       state.menu[0].links[0].route.slug = payload[0].slug;
-
       state.menu[1].category = payload[1].name;
       state.menu[1].links[0].route.slug = payload[1].slug;
-
       state.menu[3].category = payload[2].name;
       state.menu[3].links[0].route.slug = payload[2].slug;
     },

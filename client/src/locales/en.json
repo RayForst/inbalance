@@ -1,6 +1,17 @@
 {
   "message": "hello i18n !!",
   "menu": {
-    "products": "Products"
+    "categories": {
+      "wellness": "WELLNESS Procedures",
+      "events": "Events",
+      "contacts": "Contact us",
+      "articles": "Articles"
+    },
+    "links": {
+      "products": "Products",
+      "calendar": "Event calendar",
+      "contacts": "Contacts",
+      "blog": "Blog"
+    }
   }
 }

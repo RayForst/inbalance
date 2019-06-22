@@ -1,6 +1,17 @@
 {
   "message": "привет",
   "menu": {
-    "products": "продукция"
+    "categories": {
+      "wellness": "WELLNESS ПРОЦЕДУРЫ",
+      "events": "МЕРОПРИЯТИЯ",
+      "contacts": "СВЯЗАТЬСЯ С НАМИ",
+      "articles": "СТАТЬИ"
+    },
+    "links": {
+      "products": "Продукция",
+      "calendar": "Календарь мероприятий",
+      "contacts": "Наши контакты",
+      "blog": "Блог"
+    }
   }
 }
