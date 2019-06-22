@@ -13,14 +13,10 @@
       )
         ul.popup-links
           li(v-for="link in menuItem.links")
-            template(v-if="link.route.hasOwnProperty('slug')")
-              router-link.submenu-link.text-upper(
-                :to="{ name: link.route.name, params: { slug: link.route.slug }}"
-              ) {{ link.title }}
-            template(v-else)
-              router-link.submenu-link.text-upper(
-                :to="{ name: link.route.name }"
-              ) {{ link.title }}
+            router-link.submenu-link.text-upper(
+              :to="url(link)"
+              v-text="text(link)"
+            )
 </template>
 
 <script>
@@ -33,6 +29,17 @@ export default {
     };
   },
   methods: {
+    url(link) {
+      let route = { name: link.route.name };
+
+      if (link.route.hasOwnProperty("slug"))
+        route.params = { slug: link.route.slug };
+
+      return route;
+    },
+    text(link) {
+      return link.hasOwnProperty("i18n") ? this.$t(link.title) : link.title;
+    },
     open() {
       this.hover = true;
     },

@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import i18n from './i18n';
 
 Vue.use(Vuex);
 
@@ -11,7 +12,8 @@ export default new Vuex.Store({
         categoryIndex: 1,
         links: [
           {
-            title: 'Продукция',
+            title: 'menu.products',
+            i18n: true,
             route: {
               name: 'products',
               slug: null,
@@ -24,7 +26,8 @@ export default new Vuex.Store({
         categoryIndex: 1,
         links: [
           {
-            title: 'Продукция',
+            title: 'menu.products',
+            i18n: true,
             route: {
               name: 'products',
               slug: null,
@@ -35,15 +38,15 @@ export default new Vuex.Store({
       {
         category: 'WELLNESS ПРОЦЕДУРЫ',
         categoryIndex: 3,
-        links: [
-        ],
+        links: [],
       },
       {
         category: 'WELLNESS ТОВАРЫ',
         categoryIndex: 2,
         links: [
           {
-            title: 'Продукция',
+            title: 'menu.products',
+            i18n: true,
             route: {
               name: 'products',
               slug: null,
@@ -101,14 +104,14 @@ export default new Vuex.Store({
       state.menu[3].links[0].route.slug = payload[2].slug;
     },
     setupMenu(state, payload) {
-      payload.forEach(element => {
+      payload.forEach((element) => {
         state.menu[element.menupos].links.push({
           title: element.name,
           route: {
             name: 'static',
             slug: element.slug,
           },
-        })
+        });
       });
     },
   },

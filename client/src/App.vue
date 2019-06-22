@@ -41,6 +41,8 @@ export default {
     this.getCategories();
     this.getMenu();
     this.loaded = true;
+
+    console.log("hey hey");
   }
 };
 </script>

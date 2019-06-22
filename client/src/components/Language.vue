@@ -25,16 +25,22 @@ export default {
       config: {
         options: [
           {
-            value: "ПО-РУССКИ"
+            value: "Latviski",
+            locale: "lv"
           },
           {
-            value: "ENGLISH"
+            value: "ПО-РУССКИ",
+            locale: "ru"
+          },
+          {
+            value: "ENGLISH",
+            locale: "en"
           }
         ],
         prefix: "",
-        placeholder: "ПО-РУССКИ",
+        placeholder: "ENGLISH",
         backgroundColor: "#fff",
-        hoverBackgroundColor: '#e9ebec',
+        hoverBackgroundColor: "#e9ebec",
         textColor: "black",
         borderRadius: "0",
         border: "none",
@@ -43,16 +49,22 @@ export default {
       configShort: {
         options: [
           {
-            value: "РУ"
+            value: "LV",
+            locale: "lv"
           },
           {
-            value: "EN"
+            value: "РУ",
+            locale: "ru"
+          },
+          {
+            value: "EN",
+            locale: "en"
           }
         ],
         prefix: "",
         placeholder: "РУ",
         backgroundColor: "#fff",
-        hoverBackgroundColor: '#e9ebec',
+        hoverBackgroundColor: "#e9ebec",
         textColor: "black",
         borderRadius: "0",
         border: "none",
@@ -62,6 +74,11 @@ export default {
   },
   methods: {
     setNewSelectedOption(selectedOption) {
+      let found = this.config.options.find(obj => {
+        return obj.value === selectedOption.value;
+      });
+
+      this.$i18n.locale = found.locale;
       this.config.placeholder = selectedOption.value;
     },
     setShortNewSelectedOption(selectedOption) {
@@ -72,14 +89,21 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import './../assets/css/_variables'
-.lang-xs
-  display inline-flex;
+@import './../assets/css/_variables';
 
-  @media $media_lg
-    display none
-.lang-lg
-  display none 
-  @media $media_lg
-    display inline-flex
+.lang-xs {
+  display: inline-flex;
+
+  @media $media_lg {
+    display: none;
+  }
+}
+
+.lang-lg {
+  display: none;
+
+  @media $media_lg {
+    display: inline-flex;
+  }
+}
 </style>
