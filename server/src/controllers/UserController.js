@@ -1,12 +1,12 @@
-import Models from '../models'
+const Models = require('../models')
 
 module.exports = {
     async getInfo(req, res) {
         try {
             const task = await Models.User.findAll({
                 where: {
-                    id: 1
-                }
+                    id: 1,
+                },
             })
             res.send(task[0])
         } catch (err) {

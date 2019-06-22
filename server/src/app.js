@@ -5,7 +5,7 @@ const cors = require('cors')
 const morgan = require('morgan')
 const i18n = require('i18n')
 const cookieParser = require('cookie-parser')
-import models from './models'
+const models = require('./models')
 const expressValidator = require('express-validator')
 const log = require('./services/logger')
 const app = express()
@@ -48,14 +48,10 @@ require('./routes')(app)
 
 log('SERVER', 'Database', 'Synchronization...')
 
-models.sequelize
-    .sync({
-        logging: console.log,
-    })
-    .then(() => {
-        log('SERVER', 'Database', 'Synchronization successfuly complete!')
-        app.listen(
-            CONFIG.port,
-            log('SERVER', 'Runing', `http://localhost:${CONFIG.port}/`)
-        )
-    })
+models.sequelize.sync().then(() => {
+    log('SERVER', 'Database', 'Synchronization successfuly complete!')
+    app.listen(
+        CONFIG.port,
+        log('SERVER', 'Runing', `http://localhost:${CONFIG.port}/`)
+    )
+})

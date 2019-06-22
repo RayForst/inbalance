@@ -1,9 +1,9 @@
-import Models from '../models'
+const Models = require('../models')
 const { validationResult } = require('express-validator/check')
 const Model = Models.StaticPage
-import Sequelize from 'sequelize'
+const Sequelize = require('sequelize')
 
-const Op = Sequelize.Op;
+const Op = Sequelize.Op
 
 module.exports = {
     async save(req, res) {
@@ -25,7 +25,7 @@ module.exports = {
         try {
             const result = await Model.findAll({
                 raw: true,
-                order: [['createdAt', 'DESC']]
+                order: [['createdAt', 'DESC']],
             })
 
             res.send(result)
@@ -40,7 +40,7 @@ module.exports = {
             const result = await Model.findAll({
                 raw: true,
                 order: [['createdAt', 'DESC']],
-                attributes: ['id', 'name', 'slug', 'menupos']
+                attributes: ['id', 'name', 'slug', 'menupos'],
             })
 
             res.send(result)
@@ -53,7 +53,7 @@ module.exports = {
     async getBySlug(req, res) {
         try {
             const result = await Model.findOne({
-                where: { 
+                where: {
                     slug: req.query.slug,
                 },
             })
@@ -67,7 +67,7 @@ module.exports = {
     async remove(req, res) {
         try {
             await Model.destroy({
-                where: { 
+                where: {
                     id: req.body.id,
                 },
             })
@@ -77,5 +77,5 @@ module.exports = {
                 error: 'Something went wrong' + err,
             })
         }
-    }
+    },
 }

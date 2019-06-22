@@ -1,6 +1,6 @@
 const { check } = require('express-validator/check')
 
-export default {
+module.exports = {
     login: [
         check('login')
             .isLength({ min: 1 })

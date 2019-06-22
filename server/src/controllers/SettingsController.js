@@ -1,7 +1,7 @@
-import Models from '../models'
+const Models = require('../models')
 const { validationResult } = require('express-validator/check')
 const Model = Models.Settings
-import Sequelize from 'sequelize'
+const Sequelize = require('sequelize')
 
 const Op = Sequelize.Op
 

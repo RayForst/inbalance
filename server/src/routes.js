@@ -12,7 +12,7 @@ const path = require('path')
 const jwt = require('jsonwebtoken')
 const config = require('../config')
 const Models = require('./models')
-import validation from './validation/validation'
+const validation = require('./validation/validation')
 
 async function validateToken(req, res, next) {
     if (!req.headers['authorization']) res.status(401).send()

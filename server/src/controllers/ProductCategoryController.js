@@ -1,4 +1,4 @@
-import Models from '../models'
+const Models = require('../models')
 const Model = Models.ProductCategory
 const SubcategoryModel = Models.ProductSubcategory
 

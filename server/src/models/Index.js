@@ -1,7 +1,7 @@
-import fs from 'fs'
-import path from 'path'
-import Sequelize from 'sequelize'
-import config from '../../config'
+const fs = require('fs')
+const path = require('path')
+const Sequelize = require('sequelize')
+const config = require('../../config')
 
 let db = {}
 
@@ -40,4 +40,4 @@ db['EventSubscribtion'].belongsTo(db['Event'], {
 db.sequelize = sequelize
 db.Sequelize = Sequelize
 
-export default db
+module.exports = db
