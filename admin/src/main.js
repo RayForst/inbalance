@@ -4,10 +4,12 @@ import '@/scripts/fontLoader';
 import Tabs from 'vue-tabs-component';
 import SlideUpDown from 'vue-slide-up-down';
 import CKEditor from '@ckeditor/ckeditor5-vue';
+import VJsoneditor from 'v-jsoneditor/src/index';
 import store from './store';
 import router from './router';
 import App from './App.vue';
 
+Vue.use(VJsoneditor);
 Vue.use(CKEditor);
 
 Vue.config.productionTip = false;

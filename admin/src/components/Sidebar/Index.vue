@@ -20,7 +20,7 @@ export default {
     return {
       sidebar: [
         {
-          name: "Producs",
+          name: "Producssss",
           icon: "nc-app",
           route: "products"
         },
@@ -44,11 +44,11 @@ export default {
           icon: "nc-chat-round",
           route: "contact-requests"
         },
-        // {
-        //   name: 'Translations',
-        //   icon: 'nc-caps-small',
-        //   route: 'translations',
-        // },
+        {
+          name: "Translations",
+          icon: "nc-caps-small",
+          route: "translations"
+        },
         {
           name: "Settings",
           icon: "nc-settings-90",

@@ -6,21 +6,20 @@
       app-footer
 </template>
 <script>
-import appFooter from '@/components/Footer.vue';
+import appFooter from "@/components/Footer.vue";
 
 export default {
   metaInfo: {
-    title: 'Default Title',
-    titleTemplate: '%s | Inbalanse admin',
+    title: "Default Title",
+    titleTemplate: "%s | Inbalanse admin"
   },
   data() {
     return {};
   },
   components: {
-    appFooter,
+    appFooter
   },
-  mounted() {
-  },
+  mounted() {},
   beforeCreate() {
     // alert('hey 2', this.$store.state.isAuthorized)
     // console.log( this.$store.state.isAuthorized)
@@ -31,7 +30,7 @@ export default {
     //   alert('push')
     //   this.$router.push({ name: "login" });
     // }
-  },
+  }
 };
 </script>
 
