@@ -1,6 +1,6 @@
 <template lang="pug">
   .card
-    h4.card-title Event subscribe list
+    h4.card-title Contact requests
     .row.list
     table.ui-table
         tr

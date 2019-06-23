@@ -5,12 +5,15 @@
       app-header(:name="'Translations'" :icon="'nc-caps-small'")
       .card-container
         .row
-          .col-xs-7
+          .col-xs-12
             .card
-              h4.card-title List
-              p.caption Click to edit or create new
-              .row.list
+              .row
                 .col-xs-12
+                  h4.card-title Static strings Translations
+                  p.caption Be aware for making mistakes, it can break site content
+              .row.list
+                .col-xs-4
+                  h5 English
                   v-jsoneditor(
                     v-model="json" 
                     :options="options" 
@@ -18,11 +21,30 @@
                     :height="'400px'" 
                     @error="onError"
                   )
-          .col-xs-5
-            .card
-              h4.card-title Edit
-              p.caption Search edit and add new
-
+                  br
+                  button.ui-button.ui-button--full-green Save
+                .col-xs-4
+                  h5 Russian
+                  v-jsoneditor(
+                    v-model="json" 
+                    :options="options" 
+                    :plus="false" 
+                    :height="'400px'" 
+                    @error="onError"
+                  )
+                  br
+                  button.ui-button.ui-button--full-green Save
+                .col-xs-4
+                  h5 Latvian
+                  v-jsoneditor(
+                    v-model="json" 
+                    :options="options" 
+                    :plus="false" 
+                    :height="'400px'" 
+                    @error="onError"
+                  )
+                  br
+                  button.ui-button.ui-button--full-green Save
 </template>
 
 <script>
@@ -56,4 +78,9 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~@/assets/css/_variables';
+
+h5 {
+  font-size: 20px;
+  margin: 10px 0;
+}
 </style>

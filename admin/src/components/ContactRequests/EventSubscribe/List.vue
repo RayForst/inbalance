@@ -5,12 +5,16 @@
     table.ui-table
         tr
           th #
-          th Request
+          th Name
+          th Email
+          th Phone
           th Event
           th Created At
         tr(v-for="item, index in items")
           td {{ index + 1 }}
-          td {{ item.firstname }} {{ item.lastname }}, {{ item.email }}, {{ item.phone }}
+          td {{ item.firstname }} {{ item.lastname }}
+          td {{ item.email }}
+          td {{ item.phone }}
           td 
             a.ui-link(:href="'/events/' + item['Event.slug']" target="_blank") {{ item['Event.name'] }}
           td {{ date(item.createdAt) }}

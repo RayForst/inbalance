@@ -5,10 +5,8 @@
       app-header(:name="'Contacts Requests'" :icon="'nc-chat-round'")
       .card-container
         .row
-          .col-xs-7
-            app-contacts
-          .col-xs-5
-            app-newsletter
+          .col-xs-12
+            app-event-subscribe
 </template>
 
 <script>
@@ -23,8 +21,8 @@ export default {
     };
   },
   components: {
-    appContacts: () => import("@/components/ContactRequests/Contact/List"),
-    appNewsletter: () => import("@/components/ContactRequests/Newsletter/List"),
+    appEventSubscribe: () =>
+      import("@/components/ContactRequests/EventSubscribe/List"),
     appSidebar: () => import("@/components/Sidebar/Index"),
     appHeader: () => import("@/components/Header/Index")
   }

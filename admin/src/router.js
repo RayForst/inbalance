@@ -43,6 +43,11 @@ export default new Router({
       component: () => import('./views/ContactRequests.vue'),
     },
     {
+      path: '/event-subscribes',
+      name: 'event-subscribes',
+      component: () => import('./views/EventSubscribes.vue'),
+    },
+    {
       path: '/translations',
       name: 'translations',
       component: () => import('./views/Translations.vue'),

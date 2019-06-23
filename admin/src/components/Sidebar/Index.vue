@@ -30,6 +30,11 @@ export default {
           route: "events"
         },
         {
+          name: "Events subscribes",
+          icon: "nc-notification-70",
+          route: "event-subscribes"
+        },
+        {
           name: "Articles",
           icon: "nc-single-copy-04",
           route: "articles"
