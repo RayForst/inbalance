@@ -7,7 +7,7 @@
       .slide-container
         .ui-tag {{ date }}
         .name {{ content.name }}
-        router-link(:to="{name: 'event', params: { slug: content.slug } }").ui-button.ui-button--full-green DISCOVER MORE
+        router-link(:to="{name: 'event', params: { slug: content.slug } }").ui-button.ui-button--full-green {{ $t('links.discover') }}
 </template>
 
 <script>

@@ -4,30 +4,30 @@
   )
     .col-xs-12.form-group
       input(
-        placeholder="Full name"
+        :placeholder="$t('contacts.form.fullname')"
         name="fullname"
         v-model="form.fullname.value"
         required
       )
     .col-xs-12.form-group
       input(
-        placeholder="Email"
+        :placeholder="$t('contacts.form.email')"
         name="email"
         v-model="form.email.value"
         required
       )
     .col-xs-12.form-group
       textarea(
-        placeholder="Message" 
+        :placeholder="$t('contacts.form.message')" 
         name="text"
         v-model="form.text.value"
         required
       )
     .col-xs-12.form-group
       template(v-if="success")
-        .success Email successfuly subscribed!
+        .success {{ $t('contacts.form.success') }}
       template(v-else)
-        button.ui-button.ui-button--big.ui-button--full-green Subscribe
+        button.ui-button.ui-button--big.ui-button--full-green {{ $t('contacts.form.button') }}
 </template>
 
 <script>

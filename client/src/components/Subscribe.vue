@@ -5,8 +5,8 @@
         .col-xs-10.col-sm-10.col-lg-12
           .row.middle-md.sub-container
             .col-xs-12.col-md-6
-              h2 Узнавайте первыми
-              p.caption Место единения души и тела, оазис спокойного благоденствия посреди стремительных будней
+              h2 {{ $t('newsletter.subscribe') }}
+              p.caption {{ $t('newsletter.caption') }}
             .col-xs-12.col-md-6
               app-form
 </template>

@@ -6,8 +6,8 @@
           .spacer
           .row.middle-md.sub-container
             .col-xs-12.col-md-6
-              h2 Записаться на семинар
-              p.caption Место единения души и тела, оазис спокойного благоденствия посреди стремительных будней
+              h2 {{ $t('events.subscribe.title') }}
+              p.caption {{ $t('events.subscribe.caption') }}
             .col-xs-12.col-md-12
               .spacer
               app-form

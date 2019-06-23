@@ -2,7 +2,7 @@
   .event-calendar
     .row.center-xs
       .col-xs-12.col-sm-10.col-lg-12
-        h1 Календарь мероприятий
+        h1 {{ $t('events.calendar.title')}}
         .month.container
           .control.left(@click="draw('past')")
             img.icon(:src="require('@/assets/img/calendar-arrow.svg')" alt="")
@@ -78,12 +78,7 @@ export default {
           number: 9
         },
         {
-          number: 10,
-          events: [
-            {
-              name: "Основы психологической грамотности специалиста"
-            }
-          ]
+          number: 10
         },
         {
           number: 11
@@ -116,12 +111,7 @@ export default {
           number: 20
         },
         {
-          number: 21,
-          events: [
-            {
-              name: "Основы психологической грамотности специалиста"
-            }
-          ]
+          number: 21
         },
         {
           number: 22
@@ -136,12 +126,7 @@ export default {
           number: 25
         },
         {
-          number: 26,
-          events: [
-            {
-              name: "Основы психологической грамотности специалиста"
-            }
-          ]
+          number: 26
         },
         {
           number: 27
@@ -245,12 +230,6 @@ export default {
             monthDates[index].number = dayNumber;
 
             this.items.forEach(element => {
-              // console.log(
-              //   "NAME",
-              //   element.name,
-              //   moment(element.startDate).date()
-              // );
-
               if (moment(element.startDate).date() == dayNumber) {
                 monthDates[index].events.push({
                   name: element.name

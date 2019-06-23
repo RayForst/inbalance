@@ -22,13 +22,14 @@
             .col-xs-12.col-lg-8 
               h2 {{ item.name }}
             .col-xs-12.col-lg-2
-              router-link.ui-button.ui-button--white(:to="{ name: 'event', params: { slug: item.slug } }") Discover more
+              router-link.ui-button.ui-button--white(:to="{ name: 'event', params: { slug: item.slug } }") {{ $t('links.discover') }}
 </template>
 
 <script>
 import carousel from "vue-owl-carousel";
 import contentService from "@/services/ContentService";
 import moment from "moment";
+import DateService from "@/services/DateService";
 
 export default {
   name: "event-calendar",
@@ -42,6 +43,9 @@ export default {
     carousel
   },
   methods: {
+    date(dateStart, dateEnd) {
+      return DateService.eventDate(dateStart, dateEnd);
+    },
     image(item) {
       const img = item.image != "" ? item.image : "default.png";
 
@@ -56,62 +60,6 @@ export default {
       });
 
       this.loaded = true;
-    },
-    dateFormat(date) {
-      return `${date.date()} ${date.format("MMMM")}`;
-    },
-    date(start, end) {
-      const now = moment(new Date());
-      const dateStart = moment(start);
-      const yearStart =
-        now.year() === dateStart.year() ? false : dateStart.year();
-
-      if (end && start != end) {
-        const dateEnd = moment(end);
-        const yearEnd = now.year() === dateEnd.year() ? false : dateEnd.year();
-
-        if (yearEnd) {
-          if (
-            dateStart.format("M") === dateEnd.format("M") &&
-            dateStart.year() !== dateEnd.year()
-          ) {
-            // day - day month
-            return `${this.dateFormat(
-              dateStart
-            )} ${dateStart.year()} - ${this.dateFormat(dateEnd)} ${yearEnd}`;
-          }
-
-          if (dateStart.format("M") === dateEnd.format("M")) {
-            // day - day month
-            return `${dateStart.date()} - ${this.dateFormat(
-              dateEnd
-            )} ${yearEnd}`;
-          } else {
-            // day month - day month
-            return `${this.dateFormat(dateStart)} - ${this.dateFormat(
-              dateEnd
-            )} ${yearEnd}`;
-          }
-        } else {
-          if (dateStart.format("M") === dateEnd.format("M")) {
-            // day - day month
-            return `${dateStart.date()} - ${this.dateFormat(dateEnd)}`;
-          } else {
-            // day month - day month
-            return `${this.dateFormat(dateStart)} - ${this.dateFormat(
-              dateEnd
-            )}`;
-          }
-        }
-      }
-
-      // day month year
-      if (yearStart) {
-        return `${this.dateFormat(dateStart)} ${yearStart}`;
-      }
-
-      // day month
-      return this.dateFormat(dateStart);
     }
   },
   mounted() {

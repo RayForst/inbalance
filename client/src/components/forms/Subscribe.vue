@@ -6,19 +6,19 @@
       v-if="success"
     )
       .col-xs-12
-        .success Email successfuly subscribed!
+        .success {{ $t('newsletter.form.success') }}
     template(
       v-else
     )
       .col-xs-12.col-lg-8 
         input(
-          placeholder="Email"
+          :placeholder="$t('newsletter.form.placeholder')"
           name="email"
           type="email"
           v-model="form.email.value"
         )
       .col-xs-12.col-lg-4
-        button.ui-button.ui-button--full-green.fill Subscribe
+        button.ui-button.ui-button--full-green.fill {{ $t('newsletter.form.button') }}
       .col-xs-12
         .error(v-if="serverError") {{ serverError }}
 </template>

@@ -32,12 +32,23 @@ export default {
     appSubscribe,
     appHero
   },
+  computed: {
+    productsHeading() {
+      return (
+        this.$t("events.bestsellers.title") + " " + this.productsHeadingCategory
+      );
+    },
+    productsCaption() {
+      return this.$t("events.bestsellers.caption");
+    },
+    postsHeading() {
+      return this.$t("articles.recent");
+    }
+  },
   data() {
     return {
       heroTitleTag: "h1",
-      postsHeading: "Recent posts",
-      productsHeading: "Хиты продаж ",
-      productsCaption: "Discover the meshe shows",
+      productsHeadingCategory: "",
       products: [
         {
           name: "Product 1"
@@ -63,7 +74,7 @@ export default {
       this.products.splice(0, this.products.length);
 
       if (response.length) {
-        this.productsHeading += `<b>${
+        this.productsHeadingCategory += `<b>${
           response[0]["ProductSubcategory.ProductCategory.name"]
         }</b>`;
       }

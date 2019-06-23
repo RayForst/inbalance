@@ -6,14 +6,14 @@ form.ui-form.row(
     .row.input-row
       .col-xs-12.col-md-6
         input(
-          placeholder="First name"
+          :placeholder="$t('events.subscribe.form.firstname')"
           name="firstname"
           v-model="form.firstname.value"
           required
         )
       .col-xs-12.col-md-6
         input(
-          placeholder="Last name"
+          :placeholder="$t('events.subscribe.form.lastname')"
           name="lastname"
           v-model="form.lastname.value"
           required
@@ -22,13 +22,13 @@ form.ui-form.row(
     .row.input-row
       .col-xs-12.col-md-6
         input(
-          placeholder="Cell phone"
+          :placeholder="$t('events.subscribe.form.phone')"
           name="phone"
           v-model="form.phone.value"
         )
       .col-xs-12.col-md-6
         input(
-          placeholder="Email"
+          :placeholder="$t('events.subscribe.form.email')"
           name="email"
           v-model="form.email.value"
           type="email"
@@ -36,9 +36,9 @@ form.ui-form.row(
         )  
   .col-xs-12
     template(v-if="success")
-      .success Email successfuly subscribed!
+      .success {{ $t('events.subscribe.form.success') }}
     template(v-else)
-      button.ui-button.ui-button--big.ui-button--full-green Subscribe
+      button.ui-button.ui-button--big.ui-button--full-green {{ $t('events.subscribe.form.button') }}
 </template>
 
 <script>

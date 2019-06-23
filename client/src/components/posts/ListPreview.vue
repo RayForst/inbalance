@@ -54,7 +54,6 @@ export default {
     }
   },
   mounted() {
-    console.log("HOLLLA");
     this.get();
   }
 };

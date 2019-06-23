@@ -6,7 +6,7 @@
     .vertical-container 
       .name {{ content.name }}
       .desc {{ content['ProductSubcategory.name'] }}
-    router-link(:to="{ name: 'product', params: { slug: content.slug } }").ui-button Discover more
+    router-link(:to="{ name: 'product', params: { slug: content.slug } }").ui-button {{ $t('links.discover') }}
 </template>
 
 <script>
