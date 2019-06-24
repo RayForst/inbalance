@@ -3,6 +3,7 @@
     a.social(
       v-for="link in links" 
       :href="link.link"
+      target="_blank"
       :title="link.title"
       :class="{ gray: colorClass === 'gray' }"
     )
@@ -18,12 +19,12 @@ export default {
         {
           title: "Facebook",
           icon: "fb-grey.svg",
-          link: "#"
+          link: this.$store.state.settings.facebook
         },
         {
-          title: "Instagramm",
+          title: "Instagram",
           icon: "insta-grey.svg",
-          link: "#"
+          link: this.$store.state.settings.instagram
         }
       ]
     };

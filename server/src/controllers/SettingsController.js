@@ -19,6 +19,20 @@ module.exports = {
             })
         }
     },
+    async update(req, res) {
+        try {
+            const item = await Model.findOne({
+                where: { id: 1 },
+            })
+
+            item.update(req.body)
+            res.send('ok')
+        } catch (err) {
+            res.status(400).send({
+                error: 'Something went wrong' + err,
+            })
+        }
+    },
     async updatePriority(req, res) {
         try {
             await Models.Priority.update(

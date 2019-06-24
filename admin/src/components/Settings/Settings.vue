@@ -7,6 +7,7 @@
 
 <script>
 import contentService from "@/services/ContentService";
+import EventBus from "@/event-bus";
 
 export default {
   name: "settings-form",
@@ -19,13 +20,13 @@ export default {
   methods: {
     async get() {
       const response = (await contentService.settings.get({})).data;
-      console.log("resp", response);
 
       this.$store.commit("setSettings", response[0]);
     }
   },
   mounted() {
     this.get();
+    EventBus.$on("form-success-settings", this.get);
   }
 };
 </script>

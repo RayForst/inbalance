@@ -19,10 +19,10 @@ export default {
   },
   computed: {
     lat() {
-      return this.$store.state.lat;
+      return +this.$store.state.settings.lat;
     },
     long() {
-      return this.$store.state.long;
+      return +this.$store.state.settings.long;
     }
   },
   components: {

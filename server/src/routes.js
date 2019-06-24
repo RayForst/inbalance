@@ -78,6 +78,7 @@ module.exports = app => {
 
     // settings
     app.get('/settings', SettingsController.get)
+    app.post('/admin/settings', SettingsController.update)
     app.get('/admin/settings', SettingsController.get)
     app.get('/settings/priority', SettingsController.getPriority)
     app.post('/admin/settings/priority', SettingsController.updatePriority)
