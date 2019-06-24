@@ -36,4 +36,7 @@ export default {
     save: credentials => Api().post('subscribe', credentials),
     eventSave: credentials => Api().post('subscribe/event', credentials),
   },
+  settings: {
+    get: credentials => Api().get('/settings', { params: credentials }),
+  },
 };

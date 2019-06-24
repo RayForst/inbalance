@@ -35,14 +35,17 @@ export default {
     async getMenu() {
       const response = (await contentService.static.getMenu()).data;
       this.$store.commit("setupMenu", response);
+    },
+    async getSettings() {
+      const response = (await contentService.settings.get()).data;
+      this.$store.commit("setupSettings", response);
     }
   },
   mounted() {
     this.getCategories();
     this.getMenu();
+    this.getSettings();
     this.loaded = true;
-
-    console.log("hey hey");
   }
 };
 </script>

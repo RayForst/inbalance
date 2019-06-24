@@ -6,6 +6,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    settings: {},
     menu: [
       {
         category: '[ comfort zone ]',
@@ -118,6 +119,21 @@ export default new Vuex.Store({
           },
         });
       });
+    },
+    setupSettings(state, payload) {
+      console.log('SETUP SETTINGS', payload);
+
+      Object.keys(payload[0]).map((objectKey) => {
+        const ignore = ['id', 'createdAt', 'updatedAt', 'contactFormEmail', 'contactFormSubject'];
+
+        if (!ignore.includes(objectKey)) {
+          state.settings[objectKey] = payload[0][objectKey];
+        }
+
+        return true;
+      });
+
+      console.log('final state', state);
     },
   },
   actions: {},

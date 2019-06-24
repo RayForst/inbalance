@@ -3,28 +3,42 @@
     template(v-if="column")
       .row.column-view
         .col-xs-12
-          .contact-item
+          a.contact-item(
+            taget="_blank"
+            :href="`https://www.google.com/maps/place/${encodeURIComponent(address)}`"
+          )
             .icon-wrap
               img.icon(:src="require('../assets/img/location-footer.svg')" alt="")
             | {{ address }}
         .col-xs-12
-          .contact-item
+          a.contact-item(
+            :href="'tel:+371'+phone.replace(/ /g, '')"
+          )
             .icon-wrap
               img.icon(:src="require('../assets/img/phone-footer.svg')" alt="")
             | {{ phone }}
         .col-xs-12
-          .contact-item
+          a.contact-item(
+            :href="`mailto:${mail}`"
+          )
             .icon-wrap
               img.icon(:src="require('../assets/img/mail-footer.svg')" alt="")
             | {{ mail }}
     template(v-else)
-      span.contact-item
+      a.contact-item(
+        taget="_blank"
+        :href="`https://www.google.com/maps/place/${encodeURIComponent(address)}`"
+      )
         img.icon(:src="require('../assets/img/location-footer.svg')" alt="")
         | {{ address }}
-      span.contact-item
+      a.contact-item(
+        :href="'tel:+371'+phone.replace(/ /g, '')"
+      )
         img.icon(:src="require('../assets/img/phone-footer.svg')" alt="")
         | {{ phone }}
-      span.contact-item
+      a.contact-item(
+        :href="`mailto:${mail}`"
+      )
         img.icon(:src="require('../assets/img/mail-footer.svg')" alt="")
         | {{ mail }}
 </template>
@@ -41,9 +55,9 @@ export default {
   name: "short-contacts",
   data() {
     return {
-      phone: "22 18 21 88",
-      mail: "hello@inbalans.lv",
-      address: "Marijas iela 13 k-4"
+      phone: this.$store.state.settings.phone,
+      mail: this.$store.state.settings.email,
+      address: this.$store.state.settings.address
     };
   }
 };
@@ -82,6 +96,7 @@ export default {
   font-family: 'Lora', sans-serif;
   display: inline-flex;
   color: #858585;
+  text-decoration: none;
 
   &:first-child {
     border: none;

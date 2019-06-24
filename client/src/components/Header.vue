@@ -26,7 +26,7 @@ import appDropdown from "@/components/dropdown/vue-dropdown";
 export default {
   data() {
     return {
-      phone: "22 18 21 88"
+      phone: this.$store.state.settings.phone
     };
   },
   components: {

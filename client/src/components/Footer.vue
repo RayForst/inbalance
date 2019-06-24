@@ -23,7 +23,7 @@
             .col-xs-12.text-center.last-xs
               app-logo
             .col-xs-12.col-lg-2.text-center.last-md.first-lg.align-center
-              .copyright © inbalans, 2015-2019
+              .copyright © {{ this.$store.state.settings.copyright }}{{ new Date().getFullYear() }}
 </template>
 
 <script>
