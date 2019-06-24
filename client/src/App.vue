@@ -1,12 +1,17 @@
 <template lang="pug">
-  #app.sticky-footer-container(
-    v-if="loaded"
-  )
+  #app.sticky-footer-container
+    template(
+      v-if="loaded"
+    )
       app-header
       app-burger
       transition(name="fade" mode="out-in")
         router-view(:key="$route.fullPath")
       app-footer
+    template(
+      v-else
+    )
+      app-loader
 </template>
 
 <script>
@@ -25,27 +30,25 @@ export default {
   components: {
     appHeader: () => import("@/components/Header"),
     appFooter: () => import("@/components/Footer"),
-    appBurger: () => import("@/components/burger/Burger")
+    appBurger: () => import("@/components/burger/Burger"),
+    appLoader: () => import("@/components/Loader")
   },
   methods: {
-    async getCategories() {
-      const response = (await contentService.categories.get()).data;
-      this.$store.commit("setupCategories", response);
-    },
-    async getMenu() {
-      const response = (await contentService.static.getMenu()).data;
-      this.$store.commit("setupMenu", response);
-    },
     async getSettings() {
+      const menu = (await contentService.static.getMenu()).data;
+      this.$store.commit("setupMenu", menu);
+
+      const categories = (await contentService.categories.get()).data;
+      this.$store.commit("setupCategories", categories);
+
       const response = (await contentService.settings.get()).data;
       this.$store.commit("setupSettings", response);
+
+      this.loaded = true;
     }
   },
   mounted() {
-    this.getCategories();
-    this.getMenu();
     this.getSettings();
-    this.loaded = true;
   }
 };
 </script>
