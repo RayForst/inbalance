@@ -3,16 +3,23 @@
    .container
       .row.middle-xs.top-lg
         span.col-xs-4
-          app-social-buttons.social-wrap
+          app-social-buttons.social-wrap(
+            v-if="$store.state.settings.facebook"
+          )
         span.col-xs-4.text-center
           app-logo
         span.col-xs-4.text-end
           .help
-            .horizontal-container
-              a.phone(:href="'tel:+371'+phone.replace(/ /g, '')")
-                img(:src="require('../assets/img/phone-footer.svg')" alt="")
-                | {{ phone }}
-            .menu-line
+            template(
+              v-if="$store.state.settings.phone"
+            )
+              .horizontal-container
+                a.phone(
+                  :href="'tel:+371'+phone.replace(/ /g, '')"
+                )
+                  img(:src="require('../assets/img/phone-footer.svg')" alt="")
+                  | {{ phone }}
+              .menu-line
             .lang-container.dropdown-container
               app-language
 </template>

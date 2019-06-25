@@ -1,8 +1,7 @@
 <template lang="pug">
-  section.hero(
-    v-if="loaded"
-  )
+  section.hero
     carousel(
+      v-if="loaded"
       loop=true 
       :items=1
       :dots="false" 
@@ -27,6 +26,7 @@
 import carousel from "vue-owl-carousel";
 import contentService from "@/services/ContentService";
 import moment from "moment";
+import DateService from "@/services/DateService";
 
 export default {
   props: ["titleTag"],
@@ -59,57 +59,7 @@ export default {
       return `${date.date()} ${date.format("MMMM")}`;
     },
     date(start, end) {
-      const now = moment(new Date());
-      const dateStart = moment(start);
-      const yearStart =
-        now.year() === dateStart.year() ? false : dateStart.year();
-
-      if (end && start != end) {
-        const dateEnd = moment(end);
-        const yearEnd = now.year() === dateEnd.year() ? false : dateEnd.year();
-
-        if (yearEnd) {
-          if (
-            dateStart.format("M") === dateEnd.format("M") &&
-            dateStart.year() !== dateEnd.year()
-          ) {
-            // day - day month
-            return `${this.dateFormat(
-              dateStart
-            )} ${dateStart.year()} - ${this.dateFormat(dateEnd)} ${yearEnd}`;
-          }
-
-          if (dateStart.format("M") === dateEnd.format("M")) {
-            // day - day month
-            return `${dateStart.date()} - ${this.dateFormat(
-              dateEnd
-            )} ${yearEnd}`;
-          } else {
-            // day month - day month
-            return `${this.dateFormat(dateStart)} - ${this.dateFormat(
-              dateEnd
-            )} ${yearEnd}`;
-          }
-        } else {
-          if (dateStart.format("M") === dateEnd.format("M")) {
-            // day - day month
-            return `${dateStart.date()} - ${this.dateFormat(dateEnd)}`;
-          } else {
-            // day month - day month
-            return `${this.dateFormat(dateStart)} - ${this.dateFormat(
-              dateEnd
-            )}`;
-          }
-        }
-      }
-
-      // day month year
-      if (yearStart) {
-        return `${this.dateFormat(dateStart)} ${yearStart}`;
-      }
-
-      // day month
-      return this.dateFormat(dateStart);
+      return DateService.eventDate(start, end);
     }
   },
   mounted() {
@@ -123,7 +73,20 @@ export default {
 @import './../assets/css/_variables';
 
 .hero {
-  margin-top: 40px;
+  height: 520px;
+  background: #f7f7f7;
+
+  @media $media_sm {
+    height: 442px;
+  }
+
+  @media $media_sm {
+    height: 590px;
+  }
+
+  @media $media_lg {
+    margin-top: 40px;
+  }
 }
 
 h1 {

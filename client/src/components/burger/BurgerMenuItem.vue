@@ -1,5 +1,9 @@
 <template lang="pug">
-  li.menu-item(@mouseover="open" @mouseleave="close")
+  li.menu-item(
+    v-if="$store.state.settings.phone"
+    @mouseover="open" 
+    @mouseleave="close"
+  )
     span.main-link.text-upper(
       @click.native="close" 
       :to="{ name: menuItem.link }"

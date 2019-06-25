@@ -1,9 +1,8 @@
 <template lang="pug">
   section.ca
-    .carousel-wrap(
-      v-if="loaded"
-    )
+    .carousel-wrap
       carousel(
+        v-if="loaded"
         loop=true 
         :items=1
         :dots="false" 
@@ -122,6 +121,7 @@ h2 {
 
 .ca-main {
   position: relative;
+  min-height: 120px;
 
   &:before {
     content: '';

@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import appHeader from "@/components/Header";
 import contentService from "@/services/ContentService";
 
 export default {
@@ -28,7 +29,7 @@ export default {
     };
   },
   components: {
-    appHeader: () => import("@/components/Header"),
+    appHeader,
     appFooter: () => import("@/components/Footer"),
     appBurger: () => import("@/components/burger/Burger"),
     appLoader: () => import("@/components/Loader")
