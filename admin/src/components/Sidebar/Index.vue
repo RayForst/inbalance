@@ -20,7 +20,7 @@ export default {
     return {
       sidebar: [
         {
-          name: "Producssss",
+          name: "Products",
           icon: "nc-app",
           route: "products"
         },

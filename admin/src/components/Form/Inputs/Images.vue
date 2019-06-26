@@ -89,6 +89,7 @@ export default {
       this.value = this.uploaded.join(",");
     },
     clear() {
+      console.log("clearing images");
       this.uploaded = [];
       this.$store.commit("changeFormInput", {
         form: this.formKey,
@@ -98,7 +99,16 @@ export default {
     }
   },
   mounted() {
-    EventBus.$on("modal-close", this.clear);
+    EventBus.$on(
+      [
+        "modal-close",
+        "form-success-product",
+        "form-success-event",
+        "form-success-article",
+        "form-success-static"
+      ],
+      this.clear
+    );
   }
 };
 </script>
