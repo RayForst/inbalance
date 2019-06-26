@@ -19,7 +19,7 @@
             span.calendar-day__number(:class="{ today: today && day.number === today && !day.pastMonth }") {{ day.number }}
             .calendar-day__content
               template(v-if="day.events")
-                router-link(:to="{ name: 'event', params: {name: 'super' } }").event(v-for="event, index in day.events" :key="index")
+                router-link(:to="{ name: 'event', params: {slug: event.slug } }").event(v-for="event, index in day.events" :key="index")
                   .name {{ event.name }}
 </template>
 
@@ -206,14 +206,12 @@ export default {
         let pastMonthOver = false;
 
         monthDates.forEach((dayObject, index) => {
+          // clear events
           monthDates[index].events = [];
 
           let daysOfWeek = date.day();
-          if (daysOfWeek === 0) {
-            daysOfWeek = 6;
-          } else {
-            daysOfWeek -= 1;
-          }
+          daysOfWeek = daysOfWeek === 0 ? (daysOfWeek = 6) : (daysOfWeek -= 1);
+
           let daysInMonth = date.daysInMonth();
 
           if (index === daysOfWeek) {
@@ -230,9 +228,10 @@ export default {
             monthDates[index].number = dayNumber;
 
             this.items.forEach(element => {
-              if (moment(element.startDate).date() == dayNumber) {
+              if (moment(element.dateStart).date() == dayNumber) {
                 monthDates[index].events.push({
-                  name: element.name
+                  name: element.name,
+                  slug: element.slug
                 });
               }
             });
@@ -245,11 +244,8 @@ export default {
           }
         });
 
-        let that = this;
-
-        setTimeout(function() {
-          that.days = monthDates;
-        }, 50);
+        this.days.splice(0, this.days.length);
+        this.days.push(...monthDates);
       }
     }
   },
@@ -486,7 +482,7 @@ h1 {
   .calendar-day__content {
     min-height: 122px;
     padding: 8px;
-    padding-top: 40px;
+    padding-top: 50px;
     box-sizing: border-box;
     display: flex;
     align-items: flex-end;
@@ -515,5 +511,6 @@ h1 {
   width: 100%;
   box-sizing: border-box;
   margin-bottom: 10px;
+  text-align: left;
 }
 </style>
