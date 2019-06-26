@@ -142,8 +142,6 @@ export default {
         slug: this.slug
       })).data;
 
-      console.log("gotcha", response);
-
       if (Object.keys(response).length < 1) {
         return this.$router.push({ name: "error" });
       }

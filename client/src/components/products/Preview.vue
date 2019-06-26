@@ -128,8 +128,6 @@ export default {
         return "/uploads/" + image;
       });
     }
-
-    console.log("gallery", this.gallery);
   }
 };
 </script>

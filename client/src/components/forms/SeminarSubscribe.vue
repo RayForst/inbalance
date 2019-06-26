@@ -83,7 +83,6 @@ export default {
           email: this.form.email.value,
           SubId: document.querySelector("#hidden").value
         };
-        console.log("DATA", data);
         const response = await contentService.subscription.eventSave(data);
 
         $this.success = true;

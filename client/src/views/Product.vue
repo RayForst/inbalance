@@ -73,8 +73,6 @@ export default {
         return this.$router.push({ name: "error" });
       }
       this.product = response;
-
-      console.log("RESPONSE", response);
       this.getList(response.ProductSubcategory.ProductCategory.id);
     }
   },
@@ -93,7 +91,7 @@ export default {
 }
 
 .border-bottom {
-  border-bottom: 1px solid rgba(50,65,72,0.2);  
+  border-bottom: 1px solid rgba(50, 65, 72, 0.2);
 }
 </style>
 

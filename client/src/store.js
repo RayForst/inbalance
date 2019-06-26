@@ -121,8 +121,6 @@ export default new Vuex.Store({
       });
     },
     setupSettings(state, payload) {
-      console.log('SETUP SETTINGS', payload);
-
       Object.keys(payload[0]).map((objectKey) => {
         const ignore = ['id', 'createdAt', 'updatedAt', 'contactFormEmail', 'contactFormSubject'];
 
@@ -132,8 +130,6 @@ export default new Vuex.Store({
 
         return true;
       });
-
-      console.log('final state', state);
     },
   },
   actions: {},

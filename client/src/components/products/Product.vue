@@ -18,7 +18,6 @@ export default {
   },
   methods: {
     goProduct(result) {
-      console.log("GO PRODUCT", this.content.slug);
       this.$router.push({
         name: "product",
         params: {

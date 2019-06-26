@@ -101,7 +101,6 @@ export default {
     },
     randomList() {
       let images = Array.apply(null, Array(this.getRandomInt(1, 4)));
-      console.log("random list", images, images.length);
 
       images.forEach(function(element, index) {
         images[index] = "testik";
@@ -120,7 +119,6 @@ export default {
         return this.$router.push({ name: "error" });
       }
 
-      console.log("setting item", response);
       this.item = response;
       this.loaded = true;
     }

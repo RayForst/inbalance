@@ -61,7 +61,6 @@ export default {
             $this.form[element.param].error = element.msg;
           });
         } else {
-          console.log("ERRR :", err.response);
           if (err.response.data.error === "unique violation") {
             this.serverError = this.errors.already_subscribe;
           }
