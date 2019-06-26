@@ -29,17 +29,20 @@
         taget="_blank"
         :href="`https://www.google.com/maps/place/${encodeURIComponent(address)}`"
       )
-        img.icon(:src="require('../assets/img/location-footer.svg')" alt="")
+        .icon-wrap 
+          img.icon(:src="require('../assets/img/location-footer.svg')" alt="")
         | {{ address }}
       a.contact-item(
         :href="'tel:+371'+phone.replace(/ /g, '')"
       )
-        img.icon(:src="require('../assets/img/phone-footer.svg')" alt="")
+        .icon-wrap
+          img.icon(:src="require('../assets/img/phone-footer.svg')" alt="")
         | {{ phone }}
       a.contact-item(
         :href="`mailto:${mail}`"
       )
-        img.icon(:src="require('../assets/img/mail-footer.svg')" alt="")
+        .icon-wrap
+          img.icon(:src="require('../assets/img/mail-footer.svg')" alt="")
         | {{ mail }}
 </template>
 
@@ -79,7 +82,7 @@ export default {
   display: flex;
   flex-direction: column;
 
-  @media $media_sm {
+  @media $media_md {
     flex-direction: row;
     justify-content: center;
   }
@@ -90,8 +93,6 @@ export default {
 }
 
 .contact-item {
-  padding: 0 25px;
-  border-left: 1px solid rgba(#7e8f97, 0.2);
   font-size: 18px;
   font-family: 'Lora', sans-serif;
   display: inline-flex;
