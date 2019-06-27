@@ -39,4 +39,7 @@ export default {
   contacts: {
     get: () => Api().get('/admin/contact-request'),
   },
+  i18n: {
+    get: credentials => Api().get('/translations', { params: credentials }),
+  },
 };

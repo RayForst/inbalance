@@ -2,6 +2,7 @@
   #app.sticky-footer-container
       //- app-burger
       //-- transition(name="fade" mode="out-in")
+      notifications(group="main")
       router-view
       app-footer
 </template>
@@ -37,11 +38,6 @@ export default {
 <style lang="stylus">
 @import './assets/css/main';
 
-body {
-  perspective: 1px;
-  transform-style: preserve-3d;
-}
-
 .fade-enter {
   opacity: 0;
 }
@@ -56,6 +52,12 @@ body {
 .fade-leave-active {
   transition: opacity 0.2s ease;
   opacity: 0;
+}
+
+.notification-container {
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 a {

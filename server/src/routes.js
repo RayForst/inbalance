@@ -6,6 +6,7 @@ const EventController = require('./controllers/EventController')
 const ProductCategoryController = require('./controllers/ProductCategoryController')
 const SettingsController = require('./controllers/SettingsController')
 const ContactController = require('./controllers/ContactController')
+const TranslationsController = require('./controllers/TranslationsController')
 const multer = require('multer')
 const crypto = require('crypto')
 const path = require('path')
@@ -67,6 +68,7 @@ const upload = multer({
 
 module.exports = app => {
     app.post('/contact-request', ContactController.saveContactRequest)
+    app.get('/translations', TranslationsController.get)
     app.get('/admin/contact-request', ContactController.getContactRequest)
 
     app.post('/subscribe', ContactController.save)
