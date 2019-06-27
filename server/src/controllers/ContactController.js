@@ -51,7 +51,6 @@ module.exports = {
         }
     },
     async getEvent(req, res) {
-        console.log('HELLO WORK')
         try {
             const result = await Models.EventSubscribtion.findAll({
                 raw: true,

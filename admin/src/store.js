@@ -213,7 +213,6 @@ export default new Vuex.Store({
         const ignore = ['slug', 'createdAt', 'updatedAt', 'ProductSubcategory.name'];
 
         if (!ignore.includes(objectKey)) {
-          console.log(objectKey);
           state.forms[payload.form][objectKey].value = payload.item[objectKey];
         }
 

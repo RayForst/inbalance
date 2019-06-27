@@ -1,7 +1,6 @@
 const slugify = require('slugify')
 
 let createSlug = product => {
-    console.log('CREATE SLUG LALALALALLALALALAL')
     product.slug = slugify(product.name)
 }
 

@@ -53,18 +53,14 @@ export default {
           return true;
         });
 
-        console.log("Form data", formData);
         const response = (await Api().post(`/admin${this.action}`, formData))
           .data;
-
-        console.log(response);
 
         this.$store.commit("clearForm", {
           form: this.storeKey
         });
         this.success = true;
 
-        console.log("emit event ", `form-success-${this.storeKey}`);
         EventBus.$emit(`form-success-${this.storeKey}`, true);
 
         setTimeout(() => {

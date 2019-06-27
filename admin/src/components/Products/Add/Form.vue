@@ -48,7 +48,6 @@ export default {
       let response = (await contentService.productSubcategories.get({})).data;
 
       let result = [];
-      console.log("response in add form", response);
 
       response.forEach((object, index) => {
         if (typeof result[object.ProductCategoryId - 1] === "undefined") {
@@ -68,11 +67,7 @@ export default {
         return el != null;
       });
 
-      console.log("super puper result", result);
-
       this.categories = filtered;
-      console.log("super puper result2 ", filtered);
-
       this.loaded = true;
     }
   },

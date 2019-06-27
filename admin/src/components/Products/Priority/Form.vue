@@ -46,8 +46,6 @@ export default {
         value: priority[0].priorityOnMain
       });
 
-      console.log("PRI", priority);
-
       this.loaded = true;
     }
   },

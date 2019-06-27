@@ -46,8 +46,6 @@ export default {
     async get() {
       const response = (await contentService.productCategories.get({})).data;
 
-      console.log("categories catch", response);
-
       this.menuIdea[0] = response[0].name;
       this.menuIdea[1] = response[1].name;
       this.menuIdea[3] = response[2].name;
@@ -76,7 +74,6 @@ export default {
     });
 
     EventBus.$on("modal-edit-static", item => {
-      console.log(item);
       this.updateStore(item);
       this.isEdit = true;
       this.show = true;

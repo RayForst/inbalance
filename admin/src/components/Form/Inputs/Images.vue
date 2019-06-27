@@ -50,10 +50,6 @@ export default {
   computed: {
     value: {
       get() {
-        console.log(
-          "getting images",
-          this.$store.state.forms[this.formKey][this.name].value
-        );
         return this.$store.state.forms[this.formKey][this.name].value;
       },
       set(value) {
@@ -89,7 +85,6 @@ export default {
       this.value = this.uploaded.join(",");
     },
     clear() {
-      console.log("clearing images");
       this.uploaded = [];
       this.$store.commit("changeFormInput", {
         form: this.formKey,

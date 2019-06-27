@@ -35,7 +35,6 @@ export default {
     async get() {
       const response = (await contentService.events.subscribtion({})).data;
 
-      console.log("wut?", response);
       this.items = response;
     },
     date(date) {
