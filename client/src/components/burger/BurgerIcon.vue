@@ -16,9 +16,6 @@
     .path-burger
       .animate-path
         .path-rotation
-
-    //- a.burger__button#burger-button(@click="toggle" v-bind:class="{ open: visible }")
-    //-   span.burger__button__icon
 </template>
 
 <script>
@@ -151,9 +148,6 @@ $scale = 0.5;
   }
 }
 
-// offset moves
-// dasharray is the dash size
-// need to be able to control dash space size.
 .hamburglar.is-open {
   .path {
     animation: dash-in $animation linear normal;
