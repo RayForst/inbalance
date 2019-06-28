@@ -25,6 +25,7 @@ body.open {
   &.open:before {
     visibility: visible;
     opacity: 1;
+    z-index: 9998;
   }
 
   &:before {
@@ -33,7 +34,7 @@ body.open {
     background-color: #fff;
     width: 100%;
     overflow: hidden;
-    top: 0;
+    top: 85px;
     left: 0;
     bottom: 0;
     visibility: hidden;
@@ -48,8 +49,10 @@ body.open {
 
 .burger {
   position: absolute;
-  top: 17px;
-  left: 10px;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
 
   @media $media_lg {
     position: initial;

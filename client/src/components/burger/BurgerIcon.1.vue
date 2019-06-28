@@ -58,7 +58,7 @@ export default {
 };
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 $color = #103324;
 $blue = #44f;
 $animation = 0.6s;
@@ -163,12 +163,6 @@ $scale = 0.5;
   .animate-path {
     animation: rotate-in $animation linear normal;
     animation-fill-mode: forwards;
-  }
-
-  & + .burger__menu li {
-    transform: translateX(0);
-    visibility: visible;
-    transition: all 0.5s ease;
   }
 }
 

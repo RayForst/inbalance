@@ -45,7 +45,7 @@ export default {
 
 .burger__menu {
   list-style-type: none;
-  padding: 0 0 0 20px;
+  padding: 0 20px 0 20px;
   font-family: 'Lora', sans-serif;
   align-items: center;
 
@@ -60,10 +60,9 @@ export default {
   li {
     display: block;
     position: relative;
-    margin: 15px 0;
     visibility: hidden;
     transform: translateX(-400px);
-    padding: 5px 20px;
+    padding: 20px 20px;
 
     @media $media_lg {
       transition: none;
@@ -94,6 +93,14 @@ export default {
 
   .router-link-active {
     color: green;
+  }
+}
+
+.burger__menu .menu-line {
+  display: none;
+
+  @media $media_lg {
+    display: block;
   }
 }
 </style>
