@@ -56,6 +56,7 @@ header.main {
   background-color: #ffffff;
   width: 100%;
   box-shadow: 0 2px 10px 0 rgba(24, 55, 92, 0.16);
+  z-index: 9000;
 
   @media $media_lg {
     box-shadow: none;

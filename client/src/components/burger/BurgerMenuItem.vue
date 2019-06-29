@@ -69,6 +69,10 @@ li {
 .menu-item {
   border-bottom: 1px solid rgba(#9c9d9d, 0.2);
 
+  @media $media_lg {
+    border-bottom: none;
+  }
+
   &:hover {
     .main-link {
       opacity: 0.6;

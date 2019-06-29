@@ -25,7 +25,7 @@ body.open {
   &.open:before {
     visibility: visible;
     opacity: 1;
-    z-index: 9998;
+    z-index: 6000;
   }
 
   &:before {
@@ -34,7 +34,7 @@ body.open {
     background-color: #fff;
     width: 100%;
     overflow: hidden;
-    top: 85px;
+    top: 77px;
     left: 0;
     bottom: 0;
     visibility: hidden;

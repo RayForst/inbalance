@@ -80,6 +80,10 @@ $scale = 0.5;
   transform: scale($scale);
   user-select: none;
   width: 68px;
+
+  @media $media_lg {
+    display: none;
+  }
 }
 
 // transition mask
