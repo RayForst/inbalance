@@ -74,6 +74,20 @@ module.exports = {
             })
         }
     },
+    async getAdmin(req, res) {
+        try {
+            const result = await Model.findAll({
+                raw: true,
+                order: [['createdAt', 'DESC']],
+            })
+
+            res.send(result)
+        } catch (err) {
+            res.status(400).send({
+                error: 'Something went wrong' + err,
+            })
+        }
+    },
     async getBySlug(req, res) {
         try {
             const result = await Model.findOne({

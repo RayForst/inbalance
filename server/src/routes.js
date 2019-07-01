@@ -105,7 +105,7 @@ module.exports = app => {
     // events
     app.get('/event', EventController.getBySlug)
     app.get('/events', EventController.get)
-    app.get('/admin/events', EventController.get)
+    app.get('/admin/events', EventController.getAdmin)
     app.post('/admin/events', validation.event, EventController.save)
     app.post('/admin/events/edit', validation.event, EventController.edit)
     app.delete('/admin/event', EventController.remove)
