@@ -5,7 +5,9 @@
         class="uploaded-image"
         :style="{ backgroundImage: 'url(/uploads/' + image + ')' }"
       )
-    .name(v-html="item.name")
+      .badges
+        i.nc-icon.nc-satisfied(v-if="item.priority")
+    .name {{ item.name }}
     .category {{ item['ProductSubcategory.name'] }}
     .list-controls
       a.ui-link(:href="'/product/'+item.slug" target="_blank") View
@@ -93,6 +95,22 @@ export default {
     margin-bottom: 10px;
     justify-content: center;
     width: 100%;
+    position: relative;
+
+    .badges {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: rgba(#000, 0.4);
+      height: 28px;
+      text-align: right;
+
+      .nc-icon {
+        color: #fff;
+        font-size: 18px;
+        padding: 5px;
+      }
+    }
 
     img {
       max-height: 100px;

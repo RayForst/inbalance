@@ -62,5 +62,10 @@ export default new Router({
       name: 'error',
       component: () => import('./views/Error404.vue'),
     },
+    {
+      path: '/icons',
+      name: 'icons',
+      component: () => import('./views/Icons.vue'),
+    },
   ],
 });

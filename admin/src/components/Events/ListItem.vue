@@ -7,6 +7,9 @@
       .overlay
         .name {{ item.name }}
         .date {{ date }}
+      .badges
+        i.nc-icon.nc-satisfied(v-if="item.priority")
+        i.nc-icon.nc-bulb-63(v-if="item.preview")
     .list-controls
       a.ui-link(:href="'/events/'+item.slug" target="_blank") View
       a.ui-link(@click.prevent="edit(item)") Edit
@@ -122,6 +125,21 @@ export default {
     border: 1px solid rgba(#dfe2e1, 0.7);
     border-radius: 5px;
     position: relative;
+
+    .badges {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: rgba(#000, 0.4);
+      height: 28px;
+      text-align: right;
+
+      .nc-icon {
+        color: #fff;
+        font-size: 18px;
+        padding: 5px;
+      }
+    }
 
     &:before {
       content: '';

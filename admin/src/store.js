@@ -130,6 +130,10 @@ export default new Vuex.Store({
           value: '',
           error: null,
         },
+        preview: {
+          value: false,
+          error: null,
+        },
         priority: {
           value: false,
           error: null,
@@ -226,7 +230,7 @@ export default new Vuex.Store({
       Object.keys(state.forms[payload.form]).map((objectKey) => {
         let value = '';
 
-        if (objectKey === 'priority') value = false;
+        if (objectKey === 'priority' || objectKey === 'preview') value = false;
         if (objectKey === 'dateStart') value = new Date(new Date().valueOf() + 1000 * 3600 * 24);
         if (objectKey === 'dateEnd') value = new Date(new Date().valueOf() + 1000 * 3600 * 48);
 
