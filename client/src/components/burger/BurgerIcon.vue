@@ -80,6 +80,8 @@ $scale = 0.5;
   transform: scale($scale);
   user-select: none;
   width: 68px;
+  position: absolute;
+  top: -70px;
 
   @media $media_lg {
     display: none;

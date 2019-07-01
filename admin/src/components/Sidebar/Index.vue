@@ -94,6 +94,7 @@ export default {
   font-weight: 200;
   background-size: cover;
   background-position: 50%;
+  height: 100vh;
 
   &:before {
     display: block;

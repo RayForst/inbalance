@@ -45,14 +45,17 @@ body.open {
       content: none;
     }
   }
+
+  .burger {
+    width: 100%;
+  }
 }
 
 .burger {
   position: absolute;
-  top: 0;
+  top: 77px;
   left: 0;
   z-index: 9999;
-  width: 100%;
 
   @media $media_lg {
     position: initial;
