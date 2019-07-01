@@ -2,7 +2,7 @@ const Models = require('../models')
 const { validationResult } = require('express-validator/check')
 const Model = Models.Event
 const Sequelize = require('sequelize')
-
+const moment = require('moment')
 const Op = Sequelize.Op
 
 module.exports = {
@@ -57,15 +57,72 @@ module.exports = {
                         Sequelize.where(
                             Sequelize.fn('YEAR', Sequelize.col('dateStart')),
                             req.query.year
-                        )
+                        ),
+                        { preview: 0 }
                     ),
                 })
             } else {
                 result = await Model.findAll({
                     raw: true,
                     order: [['dateStart', 'ASC']],
+                    where: [{ preview: 0 }],
                 })
             }
+
+            res.send(result)
+        } catch (err) {
+            res.status(400).send({
+                error: 'Something went wrong' + err,
+            })
+        }
+    },
+    async getHero(req, res) {
+        const now = moment()
+
+        try {
+            const result = await Model.findAll({
+                raw: true,
+                where: Sequelize.and(
+                    Sequelize.where(
+                        Sequelize.fn('MONTH', Sequelize.col('dateStart')),
+                        now.month() + 1
+                    ),
+                    Sequelize.where(
+                        Sequelize.fn('YEAR', Sequelize.col('dateStart')),
+                        now.year()
+                    ),
+                    { priority: 1 }
+                ),
+                order: [['dateStart', 'DESC']],
+            })
+
+            res.send(result)
+        } catch (err) {
+            res.status(400).send({
+                error: 'Something went wrong' + err,
+            })
+        }
+    },
+    async getAnnounce(req, res) {
+        const now = moment()
+
+        try {
+            const result = await Model.findAll({
+                raw: true,
+                where: Sequelize.and(
+                    Sequelize.where(
+                        Sequelize.fn('MONTH', Sequelize.col('dateStart')),
+                        now.month() + 1
+                    ),
+                    Sequelize.where(
+                        Sequelize.fn('YEAR', Sequelize.col('dateStart')),
+                        now.year()
+                    ),
+                    { priority: 0 },
+                    { preview: 0 }
+                ),
+                order: [['dateStart', 'DESC']],
+            })
 
             res.send(result)
         } catch (err) {

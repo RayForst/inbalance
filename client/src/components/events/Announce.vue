@@ -51,7 +51,7 @@ export default {
       return "/uploads/" + img;
     },
     async get() {
-      const response = (await contentService.events.get({})).data;
+      const response = (await contentService.events.getAnnounce({})).data;
       this.items.splice(0, this.items.length);
 
       response.forEach(element => {

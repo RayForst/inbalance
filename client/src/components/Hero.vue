@@ -16,10 +16,16 @@
       )
         .row.center-xs.height-100
           .col-xs-11.col-md-7.align-center.text-center.text-container
-            router-link(:to="{ name: 'event', params: { slug: item.slug } }")
-              h2 {{ item.name }}
-              h1 {{ item.caption }}
-              span.date {{ date(item.dateStart, item.dateEnd) }}
+            template(v-if="item.preview")
+              .preview
+                h2 {{ item.name }}
+                h1 {{ item.caption }}
+                span.date {{ date(item.dateStart, item.dateEnd) }}
+            template(v-else)
+              router-link(:to="{ name: 'event', params: { slug: item.slug } }")
+                h2 {{ item.name }}
+                h1 {{ item.caption }}
+                span.date {{ date(item.dateStart, item.dateEnd) }}
 </template>
 
 <script>
@@ -46,7 +52,8 @@ export default {
       return "/uploads/" + img;
     },
     async get() {
-      const response = (await contentService.events.get({})).data;
+      console.log("gettins");
+      const response = (await contentService.events.getHero({})).data;
       this.items.splice(0, this.items.length);
 
       response.forEach(element => {
@@ -87,6 +94,11 @@ export default {
   @media $media_lg {
     margin-top: 40px;
   }
+}
+
+.preview {
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {

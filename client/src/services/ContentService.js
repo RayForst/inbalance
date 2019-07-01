@@ -17,6 +17,8 @@ export default {
   },
   events: {
     get: credentials => Api().get('/events', { params: credentials }),
+    getHero: credentials => Api().get('/events/hero', { params: credentials }),
+    getAnnounce: credentials => Api().get('/events/announce', { params: credentials }),
     getOne: credentials => Api().get('/event', { params: credentials }),
     subscribe: credentials => Api().post('/event/subscribe', credentials),
   },
