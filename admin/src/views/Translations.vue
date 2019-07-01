@@ -12,11 +12,11 @@
                   h4.card-title Static strings Translations
                   p.caption Be aware for making mistakes, it can break site content
               .row.list
-                .col-xs-4
+                .col-xs-12.col-lg-4
                   appEditor(:locale="'en'")
-                .col-xs-4
+                .col-xs-12.col-lg-4
                   appEditor(:locale="'ru'")
-                .col-xs-4
+                .col-xs-12.col-lg-4
                   appEditor(:locale="'lv'")
 </template>
 

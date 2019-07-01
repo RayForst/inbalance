@@ -69,6 +69,7 @@ const upload = multer({
 module.exports = app => {
     app.post('/contact-request', ContactController.saveContactRequest)
     app.get('/translations', TranslationsController.get)
+    app.post('/translations/save', TranslationsController.save)
     app.get('/admin/contact-request', ContactController.getContactRequest)
 
     app.post('/subscribe', ContactController.save)

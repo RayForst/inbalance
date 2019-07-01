@@ -50,7 +50,12 @@ export default {
     onError() {
       console.log("error");
     },
-    save() {
+    async save() {
+      const response = (await contentService.i18n.save({
+        lang: this.locale,
+        json: this.json
+      })).data;
+
       this.$notify({
         group: "main",
         title: "Saved!",

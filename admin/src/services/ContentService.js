@@ -41,5 +41,6 @@ export default {
   },
   i18n: {
     get: credentials => Api().get('/translations', { params: credentials }),
+    save: credentials => Api().post('/translations/save', credentials),
   },
 };
