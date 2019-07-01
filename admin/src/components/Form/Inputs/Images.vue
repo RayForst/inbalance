@@ -11,6 +11,7 @@
             class="uploaded-image"
             :style="{ backgroundImage: 'url(/uploads/' + image + ')' }"
           )
+            .remove(title="Remove" @click="remove(image)")
 
     .file-upload-wrapper(
       data-text="Select your file!"
@@ -69,6 +70,15 @@ export default {
     }
   },
   methods: {
+    remove(image) {
+      if (confirm("Are you sure?")) {
+        let images = this.images;
+        var index = images.indexOf(image);
+        if (index !== -1) images.splice(index, 1);
+
+        this.value = this.images.join(",");
+      }
+    },
     onFileSelected(event) {
       this.file.value = event.target.files[0];
       this.save();
@@ -115,11 +125,35 @@ export default {
   width: 100%;
   background-position: center center;
   background-size: cover;
+  position: relative;
 
   &:before {
     content: '';
     padding-top: 100%;
     display: block;
+  }
+
+  .remove {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+
+    &:before {
+      content: '+';
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 30px;
+      color: red;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+      line-height: 25px;
+      transform: rotate(45deg);
+    }
   }
 }
 
