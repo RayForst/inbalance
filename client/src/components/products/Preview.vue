@@ -16,7 +16,9 @@
                 )
               .col-xs-6.sm-desc
                 .name {{ product.name }}
-                .desc {{ product['ProductSubcategory.name'] }}
+                router-link.desc(
+                  :to="{ name: 'products-subcategory', params: { slug: product.ProductSubcategory.ProductCategory.slug, subcategory: product.ProductSubcategory.slug} }"
+                ) {{ product['ProductSubcategory.name'] }}
                 .share
                   h5 SHARE ON
                   .share-list
@@ -32,7 +34,9 @@
             .row.relative
               .col-xs-12.first-lg
                 .name {{ product.name }}
-                .desc {{ product.ProductSubcategory.name }}
+                router-link.desc(
+                  :to="{ name: 'products-subcategory', params: { slug: product.ProductSubcategory.ProductCategory.slug, subcategory: product.ProductSubcategory.slug} }"
+                ) {{ product.ProductSubcategory.name }}
               .col-xs-12.first-xs
                 .carousel-wrap(v-if="gallery && gallery.length > 1")
                   carousel(
@@ -120,6 +124,7 @@ export default {
     carousel
   },
   mounted() {
+    console.log("produt", this.product);
     if (
       this.product.images &&
       (this.product.images.indexOf(",") > -1 || this.product.images.length > 1)
@@ -206,6 +211,7 @@ export default {
   font-weight: 300;
   line-height: 1.44em;
   color: #7e8f97;
+  text-decoration: none;
 
   @media $media_md {
     font-size: 18px;

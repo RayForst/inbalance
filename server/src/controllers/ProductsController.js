@@ -215,11 +215,11 @@ module.exports = {
                 include: [
                     {
                         model: Models.ProductSubcategory,
-                        attributes: ['name'],
+                        attributes: ['name', 'slug'],
                         include: [
                             {
                                 model: Models.ProductCategory,
-                                attributes: ['id'],
+                                attributes: ['id', 'slug'],
                             },
                         ],
                     },

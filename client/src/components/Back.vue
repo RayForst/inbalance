@@ -1,7 +1,7 @@
 <template lang="pug">
   .row.center-xs  
     .col-xs-10.col-lg-12
-      router-link(:to="{ name: 'home' }").back(href="#")
+      a.back(@click.prevent="goBack" href="/")
         img(
           :src="require('@/assets/img/arrow.svg')"
         )
@@ -10,7 +10,12 @@
 
 <script>
 export default {
-  name: "back-link"
+  name: "back-link",
+  methods: {
+    goBack() {
+      this.$router.go(-1);
+    }
+  }
 };
 </script>
 
