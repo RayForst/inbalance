@@ -8,7 +8,6 @@ import VJsoneditor from 'v-jsoneditor/src/index';
 import Notifications from 'vue-notification';
 // import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 // import VueCkeditor from 'vue-ckeditor5';
-import wysiwyg from 'vue-wysiwyg';
 import store from './store';
 import router from './router';
 import App from './App.vue';
@@ -24,12 +23,6 @@ Vue.use(VJsoneditor);
 // };
 
 // Vue.use(VueCkeditor.plugin, options);
-Vue.use(wysiwyg, {
-  image: {
-    uploadURL: 'http://localhost:3000/upload-editor',
-    dropzoneOptions: {},
-  },
-}); // config is optional. more below
 
 Vue.config.productionTip = false;
 Vue.use(Tabs);

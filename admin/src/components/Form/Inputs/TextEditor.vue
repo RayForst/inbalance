@@ -51,7 +51,6 @@ export default {
       console.log(file);
     },
     attacmentAdd(event) {
-      console.log("event fire", event, event.attachment.file == true);
       if (event.attachment.file) {
         this.uploadFileAttachment(event.attachment);
       }
@@ -116,5 +115,4 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~@/assets/css/_variables';
-@import '~vue-wysiwyg/dist/vueWysiwyg.css';
 </style>
