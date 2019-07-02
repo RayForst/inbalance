@@ -7,14 +7,33 @@ const Op = Sequelize.Op
 
 module.exports = {
     async save(req, res) {
-        // const errors = validationResult(req)
-        // if (!errors.isEmpty()) {
-        //     return res.status(422).json({ errors: errors.array() })
-        // }
+        const errors = validationResult(req)
+        if (!errors.isEmpty()) {
+            return res.status(422).json({ errors: errors.array() })
+        }
 
         try {
             const article = await Model.create(req.body)
             res.send(article.toJSON())
+        } catch (err) {
+            res.status(400).send({
+                error: 'Something went wrong' + err,
+            })
+        }
+    },
+    async edit(req, res) {
+        const errors = validationResult(req)
+        if (!errors.isEmpty()) {
+            return res.status(422).json({ errors: errors.array() })
+        }
+
+        try {
+            const item = await Model.findOne({
+                where: { id: req.body.id },
+            })
+
+            item.update(req.body)
+            res.send(item.toJSON())
         } catch (err) {
             res.status(400).send({
                 error: 'Something went wrong' + err,

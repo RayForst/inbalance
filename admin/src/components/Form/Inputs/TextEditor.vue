@@ -35,6 +35,7 @@ export default {
         return this.$store.state.forms[this.formKey][this.name].value;
       },
       set(value) {
+        console.log("setting value", value);
         this.$store.commit("changeFormInput", {
           form: this.formKey,
           input: this.name,

@@ -91,7 +91,8 @@ module.exports = app => {
     app.get('/statics', StaticPageController.get)
     app.get('/static/menu', StaticPageController.getMenu)
     app.get('/admin/statics', StaticPageController.get)
-    app.post('/admin/static', StaticPageController.save)
+    app.post('/admin/static', validation.static, StaticPageController.save)
+    app.post('/admin/static/edit', validation.static, StaticPageController.edit)
     app.delete('/admin/static', StaticPageController.remove)
 
     // articles
