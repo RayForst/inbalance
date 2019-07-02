@@ -146,4 +146,8 @@ module.exports = app => {
     app.post('/upload', upload.single('file'), (req, res) => {
         res.json({ file: req.file })
     })
+
+    app.post('/upload-editor', upload.single('file'), (req, res) => {
+        res.send('200', `/uploads/${req.file.filename}`)
+    })
 }
