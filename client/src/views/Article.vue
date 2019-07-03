@@ -11,6 +11,7 @@
             )
           .container
             p(
+              v-if="item"
               v-html="item.text"
             )
             //- p.weight-300 
@@ -29,28 +30,28 @@
             .offset-heading__text Recent POSTs
           .article-list
             app-recent-post(v-for="item,index in list" :key="index" :item="item")
-          .offset-heading
-            .offset-heading__text Categories
-          ul.categories
-            li
-              a(href='#') What’s new
-            li
-              a(href='#') Tutorials
-            li
-              a(href='#') Interviews
-            li
-              a(href='#') Insights
-            li
-              a(href='#') Tips
-          .offset-heading
-            .offset-heading__text Tags
-          .tag-list
-            .ui-tag.ui-tag--white Fashion
-            .ui-tag.ui-tag--white Fashion
-            .ui-tag.ui-tag--white Fashion
-            .ui-tag.ui-tag--white Fashion
-            .ui-tag.ui-tag--white Fashion
-            .ui-tag.ui-tag--white Fashion
+          //- .offset-heading
+          //-   .offset-heading__text Categories
+          //- ul.categories
+          //-   li
+          //-     a(href='#') What’s new
+          //-   li
+          //-     a(href='#') Tutorials
+          //-   li
+          //-     a(href='#') Interviews
+          //-   li
+          //-     a(href='#') Insights
+          //-   li
+          //-     a(href='#') Tips
+          //- .offset-heading
+          //-   .offset-heading__text Tags
+          //- .tag-list
+          //-   .ui-tag.ui-tag--white Fashion
+          //-   .ui-tag.ui-tag--white Fashion
+          //-   .ui-tag.ui-tag--white Fashion
+          //-   .ui-tag.ui-tag--white Fashion
+          //-   .ui-tag.ui-tag--white Fashion
+          //-   .ui-tag.ui-tag--white Fashion
       .spacer
 
 </template>
@@ -92,35 +93,7 @@ export default {
           name: "Product 6"
         }
       ],
-      list: [
-        {
-          name: "6 Tips to start your own T-shirt business",
-          image: "castle.jpg"
-        },
-        {
-          name:
-            "CMT or FPP: Choosing the right production process for your fashion business",
-          image: "road.jpg"
-        },
-        {
-          name:
-            "Using your passion and education to start a business in fashion",
-          image: "nature.jpg"
-        },
-        {
-          name:
-            "Dress manufacturing – Top 5 things to get right before starting production",
-          image: "castle.jpg"
-        },
-        {
-          name: "Interview: fashion angel with Alison Lewy",
-          image: "castle.jpg"
-        },
-        {
-          name: "Tips on starting your own fashion brand",
-          image: "road.jpg"
-        }
-      ]
+      list: []
     };
   },
   components: {
@@ -146,10 +119,26 @@ export default {
         return this.$router.push({ name: "error" });
       }
       this.item = response;
+    },
+    async getRecent() {
+      // const response = (await contentService.articles.getOne({
+      //   slug: this.slug
+      // })).data;
+
+      const list = (await contentService.articles.get()).data;
+
+      console.log("list", list);
+      this.list = list;
+
+      // if (Object.keys(response).length < 1) {
+      //   return this.$router.push({ name: "error" });
+      // }
+      // this.item = response;
     }
   },
   mounted() {
     this.get();
+    this.getRecent();
   }
 };
 </script>

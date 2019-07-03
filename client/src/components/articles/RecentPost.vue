@@ -1,8 +1,10 @@
 <template lang="pug">
 .article
-  a.article-wrap(href="#")
+  router-link.article-wrap(
+    :to="{ name: 'article', params: { slug: item.slug }}"
+  )
     .image-wrap.article-small.bg-image(
-      :style="{ backgroundImage: `url(${image})` }"
+      :style="{ backgroundImage: 'url(/uploads/' + item.image + ')' }"
     ) 
     .name {{ item.name }}
 </template>
