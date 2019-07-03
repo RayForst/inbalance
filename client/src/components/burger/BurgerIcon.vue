@@ -19,6 +19,8 @@
 </template>
 
 <script>
+import EventBus from "@/event-bus";
+
 export default {
   data() {
     return {
@@ -26,27 +28,41 @@ export default {
       isClosed: false
     };
   },
+  watch: {
+    $route(to, from) {
+      this.closeBurger();
+    }
+  },
   methods: {
     toggle() {},
     close() {
+      let that = this;
+
       window.addEventListener("resize", function() {
-        document.body.classList.remove("open");
-        this.visible = false;
+        that.closeBurger();
       });
     },
     burgerTime() {
-      document.body.classList.toggle("open");
-      this.visible = !this.visible;
-
       if (this.isClosed == true) {
-        this.$refs.trigger.classList.remove("is-open");
-        this.$refs.trigger.classList.add("is-closed");
-        this.isClosed = false;
+        this.closeBurger();
       } else {
-        this.$refs.trigger.classList.remove("is-closed");
-        this.$refs.trigger.classList.add("is-open");
-        this.isClosed = true;
+        this.openBurger();
       }
+    },
+    closeBurger() {
+      console.log("CLOOSE");
+      this.visible = false;
+      document.body.classList.remove("open");
+      this.$refs.trigger.classList.remove("is-open");
+      this.$refs.trigger.classList.add("is-closed");
+      this.isClosed = false;
+    },
+    openBurger() {
+      this.visible = true;
+      document.body.classList.add("open");
+      this.$refs.trigger.classList.remove("is-closed");
+      this.$refs.trigger.classList.add("is-open");
+      this.isClosed = true;
     }
   },
   mounted() {

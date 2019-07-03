@@ -1,13 +1,15 @@
 <template lang="pug">
   ul.container.burger__menu
     template(v-if="mount" v-for="column, index in this.$store.state.menu")
-      app-menu-item(:menuItem="column" :isLast="isLast(index)")
+      app-menu-item-mobile(class="mobile-menu" :menuItem="column" :isLast="isLast(index)")
+      app-menu-item(class="desktop-menu" :menuItem="column" :isLast="isLast(index)")
       li.menu-line(v-if="index !== menuLength") |
 </template>
 
 <script>
 import appIcon from "./BurgerIcon";
 import appMenuItem from "./BurgerMenuItem";
+import appMenuItemMobile from "./BurgerMenuItemMobile";
 
 export default {
   data() {
@@ -17,7 +19,8 @@ export default {
   },
   components: {
     appIcon,
-    appMenuItem
+    appMenuItem,
+    appMenuItemMobile
   },
 
   computed: {
@@ -43,6 +46,20 @@ export default {
 <style lang="stylus">
 @import './../../assets/css/_variables';
 
+.mobile-menu {
+  @media $media_lg {
+    display: none !important;
+  }
+}
+
+.desktop-menu {
+  display: none !important;
+
+  @media $media_lg {
+    display: block !important;
+  }
+}
+
 .burger__menu {
   list-style-type: none;
   padding: 0 20px 0 20px;
@@ -62,7 +79,7 @@ export default {
     position: relative;
     visibility: hidden;
     transform: translateX(-400px);
-    padding: 20px 20px;
+    padding: 20px 0;
 
     @media $media_lg {
       transition: none;
