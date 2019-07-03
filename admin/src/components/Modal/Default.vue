@@ -75,9 +75,8 @@ export default {
 
 .modal-container {
   width: 90%;
-  max-width: 600px;
+  max-width: 700px;
   margin: 0px auto;
-  padding: 20px 30px;
   background-color: #fff;
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
@@ -85,7 +84,7 @@ export default {
   font-family: Helvetica, Arial, sans-serif;
   position: relative;
   display: flex;
-  padding: 20px;
+  padding: 30px;
   box-sizing: border-box;
   max-height: 100%;
   overflow: auto;
