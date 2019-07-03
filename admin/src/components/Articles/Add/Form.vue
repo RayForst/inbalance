@@ -4,9 +4,9 @@
     :storeKey="'article'" 
     :submitText="'Save'"
   )
-    app-form-input(:name="'name'" :label="'Name'")
-    app-form-image(:name="'image'" :label="'Main image'")
-    app-form-text-editor(:name="'text'" :label="'Text'")
+    app-form-input(:name="'name'" :label="'Name'" :required="true")
+    app-form-image(:name="'image'" :label="'Main image'" :required="true")
+    app-form-text-editor(:name="'text'" :label="'Text'" :required="true")
     template(
       v-if="isEdit"
     )

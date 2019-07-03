@@ -8,7 +8,7 @@
     app-form-input(:name="'caption'" :label="'Caption - only for priority events'")
     app-form-datepicker(:name="'dateStart'" :label="'Date start'" :required="true")
     app-form-datepicker(:name="'dateEnd'" :label="'Date end'")
-    app-form-image(:name="'image'" :label="'Main image'")
+    app-form-image(:name="'image'" :label="'Main image'" :required="true")
     app-form-text-editor(:name="'description'" :label="'Description'" :required="true")
     app-form-images(:name="'images'" :label="'Additional images'")
     app-form-input(:name="'priority'" :label="'Priority'" :type="'checkbox'")

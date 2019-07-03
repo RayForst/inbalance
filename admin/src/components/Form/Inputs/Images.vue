@@ -1,9 +1,9 @@
 <template lang="pug">
   .form-group
-    .label(
-      v-html="label"
-    )
-
+    .label 
+      | {{ label }}
+      template(v-if="required")
+        span.requied-mark *
     .container
       .row
         .preview.col-xs-4(v-for="image in images")
@@ -15,6 +15,7 @@
 
     .file-upload-wrapper(
       data-text="Select your file!"
+      :class="{ inputError: error }"
     )
       input(
         type="file"
@@ -38,7 +39,7 @@ import contentService from "@/services/ContentService";
 import EventBus from "@/event-bus";
 
 export default {
-  props: ["name", "label"],
+  props: ["name", "label", "required"],
   inject: ["formKey"],
   data() {
     return {
@@ -236,5 +237,9 @@ export default {
 
 .container {
   padding: 0 0.5rem;
+}
+
+.inputError {
+  border-color: red;
 }
 </style>

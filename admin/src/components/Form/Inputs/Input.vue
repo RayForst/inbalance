@@ -8,6 +8,7 @@
       :type="type"
       :placeholder="placeholder"
       :name="name"
+      :class="{ inputError: error }"
       v-model="value"
     )
     .error(v-if="error" v-html="error")
@@ -44,4 +45,8 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~@/assets/css/_variables';
+
+.inputError {
+  border-color: red;
+}
 </style>

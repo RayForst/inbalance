@@ -55,13 +55,6 @@ export default {
       this.$store.commit("clearForm", {
         form: this.formKey
       });
-
-      this.$notify({
-        group: "main",
-        title: "Saved!",
-        type: "success",
-        text: `Item was succesfuly updated`
-      });
     });
   }
 };

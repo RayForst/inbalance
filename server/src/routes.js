@@ -100,7 +100,8 @@ module.exports = app => {
     app.get('/articles', BlogController.get)
     app.get('/articles/recent', BlogController.getRecent)
     app.get('/admin/articles', BlogController.get)
-    app.post('/admin/article', BlogController.save)
+    app.post('/admin/article', validation.article, BlogController.save)
+    app.post('/admin/article/edit', validation.article, BlogController.edit)
     app.delete('/admin/article', BlogController.remove)
 
     // events

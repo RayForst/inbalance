@@ -61,8 +61,9 @@ export default {
         });
         this.success = true;
 
-        EventBus.$emit(`form-success-${this.storeKey}`, true);
+        EventBus.$emit(`form-success-${this.storeKey}`, formData);
 
+        this.showNotification(formData);
         setTimeout(() => {
           this.success = false;
         }, 3000);
@@ -92,6 +93,14 @@ export default {
           input: error.param,
           value: error.msg
         });
+      });
+    },
+    showNotification(data) {
+      this.$notify({
+        group: "main",
+        title: "Saved!",
+        type: "success",
+        text: `Item was succesfuly updated`
       });
     }
   }

@@ -1,5 +1,7 @@
 <template lang="pug">
-  .form-group
+  .form-group(
+    :class="{ inputError: error }"
+  )
     .label 
       | {{ label }}
       template(v-if="required")
@@ -114,6 +116,10 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
 @import '~@/assets/css/_variables';
+
+.inputError .trix-content {
+  border-color: red;
+}
 </style>

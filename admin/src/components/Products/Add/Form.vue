@@ -2,7 +2,7 @@
   app-form(v-if="loaded" :action="action" :storeKey="'product'" :submitText="'Save'")
     app-form-input(:name="'name'" :label="'Name'" :required="true")
     app-form-select(:name="'ProductSubcategoryId'" :label="'Category'" :options="categories" :required="true")
-    app-form-images(:name="'images'" :label="'Images'")
+    app-form-images(:name="'images'" :label="'Images'" :required="true")
     app-form-text-editor(:name="'description'" :label="'Description and benefit'" :required="true")
     app-form-text(:name="'howtouse'" :label="'How to use it'")
     app-form-text(:name="'ingridients'" :label="'Ingridients'")
