@@ -1,6 +1,6 @@
 <template lang="pug">
   app-modal(
-    v-show="show"
+    v-if="show"
   ) 
     .card
       h4.card-title(

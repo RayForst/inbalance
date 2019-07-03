@@ -1,7 +1,6 @@
 <template lang="pug">
   app-modal(
-    v-if="loaded"
-    v-show="show"
+    v-if="loaded && show"
   )
     .card
       h4.card-title(v-if="isEdit") {{ editHeading }}
