@@ -49,6 +49,10 @@ body.open {
   .burger {
     width: 100%;
   }
+
+  .burger__menu {
+    position: initial;
+  }
 }
 
 .burger {

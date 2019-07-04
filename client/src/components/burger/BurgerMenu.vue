@@ -65,6 +65,9 @@ export default {
   padding: 0 20px 0 20px;
   font-family: 'Lora', sans-serif;
   align-items: center;
+  position: absolute;
+  top: 0;
+  left: -100vw;
 
   @media $media_lg {
     display: flex;
@@ -72,6 +75,7 @@ export default {
     padding: 0;
     margin: 0;
     justify-content: space-between;
+    position: initial;
   }
 
   li {
