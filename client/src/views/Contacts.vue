@@ -44,6 +44,8 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+@import './../assets/css/_variables';
+
 .bg-hero {
   background-image: url('./../assets/img/contact.jpg');
 }
@@ -57,11 +59,27 @@ export default {
 }
 
 h1 {
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  padding: 0 50px;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
+  color: #fff;
   font-size: 36px;
   font-weight: normal;
   line-height: 1.28em;
-  color: #000000;
   margin-bottom: 107px;
+  transform: translateX(-50%);
+
+  @media $media_md {
+    position: initial;
+    padding: 0;
+    text-align: left;
+    color: #000000;
+    transform: none;
+  }
 }
 
 .caption {
