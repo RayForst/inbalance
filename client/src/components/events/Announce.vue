@@ -15,11 +15,12 @@
           v-for="item in items"
           :style="{ backgroundImage: 'url(' + image(item) + ')' }"
         )
-          .row.text-center.middle-xs.relative.z-index-wrap
+          .row.start-xs.center-sm.middle-xs.relative.z-index-wrap.announce-item
             .col-xs-12.col-lg-2 
               .date {{ date(item.dateStart, item.dateEnd) }}
-            .col-xs-12.col-lg-8 
-              h2 {{ item.name }}
+            .col-xs-12.col-lg-8
+              .text-container
+                h2 {{ item.name }}
             .col-xs-12.col-lg-2
               router-link.ui-button.ui-button--white(:to="{ name: 'event', params: { slug: item.slug } }") {{ $t('links.discover') }}
 </template>
@@ -68,35 +69,73 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-.ca {
-  margin: 20px 0;
-}
+@import './../../assets/css/_variables';
 
 h2, .date {
   font-size: 24px;
   line-height: 1.42;
 }
 
+.announce-item {
+  padding: 10px 0;
+
+  @media $media_md {
+    padding: 5px 0;
+  }
+
+  @media $media_lg {
+    padding: 0;
+  }
+}
+
+.text-container {
+  border: 1px solid rgba(#fff, 0.3);
+  border-left: none;
+  border-right: none;
+  margin: 20px 0 30px;
+  min-height: 165px;
+
+  @media $media_sm {
+    min-height: 110px;
+  }
+
+  @media $media_md {
+    min-height: auto;
+    margin: 15px 0 20px 0;
+  }
+
+  @media $media_lg {
+    border: none;
+  }
+}
+
 h2 {
+  margin: 15px 0;
   position: relative;
 
-  &:before, &:after {
-    content: '';
-    display: inline-flex;
-    width: 1px;
-    height: 30px;
-    opacity: 0.3;
-    background: #fff;
-    position: absolute;
-    top: 2px;
+  @media $media_md {
+    margin: 20px 0;
   }
 
-  &:before {
-    left: 3%;
-  }
+  @media $media_lg {
+    &:before, &:after {
+      content: '';
+      display: inline-flex;
+      width: 1px;
+      height: 30px;
+      opacity: 0.3;
+      background: #fff;
+      position: absolute;
+      top: 2px;
+    }
 
-  &:after {
-    right: 3%;
+    &:before {
+      left: 3%;
+    }
+
+    &:after {
+      right: 3%;
+    }
   }
 }
 

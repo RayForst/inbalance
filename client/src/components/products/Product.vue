@@ -47,12 +47,13 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
   height: 100%;
   box-sizing: border-box;
 
   @media $media_sm {
-    padding: 0 32px;
+    padding-left: 32px;
+    padding-right: 32px;
     max-width: 350px;
   }
 

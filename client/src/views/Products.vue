@@ -57,6 +57,8 @@ export default {
 
 
 <style lang="stylus" scoped>
+@import './../assets/css/_variables';
+
 .category-line {
   width: 1px;
   margin: 0 auto;
@@ -65,7 +67,9 @@ export default {
 }
 
 .products {
-  padding-top: 35px;
+  @media $media_lg {
+    padding-top: 35px;
+  }
 }
 
 ul {

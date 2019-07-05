@@ -6,7 +6,7 @@
       .bg-image.scale-image(
         :style="{ backgroundImage: 'url(/uploads/' + image + ')' }"
       )
-    .vertical-container 
+    .vertical-container.item-details
       .name {{ content.name }}
       .date {{ date }}
 </template>
@@ -45,6 +45,16 @@ export default {
 
 <style lang="stylus" scoped>
 @import './../../assets/css/_variables';
+
+.item-details {
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @media $media_sm {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
 
 .post-list-item {
   cursor: pointer;

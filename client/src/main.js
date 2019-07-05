@@ -10,6 +10,7 @@ import App from './App.vue';
 import '@/scripts/fontLoader';
 
 Vue.config.productionTip = false;
+Vue.config.ignoredElements = ['vue-owl-carousel'];
 
 Vue.use(Lightbox);
 Vue.use(Tabs);

@@ -126,10 +126,7 @@ module.exports = app => {
     // product categories
     app.get('/categories', ProductCategoryController.get)
     app.post('/admin/categories', ProductCategoryController.update)
-    app.get(
-        '/categories/subcategories',
-        ProductCategoryController.getSubcategory
-    )
+    app.get('/categories/subcategories', ProductCategoryController.getSubcategory)
     app.post(
         '/admin/categories/subcategories',
         ProductCategoryController.saveSubcategory

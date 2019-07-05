@@ -203,9 +203,16 @@ h1,h2,h3,h4,h5,h5
 .carousel-wrap {
   position: relative;
   display: block;
-  margin-top: 15px;
   min-height: 120px;
   background: #f7f7f7;
+
+  @media $media_md {
+    margin-top: 10px;
+  }
+
+  @media $media_lg {
+    margin-top: 20px;
+  }
 }
 
 

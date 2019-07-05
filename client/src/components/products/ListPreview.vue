@@ -1,6 +1,6 @@
 
 <template lang="pug">
-  .list.container.px-0-lg
+  .list.container.px-0-lg.product-list-preview
     .row.center-xs
       .col-xs-12.col-sm-10.col-lg-12
         .headings
@@ -33,22 +33,49 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped>
-h2 {
-  font-size: 32px;
-  margin-bottom: 7px;
-  font-weight: normal;
-}
+<style lang="stylus">
+@import '~@/assets/css/_variables';
 
-.caption {
-  font-size: 18px;
-  font-weight: 300;
-  line-height: 1.56em;
-  color: #103324;
-  margin-bottom: 7px;
-}
+.product-list-preview {
+  h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    font-weight: normal;
+    margin-top: 0;
 
-.headings {
-  margin-bottom: 40px;
+    b {
+      display: block;
+    }
+
+    @media $media_sm {
+      margin-top: 10px;
+
+      b {
+        @media $media_sm {
+          display: inline;
+        }
+      }
+    }
+
+    @media $media_md {
+      margin-top: 20px;
+    }
+
+    @media $media_lg {
+      margin-top: 50px;
+    }
+  }
+
+  .caption {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.56em;
+    color: #103324;
+    margin-bottom: 7px;
+  }
+
+  .headings {
+    margin-bottom: 35px;
+  }
 }
 </style>

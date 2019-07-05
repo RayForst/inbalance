@@ -59,7 +59,7 @@ module.exports = {
             } else {
                 result = await SubcategoryModel.findAll({
                     raw: true,
-                    order: [['createdAt', 'ASC']],
+                    order: [[Model, 'name', 'ASC'], ['createdAt', 'ASC']],
                     include: [
                         {
                             model: Model,
