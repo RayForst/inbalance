@@ -12,20 +12,19 @@
       { '--dropdown-hover-background-color': hoverBackgroundColor },
       { '--dropdown-default-text-color': textColor }
     ]"
+    ref="container"
   >
-    <span class="text"
-      >{{ (config.prefix ? config.prefix : "") + " "
-      }}{{ config.placeholder ? config.placeholder : "" }}</span
-    >
+    <span class="text">
+      {{ (config.prefix ? config.prefix : "") + " "
+      }}{{ config.placeholder ? config.placeholder : "" }}
+    </span>
     <i class="angle-down"></i>
     <div v-if="isBottomSectionToggled" class="options">
       <div
         v-for="option in configOptions"
         class="option"
         @click="setCurrentSelectedOption(option);"
-      >
-        {{ option.value }}
-      </div>
+      >{{ option.value }}</div>
     </div>
   </div>
 </template>
@@ -52,6 +51,7 @@ export default {
   methods: {
     toggleRiskLevels() {
       this.isBottomSectionToggled = !this.isBottomSectionToggled;
+      this.$refs.container.classList.toggle("open");
     },
     setCurrentSelectedOption(option) {
       this.$emit("setSelectedOption", option);
@@ -92,17 +92,15 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+@import '~@/assets/css/_variables';
+
 // * * binded style variables * *
 // --options-height --> dynamic options menu height
 // --option-height --> dynamic single option item height
 // --dropdown-width --> dynamic dropdown & options drawer width
 
 // * * * Variables * * *
-@default-border-radius: 4px;
-@default-text-hover-color: black;
-@default-hover-color: #0084d4;
-@default-text-color: #fff;
-
+@default-border-radius : 4px;@default-text-hover-color : black;@default-hover-color : #0084d4;@default-text-color : #fff;
 .dropdown {
   display: flex;
   align-items: center;
@@ -117,24 +115,29 @@ export default {
   color: var(--dropdown-default-text-color);
   background: var(--dropdown-background-color);
   user-select: none;
-  font-size: 10px
-  font-family: 'Lora', sans-serif
-  letter-spacing: 0.13em
+  font-size: 10px;
+  font-family: 'Lora', sans-serif;
+  letter-spacing: 0.13em;
+  justify-content: center;
+  border-radius: 3px;
+
   .text {
+    margin-left: auto;
+    text-transform: uppercase;
   }
+
+  &.open {
+    .angle-down {
+      transform: rotate(-180deg);
+    }
+  }
+
   .angle-down {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 4px;
-    width: 9px;
-    height: 5px;
-    background-image: url('~@/assets/img/dropdown.svg');
-    background-repeat: no-repeat;
-    background-position: center center;
-    padding: 0;
-    margin-left 6px
+    arrow(5px);
+    margin-left: auto;
+    transition: all 0.2s ease;
   }
+
   .options {
     display: flex;
     flex-direction: column;
@@ -143,10 +146,10 @@ export default {
     position: absolute;
     left: -1px;
     top: calc(var(--option-height));
-    z-index: 1;
+    z-index: 9999;
     background: var(--dropdown-background-color);
-    border: 1px solid #d7d9da
-    border-radius: 5px
+    border: 1px solid #d7d9da;
+    border-radius: 5px;
     margin-top: 6px;
     font-size: 12px;
     padding: 5px 0;
@@ -157,31 +160,37 @@ export default {
       width: auto;
       padding: 0 10px;
       height: 35px;
-      justify-content center
+      justify-content: center;
+      text-transform: uppercase;
     }
+
     .option:hover {
       color: @default-text-hover-color;
       background: @default-hover-color;
       transition: all 0.7s;
     }
+
     .option:last-child {
       border-radius: 0 0 4px 4px;
     }
   }
+
   .shown {
     // border: 1px solid black;
     max-height: 999px;
     transition: all 1s linear;
   }
 }
+
 .dropdown:hover {
   background: var(--dropdown-hover-background-color);
   transition: 0.7s all;
-  .text,
-  i {
+
+  .text, i {
     color: var(--dropdown-default-text-color);
   }
 }
+
 .dropdown-shown {
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;

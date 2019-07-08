@@ -83,7 +83,7 @@ header.main {
 
 .lang-container {
   @media $media_lg {
-    padding: 0 20px;
+    padding: 0 20px 0 14px;
   }
 }
 

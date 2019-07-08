@@ -44,7 +44,7 @@ export default {
         textColor: "black",
         borderRadius: "0",
         border: "none",
-        width: 90
+        width: 96
       },
       configShort: {
         options: [

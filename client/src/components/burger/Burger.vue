@@ -65,6 +65,7 @@ body.open {
     position: initial;
     width: 100%;
     padding: 20px 0;
+    z-index: 8000;
   }
 }
 </style>
