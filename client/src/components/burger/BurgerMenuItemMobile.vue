@@ -6,7 +6,10 @@
     span.main-link.text-upper(
       :to="{ name: menuItem.link }"
       :class="{ active: hover }"
-    ) {{ categoryText(menuItem) }}
+    ) 
+      | {{ categoryText(menuItem) }}
+      span.arrow
+        i.angle-down
     slide-up-down(:active="hover" :duration="400")
       span.popup(
         :class="{ last: this.isLast }"
@@ -17,6 +20,7 @@
               :to="url(link)"
               v-text="text(link)"
             )
+            
 </template>
 
 <script>
@@ -56,7 +60,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import './../../assets/css/_variables';
+@import '~@/assets/css/_variables';
 
 li {
   position: relative;
@@ -64,9 +68,30 @@ li {
 
 .menu-item {
   border-bottom: 1px solid rgba(#9c9d9d, 0.2);
+  cursor: pointer;
 
   @media $media_lg {
     border-bottom: none;
+  }
+
+  .active {
+    .angle-down {
+      transform: rotate(-180deg);
+    }
+  }
+
+  .angle-down {
+    arrow(5px);
+    margin-left: auto;
+    transition: all 0.2s ease;
+    display: inherit;
+  }
+
+  .arrow {
+    padding: 10px;
+    position: absolute;
+    right: 0;
+    top: 3px;
   }
 
   &:hover {
@@ -82,10 +107,17 @@ li {
   transition: opacity 0.3s ease;
   letter-spacing: 0.05em;
   font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   &.active {
     color: $c_secondary;
   }
+}
+
+.angle-down {
+  arrow(5px);
 }
 
 .popup {

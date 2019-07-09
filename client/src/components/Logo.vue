@@ -39,6 +39,11 @@ export default {
 }
 
 .logo-xs {
+  &:active {
+    transition: all 0.4s ease;
+    transform: translateY(3px);
+  }
+
   @media $media_lg {
     display: none;
   }
