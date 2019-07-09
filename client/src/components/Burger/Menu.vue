@@ -7,10 +7,6 @@
 </template>
 
 <script>
-import appIcon from "./BurgerIcon";
-import appMenuItem from "./BurgerMenuItem";
-import appMenuItemMobile from "./BurgerMenuItemMobile";
-
 export default {
   data() {
     return {
@@ -18,11 +14,9 @@ export default {
     };
   },
   components: {
-    appIcon,
-    appMenuItem,
-    appMenuItemMobile
+    appMenuItem: () => import("./MenuItem.vue"),
+    appMenuItemMobile: () => import("./MenuItemMobile.vue")
   },
-
   computed: {
     menuLength() {
       return this.$store.state.menu.length - 1;

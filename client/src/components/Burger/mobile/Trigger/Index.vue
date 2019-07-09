@@ -50,7 +50,6 @@ export default {
       }
     },
     closeBurger() {
-      console.log("CLOOSE");
       this.visible = false;
       document.body.classList.remove("open");
       this.$refs.trigger.classList.remove("is-open");
@@ -85,7 +84,7 @@ $scale = 0.5;
   }
 }
 
-@import './../../assets/css/_variables';
+@import '~@/assets/css/_variables';
 
 .hamburglar {
   cursor: pointer;

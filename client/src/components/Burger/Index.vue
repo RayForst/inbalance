@@ -5,13 +5,10 @@
 </template>
 
 <script>
-import appIcon from "./BurgerIcon";
-import appMenu from "./BurgerMenu";
-
 export default {
   components: {
-    appIcon,
-    appMenu
+    appIcon: () => import("./mobile/Trigger/Index.vue"),
+    appMenu: () => import("./Menu.vue")
   }
 };
 </script>

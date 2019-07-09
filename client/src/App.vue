@@ -31,7 +31,7 @@ export default {
   components: {
     appHeader,
     appFooter: () => import("@/components/Footer"),
-    appBurger: () => import("@/components/burger/Burger"),
+    appBurger: () => import("@/components/Burger/Index"),
     appLoader: () => import("@/components/Loader")
   },
   methods: {
