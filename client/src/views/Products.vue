@@ -57,7 +57,7 @@ export default {
 
 
 <style lang="stylus" scoped>
-@import './../assets/css/_variables';
+@import '~@/assets/css/_variables';
 
 .category-line {
   width: 1px;

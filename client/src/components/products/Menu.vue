@@ -57,7 +57,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import './../../assets/css/_variables';
+@import '~@/assets/css/_variables';
 
 li {
   letter-spacing: 0.1em;

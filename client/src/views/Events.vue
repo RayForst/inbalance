@@ -63,7 +63,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import './../assets/css/_variables';
+@import '~@/assets/css/_variables';
 
 .image-wrap {
   box-shadow: -1px 13px 20px 0 rgba(197, 197, 197, 0.31);

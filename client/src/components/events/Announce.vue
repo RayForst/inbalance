@@ -69,7 +69,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import './../../assets/css/_variables';
+@import '~@/assets/css/_variables';
 
 h2, .date {
   font-size: 24px;

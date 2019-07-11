@@ -67,7 +67,7 @@ export default {
 </script>
 
 <style lang="stylus" soped>
-@import './../assets/css/_variables';
+@import '~@/assets/css/_variables';
 
 .column-view {
   color: #7e8f97;

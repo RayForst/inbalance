@@ -28,26 +28,26 @@
 <script>
 export default {
   metaInfo: {
-    title: 'Login',
+    title: "Login"
   },
-  name: 'login',
+  name: "login",
   data() {
     return {
-      show: false,
+      show: false
     };
   },
   components: {
-    appForm: () => import('@/components/Form/Form.vue'),
-    appFormInput: () => import('@/components/Form/Inputs/Input.vue'),
+    appForm: () => import("@/components/Form/Form.vue"),
+    appFormInput: () => import("@/components/Form/Inputs/Input.vue")
   },
   mounted() {
     this.show = true;
-  },
+  }
 };
 </script>
 
 <style lang="stylus" scoped>
-@import './../assets/css/_variables';
+@import '~@/assets/css/_variables';
 
 .blue-bg {
   background: #50a3a2;
@@ -57,7 +57,6 @@ export default {
 .fade-enter {
   opacity: 0;
   transform: translateX(0px);
-
 }
 
 .fade-enter-active {
@@ -66,38 +65,42 @@ export default {
 }
 
 .fade-leave {
-
 }
 
 .fade-leave-active {
-    transition: opacity 2s ease;
-    opacity: 0;
+  transition: opacity 2s ease;
+  opacity: 0;
 }
 
-.login
+.login {
   width: 280px;
   margin-top: 100px;
   margin-bottom: auto;
   padding-bottom: 52px;
-  z-index 2
+  z-index: 2;
 
   @media (orientation: landscape) {
     margin-top: 30px;
   }
 
   @media $media_sm {
-    margin-top 140px;
+    margin-top: 140px;
+  }
+}
+
+.logo {
+  margin-bottom: 20px;
+  height: 80px;
+}
+
+form {
+  z-index: 2;
+
+  * {
+    box-sizing: border-box;
   }
 
-.logo
-  margin-bottom 20px;
-  height 80px
-form
-  z-index 2
-  *
-    box-sizing border-box
-
-  input
+  input {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -114,5 +117,6 @@ form
     color: white;
     transition-duration: 0.25s;
     font-weight: 300;
-
+  }
+}
 </style>

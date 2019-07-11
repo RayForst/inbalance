@@ -46,7 +46,7 @@ export default {
 </script>
 
 <style lang="stylus" soped>
-@import './../assets/css/_variables';
+@import '~@/assets/css/_variables';
 
 header {
   z-index: 10;

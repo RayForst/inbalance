@@ -38,7 +38,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@import './../../assets/css/_variables';
+@import '~@/assets/css/_variables';
 
 .mobile-menu {
   @media $media_lg {

@@ -14,7 +14,7 @@ export default {
 </script>
 
 <style lang="stylus">
-@import './../../assets/css/_variables';
+@import '~@/assets/css/_variables';
 
 body.open {
   overflow: hidden;

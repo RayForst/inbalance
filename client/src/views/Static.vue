@@ -128,7 +128,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import './../assets/css/_variables';
+@import '~@/assets/css/_variables';
 
 h1 {
   font-size: 32px;

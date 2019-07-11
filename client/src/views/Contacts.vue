@@ -44,7 +44,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import './../assets/css/_variables';
+@import '~@/assets/css/_variables';
 
 .bg-hero {
   background-image: url('./../assets/img/contact.jpg');

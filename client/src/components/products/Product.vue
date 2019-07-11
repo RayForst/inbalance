@@ -38,7 +38,7 @@ export default {
 
 
 <style lang="stylus" scoped>
-@import './../../assets/css/_variables';
+@import '~@/assets/css/_variables';
 
 .product {
   max-width: 280px;
