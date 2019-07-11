@@ -5,7 +5,7 @@
         :config="configShort"
         @setSelectedOption="setShortNewSelectedOption($event);"
       )
-    .lang-lg
+    .lang-md
       vue-dropdown(
         :config="config"
         @setSelectedOption="setNewSelectedOption($event);"
@@ -94,15 +94,15 @@ export default {
 .lang-xs {
   display: inline-flex;
 
-  @media $media_lg {
+  @media $media_md {
     display: none;
   }
 }
 
-.lang-lg {
+.lang-md {
   display: none;
 
-  @media $media_lg {
+  @media $media_md {
     display: inline-flex;
   }
 }
