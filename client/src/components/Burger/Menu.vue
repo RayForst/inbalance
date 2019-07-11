@@ -63,6 +63,11 @@ export default {
   top: 0;
   left: -100vw;
 
+  @media $media_md {
+    margin: 40px auto;
+    max-width: 70vw;
+  }
+
   @media $media_lg {
     display: flex;
     width: 100%;
@@ -70,6 +75,7 @@ export default {
     margin: 0;
     justify-content: space-between;
     position: initial;
+    max-width: none;
   }
 
   li {

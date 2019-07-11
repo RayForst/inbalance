@@ -61,8 +61,9 @@ body.open {
   @media $media_lg {
     position: initial;
     width: 100%;
-    padding: 20px 0;
+    padding: 20px;
     z-index: 8000;
+    box-sizing: border-box;
   }
 }
 </style>
