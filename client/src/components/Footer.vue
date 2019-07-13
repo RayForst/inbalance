@@ -94,6 +94,7 @@ h4 {
   margin-bottom: 23px;
   display: inline-flex;
   transition: color 0.3s ease;
+  max-width: 205px;
 
   &:hover {
     color: #000;

@@ -57,6 +57,7 @@ body.open {
   top: 77px;
   left: 0;
   z-index: 9999;
+  max-width: 1240px;
 
   @media $media_lg {
     position: initial;
