@@ -1,5 +1,5 @@
 <template lang="pug">
-  router-link.logo(:to="{ name: 'home' }")
+  a(href="/")
     .logo-xs
       img(:src="require('../assets/img/logo-green-small.svg')" alt="")
     .logo-md
