@@ -13,7 +13,7 @@
       span.popup(
         v-show="hover"
         @mouseleave="close"
-        :class="{ last: this.isLast }"
+        :class="{ first: this.isFirst, last: this.isLast }"
       )
         ul.popup-links
           li(v-for="link in menuItem.links")
@@ -26,7 +26,7 @@
 <script>
 export default {
   name: "menu-item",
-  props: ["menuItem", "isLast"],
+  props: ["menuItem", "isLast", "isFirst"],
   data() {
     return {
       hover: false
@@ -94,19 +94,27 @@ li {
 .popup {
   font-size: 12px;
   position: absolute;
-  top: 10px;
-  left: 0;
+  top: 100%;
   width: 260px;
-  padding: 10px;
+  padding: 0 10px;
   box-sizing: border-box;
-  padding-top: 35px;
   z-index: 1000;
   padding-left: 0;
   padding-right: 0;
+  left: 50%;
+  transform: translate(-50%, -10px);
 
   &.last {
     right: 0;
     left: auto;
+    transform: none;
+    transform: translateY(-10px);
+  }
+
+  &.first {
+    left: 0;
+    transform: none;
+    transform: translateY(-10px);
   }
 }
 

@@ -2,7 +2,7 @@
   ul.container.burger__menu
     template(v-if="mount" v-for="column, index in this.$store.state.menu")
       app-menu-item-mobile(class="mobile-menu" :menuItem="column" :isLast="isLast(index)")
-      app-menu-item(class="desktop-menu" :menuItem="column" :isLast="isLast(index)")
+      app-menu-item(class="desktop-menu" :menuItem="column" :isLast="isLast(index)" :isFirst="isFirst(index)")
       li.menu-line(v-if="index !== menuLength") |
 </template>
 
@@ -29,6 +29,9 @@ export default {
     },
     isLast(index) {
       return index === this.menuLength;
+    },
+    isFirst(index) {
+      return index === 0;
     }
   },
   mounted() {
