@@ -10,7 +10,7 @@
           .text-center(v-if="caption")
             .caption {{ caption }}
         .row.col-gap-4-lg.col-gap-4-sm.max-xs-item-3.max-sm-item-4.max-lg-item-4
-          .col-xs-12.col-sm-6.col-md-4.col-lg-3(v-for="product in items" :key="product.name")
+          .col-xs-12.col-sm-6.col-md-4.col-lg-3(v-for="product, index in items" :key="product.name" v-if="index <= 5")
             app-product(v-bind:content="product")
 </template>
 
