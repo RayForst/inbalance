@@ -2,16 +2,11 @@
   .container-fluid
     .row.center-xs
       .col-xs-12.center-xs.start-md.col-md-12.col-md-offset-1
-        h1.code {{ title }}
-        .message(v-html='message')
-        div.back
-          a.ui-btn.ui-secondary(@click="$router.go(-1)") Go back
-        .spacer
-        .spacer
-
-
-        .demo-zelukin
-          .child
+        .error-page
+          h1.code {{ title }}
+          .message(v-html='message')
+          div.back
+            a(href="#").ui-btn.ui-secondary(@click="$router.go(-1)") Go back
 </template>
 
 <script>
@@ -30,13 +25,21 @@ export default {
 
 <style lang="stylus" scoped>
 .code {
-  font-size: 64px;
-  color: #eb008b;
+  font-size: 84px;
+  color: #4a4a4a;
   margin-bottom: 10px;
+  margin-top: 0px;
 }
 
+a {
+  color: #4a4a4a;
+}
 .back {
   margin-bottom: 40px;
+}
+
+.error-page {
+  padding: 50px;
 }
 
 .message {
@@ -47,19 +50,6 @@ export default {
 
 h1 {
   max-width: none;
-}
-
-.demo-zelukin {
-  width: 200px;
-  height: 200px;
-  position: relative;
-
-  .child {
-    position: absolute;
-    background: red;
-    width: 100%;
-    height: 100%;
-  }
 }
 </style>
 

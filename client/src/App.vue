@@ -21,8 +21,8 @@ import EventBus from "@/event-bus";
 
 export default {
   metaInfo: {
-    title: "Default Title",
-    titleTemplate: "%s | Inbalanse"
+    title: "Inbalans",
+    titleTemplate: "%s | Inbalans"
   },
   data() {
     return {
