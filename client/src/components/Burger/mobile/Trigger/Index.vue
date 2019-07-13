@@ -1,5 +1,5 @@
 <template lang="pug">
-  #hamburger.hamburglar.is-close(@click="burgerTime" ref="trigger")
+  #hamburger.burger-trigger.is-close(@click="burgerTime" ref="trigger")
     .burger-icon
       .burger-container
         .burger-bun-top
@@ -86,7 +86,7 @@ $scale = 0.5;
 
 @import '~@/assets/css/_variables';
 
-.hamburglar {
+.burger-trigger {
   cursor: pointer;
   display: block;
   height: 68px;
@@ -96,7 +96,7 @@ $scale = 0.5;
   user-select: none;
   width: 68px;
   position: absolute;
-  top: -70px;
+  top: -73px;
 
   @media $media_lg {
     display: none;
@@ -169,7 +169,7 @@ $scale = 0.5;
   }
 }
 
-.hamburglar.is-open {
+.burger-trigger.is-open {
   .path {
     animation: dash-in $animation linear normal;
     animation-fill-mode: forwards;
@@ -187,7 +187,7 @@ $scale = 0.5;
   }
 }
 
-.hamburglar.is-closed {
+.burger-trigger.is-closed {
   .path {
     animation: dash-out $animation linear normal;
     animation-fill-mode: forwards;
@@ -291,7 +291,7 @@ $scale = 0.5;
 }
 
 // bun animations
-.hamburglar.is-open {
+.burger-trigger.is-open {
   .burger-bun-top {
     animation: bun-top-out $animation linear normal;
     animation-fill-mode: forwards;
@@ -303,7 +303,7 @@ $scale = 0.5;
   }
 }
 
-.hamburglar.is-closed {
+.burger-trigger.is-closed {
   .burger-bun-top {
     animation: bun-top-in $animation linear normal;
     animation-fill-mode: forwards;
@@ -414,14 +414,14 @@ $scale = 0.5;
 }
 
 // burger filling
-.hamburglar.is-open {
+.burger-trigger.is-open {
   .burger-filling {
     animation: burger-fill-out $animation linear normal;
     animation-fill-mode: forwards;
   }
 }
 
-.hamburglar.is-closed {
+.burger-trigger.is-closed {
   .burger-filling {
     animation: burger-fill-in $animation linear normal;
     animation-fill-mode: forwards;

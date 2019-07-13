@@ -2,6 +2,8 @@
   router-link.logo(:to="{ name: 'home' }")
     .logo-xs
       img(:src="require('../assets/img/logo-green-small.svg')" alt="")
+    .logo-md
+      img(:src="require('../assets/img/logo-tablet.svg')" alt="")
     .logo-lg
       img(:src="require('../assets/img/logo-footer.svg')" alt="")
 </template>
@@ -42,6 +44,18 @@ export default {
   &:active {
     transition: all 0.4s ease;
     transform: translateY(3px);
+  }
+
+  @media $media_md {
+    display: none;
+  }
+}
+
+.logo-md {
+  display: none;
+
+  @media $media_md {
+    display: inline-flex;
   }
 
   @media $media_lg {
