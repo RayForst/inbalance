@@ -14,6 +14,7 @@
 
 <script>
 import vueDropdown from "@/components/dropdown/vue-dropdown";
+import EventBus from "@/event-bus";
 
 export default {
   name: "App",
@@ -74,15 +75,22 @@ export default {
   },
   methods: {
     setNewSelectedOption(selectedOption) {
-      let found = this.config.options.find(obj => {
+      const option = this.config.options.find(obj => {
         return obj.value === selectedOption.value;
       });
 
-      this.$i18n.locale = found.locale;
       this.config.placeholder = selectedOption.value;
+
+      EventBus.$emit("lang-request", option.locale);
     },
     setShortNewSelectedOption(selectedOption) {
+      const option = this.configShort.options.find(obj => {
+        return obj.value === selectedOption.value;
+      });
+
       this.configShort.placeholder = selectedOption.value;
+
+      EventBus.$emit("lang-request", option.locale);
     }
   }
 };

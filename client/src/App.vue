@@ -17,6 +17,7 @@
 <script>
 import appHeader from "@/components/Header";
 import contentService from "@/services/ContentService";
+import EventBus from "@/event-bus";
 
 export default {
   metaInfo: {
@@ -46,10 +47,16 @@ export default {
       this.$store.commit("setupSettings", response);
 
       this.loaded = true;
+    },
+    changeLanguage(locale) {
+      this.$i18n.locale = locale;
+      document.documentElement.setAttribute("lang", locale);
     }
   },
   mounted() {
     this.getSettings();
+
+    EventBus.$on("lang-request", this.changeLanguage);
   }
 };
 </script>
