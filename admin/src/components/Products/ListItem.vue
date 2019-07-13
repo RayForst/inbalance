@@ -5,8 +5,8 @@
         class="uploaded-image"
         :style="{ backgroundImage: 'url(/uploads/' + image + ')' }"
       )
-      .badges
-        i.nc-icon.nc-satisfied(v-if="item.priority")
+      .ui-badges
+        .badge(v-if="item.priority") priority
     .name {{ item.name }}
     .category {{ item['ProductSubcategory.name'] }}
     .list-controls
@@ -96,21 +96,6 @@ export default {
     justify-content: center;
     width: 100%;
     position: relative;
-
-    .badges {
-      position: absolute;
-      top: 0;
-      right: 0;
-      background: rgba(#000, 0.4);
-      height: 28px;
-      text-align: right;
-
-      .nc-icon {
-        color: #fff;
-        font-size: 18px;
-        padding: 5px;
-      }
-    }
 
     img {
       max-height: 100px;

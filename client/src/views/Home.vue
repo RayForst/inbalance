@@ -49,20 +49,7 @@ export default {
     return {
       heroTitleTag: "h1",
       productsHeadingCategory: "",
-      products: [
-        {
-          name: "Product 1"
-        },
-        {
-          name: "Product 2"
-        },
-        {
-          name: "Product 3"
-        },
-        {
-          name: "Product 4"
-        }
-      ]
+      products: []
     };
   },
   methods: {
@@ -71,6 +58,7 @@ export default {
       const response = (await contentService.products.getByPriority({
         category: priority[0].priorityOnMain
       })).data;
+
       this.products.splice(0, this.products.length);
 
       if (response.length) {

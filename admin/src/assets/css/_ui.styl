@@ -336,3 +336,32 @@
     border: 1px solid #e1e8ee;
   }
 }
+
+.ui-badges {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: right;
+  padding: 10px;
+  display flex;
+
+  .badge {
+    background: #009688;
+    padding: 2px 9px;
+    color: #fff;
+    line-height: 15px;
+    border-radius: 5px;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.0750em;
+
+    & + .badge  {
+      margin-left: 5px;
+    }
+
+    &.blue {
+      background: #2196f3;
+    }
+  }
+}
