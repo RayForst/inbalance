@@ -41,7 +41,7 @@ export default {
       EventBus.$emit("form-success-product");
     },
     edit(item) {
-      EventBus.$emit("modal-edit-product", item);
+      EventBus.$emit("form-edit", item);
     }
   },
   computed: {

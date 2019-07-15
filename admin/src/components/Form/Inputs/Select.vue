@@ -48,14 +48,6 @@ export default {
   margin: 10px 0;
 }
 
-.label {
-  font-size: 12px;
-  margin-bottom: 5px;
-  text-transform: uppercase;
-  font-weight: 400;
-  color: #9a9a9a;
-}
-
 input {
   border: 1px solid #e3e3e3;
   border-radius: 4px;
