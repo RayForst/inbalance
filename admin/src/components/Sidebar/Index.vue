@@ -60,7 +60,7 @@ export default {
           route: "settings"
         },
         {
-          name: "Logout",
+          name: "EXIT",
           icon: "nc-lock-circle-open",
           route: "settings"
         }
@@ -82,7 +82,7 @@ export default {
 
   img {
     width: 140px;
-    margin-left: 27px;
+    margin-left: 19px;
     margin-bottom: 16px;
   }
 }
@@ -123,7 +123,7 @@ export default {
     overflow: auto;
     width: 100%;
     z-index: 4;
-    padding: 14px 20px 100px 20px;
+    padding: 30px 20px 100px 20px;
     text-align: left;
     box-sizing: border-box;
 

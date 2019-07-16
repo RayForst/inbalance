@@ -2,13 +2,13 @@
   .content.blue-bg.flex_col
     .content-container.admin-page
       app-sidebar
-      app-header(:name="'Events'" :icon="'nc-atom'")
       .card-container
         .row
           .col-xs-12
             app-list(
-              :title="'Total'"
-              :addTitle="'Event add'"
+              :title="'Events'"
+              :icon="'nc-atom'"
+              :addTitle="'New event'"
               :caption="'Click to edit or create new'"
               :addCaption="'Fill all rows and press save'"
               :editTitle="'Event edit'"
@@ -39,7 +39,6 @@ export default {
   },
   components: {
     appSidebar: () => import("@/components/Sidebar/Index"),
-    appHeader: () => import("@/components/Header/Index"),
     appList: () => import("@/components/List/Index"),
     appItem: () => import("@/components/Events/Item"),
     appForm: () => import("@/components/Events/Add")

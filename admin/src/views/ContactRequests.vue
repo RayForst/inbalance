@@ -2,7 +2,6 @@
   .content.blue-bg.flex_col
     .content-container.admin-page
       app-sidebar
-      app-header(:name="'Contacts Requests'" :icon="'nc-chat-round'")
       .card-container
         .row
           .col-xs-7
@@ -25,8 +24,7 @@ export default {
   components: {
     appContacts: () => import("@/components/ContactRequests/Contact/List"),
     appNewsletter: () => import("@/components/ContactRequests/Newsletter/List"),
-    appSidebar: () => import("@/components/Sidebar/Index"),
-    appHeader: () => import("@/components/Header/Index")
+    appSidebar: () => import("@/components/Sidebar/Index")
   }
 };
 </script>

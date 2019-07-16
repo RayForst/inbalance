@@ -2,7 +2,7 @@
   .content.blue-bg.flex_col
     .content-container.admin-page
       app-sidebar
-      app-header(:name="'Translations'" :icon="'nc-caps-small'")
+
       .card-container
         .row
           .col-xs-12
@@ -33,7 +33,6 @@ export default {
   },
   components: {
     appSidebar: () => import("@/components/Sidebar/Index"),
-    appHeader: () => import("@/components/Header/Index"),
     appEditor: () => import("@/components/Translations/JsonForm")
   }
 };

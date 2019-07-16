@@ -2,7 +2,9 @@
   .card
     .row
       .col-xs-6
-        h4.card-title {{ heading }}
+        h4.card-title
+          i.nc-icon(:class="icon")
+          span(v-text="heading")
         p.caption {{ subheading }}
       .col-xs-6.end-xs
         button.ui-button(
@@ -39,7 +41,8 @@ export default {
     "editTitle",
     "caption",
     "addCaption",
-    "wide"
+    "wide",
+    "icon"
   ],
   data() {
     return {
@@ -49,22 +52,17 @@ export default {
   },
   computed: {
     heading() {
-      let heading = `${this.title} (${this.items.length})`;
+      let heading = `${this.title}`;
       if (!this.isEdit && this.list) return heading;
 
       return this.isEdit ? this.editTitle : this.addTitle;
     },
     subheading() {
-      return !this.list ? this.addCaption : this.caption;
-    },
-    isWide() {
-      console.log("is wide", this.wide);
-      return this.wide;
+      return !this.list ? this.addCaption : `Total: ${this.items.length}`;
     }
   },
   watch: {
     list(old, current) {
-      console.log(current);
       if (current !== true) this.clearStore();
     }
   },
@@ -77,7 +75,6 @@ export default {
       });
     },
     clearStore() {
-      console.log("CLEAR STORE FUNCTION");
       this.list = true;
       this.isEdit = false;
       this.$store.commit("clearForm", {
@@ -102,4 +99,8 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~@/assets/css/_variables';
+
+i {
+  margin-right: 8px;
+}
 </style>

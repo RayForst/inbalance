@@ -2,13 +2,13 @@
   .content.blue-bg.flex_col
     .content-container.admin-page
       app-sidebar
-      app-header(:name="'Products'" :icon="'nc-app'")
       .card-container
         .row
           .col-xs-12
             app-list(
-              :title="'Total'"
-              :addTitle="'Product add'"
+              :title="'Products'"
+              :icon="'nc-app'"
+              :addTitle="'New product'"
               :caption="'Click to edit or create new'"
               :addCaption="'Fill all rows and press save'"
               :editTitle="'Product edit'"
@@ -38,10 +38,9 @@ export default {
   },
   components: {
     appSidebar: () => import("@/components/Sidebar/Index"),
-    appHeader: () => import("@/components/Header/Index"),
     appList: () => import("@/components/List/Index"),
     appItem: () => import("@/components/Products/Item"),
-    appForm: () => import("@/components/Products/Add"),
+    appForm: () => import("@/components/Products/Add")
   },
   methods: {
     async get() {
@@ -52,7 +51,7 @@ export default {
   },
   mounted() {
     this.get();
-    EventBus.$on('update-list', this.get)
+    EventBus.$on("update-list", this.get);
   }
 };
 </script>

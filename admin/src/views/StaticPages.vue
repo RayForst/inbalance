@@ -2,12 +2,13 @@
   .content.blue-bg.flex_col
     .content-container.admin-page
       app-sidebar
-      app-header(:name="'Static pages'" :icon="'nc-html5'")
+
       .card-container
         .row
           .col-xs-12
             app-list(
-              :title="'Total'"
+              :title="'Static pages'"
+              :icon="'nc-html5'"
               :addTitle="'Static add'"
               :caption="'Click to edit or create new'"
               :addCaption="'Fill all rows and press save'"
@@ -38,7 +39,6 @@ export default {
   },
   components: {
     appSidebar: () => import("@/components/Sidebar/Index"),
-    appHeader: () => import("@/components/Header/Index"),
     appList: () => import("@/components/List/Index"),
     appItem: () => import("@/components/StaticPages/Item"),
     appForm: () => import("@/components/StaticPages/Add")

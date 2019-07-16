@@ -2,7 +2,6 @@
   .content.blue-bg.flex_col
     .content-container.admin-page
       app-sidebar
-      app-header(:name="'Settings'" :icon="'nc-settings-90'")
       .card-container
         .row
           .col-xs-6
@@ -26,7 +25,6 @@ export default {
   },
   components: {
     appSidebar: () => import("@/components/Sidebar/Index"),
-    appHeader: () => import("@/components/Header/Index"),
     appSettings: () => import("@/components/Settings/Settings"),
     appProductCategories: () =>
       import("@/components/PoductCategories/Main/List"),
