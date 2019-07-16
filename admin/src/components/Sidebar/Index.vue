@@ -58,6 +58,11 @@ export default {
           name: "Settings",
           icon: "nc-settings-90",
           route: "settings"
+        },
+        {
+          name: "Logout",
+          icon: "nc-lock-circle-open",
+          route: "settings"
         }
       ]
     };
