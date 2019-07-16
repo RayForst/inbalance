@@ -6,7 +6,7 @@
       .card-container
         .row
           .col-xs-12
-            app-product-list-test(
+            app-list(
               :title="'Total'"
               :addTitle="'Product add'"
               :caption="'Click to edit or create new'"
@@ -16,7 +16,7 @@
               :items="items"
             ) 
               template(v-slot:item="slotProps")
-                app-product-list-test-item(:item="slotProps.item")
+                app-item(:item="slotProps.item")
               template(v-slot:form="slotProps")
                 app-form(:isEdit="slotProps.isEdit")
 </template>
@@ -39,8 +39,8 @@ export default {
   components: {
     appSidebar: () => import("@/components/Sidebar/Index"),
     appHeader: () => import("@/components/Header/Index"),
-    appProductListTest: () => import("@/components/List/Index"),
-    appProductListTestItem: () => import("@/components/Products/Item"),
+    appList: () => import("@/components/List/Index"),
+    appItem: () => import("@/components/Products/Item"),
     appForm: () => import("@/components/Products/Add"),
   },
   methods: {

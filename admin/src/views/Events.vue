@@ -6,15 +6,24 @@
       .card-container
         .row
           .col-xs-12
-            app-list-test(
-              :title="'Event list'"
+            app-list(
+              :title="'Total'"
+              :addTitle="'Event add'"
+              :caption="'Click to edit or create new'"
+              :addCaption="'Fill all rows and press save'"
+              :editTitle="'Event edit'"
+              :formKey="'event'"
               :items="items"
-            )
-            app-list
+            ) 
+              template(v-slot:item="slotProps")
+                app-item(:item="slotProps.item")
+              template(v-slot:form="slotProps")
+                app-form(:isEdit="slotProps.isEdit")
 </template>
 
 <script>
 import contentService from "@/services/ContentService";
+import EventBus from "@/event-bus";
 
 export default {
   metaInfo: {
@@ -30,8 +39,9 @@ export default {
   components: {
     appSidebar: () => import('@/components/Sidebar/Index'),
     appHeader: () => import('@/components/Header/Index'),
-    appList: () => import('@/components/Events/List'),
-    appListTest: () => import("@/components/List/Index"),
+    appList: () => import("@/components/List/Index"),
+    appItem: () => import("@/components/Events/Item"),
+    appForm: () => import("@/components/Events/Add"),
   },
   methods: {
     async get() {
@@ -42,6 +52,7 @@ export default {
   },
   mounted() {
     this.get();
+    EventBus.$on('update-list', this.get)
   }
 };
 </script>
