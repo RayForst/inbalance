@@ -14,6 +14,7 @@
               :editTitle="'Event edit'"
               :formKey="'event'"
               :items="items"
+              :wide="true"
             ) 
               template(v-slot:item="slotProps")
                 app-item(:item="slotProps.item")
@@ -27,9 +28,9 @@ import EventBus from "@/event-bus";
 
 export default {
   metaInfo: {
-    title: 'Events',
+    title: "Events"
   },
-  name: 'Events',
+  name: "Events",
   data() {
     return {
       show: false,
@@ -37,11 +38,11 @@ export default {
     };
   },
   components: {
-    appSidebar: () => import('@/components/Sidebar/Index'),
-    appHeader: () => import('@/components/Header/Index'),
+    appSidebar: () => import("@/components/Sidebar/Index"),
+    appHeader: () => import("@/components/Header/Index"),
     appList: () => import("@/components/List/Index"),
     appItem: () => import("@/components/Events/Item"),
-    appForm: () => import("@/components/Events/Add"),
+    appForm: () => import("@/components/Events/Add")
   },
   methods: {
     async get() {
@@ -52,11 +53,11 @@ export default {
   },
   mounted() {
     this.get();
-    EventBus.$on('update-list', this.get)
+    EventBus.$on("update-list", this.get);
   }
 };
 </script>
 
 <style lang="stylus" scoped>
-@import '~@/assets/css/_variables'
+@import '~@/assets/css/_variables';
 </style>

@@ -14,7 +14,11 @@
           @click="list = !list"
         ) back
     .row.list(v-if="list")
-      .col-xs-2(v-for='(item, i) in items' :key="i")
+      div(
+        v-for='(item, i) in items' 
+        :key="i" 
+        :class="{'col-xs-3': wide, 'col-xs-2': !wide }"
+      )
         slot(name="item" v-bind:item="item")
     .row(v-else)
       .col-xs-12
@@ -27,32 +31,44 @@ import EventBus from "@/event-bus";
 
 export default {
   name: "list",
-  props: ['items', 'formKey', 'title', 'addTitle', 'editTitle', 'caption', 'addCaption'],
+  props: [
+    "items",
+    "formKey",
+    "title",
+    "addTitle",
+    "editTitle",
+    "caption",
+    "addCaption",
+    "wide"
+  ],
   data() {
     return {
       list: true,
-      isEdit: false,
+      isEdit: false
     };
   },
   computed: {
     heading() {
-      let heading = `${this.title} (${this.items.length})`
-      if (!this.isEdit && this.list) return heading
+      let heading = `${this.title} (${this.items.length})`;
+      if (!this.isEdit && this.list) return heading;
 
       return this.isEdit ? this.editTitle : this.addTitle;
     },
     subheading() {
-      return !this.list ? this.addCaption : this.caption
+      return !this.list ? this.addCaption : this.caption;
+    },
+    isWide() {
+      console.log("is wide", this.wide);
+      return this.wide;
     }
   },
   watch: {
     list(old, current) {
-      console.log(current)
-      if (current !== true) this.clearStore()
+      console.log(current);
+      if (current !== true) this.clearStore();
     }
   },
-  components: {
-  },
+  components: {},
   methods: {
     updateStore(item) {
       this.$store.commit("changeForm", {
@@ -61,7 +77,7 @@ export default {
       });
     },
     clearStore() {
-      console.log('CLEAR STORE FUNCTION')
+      console.log("CLEAR STORE FUNCTION");
       this.list = true;
       this.isEdit = false;
       this.$store.commit("clearForm", {
@@ -77,8 +93,8 @@ export default {
     });
 
     EventBus.$on(`form-success-${this.formKey}`, () => {
-      this.clearStore()
-      EventBus.$emit('update-list', true)
+      this.clearStore();
+      EventBus.$emit("update-list", true);
     });
   }
 };
