@@ -14,6 +14,7 @@
               :editTitle="'Article edit'"
               :formKey="'article'"
               :items="items"
+              :wide="true"
             ) 
               template(v-slot:item="slotProps")
                 app-item(:item="slotProps.item")

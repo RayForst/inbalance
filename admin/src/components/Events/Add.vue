@@ -3,17 +3,20 @@
     :action="action"
     :storeKey="'event'" 
     :submitText="'Save'"
-  ) 
-    app-form-input(:name="'name'" :label="'Name'" :required="true")
-    app-form-input(:name="'caption'" :label="'Caption - only for priority events'")
-    app-form-datepicker(:name="'dateStart'" :label="'Date start'" :required="true")
-    app-form-datepicker(:name="'dateEnd'" :label="'Date end'")
-    app-form-image(:name="'image'" :label="'Main image'" :required="true")
-    app-form-text-editor(:name="'description'" :label="'Description'" :required="true")
-    app-form-images(:name="'images'" :label="'Additional images'")
-    app-form-input(:name="'priority'" :label="'Priority'" :type="'checkbox'")
-    app-form-input(:name="'preview'" :label="'Only preview'" :type="'checkbox'")
-    app-form-input-hidden(v-if="isEdit" :name="'id'")
+  )
+    .row
+      .col-xs-12.col-md-6
+        app-form-input(:name="'name'" :label="'Name'" :required="true")
+        app-form-input(:name="'caption'" :label="'Caption - only for priority events'")
+        app-form-datepicker(:name="'dateStart'" :label="'Date start'" :required="true")
+        app-form-datepicker(:name="'dateEnd'" :label="'Date end'")
+        app-form-input(:name="'priority'" :label="'Priority'" :type="'checkbox'")
+        app-form-input(:name="'preview'" :label="'Only preview'" :type="'checkbox'")
+      .col-xs-12.col-md-6
+        app-form-text-editor(:name="'description'" :label="'Description'" :required="true")
+        app-form-image(:name="'image'" :label="'Main image'" :required="true")
+        app-form-images(:name="'images'" :label="'Additional images'")
+        app-form-input-hidden(v-if="isEdit" :name="'id'")
 </template>
 
 <script>

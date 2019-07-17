@@ -4,14 +4,17 @@
     :storeKey="'static'" 
     :submitText="'Save'"
   )
-    app-form-input(:name="'name'" :label="'Name'" :required="true")
-    app-form-select(:name="'menupos'" :label="'Menu Category'" :options="menu" :required="true")
-    app-form-image(:name="'image'" :label="'Main image'" :required="true")
-    app-form-text-editor(:name="'text'" :label="'Text'" :required="true")
-    template(
-      v-if="isEdit"
-    )
-      app-form-input-hidden(:name="'id'")
+    .row
+      .col-xs-12.col-md-6
+        app-form-input(:name="'name'" :label="'Name'" :required="true")
+        app-form-select(:name="'menupos'" :label="'Menu Category'" :options="menu" :required="true")
+        app-form-image(:name="'image'" :label="'Main image'" :required="true")
+      .col-xs-12.col-md-6
+        app-form-text-editor(:name="'text'" :label="'Text'" :required="true")
+        template(
+          v-if="isEdit"
+        )
+          app-form-input-hidden(:name="'id'")
 </template>
 
 <script>

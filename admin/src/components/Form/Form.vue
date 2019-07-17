@@ -3,15 +3,12 @@
     slot(
       :storeKey="storeKey"
     )
-
-    button.ui-button.ui-button--full-green(
-      type="submit"
-      v-text="submitText"
-      v-show="!success"
-    )
-    div(
-      v-show="success"
-    ) Success
+    .row
+      .col-xs-6.col-xs-offset-3
+        button.ui-button.ui-button--big.ui-button--full-green(
+          type="submit"
+          v-text="submitText"
+        )
     .ui-error.error-server(
       v-html="error"
     )
@@ -32,8 +29,7 @@ export default {
     return {
       login: "",
       password: "",
-      error: null,
-      success: false
+      error: null
     };
   },
   methods: {
@@ -59,14 +55,11 @@ export default {
         this.$store.commit("clearForm", {
           form: this.storeKey
         });
-        this.success = true;
 
         EventBus.$emit(`form-success-${this.storeKey}`, formData);
 
         this.showNotification(formData);
-        setTimeout(() => {
-          this.success = false;
-        }, 3000);
+
         // this.$store.dispatch("setToken", response.token);
         // this.$store.dispatch("setUser", response.user);
 
@@ -109,4 +102,9 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~@/assets/css/_variables';
+
+button {
+  width: 100%;
+  margin-top: 20px;
+}
 </style>

@@ -6,7 +6,7 @@
         span.requied-mark *
     .container
       .row
-        .preview.col-xs-4.col-lg-2(v-for="image in images")
+        .preview.col-xs-4.col-lg-4(v-for="image in images")
           .image-wrap(
             class="uploaded-image"
             :style="{ backgroundImage: 'url(/uploads/' + image + ')' }"

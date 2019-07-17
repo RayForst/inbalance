@@ -59,7 +59,7 @@ export default {
 
   &:before {
     content: '';
-    padding-top: 100%;
+    padding-top: 60%;
     display: block;
   }
 }
