@@ -1,5 +1,6 @@
 <template lang="pug">
   form.ui-form.form.flex_col(@submit.prevent="save")
+    app-form-translate
     slot(
       :storeKey="storeKey"
     )
@@ -19,7 +20,7 @@ import Api from "@/services/Api";
 import EventBus from "@/event-bus";
 
 export default {
-  props: ["storeKey", "submitText", "action"],
+  props: ["storeKey", "submitText", "action", "translate"],
   provide() {
     return {
       formKey: this.storeKey
@@ -96,6 +97,9 @@ export default {
         text: `Item was succesfuly updated`
       });
     }
+  },
+  components: {
+    appFormTranslate: () => import("@/components/Form/Translations")
   }
 };
 </script>

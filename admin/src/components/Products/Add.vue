@@ -5,6 +5,7 @@
       :action="action"
       :storeKey="'product'"
       :submitText="'Save'"
+      :translate="true"
     )
       .row
         .col-xs-12.col-md-6

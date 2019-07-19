@@ -8,10 +8,10 @@
             app-list(
               :title="'Products'"
               :icon="'nc-app'"
-              :addTitle="'New product'"
+              :addTitle="'Products / New product'"
               :caption="'Click to edit or create new'"
               :addCaption="'Fill all rows and press save'"
-              :editTitle="'Product edit'"
+              :editTitle="'Products / Edit'"
               :formKey="'product'"
               :items="items"
             ) 
