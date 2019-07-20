@@ -1,8 +1,9 @@
 <template lang="pug">
 .row
   .col-xs-12
-    span Translate: 
-    a(href="#" v-for="locale in locales") {{ locale.toUpperCase() }} 
+    .translate
+      span Translate: 
+      a(href="#" v-for="locale in locales") {{ locale.toUpperCase() }} 
 </template>
 
 
@@ -22,4 +23,8 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~@/assets/css/_variables';
+
+.translate {
+  padding: 10px 0;
+}
 </style>

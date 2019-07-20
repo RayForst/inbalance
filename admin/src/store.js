@@ -22,6 +22,14 @@ export default new Vuex.Store({
           value: '',
           error: null,
         },
+        name_lv: {
+          value: '',
+          error: null,
+        },
+        name_ru: {
+          value: '',
+          error: null,
+        },
         ProductSubcategoryId: {
           value: '',
           error: null,
@@ -30,11 +38,35 @@ export default new Vuex.Store({
           value: '',
           error: null,
         },
+        description_lv: {
+          value: '',
+          error: null,
+        },
+        description_ru: {
+          value: '',
+          error: null,
+        },
         howtouse: {
           value: '',
           error: null,
         },
+        howtouse_lv: {
+          value: '',
+          error: null,
+        },
+        howtouse_ru: {
+          value: '',
+          error: null,
+        },
         ingridients: {
+          value: '',
+          error: null,
+        },
+        ingridients_lv: {
+          value: '',
+          error: null,
+        },
+        ingridients_ru: {
           value: '',
           error: null,
         },

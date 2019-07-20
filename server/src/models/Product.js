@@ -10,6 +10,12 @@ module.exports = (sequelize, DataTypes) =>
             name: {
                 type: DataTypes.STRING,
             },
+            name_ru: {
+                type: DataTypes.STRING,
+            },
+            name_lv: {
+                type: DataTypes.STRING,
+            },
             slug: {
                 type: DataTypes.STRING,
                 unique: true,
@@ -20,10 +26,28 @@ module.exports = (sequelize, DataTypes) =>
             description: {
                 type: DataTypes.TEXT,
             },
+            description_ru: {
+                type: DataTypes.TEXT,
+            },
+            description_lv: {
+                type: DataTypes.TEXT,
+            },
             howtouse: {
                 type: DataTypes.TEXT,
             },
+            howtouse_ru: {
+                type: DataTypes.TEXT,
+            },
+            howtouse_lv: {
+                type: DataTypes.TEXT,
+            },
             ingridients: {
+                type: DataTypes.TEXT,
+            },
+            ingridients_ru: {
+                type: DataTypes.TEXT,
+            },
+            ingridients_lv: {
                 type: DataTypes.TEXT,
             },
             priority: {
