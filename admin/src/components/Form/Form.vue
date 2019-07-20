@@ -1,11 +1,10 @@
 <template lang="pug">
   form.ui-form.form.flex_col(@submit.prevent="save")
-    app-form-translate
     slot(
       :storeKey="storeKey"
     )
     .row
-      .col-xs-6.col-xs-offset-3
+      .col-xs-4.col-xs-offset-4
         button.ui-button.ui-button--big.ui-button--full-green(
           type="submit"
           v-text="submitText"

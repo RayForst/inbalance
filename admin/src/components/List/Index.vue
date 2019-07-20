@@ -6,28 +6,19 @@
           i.nc-icon(:class="icon")
           span(v-text="`${heading} `")
           sup.caption {{ subheading }}
+
       .col-xs-6.end-xs
-        .ui-button-group
+       .ui-button-group
           a.ui-button(
             v-if="edit"
             :href="'/product/'+edit.slug" target="_blank"
             @click.prevent="removeConfirm(edit.id, edit.name)"
           ) Remove
 
-          a.ui-button(
-            v-if="edit"
-            :href="'/product/'+edit.slug" target="_blank"
-          ) View on site
-
           button.ui-button(
-            v-if="list"
             @click="list = !list"
-          ) add new
-          button.ui-button(
-            v-else
-            @click="list = !list"
-          ) back
-        
+            v-text="list ? 'add new' : 'back'"
+          )
     .row.list(v-if="list")
       div(
         v-for='(item, i) in items' 
@@ -35,9 +26,20 @@
         :class="{'col-xs-3': wide, 'col-xs-2': !wide }"
       )
         slot(name="item" v-bind:item="item")
+
     .row(v-else)
+      .col-xs-12(v-if="edit")
+        app-form-translate
       .col-xs-12
-        slot(name="form" v-bind:isEdit="edit !== null")
+        .ui-button-group
+          a.ui-button(
+            v-if="edit"
+            :href="'/product/'+edit.slug" target="_blank"
+          ) View on site
+
+      .col-xs-12
+        .form-container
+          slot(name="form" v-bind:isEdit="edit !== null")
 </template>
 
 <script>
@@ -107,6 +109,9 @@ export default {
 
       EventBus.$emit("update-list", true);
     });
+  },
+  components: {
+    appFormTranslate: () => import("@/components/Form/Translations")
   }
 };
 </script>
@@ -117,5 +122,9 @@ export default {
 i {
   margin-right: 10px;
   font-size: 32px;
+}
+
+.form-container {
+  padding: 0 1em;
 }
 </style>

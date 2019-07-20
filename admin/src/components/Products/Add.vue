@@ -10,14 +10,14 @@
       .row
         .col-xs-12.col-md-6
           app-form-input(:name="'name'" :label="'Name'" :required="true")
-          app-form-select(:name="'ProductSubcategoryId'" :label="'Category'" :options="categories" :required="true")
-          app-form-input(:name="'priority'" :label="'Priority'" :type="'checkbox'")
           app-form-text-editor(:name="'description'" :label="'Description and benefit'" :required="true")
-        .col-xs-12.col-md-6
-          app-form-images(:name="'images'" :label="'Images'" :required="true")
           app-form-text(:name="'howtouse'" :label="'How to use it'")
           app-form-text(:name="'ingridients'" :label="'Ingridients'")
-
+        .col-xs-12.col-md-6
+          app-form-select(:name="'ProductSubcategoryId'" :label="'Category'" :options="categories" :required="true")
+          app-form-images(:name="'images'" :label="'Images'" :required="true")
+          app-form-input(:name="'priority'" :label="'Priority'" :type="'checkbox'")
+         
           template(
             v-if="isEdit"
           )

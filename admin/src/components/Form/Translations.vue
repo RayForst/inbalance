@@ -1,9 +1,7 @@
 <template lang="pug">
-.row
-  .col-xs-12
-    .translate
-      span Translate: 
-      a(href="#" v-for="locale in locales") {{ locale.toUpperCase() }} 
+  span.translate
+    span Translate: 
+    a(href="#" v-for="locale in locales" :class="{ active: active === locale }") {{ locale.toUpperCase() }} 
 </template>
 
 
@@ -15,8 +13,13 @@ import EventBus from "@/event-bus";
 export default {
   data() {
     return {
-      locales: ["en", "lv", "ru"]
+      locales: ["en", "lv", "ru"],
     };
+  },
+  computed: {
+    active() {
+      return this.$store.state.forms['product'].formLang
+    }
   }
 };
 </script>
@@ -26,5 +29,17 @@ export default {
 
 .translate {
   padding: 10px 0;
+  margin-right: 10px;
+
+  a {
+    color: black;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .active {
+    color: $c_accent;
+  }
 }
 </style>
