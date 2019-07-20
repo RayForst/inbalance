@@ -15,9 +15,6 @@
           | {{ item.name }}
           | / 
           span.category {{ item['ProductSubcategory.name'] }}
-        //- .list-controls
-        //-   a.ui-link(:href="'/product/'+item.slug" target="_blank") View
-        //-   a.ui-link(@click.prevent="removeConfirm(item.id, item.name)") Remove
 </template>
 
 <script>

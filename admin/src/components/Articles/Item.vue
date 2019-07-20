@@ -6,10 +6,6 @@
         :style="{ backgroundImage: `url(${image})` }"
       )
     .name(v-html="item.name")
-    .list-controls
-      a.ui-link(:href="'/articles/'+item.slug" target="_blank") View
-      a.ui-link(@click.prevent="edit(item)") Edit
-      a.ui-link(@click.prevent="removeConfirm(item.id, item.name)") Remove
 </template>
 
 <script>

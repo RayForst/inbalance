@@ -11,10 +11,6 @@
       .ui-badges
         .badge(v-if="item.priority") priority
         .badge.blue(v-if="item.preview") preview
-    .list-controls
-      a.ui-link(:href="'/events/'+item.slug" target="_blank") View
-      a.ui-link(@click.prevent="edit(item)") Edit
-      a.ui-link(@click.prevent="removeConfirm(item.id, item.name)") Remove
 </template>
 
 <script>

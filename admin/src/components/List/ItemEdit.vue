@@ -9,7 +9,6 @@
     <slot></slot>
 </template>
 
-
 <script>
 export default {
   name: "list-edit-view",
@@ -20,7 +19,6 @@ export default {
   }
 };
 </script>
-
 
 <style lang="stylus" scoped>
 @import '~@/assets/css/_variables';
