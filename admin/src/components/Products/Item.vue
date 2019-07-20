@@ -1,18 +1,23 @@
 <template lang="pug">
-  .product-preview.flex-col.middle-xs
-    .image-prev
-      .image-wrap(
-        class="uploaded-image"
-        :style="{ backgroundImage: 'url(/uploads/' + image + ')' }"
-      )
-      .ui-badges
-        .badge(v-if="item.priority") priority
-    .name {{ item.name }}
-    .category {{ item['ProductSubcategory.name'] }}
-    .list-controls
-      a.ui-link(:href="'/product/'+item.slug" target="_blank") View
-      a.ui-link(@click.prevent="edit(item)") Edit
-      a.ui-link(@click.prevent="removeConfirm(item.id, item.name)") Remove
+  .list-item
+    list-edit-on-click(
+      @edit="edit(item)"
+    )
+      .product-preview.flex-col.middle-xs
+        .image-prev
+          .image-wrap(
+            class="uploaded-image"
+            :style="{ backgroundImage: 'url(/uploads/' + image + ')' }"
+          )
+          .ui-badges
+            .badge(v-if="item.priority") priority
+        .name 
+          | {{ item.name }}
+          | /
+          span.category {{ item['ProductSubcategory.name'] }}
+        //- .list-controls
+        //-   a.ui-link(:href="'/product/'+item.slug" target="_blank") View
+        //-   a.ui-link(@click.prevent="removeConfirm(item.id, item.name)") Remove
 </template>
 
 <script>
@@ -50,12 +55,19 @@ export default {
         ? this.item.images.split(",")[0]
         : "default.png";
     }
+  },
+  components: {
+    listEditOnClick: () => import("@/components/List/ItemEdit.vue")
   }
 };
 </script>
 
 <style lang="stylus" scoped>
 @import '~@/assets/css/_variables';
+
+.list-item {
+  margin-bottom: 20px;
+}
 
 .image-wrap {
   width: 100%;

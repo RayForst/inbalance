@@ -262,10 +262,10 @@ export default new Vuex.Store({
     clearForm(state, payload) {
       const fields = Object.keys(state.forms[payload.form]).filter(key => key !== 'formLang');
 
-      fields.map((objectKey) => {
+      fields.map((name) => {
         let value;
 
-        switch (objectKey) {
+        switch (name) {
           case 'priority' || 'preview':
             value = false;
             break;
@@ -279,7 +279,7 @@ export default new Vuex.Store({
             value = '';
         }
 
-        state.forms[payload.form][objectKey] = {
+        state.forms[payload.form][name] = {
           value,
           error: null,
         };

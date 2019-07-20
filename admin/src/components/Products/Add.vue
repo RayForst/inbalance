@@ -1,5 +1,5 @@
 <template lang="pug">
-  div
+  section.add
     app-form(
       v-if="loaded"
       :action="action"
@@ -17,10 +17,11 @@
           app-form-images(:name="'images'" :label="'Images'" :required="true")
           app-form-text(:name="'howtouse'" :label="'How to use it'")
           app-form-text(:name="'ingridients'" :label="'Ingridients'")
+
           template(
             v-if="isEdit"
           )
-        app-form-input-hidden(:name="'id'")
+            app-form-input-hidden(:name="'id'")
 </template>
 
 <script>
@@ -73,7 +74,7 @@ export default {
         });
       });
 
-      let filtered = result.filter(function(el) {
+      const filtered = result.filter(function(el) {
         return el != null;
       });
 
