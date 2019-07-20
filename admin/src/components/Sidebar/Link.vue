@@ -42,8 +42,7 @@ a
     opacity: 0.85;
 
   &.router-link-exact-active
-    color: #fff;
+    color: #009688;
     opacity: 1;
     background: hsla(0,0%,100%,.23);
-
 </style>
