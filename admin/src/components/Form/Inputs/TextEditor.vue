@@ -18,7 +18,7 @@
 </template>
 
 <script>
-// import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import Form from "@/services/Form.js";
 import VueTrix from "vue-trix";
 
 const HOST = "http://localhost:3000/upload-editor";
@@ -34,15 +34,10 @@ export default {
   computed: {
     value: {
       get() {
-        return this.$store.state.forms[this.formKey][this.name].value;
+        return Form.inputs.get(this.$store, this.formKey, this.name);
       },
       set(value) {
-        console.log("setting value", value);
-        this.$store.commit("changeFormInput", {
-          form: this.formKey,
-          input: this.name,
-          value
-        });
+        return Form.inputs.set(value, this.$store, this.formKey, this.name);
       }
     },
     error() {
@@ -70,7 +65,6 @@ export default {
       }
     },
     uploadFile(file, progressCallback, successCallback) {
-      console.log("FILE TO UPLOAD", file);
       var key = this.createStorageKey(file);
       var formData = this.createFormData(key, file);
       var xhr = new XMLHttpRequest();

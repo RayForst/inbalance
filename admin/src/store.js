@@ -18,6 +18,7 @@ export default new Vuex.Store({
         },
       },
       product: {
+        formLang: 'en',
         name: {
           value: '',
           error: null,
@@ -259,15 +260,30 @@ export default new Vuex.Store({
       state.forms[payload.form][payload.input].error = payload.value;
     },
     clearForm(state, payload) {
-      Object.keys(state.forms[payload.form]).map((objectKey) => {
-        let value = '';
+      const fields = Object.keys(state.forms[payload.form]).filter(key => key !== 'formLang');
 
-        if (objectKey === 'priority' || objectKey === 'preview') value = false;
-        if (objectKey === 'dateStart') value = new Date(new Date().valueOf() + 1000 * 3600 * 24);
-        if (objectKey === 'dateEnd') value = new Date(new Date().valueOf() + 1000 * 3600 * 48);
+      fields.map((objectKey) => {
+        let value;
 
-        state.forms[payload.form][objectKey].value = value;
-        state.forms[payload.form][objectKey].error = null;
+        switch (objectKey) {
+          case 'priority' || 'preview':
+            value = false;
+            break;
+          case 'dateStart':
+            value = new Date(new Date().valueOf() + 1000 * 3600 * 24);
+            break;
+          case 'dateEnd':
+            value = new Date(new Date().valueOf() + 1000 * 3600 * 48);
+            break;
+          default:
+            value = '';
+        }
+
+        state.forms[payload.form][objectKey] = {
+          value,
+          error: null,
+        };
+
         return true;
       });
     },

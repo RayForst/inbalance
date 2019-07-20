@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import Form from "@/services/Form.js";
+
 export default {
   props: ["name"],
   inject: ["formKey"],
@@ -15,15 +17,13 @@ export default {
   },
   computed: {
     value: {
-      get() {
-        return this.$store.state.forms[this.formKey][this.name].value;
-      },
-      set(value) {
-        this.$store.commit("changeFormInput", {
-          form: this.formKey,
-          input: this.name,
-          value
-        });
+      value: {
+        get() {
+          return Form.inputs.get(this.$store, this.formKey, this.name);
+        },
+        set(value) {
+          return Form.inputs.set(value, this.$store, this.formKey, this.name);
+        }
       }
     }
   }
