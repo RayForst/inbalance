@@ -29,7 +29,7 @@ import contentService from "@/services/ContentService";
 
 export default {
   name: "product-add-form",
-  props: ["isEdit"],
+  props: ["isEdit", "item"],
   data() {
     return {
       loaded: false,

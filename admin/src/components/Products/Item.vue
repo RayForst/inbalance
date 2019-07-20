@@ -13,7 +13,7 @@
             .badge(v-if="item.priority") priority
         .name 
           | {{ item.name }}
-          | /
+          | / 
           span.category {{ item['ProductSubcategory.name'] }}
         //- .list-controls
         //-   a.ui-link(:href="'/product/'+item.slug" target="_blank") View
@@ -95,7 +95,6 @@ export default {
   }
 
   .category {
-    font-size: 10px;
     line-height: 1.33em;
     text-transform: uppercase;
     margin-bottom: 10px;

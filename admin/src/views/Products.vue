@@ -15,10 +15,18 @@
               :formKey="'product'"
               :items="items"
             ) 
-              template(v-slot:item="slotProps")
-                app-item(:item="slotProps.item")
-              template(v-slot:form="slotProps")
-                app-form(:isEdit="slotProps.isEdit")
+              template(
+                v-slot:item="slotProps"
+              )
+                app-item(
+                  :item="slotProps.item"
+                )
+              template(
+                v-slot:form="slotProps"
+              )
+                app-form(
+                  :isEdit="slotProps.isEdit"
+                )
 </template>
 
 <script>

@@ -6,15 +6,28 @@
           i.nc-icon(:class="icon")
           span(v-text="heading")
         p.caption {{ subheading }}
+
       .col-xs-6.end-xs
-        button.ui-button(
-          v-if="list"
-          @click="list = !list"
-        ) add new
-        button.ui-button(
-          v-else
-          @click="list = !list"
-        ) back
+        .ui-button-group
+          a.ui-button(
+            v-if="edit"
+            :href="'/product/'+edit.slug" target="_blank"
+          ) Remove
+
+          a.ui-button(
+            v-if="edit"
+            :href="'/product/'+edit.slug" target="_blank"
+          ) View on site
+
+          button.ui-button(
+            v-if="list"
+            @click="list = !list"
+          ) add new
+          button.ui-button(
+            v-else
+            @click="list = !list"
+          ) back
+        
     .row.list(v-if="list")
       div(
         v-for='(item, i) in items' 
@@ -24,7 +37,7 @@
         slot(name="item" v-bind:item="item")
     .row(v-else)
       .col-xs-12
-        slot(name="form" v-bind:isEdit="isEdit")
+        slot(name="form" v-bind:isEdit="edit !== null")
 </template>
 
 <script>
@@ -47,15 +60,15 @@ export default {
   data() {
     return {
       list: true,
-      isEdit: false
+      edit: false
     };
   },
   computed: {
     heading() {
       let heading = `${this.title}`;
-      if (!this.isEdit && this.list) return heading;
+      if (!this.edit && this.list) return heading;
 
-      return this.isEdit ? this.editTitle : this.addTitle;
+      return this.edit ? this.editTitle : this.addTitle;
     },
     subheading() {
       return !this.list ? this.addCaption : `Total: ${this.items.length}`;
@@ -66,7 +79,6 @@ export default {
       if (current !== true) this.clearStore();
     }
   },
-  components: {},
   methods: {
     updateStore(item) {
       this.$store.commit("changeForm", {
@@ -76,7 +88,8 @@ export default {
     },
     clearStore() {
       this.list = true;
-      this.isEdit = false;
+      this.edit = false;
+
       this.$store.commit("clearForm", {
         form: this.formKey
       });
@@ -85,12 +98,13 @@ export default {
   mounted() {
     EventBus.$on("form-edit", item => {
       this.updateStore(item);
-      this.isEdit = true;
+      this.edit = item;
       this.list = false;
     });
 
     EventBus.$on(`form-success-${this.formKey}`, () => {
       this.clearStore();
+
       EventBus.$emit("update-list", true);
     });
   }
