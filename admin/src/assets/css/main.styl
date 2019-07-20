@@ -1,6 +1,5 @@
 @import "_variables.styl"
 @import "_ui.styl"
-@import "_elements.styl"
 @import "_fonts.styl"
 
 font-size = 14px  
@@ -232,7 +231,13 @@ h1,h2,h3,h4,h5,h5
     margin: 0
     line-height: 1.5
 
-.blue-bg
+  sup.caption
+    margin-left: 7px;
+    line-height: 1.5;
+    color: $c_accent;
+
+
+.color-background
   background: #50a3a2
   background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%)
 

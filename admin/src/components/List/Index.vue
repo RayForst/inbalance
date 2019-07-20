@@ -4,14 +4,14 @@
       .col-xs-6
         h4.card-title
           i.nc-icon(:class="icon")
-          span(v-text="heading")
-        p.caption {{ subheading }}
-
+          span(v-text="`${heading} `")
+          sup.caption {{ subheading }}
       .col-xs-6.end-xs
         .ui-button-group
           a.ui-button(
             v-if="edit"
             :href="'/product/'+edit.slug" target="_blank"
+            @click.prevent="removeConfirm(edit.id, edit.name)"
           ) Remove
 
           a.ui-button(
@@ -71,7 +71,7 @@ export default {
       return this.edit ? this.editTitle : this.addTitle;
     },
     subheading() {
-      return !this.list ? this.addCaption : `Total: ${this.items.length}`;
+      return !this.list ? this.addCaption : this.items.length;
     }
   },
   watch: {
@@ -115,6 +115,7 @@ export default {
 @import '~@/assets/css/_variables';
 
 i {
-  margin-right: 8px;
+  margin-right: 10px;
+  font-size: 32px;
 }
 </style>

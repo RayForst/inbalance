@@ -1,5 +1,5 @@
 <template lang="pug">
-  .content.blue-bg.flex_col.center-xs
+  .content.color-background.flex_col.center-xs
     .content-container.login
       //- transition(name="fadeslide" mode="out-in")
       .text-center.c_white(v-show="show")
@@ -49,7 +49,7 @@ export default {
 <style lang="stylus" scoped>
 @import '~@/assets/css/_variables';
 
-.blue-bg {
+.color-background {
   background: #50a3a2;
   background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
 }

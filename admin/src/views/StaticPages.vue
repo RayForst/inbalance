@@ -1,5 +1,5 @@
 <template lang="pug">
-  .content.blue-bg.flex_col
+  .content.color-background.flex_col
     .content-container.admin-page
       app-sidebar
 
