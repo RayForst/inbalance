@@ -9,10 +9,6 @@
             app-list(
               :title="'Static pages'"
               :icon="'nc-html5'"
-              :addTitle="'Static add'"
-              :caption="'Click to edit or create new'"
-              :addCaption="'Fill all rows and press save'"
-              :editTitle="'Static edit'"
               :formKey="'static'"
               :items="items"
             ) 

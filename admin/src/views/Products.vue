@@ -6,12 +6,8 @@
         .row
           .col-xs-12
             app-list(
-              :title="'Products'"
               :icon="'nc-app'"
-              :addTitle="'Products'"
-              :caption="'Click to edit or create new'"
-              :addCaption="'+ NEW'"
-              :editTitle="'Products'"
+              :title="'Products'"
               :formKey="'product'"
               :items="items"
             ) 

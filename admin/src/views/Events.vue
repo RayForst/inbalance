@@ -8,10 +8,6 @@
             app-list(
               :title="'Events'"
               :icon="'nc-atom'"
-              :addTitle="'New event'"
-              :caption="'Click to edit or create new'"
-              :addCaption="'Fill all rows and press save'"
-              :editTitle="'Event edit'"
               :formKey="'event'"
               :items="items"
               :wide="true"

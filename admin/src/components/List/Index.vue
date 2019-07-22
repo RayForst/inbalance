@@ -1,11 +1,11 @@
 <template lang="pug">
   .card
     .row
-      .col-xs-6
-        h4.card-title
-          i.nc-icon(:class="icon")
-          span(v-text="`${heading} `")
-          sup.caption {{ subheading }}
+      app-list-header(
+        :icon="icon"
+        :title="title"
+        :sup="supheading"
+      )
 
       .col-xs-6.end-xs
        .ui-button-group
@@ -48,37 +48,23 @@ import EventBus from "@/event-bus";
 
 export default {
   name: "list",
-  props: [
-    "items",
-    "formKey",
-    "title",
-    "addTitle",
-    "editTitle",
-    "caption",
-    "addCaption",
-    "wide",
-    "icon"
-  ],
+  props: ["items", "formKey", "title", "caption", "addCaption", "wide", "icon"],
   data() {
     return {
       list: true,
       edit: false
     };
   },
-  computed: {
-    heading() {
-      let heading = `${this.title}`;
-      if (!this.edit && this.list) return heading;
-
-      return this.edit ? this.editTitle : this.addTitle;
-    },
-    subheading() {
-      return !this.list ? this.addCaption : this.items.length;
-    }
-  },
   watch: {
     list(old, current) {
       if (current !== true) this.clearStore();
+    }
+  },
+  computed: {
+    supheading() {
+      if (this.list) return this.items.length;
+
+      return !this.edit ? "Add New " : "Edit";
     }
   },
   methods: {
@@ -111,6 +97,7 @@ export default {
     });
   },
   components: {
+    appListHeader: () => import("@/components/List/Header"),
     appFormTranslate: () => import("@/components/Form/Translations")
   }
 };
@@ -118,11 +105,6 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~@/assets/css/_variables';
-
-i {
-  margin-right: 10px;
-  font-size: 32px;
-}
 
 .form-container {
   padding: 0 1em;
