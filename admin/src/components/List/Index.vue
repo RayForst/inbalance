@@ -31,13 +31,6 @@
       .col-xs-12(v-if="edit")
         app-form-translate
       .col-xs-12
-        .ui-button-group
-          a.ui-button(
-            v-if="edit"
-            :href="'/product/'+edit.slug" target="_blank"
-          ) View on site
-
-      .col-xs-12
         .form-container
           slot(name="form" v-bind:isEdit="edit !== null")
 </template>
@@ -48,7 +41,7 @@ import EventBus from "@/event-bus";
 
 export default {
   name: "list",
-  props: ["items", "formKey", "title", "caption", "addCaption", "wide", "icon"],
+  props: ["items", "formKey", "title", "wide", "icon"],
   data() {
     return {
       list: true,
@@ -64,7 +57,9 @@ export default {
     supheading() {
       if (this.list) return this.items.length;
 
-      return !this.edit ? "Add New " : "Edit";
+      return !this.edit
+        ? "Add New "
+        : `Edit <a href="/" targer="_blank" class="ui-link">"${this.edit.name}"</a>`;
     }
   },
   methods: {

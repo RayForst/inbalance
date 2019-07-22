@@ -3,7 +3,9 @@
     h4.card-title
       i.nc-icon(:class="icon")
       span {{ title }}
-      sup.caption {{ sup }}
+      sup.caption(
+        v-html="sup"
+      )
 </template>
 
 <script>
@@ -22,5 +24,12 @@ export default {
 i {
   margin-right: 10px;
   font-size: 32px;
+}
+
+sup.caption {
+  text-transform: uppercase;
+  margin-left: 7px;
+  line-height: 1.5;
+  color: $c_accent;
 }
 </style>
