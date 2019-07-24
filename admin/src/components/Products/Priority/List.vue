@@ -1,7 +1,10 @@
 <template lang="pug">
   .card
-    h4.card-title Prefered product category on main
-    p.caption Select category with will be displayed on main page
+    app-list-header(
+      :icon="icon"
+      :title="title"
+      :wide="true"
+    )
     app-form
 </template>
 
@@ -12,10 +15,14 @@ import EventBus from "@/event-bus";
 export default {
   name: "product-priority",
   data() {
-    return {};
+    return {
+      title: "Prefered product category on main",
+      icon: "nc-grid-45"
+    };
   },
   components: {
-    appForm: () => import("./Form.vue")
+    appForm: () => import("./Form.vue"),
+    appListHeader: () => import("@/components/List/Header")
   }
 };
 </script>

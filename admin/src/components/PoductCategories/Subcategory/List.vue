@@ -1,7 +1,10 @@
 <template lang="pug">
   .card
-    h4.card-title Product Subcategories
-    p.caption Search edit and add new
+    app-list-header(
+      :icon="icon"
+      :title="title"
+      :wide="true"
+    )
 
     app-modal
 
@@ -36,12 +39,15 @@ export default {
   name: "product-list-category",
   data() {
     return {
+      title: "Product Subcategories",
+      icon: "nc-app",
       items: [],
       loaded: false
     };
   },
   components: {
-    appModal: () => import("./Modal.vue")
+    appModal: () => import("./Modal.vue"),
+    appListHeader: () => import("@/components/List/Header")
   },
   methods: {
     async get() {

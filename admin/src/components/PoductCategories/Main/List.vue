@@ -1,7 +1,9 @@
 <template lang="pug">
   .card
-    h4.card-title Product Categories
-    p.caption You can only rename them
+    app-list-header(
+      :icon="icon"
+      :title="title"
+    )
     template(
       v-if="loaded"
     )
@@ -31,11 +33,14 @@ export default {
   data() {
     return {
       items: [],
+      title: "Product Categories",
+      icon: "nc-app",
       loaded: false
     };
   },
   components: {
-    appModal: () => import("./Modal.vue")
+    appModal: () => import("./Modal.vue"),
+    appListHeader: () => import("@/components/List/Header")
   },
   methods: {
     async get() {

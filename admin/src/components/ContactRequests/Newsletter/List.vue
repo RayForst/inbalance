@@ -1,16 +1,25 @@
 <template lang="pug">
   .card
-    h4.card-title Newsletter subscribe list
-    .row.list
-    table.ui-table
-        tr
-          th #
-          th Email
-          th Created At
-        tr(v-for="item, index in items")
-          td {{ index + 1 }}
-          td {{ item.email }}
-          td {{ date(item.createdAt) }}
+    .row
+      app-list-header(
+        :icon="icon"
+        :title="title"
+        :sup="items.length"
+      )
+    .row.list(v-if="items.length")
+      .col-xs-12
+        table.ui-table
+          tr
+            th #
+            th Email
+            th Created At
+          tr(v-for="item, index in items")
+            td {{ index + 1 }}
+            td {{ item.email }}
+            td {{ date(item.createdAt) }}
+    .row(v-else)
+      .col-xs-12
+        h3 No subscribes yet
 </template>
 
 <script>
@@ -21,18 +30,21 @@ export default {
   name: "newsletter-list",
   data() {
     return {
+      title: "Newsletter subs",
+      icon: "nc-favourite-28",
       items: []
     };
   },
   methods: {
     async get() {
-      const response = (await contentService.newsletter.get({})).data;
-
-      this.items = response;
+      this.items = (await contentService.newsletter.get({})).data;
     },
     date(date) {
       return moment(date).format("LL");
     }
+  },
+  components: {
+    appListHeader: () => import("@/components/List/Header")
   },
   mounted() {
     this.get();

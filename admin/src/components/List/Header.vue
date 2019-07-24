@@ -1,5 +1,5 @@
 <template lang="pug">
-  .list-header.col-xs-6
+  .list-header.col-xs-6(:class="{'col-xs-12': wide === true}")
     h4.card-title
       i.nc-icon(:class="icon")
       span {{ title }}
@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  props: ["icon", "title", "sup"],
+  props: ["icon", "title", "sup", "wide"],
   data() {
     return {};
   }

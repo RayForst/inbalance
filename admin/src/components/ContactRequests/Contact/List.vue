@@ -1,21 +1,30 @@
 <template lang="pug">
   .card
-    h4.card-title Contact requests
-    .row.list
-    table.ui-table
-        tr
-          th #
-          th Fullname
-          th Email
-          th Text
-          th Created At
-        tr(v-for="item, index in items")
-          td {{ index + 1 }}
-          td {{ item.fullname }} 
-          td {{ item.email }}
-          td {{ item.text }}
-          td {{ date(item.createdAt) }}
-</template>
+    .row
+      app-list-header(
+        :icon="icon"
+        :title="title"
+        :sup="items.length"
+      )
+    .row.list(v-if="items.length")
+      .col-xs-12
+        table.ui-table
+          tr
+            th #
+            th Fullname
+            th Email
+            th Text
+            th Created At
+          tr(v-for="item, index in items")
+            td {{ index + 1 }}
+            td {{ item.fullname }} 
+            td {{ item.email }}
+            td {{ item.text }}
+            td {{ date(item.createdAt) }}
+    .row(v-else)
+      .col-xs-12
+        h3 No requests yet
+    </template>
 
 <script>
 import contentService from "@/services/ContentService";
@@ -25,14 +34,14 @@ export default {
   name: "newsletter-list",
   data() {
     return {
+      title: "Contact requests",
+      icon: "nc-chat-round",
       items: []
     };
   },
   methods: {
     async get() {
-      const response = (await contentService.contacts.get({})).data;
-
-      this.items = response;
+      this.items = (await contentService.contacts.get({})).data;
     },
     date(date) {
       return moment(date).format("LL");
@@ -40,6 +49,9 @@ export default {
   },
   mounted() {
     this.get();
+  },
+  components: {
+    appListHeader: () => import("@/components/List/Header")
   }
 };
 </script>

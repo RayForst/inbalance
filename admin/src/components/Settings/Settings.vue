@@ -1,7 +1,9 @@
 <template lang="pug">
   .card
-    h4.card-title Main Settings
-    p.caption Be aware off change
+    app-list-header(
+      :icon="icon"
+      :title="title"
+    )
     app-form
 </template>
 
@@ -12,10 +14,14 @@ import EventBus from "@/event-bus";
 export default {
   name: "settings-form",
   data() {
-    return {};
+    return {
+      title: "Main Settings",
+      icon: "nc-settings-90"
+    };
   },
   components: {
-    appForm: () => import("./Form.vue")
+    appForm: () => import("./Form.vue"),
+    appListHeader: () => import("@/components/List/Header")
   },
   methods: {
     async get() {

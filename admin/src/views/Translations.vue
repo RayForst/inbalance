@@ -8,9 +8,10 @@
           .col-xs-12
             .card
               .row
-                .col-xs-12
-                  h4.card-title Static strings Translations
-                  p.caption Be aware for making mistakes, it can break site content
+                app-list-header(
+                  :icon="icon"
+                  :title="title"
+                )
               .row.list
                 .col-xs-12.col-lg-4
                   appEditor(:locale="'en'")
@@ -28,12 +29,15 @@ export default {
   name: "Translations",
   data() {
     return {
+      title: "Static strings Translations",
+      icon: "nc-caps-small",
       show: false
     };
   },
   components: {
     appSidebar: () => import("@/components/Sidebar/Index"),
-    appEditor: () => import("@/components/Translations/JsonForm")
+    appEditor: () => import("@/components/Translations/JsonForm"),
+    appListHeader: () => import("@/components/List/Header")
   }
 };
 </script>
