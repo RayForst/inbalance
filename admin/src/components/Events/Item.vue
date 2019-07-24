@@ -1,16 +1,19 @@
 <template lang="pug">
   .event-preview.flex-col.middle-xs
-    .image-prev
-      .image(
-        :style="{ backgroundImage: `url(${image})` }"
-      )
-      .overlay
-        .name {{ item.name }}
-        .date {{ date }}
+    list-edit-on-click(
+      @edit="edit(item)"
+    )
+      .image-prev
+        .image(
+          :style="{ backgroundImage: `url(${image})` }"
+        )
+        .overlay
+          .name {{ item.name }}
+          .date {{ date }}
 
-      .ui-badges
-        .badge(v-if="item.priority") priority
-        .badge.blue(v-if="item.preview") preview
+        .ui-badges
+          .badge(v-if="item.priority") priority
+          .badge.blue(v-if="item.preview") preview
 </template>
 
 <script>
@@ -43,7 +46,7 @@ export default {
       EventBus.$emit("form-success-event");
     },
     edit(item) {
-      EventBus.$emit("modal-edit-event", item);
+      EventBus.$emit("form-edit", item);
     }
   },
   computed: {
@@ -105,6 +108,9 @@ export default {
       // day month
       return this.dateFormat(dateStart);
     }
+  },
+  components: {
+    listEditOnClick: () => import("@/components/List/ItemEdit.vue")
   }
 };
 </script>

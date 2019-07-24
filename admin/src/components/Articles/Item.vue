@@ -1,11 +1,14 @@
 <template lang="pug">
   .product-preview.flex-col.middle-xs
-    .image-prev
-      .image-wrap(
-        class="uploaded-image"
-        :style="{ backgroundImage: `url(${image})` }"
-      )
-    .name(v-html="item.name")
+    list-edit-on-click(
+      @edit="edit(item)"
+    )
+      .image-prev
+        .image-wrap(
+          class="uploaded-image"
+          :style="{ backgroundImage: `url(${image})` }"
+        )
+      .name(v-html="item.name")
 </template>
 
 <script>
@@ -39,8 +42,11 @@ export default {
       EventBus.$emit("form-success-static");
     },
     edit(item) {
-      EventBus.$emit("modal-edit-article", item);
+      EventBus.$emit("form-edit", item);
     }
+  },
+  components: {
+    listEditOnClick: () => import("@/components/List/ItemEdit.vue")
   }
 };
 </script>
