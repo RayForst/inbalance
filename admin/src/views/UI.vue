@@ -7,6 +7,7 @@
           .col-xs-12
             .card
               h1 UI
+              app-colors
               app-icons
               
 </template>
@@ -24,6 +25,7 @@ export default {
   },
   components: {
     appSidebar: () => import("@/components/Sidebar/Index"),
+    appColors: () => import("@/components/UI/Colors"),
     appIcons: () => import("@/components/UI/Icons")
   }
 };

@@ -1,6 +1,8 @@
 <template lang='pug'>
   section
-    h2 Icons
+    .row
+      .col-xs-12
+        h2 Icons
     .row
       .col-xs-2
         span
