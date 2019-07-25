@@ -114,6 +114,6 @@ export default {
 @import '~@/assets/css/_variables';
 
 .inputError .trix-content {
-  border-color: red;
+  border-color: $c_error;
 }
 </style>

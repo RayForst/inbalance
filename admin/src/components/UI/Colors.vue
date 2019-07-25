@@ -26,6 +26,10 @@ export default {
         {
           name: "$c_gray",
           value: "#7e8f97"
+        },
+        {
+          name: "$c_error",
+          value: "#F44336"
         }
       ]
     };

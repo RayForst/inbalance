@@ -32,6 +32,15 @@
       background #fff
       color: $c_primary
 
+  &--full-red
+    background-color $c_error
+    border-color: $c_error
+    color #fff
+
+    &:hover
+      background #fff
+      color: $c_error
+
   &--big
     font-size 14px
     padding 17px 35px
@@ -95,7 +104,7 @@
     
 
   .error
-    color: red;
+    color: $c_error;
     padding: 10px 0;
 
 .ui-link

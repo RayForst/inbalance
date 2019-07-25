@@ -7,8 +7,8 @@
     .row
       .col-xs-2(v-for="variable in variables")
         .button-wrap
-          a(:class="variable.class") button
-          span {{ variable.class }}
+          a(:class="variable") button
+          span {{ variable }}
 </template>
 
 <script>
@@ -16,18 +16,11 @@ export default {
   data() {
     return {
       variables: [
-        {
-          class: "ui-button"
-        },
-        {
-          class: "ui-button ui-button--white"
-        },
-        {
-          class: "ui-button ui-button--full-green"
-        },
-        {
-          class: "ui-button ui-button--big"
-        }
+        "ui-button",
+        "ui-button ui-button--white",
+        "ui-button ui-button--full-green",
+        "ui-button ui-button--full-red",
+        "ui-button ui-button--big"
       ]
     };
   }

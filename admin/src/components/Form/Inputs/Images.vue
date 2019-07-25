@@ -145,7 +145,7 @@ export default {
       top: 0;
       right: 0;
       font-size: 30px;
-      color: red;
+      color: $c_error;
       width: 30px;
       height: 30px;
       text-align: center;
@@ -237,6 +237,6 @@ export default {
 }
 
 .inputError {
-  border-color: red;
+  border-color: $c_error;
 }
 </style>

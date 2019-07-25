@@ -195,6 +195,6 @@ export default {
 }
 
 .inputError {
-  border-color: red;
+  border-color: $c_error;
 }
 </style>

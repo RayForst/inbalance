@@ -47,6 +47,6 @@ export default {
 @import '~@/assets/css/_variables';
 
 .inputError {
-  border-color: red;
+  border-color: $c_error;
 }
 </style>
