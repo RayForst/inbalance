@@ -8,6 +8,7 @@
             .card
               h1 UI
               app-colors
+              app-buttons
               app-icons
               
 </template>
@@ -26,6 +27,7 @@ export default {
   components: {
     appSidebar: () => import("@/components/Sidebar/Index"),
     appColors: () => import("@/components/UI/Colors"),
+    appButtons: () => import("@/components/UI/Buttons"),
     appIcons: () => import("@/components/UI/Icons")
   }
 };
