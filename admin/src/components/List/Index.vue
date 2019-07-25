@@ -32,7 +32,7 @@
         app-form-translate
       .col-xs-12
         .form-container
-          slot(name="form" v-bind:isEdit="edit !== null")
+          slot(name="form" v-bind:isEdit="edit")
 </template>
 
 <script>
