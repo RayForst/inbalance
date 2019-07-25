@@ -33,18 +33,6 @@ export default {
     dateFormat(date) {
       return `${date.date()} ${date.format("MMMM")}`;
     },
-    removeConfirm(id, name) {
-      if (confirm(`You sure want to delete "${name}" event?`)) {
-        this.remove(id);
-      }
-    },
-    async remove(id) {
-      const response = (await contentService.events.remove({
-        id
-      })).data;
-
-      EventBus.$emit("form-success-event");
-    },
     edit(item) {
       EventBus.$emit("form-edit", item);
     }

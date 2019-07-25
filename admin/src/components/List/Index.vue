@@ -8,12 +8,12 @@
       )
 
       .col-xs-6.end-xs
-       .ui-button-group
-          a.ui-button(
+        .ui-button-group
+          app-list-remove(
             v-if="edit"
-            :href="'/product/'+edit.slug" target="_blank"
-            @click.prevent="removeConfirm(edit.id, edit.name)"
-          ) Remove
+            :item="edit"
+            :formKey="formKey"
+          )
 
           button.ui-button(
             @click="list = !list"
@@ -93,6 +93,7 @@ export default {
   },
   components: {
     appListHeader: () => import("@/components/List/Header"),
+    appListRemove: () => import("@/components/List/Remove"),
     appFormTranslate: () => import("@/components/Form/Translations")
   }
 };

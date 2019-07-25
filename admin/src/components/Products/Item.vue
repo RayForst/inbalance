@@ -30,18 +30,6 @@ export default {
     };
   },
   methods: {
-    removeConfirm(id, name) {
-      if (confirm(`You sure want to delete "${name}" product?`)) {
-        this.remove(id);
-      }
-    },
-    async remove(id) {
-      const response = (await contentService.products.remove({
-        id
-      })).data;
-
-      EventBus.$emit("form-success-product");
-    },
     edit(item) {
       EventBus.$emit("form-edit", item);
     }

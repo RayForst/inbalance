@@ -22,18 +22,6 @@ export default {
     return {};
   },
   methods: {
-    removeConfirm(id, name) {
-      if (confirm(`You sure want to delete "${name}" static page?`)) {
-        this.remove(id);
-      }
-    },
-    async remove(id) {
-      const response = (await contentService.static.remove({
-        id
-      })).data;
-
-      EventBus.$emit("form-success-static");
-    },
     edit(item) {
       EventBus.$emit("form-edit", item);
     }
