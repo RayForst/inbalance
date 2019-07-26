@@ -9,7 +9,7 @@
       v-model="value"
       required
     )
-      option(value="" disabled hidden) Please Choose...
+      option(value="" disabled hidden) Please Choose... 2
       optgroup(:label="option.name" v-for="option, key in options")
         option(:value="value.id" v-for="value in option.values") {{ value.name }}
     .error(v-if="error" v-html="error")

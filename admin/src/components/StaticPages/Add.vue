@@ -7,7 +7,7 @@
     .row
       .col-xs-12.col-md-6
         app-form-input(:name="'name'" :label="'Name'" :required="true")
-        app-form-select(:name="'menupos'" :label="'Menu Category'" :options="menu" :required="true")
+        app-form-select(v-if="loaded" :name="'menupos'" :label="'Menu Category'" :options="menu" :required="true")
         app-form-image(:name="'image'" :label="'Main image'" :required="true")
       .col-xs-12.col-md-6
         app-form-text-editor(:name="'text'" :label="'Text'" :required="true")
@@ -22,14 +22,24 @@ import contentService from "@/services/ContentService";
 
 export default {
   name: "article-add-form",
-  props: ["menu", "isEdit"],
+  props: ["isEdit"],
   data() {
     return {
+      loaded: false,
       categories: [],
       actions: {
         add: "/static",
         edit: "/static/edit"
-      }
+      },
+      menu: [
+        null,
+        null,
+        "WELLNESS ПРОЦЕДУРЫ",
+        null,
+        "МЕРОПРИЯТИЯ",
+        "СВЯЗАТЬСЯ С НАМИ",
+        "СТАТЬИ"
+      ]
     };
   },
   computed: {
@@ -44,6 +54,28 @@ export default {
     appFormSelect: () => import("@/components/Form/Inputs/Select.vue"),
     appFormInputHidden: () => import("@/components/Form/Inputs/Hidden.vue"),
     appFormTextEditor: () => import("@/components/Form/Inputs/TextEditor.vue")
+  },
+  methods: {
+    async get() {
+      const response = (await contentService.productCategories.get({})).data;
+
+      this.menu[0] = response[0].name;
+      this.menu[1] = response[1].name;
+      this.menu[3] = response[2].name;
+
+      let selectOptions = this.menu.map((val, index) => {
+        return {
+          title: val,
+          value: index
+        };
+      });
+
+      this.menu = selectOptions;
+      this.loaded = true;
+    }
+  },
+  mounted() {
+    this.get();
   }
 };
 </script>
