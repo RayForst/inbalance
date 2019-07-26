@@ -51,6 +51,11 @@ export default {
     changeLanguage(locale) {
       this.$i18n.locale = locale;
       document.documentElement.setAttribute("lang", locale);
+
+      this.$cookie.set("lang", this.getLocale(), 1);
+    },
+    getLocale() {
+      return navigator.language || navigator.userLanguage;
     }
   },
   mounted() {

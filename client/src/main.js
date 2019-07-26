@@ -7,11 +7,14 @@ import i18n from './i18n';
 import store from './store';
 import router from './router';
 import App from './App.vue';
+import VueCookie from 'vue-cookie';
+
 import '@/scripts/fontLoader';
 
 Vue.config.productionTip = false;
 Vue.config.ignoredElements = ['vue-owl-carousel'];
 
+Vue.use(VueCookie)
 Vue.use(Lightbox);
 Vue.use(Tabs);
 Vue.use(VueGoogleMaps, {
