@@ -51,13 +51,11 @@ export default {
   },
   computed: {
     value: {
-      value: {
-        get() {
-          return Form.inputs.get(this.$store, this.formKey, this.name);
-        },
-        set(value) {
-          return Form.inputs.set(value, this.$store, this.formKey, this.name);
-        }
+      get() {
+        return Form.inputs.get(this.$store, this.formKey, this.name);
+      },
+      set(value) {
+        return Form.inputs.set(value, this.$store, this.formKey, this.name);
       }
     },
     image() {
