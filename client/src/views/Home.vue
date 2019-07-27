@@ -1,7 +1,9 @@
 <template lang="pug">
   .home
     .content-container.content
-      app-hero(:titleTag="heroTitleTag")
+      app-hero(
+        :titleTag="heroTitleTag"
+      )
       .spacer
       app-announce
       .spacer

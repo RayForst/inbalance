@@ -20,7 +20,6 @@
               .preview
                 h2 {{ item.name }}
                 h1 {{ item.caption }}
-                span.date {{ date(item.dateStart, item.dateEnd) }}
             template(v-else)
               router-link(:to="{ name: 'event', params: { slug: item.slug } }")
                 h2 {{ item.name }}
