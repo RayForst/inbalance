@@ -127,26 +127,10 @@ module.exports = app => {
     app.get('/categories', ProductCategoryController.get)
     app.post('/admin/categories', ProductCategoryController.update)
     app.get('/categories/subcategories', ProductCategoryController.getSubcategory)
-    app.post(
-        '/admin/categories/subcategories',
-        ProductCategoryController.saveSubcategory
-    )
+    app.post('/admin/categories/subcategories',ProductCategoryController.saveSubcategory)
+    app.post('/admin/categories/subcategories/edit', ProductCategoryController.editSubcategory)
+    app.post('/admin/categories/subcategories-remove', ProductCategoryController.removeSubcategory)
 
-    app.post(
-        '/admin/categories/subcategories/edit',
-        ProductCategoryController.editSubcategory
-    )
-
-    app.post(
-        '/admin/categories/subcategories-remove',
-        ProductCategoryController.removeSubcategory
-    )
-
-    app.post('/upload', upload.single('file'), (req, res) => {
-        res.json({ file: req.file })
-    })
-
-    app.post('/upload-editor', upload.single('file'), (req, res) => {
-        res.send('200', `/uploads/${req.file.filename}`)
-    })
+    app.post('/upload', upload.single('file'), (req, res) => {res.json({ file: req.file })})
+    app.post('/upload-editor', upload.single('file'), (req, res) => { res.send('200', `/uploads/${req.file.filename}`) })
 }

@@ -28,8 +28,6 @@
         slot(name="item" v-bind:item="item")
 
     .row(v-else)
-      .col-xs-12(v-if="edit")
-        app-form-translate
       .col-xs-12
         .form-container
           slot(name="form" v-bind:isEdit="edit")
@@ -93,8 +91,7 @@ export default {
   },
   components: {
     appListHeader: () => import("@/components/List/Header"),
-    appListRemove: () => import("@/components/List/Remove"),
-    appFormTranslate: () => import("@/components/Form/Translations")
+    appListRemove: () => import("@/components/List/Remove")
   }
 };
 </script>

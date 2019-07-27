@@ -3,16 +3,33 @@
     app-form(
       v-if="loaded"
       :action="action"
-      :storeKey="'product'"
+      :storeKey="storeKey"
       :submitText="'Save'"
       :translate="true"
     )
       .row
         .col-xs-12.col-md-6
-          app-form-input(:name="'name'" :label="'Name'" :required="true")
-          app-form-text-editor(:name="'description'" :label="'Description and benefit'" :required="true")
-          app-form-text(:name="'howtouse'" :label="'How to use it'")
-          app-form-text(:name="'ingridients'" :label="'Ingridients'")
+          app-form-translate(
+            :storeKey="storeKey"
+          )
+            template(v-slot:en)
+              app-form-input(:name="'name'" :label="'Name'" :required="true")
+              app-form-text-editor(:name="'description'" :label="'Description and benefit'" :required="true")
+              app-form-text(:name="'howtouse'" :label="'How to use it'")
+              app-form-text(:name="'ingridients'" :label="'Ingridients'")
+
+            template(v-slot:lv)
+              app-form-input(:name="'name_lv'" :label="'Name - LV'" :required="true")
+              app-form-text-editor(:name="'description_lv'" :label="'Description and benefit - LV'" :required="true")
+              app-form-text(:name="'howtouse_lv'" :label="'How to use it - LV'")
+              app-form-text(:name="'ingridients_lv'" :label="'Ingridients - LV'")
+            
+            template(v-slot:ru)
+              app-form-input(:name="'name_ru'" :label="'Name - RU'" :required="true")
+              app-form-text-editor(:name="'description_ru'" :label="'Description and benefit - RU'" :required="true")
+              app-form-text(:name="'howtouse_ru'" :label="'How to use it - RU'")
+              app-form-text(:name="'ingridients_ru'" :label="'Ingridients - RU'")
+
         .col-xs-12.col-md-6
           app-form-select(:name="'ProductSubcategoryId'" :label="'Category'" :options="categories" :required="true")
           app-form-images(:name="'images'" :label="'Images'" :required="true")
@@ -33,6 +50,7 @@ export default {
   data() {
     return {
       loaded: false,
+      storeKey: "product",
       categories: [],
       actions: {
         add: "/product",
@@ -52,7 +70,8 @@ export default {
     appFormText: () => import("@/components/Form/Inputs/Text.vue"),
     appFormSelect: () => import("@/components/Form/Inputs/SelectGroup.vue"),
     appFormImages: () => import("@/components/Form/Inputs/Images.vue"),
-    appFormInputHidden: () => import("@/components/Form/Inputs/Hidden.vue")
+    appFormInputHidden: () => import("@/components/Form/Inputs/Hidden.vue"),
+    appFormTranslate: () => import("@/components/Form/Translations")
   },
   methods: {
     async get() {

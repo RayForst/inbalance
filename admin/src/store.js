@@ -296,6 +296,9 @@ export default new Vuex.Store({
         return true;
       });
     },
+    setFormLang(state, payload) {
+      state.forms[payload.key].formLang = payload.locale;
+    },
   },
   actions: {},
 });
