@@ -1,5 +1,7 @@
 <template lang="pug">
-  .product
+  .product(
+    @click="goProduct"
+  )
     .image-wrap.bg-image(
       :style="{ backgroundImage: 'url(/uploads/' + image + ')' }"
     )
@@ -50,6 +52,7 @@ export default {
   padding-bottom: 40px;
   height: 100%;
   box-sizing: border-box;
+  cursor: pointer;
 
   @media $media_sm {
     padding-left: 32px;
