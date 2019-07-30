@@ -1,5 +1,7 @@
 <template lang="pug">
-  .language
+  .language(
+    v-if="loaded"
+  )
     .lang-xs
       vue-dropdown(
         :config="configShort"
@@ -23,6 +25,7 @@ export default {
   },
   data: function() {
     return {
+      loaded: false,
       config: {
         options: [
           {
@@ -75,23 +78,46 @@ export default {
   },
   methods: {
     setNewSelectedOption(selectedOption) {
-      const option = this.config.options.find(obj => {
-        return obj.value === selectedOption.value;
-      });
+      const option = this.findOption(this.config.options, selectedOption.value);
 
-      this.config.placeholder = selectedOption.value;
+      this.config.placeholder = option.value;
 
       EventBus.$emit("lang-request", option.locale);
     },
     setShortNewSelectedOption(selectedOption) {
-      const option = this.configShort.options.find(obj => {
-        return obj.value === selectedOption.value;
-      });
-
-      this.configShort.placeholder = selectedOption.value;
+      const option = this.findOption(
+        this.configShort.options,
+        selectedOption.value
+      );
+      this.configShort.placeholder = option.value;
 
       EventBus.$emit("lang-request", option.locale);
+    },
+    findOption(array, find) {
+      return array.find(obj => {
+        return obj.value === find;
+      });
+    },
+    findOptionByLocale(array, find) {
+      return array.find(obj => {
+        return obj.locale === find;
+      });
     }
+  },
+  mounted() {
+    let userLang = this.$cookie.get("lang");
+    if (userLang && userLang !== "en") {
+      const shortOption = this.findOptionByLocale(
+        this.configShort.options,
+        userLang
+      );
+      const longOption = this.findOptionByLocale(this.config.options, userLang);
+
+      this.configShort.placeholder = shortOption.value;
+      this.config.placeholder = longOption.value;
+    }
+
+    this.loaded = true;
   }
 };
 </script>

@@ -49,16 +49,35 @@ export default {
       this.loaded = true;
     },
     changeLanguage(locale) {
+      console.log("CHANGE LANG LOCALE", locale);
       this.$i18n.locale = locale;
+      this.$cookie.set("lang", locale, 1);
       document.documentElement.setAttribute("lang", locale);
-
-      this.$cookie.set("lang", this.getLocale(), 1);
     },
     getLocale() {
-      return navigator.language || navigator.userLanguage;
+      let selectetLang = "en";
+
+      try {
+        const userBrowserLang = navigator.language || navigator.userLanguage;
+        const userLang = userBrowserLang.substr(0, 2); // en-GB to en
+        selectetLang = userLang;
+      } catch (err) {}
+
+      return selectetLang;
+    },
+    firstVisitLocale() {
+      const availableLocales = ["en", "lv", "ru"];
+      const userLang = this.getLocale();
+
+      if (
+        availableLocales.includes(userLang)
+      ) {
+        this.changeLanguage(userLang);
+      }
     }
   },
   mounted() {
+    this.firstVisitLocale();
     this.getSettings();
 
     EventBus.$on("lang-request", this.changeLanguage);
