@@ -51,7 +51,6 @@ export default {
       return "/uploads/" + img;
     },
     async get() {
-      console.log("gettins");
       const response = (await contentService.events.getHero({})).data;
       this.items.splice(0, this.items.length);
 

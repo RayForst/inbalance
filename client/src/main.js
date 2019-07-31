@@ -3,18 +3,18 @@ import * as VueGoogleMaps from 'vue2-google-maps';
 import Tabs from 'vue-tabs-component';
 import SlideUpDown from 'vue-slide-up-down';
 import Lightbox from 'vue-easy-lightbox';
-import i18n from './i18n';
+import VueCookie from 'vue-cookie';
+import { i18n } from './i18n';
 import store from './store';
 import router from './router';
 import App from './App.vue';
-import VueCookie from 'vue-cookie';
 
 import '@/scripts/fontLoader';
 
 Vue.config.productionTip = false;
 Vue.config.ignoredElements = ['vue-owl-carousel'];
 
-Vue.use(VueCookie)
+Vue.use(VueCookie);
 Vue.use(Lightbox);
 Vue.use(Tabs);
 Vue.use(VueGoogleMaps, {

@@ -41,4 +41,7 @@ export default {
   settings: {
     get: credentials => Api().get('/settings', { params: credentials }),
   },
+  translations: {
+    get: credentials => Api().get('/translations', { params: credentials }),
+  },
 };
