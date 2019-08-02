@@ -18,6 +18,7 @@
 import appHeader from "@/components/Header";
 import contentService from "@/services/ContentService";
 import EventBus from "@/event-bus";
+import { loadLanguageAsync } from "./i18n";
 
 export default {
   metaInfo: {
@@ -37,6 +38,7 @@ export default {
   },
   methods: {
     async getSettings() {
+      await loadLanguageAsync();
       const menu = (await contentService.static.getMenu()).data;
       this.$store.commit("setupMenu", menu);
 

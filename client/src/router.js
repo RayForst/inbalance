@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Meta from 'vue-meta';
-import VueCookie from 'vue-cookie';
 import Home from './views/Home.vue';
 import { loadLanguageAsync } from './i18n';
 
@@ -85,15 +84,7 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
-  let lang = 'en';
-  const availableLocales = ['en', 'ru', 'lv'];
-  const langCookie = VueCookie.get('lang');
-
-  if (availableLocales.includes(langCookie)) {
-    lang = langCookie;
-  }
-
-  loadLanguageAsync(lang).then(() => next());
+  loadLanguageAsync().then(() => next());
 });
 
 export default router;
