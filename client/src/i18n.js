@@ -26,15 +26,24 @@ function getLang() {
   return lang;
 }
 
+let locked = false;
+
 export function loadLanguageAsync() {
   const lang = getLang();
-  if (loadedLanguages.includes(lang)) {
+
+  console.log('requesting lang', lang);
+  if (loadedLanguages.includes(lang) || locked) {
+    console.log('already loaded');
+    i18n.locale = lang;
     return Promise.resolve();
   }
+
+  locked = true;
 
   return contentService.translations.get({ lang }).then((response) => {
     const msgs = response.data;
     loadedLanguages.push(lang);
     i18n.setLocaleMessage(lang, msgs);
+    i18n.locale = lang;
   });
 }

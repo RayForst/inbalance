@@ -89,6 +89,14 @@ export default new Vuex.Store({
           value: '',
           error: null,
         },
+        name_lv: {
+          value: '',
+          error: null,
+        },
+        name_ru: {
+          value: '',
+          error: null,
+        },
         id: {
           value: '',
           error: null,

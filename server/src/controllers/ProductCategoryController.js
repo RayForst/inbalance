@@ -19,19 +19,12 @@ module.exports = {
     },
     async update(req, res) {
         try {
-            const category = await Model.update(
-                {
-                    name: req.body.name,
-                },
-                {
-                    where: {
-                        id: req.body.id,
-                    },
-                    individualHooks: true,
-                }
-            )
+            const item = await Model.findOne({
+                where: { id: req.body.id },
+            })
 
-            res.send('ok')
+            item.update(req.body)
+            res.send(item.toJSON())
         } catch (err) {
             res.status(400).send({
                 error: 'Something went wrong' + err,

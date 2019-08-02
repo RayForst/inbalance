@@ -1,6 +1,8 @@
 <template lang="pug">
   app-form(:action="'/categories'" :storeKey="'productMainCategory'" :submitText="'Save'")
     app-form-input(:name="'name'" :label="'Name'")
+    app-form-input(:name="'name_lv'" :label="'Name LV'")
+    app-form-input(:name="'name_ru'" :label="'Name RU'")
     app-form-input-hidden(:name="'id'")
 </template>
 

@@ -10,6 +10,12 @@ module.exports = (sequelize, DataTypes) =>
             name: {
                 type: DataTypes.STRING,
             },
+            name_ru: {
+                type: DataTypes.STRING,
+            },
+            name_lv: {
+                type: DataTypes.STRING,
+            },
             slug: {
                 type: DataTypes.STRING,
                 unique: true,

@@ -32,17 +32,10 @@ export default {
       // this.items = response;
       // this.loaded = true;
     },
-    updateStore(name, id) {
-      this.$store.commit("changeFormInput", {
-        form: "productMainCategory",
-        input: "name",
-        value: name
-      });
-
-      this.$store.commit("changeFormInput", {
-        form: "productMainCategory",
-        input: "id",
-        value: id
+    updateStore(item) {
+      this.$store.commit("changeForm", {
+        form: this.formKey,
+        item
       });
     }
   },
@@ -51,7 +44,7 @@ export default {
 
     EventBus.$on("modal-rename-category", category => {
       this.show = true;
-      this.updateStore(category.name, category.id);
+      this.updateStore(category);
     });
 
     EventBus.$on(["modal-close", `form-success-${this.formKey}`], () => {

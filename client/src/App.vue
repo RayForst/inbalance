@@ -50,8 +50,10 @@ export default {
 
       this.loaded = true;
     },
-    changeLanguage(locale) {
-      this.$i18n.locale = locale;
+    async changeLanguage(locale) {
+      console.log("change language request");
+      await loadLanguageAsync();
+      // this.$i18n.locale = locale;
       this.$cookie.set("lang", locale, 1);
       document.documentElement.setAttribute("lang", locale);
     },
