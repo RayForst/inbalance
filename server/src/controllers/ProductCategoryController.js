@@ -91,18 +91,25 @@ module.exports = {
         // }
 
         try {
-            const category = await SubcategoryModel.update(
-                {
-                    name: req.body.name,
-                    ProductCategoryId: req.body['ProductCategoryId'],
-                },
-                {
-                    where: {
-                        id: req.body.id,
-                    },
-                    individualHooks: true,
-                }
-            )
+            // const category = await SubcategoryModel.update(
+            //     {
+            //         name: req.body.name,
+            //         ProductCategoryId: req.body['ProductCategoryId'],
+            //     },
+            //     {
+            //         where: {
+            //             id: req.body.id,
+            //         },
+            //         individualHooks: true,
+            //     }
+            // )
+
+            const item = await SubcategoryModel.findOne({
+                where: { id: req.body.id },
+            })
+
+            item.update(req.body)
+            res.send(item.toJSON())
 
             res.send('ok')
         } catch (err) {

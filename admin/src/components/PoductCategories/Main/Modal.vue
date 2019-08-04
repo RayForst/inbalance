@@ -27,11 +27,6 @@ export default {
     appForm: () => import("./Form.vue")
   },
   methods: {
-    async get() {
-      // const response = (await contentService.productCategories.get({})).data;
-      // this.items = response;
-      // this.loaded = true;
-    },
     updateStore(item) {
       this.$store.commit("changeForm", {
         form: this.formKey,
@@ -40,8 +35,6 @@ export default {
     }
   },
   mounted() {
-    this.get();
-
     EventBus.$on("modal-rename-category", category => {
       this.show = true;
       this.updateStore(category);

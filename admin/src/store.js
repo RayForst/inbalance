@@ -97,6 +97,18 @@ export default new Vuex.Store({
           value: '',
           error: null,
         },
+        description: {
+          value: '',
+          error: null,
+        },
+        description_lv: {
+          value: '',
+          error: null,
+        },
+        description_ru: {
+          value: '',
+          error: null,
+        },
         id: {
           value: '',
           error: null,
@@ -104,6 +116,26 @@ export default new Vuex.Store({
       },
       productCategory: {
         name: {
+          value: '',
+          error: null,
+        },
+        name_lv: {
+          value: '',
+          error: null,
+        },
+        name_ru: {
+          value: '',
+          error: null,
+        },
+        description: {
+          value: '',
+          error: null,
+        },
+        description_lv: {
+          value: '',
+          error: null,
+        },
+        description_ru: {
           value: '',
           error: null,
         },
