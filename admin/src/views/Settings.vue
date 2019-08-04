@@ -4,12 +4,17 @@
       app-sidebar
       .card-container
         .row
-          .col-xs-6
-            app-settings
-          .col-xs-6
-            app-product-categories
-            app-product-subcategories
-            app-product-priority
+          .col-xs-12
+            .card
+              tabs(:options="{ useUrlFragment: false }")
+                tab(name="Main Settings")
+                  app-settings
+                tab(name="Product Categories")
+                  app-product-categories
+                tab(name="Product Subcategories")
+                  app-product-subcategories
+                tab(name="Prefered product category on main")
+                  app-product-priority
 </template>
 
 <script>
