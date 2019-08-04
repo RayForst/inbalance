@@ -103,10 +103,16 @@ export default new Vuex.Store({
   mutations: {
     setupCategories(state, payload) {
       state.menu[0].category = payload[0].name;
+      state.menu[0].category_lv = payload[0].name_lv;
+      state.menu[0].category_ru = payload[0].name_ru;
       state.menu[0].links[0].route.slug = payload[0].slug;
       state.menu[1].category = payload[1].name;
+      state.menu[1].category_lv = payload[1].name_lv;
+      state.menu[1].category_ru = payload[1].name_ru;
       state.menu[1].links[0].route.slug = payload[1].slug;
       state.menu[3].category = payload[2].name;
+      state.menu[3].category_lv = payload[2].name_lv;
+      state.menu[3].category_ru = payload[2].name_ru;
       state.menu[3].links[0].route.slug = payload[2].slug;
     },
     setupMenu(state, payload) {

@@ -5,7 +5,6 @@
       :action="action"
       :storeKey="storeKey"
       :submitText="'Save'"
-      :translate="true"
     )
       .row
         .col-xs-12.col-md-6
@@ -34,11 +33,7 @@
           app-form-select(:name="'ProductSubcategoryId'" :label="'Category'" :options="categories" :required="true")
           app-form-images(:name="'images'" :label="'Images'" :required="true")
           app-form-input(:name="'priority'" :label="'Priority'" :type="'checkbox'")
-         
-          template(
-            v-if="isEdit"
-          )
-            app-form-input-hidden(:name="'id'")
+          app-form-input-hidden( v-if="isEdit" :name="'id'")
 </template>
 
 <script>

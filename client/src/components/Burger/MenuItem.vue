@@ -41,10 +41,19 @@ export default {
 
       return route;
     },
+    getLocaleCategoryName(item) {
+      console.log("locale: ", this.$i18n.locale, "for item", item);
+      let field = "category";
+
+      if (this.$i18n.locale === "lv") field += "_lv";
+      if (this.$i18n.locale === "ru") field += "_ru";
+
+      return item[field];
+    },
     categoryText(menuItem) {
       return menuItem.hasOwnProperty("i18n")
         ? this.$t(menuItem.category)
-        : menuItem.category;
+        : this.getLocaleCategoryName(menuItem);
     },
     text(link) {
       return link.hasOwnProperty("i18n") ? this.$t(link.title) : link.title;

@@ -123,7 +123,16 @@ export default new Vuex.Store({
         },
       },
       article: {
+        formLang: 'en',
         name: {
+          value: '',
+          error: null,
+        },
+        name_lv: {
+          value: '',
+          error: null,
+        },
+        name_ru: {
           value: '',
           error: null,
         },
@@ -135,13 +144,42 @@ export default new Vuex.Store({
           value: '',
           error: null,
         },
+        text_lv: {
+          value: '',
+          error: null,
+        },
+        text_ru: {
+          value: '',
+          error: null,
+        },
         id: {
           value: '',
           error: null,
         },
       },
       static: {
+        formLang: 'en',
         name: {
+          value: '',
+          error: null,
+        },
+        name_lv: {
+          value: '',
+          error: null,
+        },
+        name_ru: {
+          value: '',
+          error: null,
+        },
+        text: {
+          value: '',
+          error: null,
+        },
+        text_lv: {
+          value: '',
+          error: null,
+        },
+        text_ru: {
           value: '',
           error: null,
         },
@@ -153,21 +191,46 @@ export default new Vuex.Store({
           value: '',
           error: null,
         },
-        text: {
-          value: '',
-          error: null,
-        },
         id: {
           value: '',
           error: null,
         },
       },
       event: {
+        formLang: 'en',
         name: {
           value: '',
           error: null,
         },
+        name_lv: {
+          value: '',
+          error: null,
+        },
+        name_ru: {
+          value: '',
+          error: null,
+        },
         caption: {
+          value: '',
+          error: null,
+        },
+        caption_lv: {
+          value: '',
+          error: null,
+        },
+        caption_ru: {
+          value: '',
+          error: null,
+        },
+        description: {
+          value: '',
+          error: null,
+        },
+        description_lv: {
+          value: '',
+          error: null,
+        },
+        description_ru: {
           value: '',
           error: null,
         },
@@ -192,10 +255,6 @@ export default new Vuex.Store({
           error: null,
         },
         images: {
-          value: '',
-          error: null,
-        },
-        description: {
           value: '',
           error: null,
         },
@@ -258,6 +317,7 @@ export default new Vuex.Store({
         const ignore = ['slug', 'createdAt', 'updatedAt', 'ProductSubcategory.name'];
 
         if (!ignore.includes(objectKey)) {
+          console.log('change form', payload.form, objectKey);
           state.forms[payload.form][objectKey].value = payload.item[objectKey];
         }
 

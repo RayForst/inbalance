@@ -13,12 +13,30 @@ module.exports = (sequelize, DataTypes) =>
             caption: {
                 type: DataTypes.STRING,
             },
+            description: {
+                type: DataTypes.TEXT,
+            },
+            name_lv: {
+                type: DataTypes.STRING,
+            },
+            caption_lv: {
+                type: DataTypes.STRING,
+            },
+            description_lv: {
+                type: DataTypes.TEXT,
+            },
+            name_ru: {
+                type: DataTypes.STRING,
+            },
+            caption_ru: {
+                type: DataTypes.STRING,
+            },
+            description_ru: {
+                type: DataTypes.TEXT,
+            },
             slug: {
                 type: DataTypes.STRING,
                 unique: true,
-            },
-            description: {
-                type: DataTypes.TEXT,
             },
             image: {
                 type: DataTypes.TEXT,

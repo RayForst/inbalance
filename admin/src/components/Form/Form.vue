@@ -19,7 +19,7 @@ import Api from "@/services/Api";
 import EventBus from "@/event-bus";
 
 export default {
-  props: ["storeKey", "submitText", "action", "translate"],
+  props: ["storeKey", "submitText", "action"],
   provide() {
     return {
       formKey: this.storeKey
@@ -96,9 +96,6 @@ export default {
         text: `Item was succesfuly updated`
       });
     }
-  },
-  components: {
-    appFormTranslate: () => import("@/components/Form/Translations")
   }
 };
 </script>

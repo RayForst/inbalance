@@ -1,20 +1,30 @@
 <template lang="pug">
   app-form(
     :action="action"
-    :storeKey="'static'" 
+    :storeKey="storeKey" 
     :submitText="'Save'"
   )
     .row
       .col-xs-12.col-md-6
-        app-form-input(:name="'name'" :label="'Name'" :required="true")
+        app-form-translate(
+          :storeKey="storeKey"
+        )
+          template(v-slot:en)
+            app-form-input(:name="'name'" :label="'Name'" :required="true")
+            app-form-text-editor(:name="'text'" :label="'Text'" :required="true" :key="'en'")
+          
+          template(v-slot:lv)
+            app-form-input(:name="'name_lv'" :label="'Name - LV'" :required="true")
+            app-form-text-editor(:name="'text_lv'" :label="'Text - LV'" :required="true" :key="'lv'")
+          
+          template(v-slot:ru)
+            app-form-input(:name="'name_ru'" :label="'Name - RU'" :required="true")
+            app-form-text-editor(:name="'text_ru'" :label="'Text - RU'" :required="true" :key="'ru'")
+
+      .col-xs-12.col-md-6
         app-form-select(v-if="loaded" :name="'menupos'" :label="'Menu Category'" :options="menu" :required="true")
         app-form-image(:name="'image'" :label="'Main image'" :required="true")
-      .col-xs-12.col-md-6
-        app-form-text-editor(:name="'text'" :label="'Text'" :required="true")
-        template(
-          v-if="isEdit"
-        )
-          app-form-input-hidden(:name="'id'")
+        app-form-input-hidden(v-if="isEdit" :name="'id'")
 </template>
 
 <script>
@@ -25,6 +35,7 @@ export default {
   props: ["isEdit"],
   data() {
     return {
+      storeKey: "static",
       loaded: false,
       categories: [],
       actions: {
@@ -53,7 +64,8 @@ export default {
     appFormImage: () => import("@/components/Form/Inputs/Image.vue"),
     appFormSelect: () => import("@/components/Form/Inputs/Select.vue"),
     appFormInputHidden: () => import("@/components/Form/Inputs/Hidden.vue"),
-    appFormTextEditor: () => import("@/components/Form/Inputs/TextEditor.vue")
+    appFormTextEditor: () => import("@/components/Form/Inputs/TextEditor.vue"),
+    appFormTranslate: () => import("@/components/Form/Translations")
   },
   methods: {
     async get() {

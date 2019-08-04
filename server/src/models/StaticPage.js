@@ -10,14 +10,26 @@ module.exports = (sequelize, DataTypes) =>
             name: {
                 type: DataTypes.STRING,
             },
+            name_lv: {
+                type: DataTypes.STRING,
+            },
+            name_ru: {
+                type: DataTypes.STRING,
+            },
+            text: {
+                type: DataTypes.TEXT,
+            },
+            text_lv: {
+                type: DataTypes.TEXT,
+            },
+            text_ru: {
+                type: DataTypes.TEXT,
+            },
             slug: {
                 type: DataTypes.STRING,
                 unique: true,
             },
             image: {
-                type: DataTypes.TEXT,
-            },
-            text: {
                 type: DataTypes.TEXT,
             },
             menupos: {

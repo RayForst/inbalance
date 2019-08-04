@@ -51,11 +51,13 @@ export default {
       this.loaded = true;
     },
     async changeLanguage(locale) {
-      console.log("change language request");
-      await loadLanguageAsync();
-      // this.$i18n.locale = locale;
+      console.log("change language request! New locale:", locale);
+      this.loaded = false;
+      await loadLanguageAsync(locale);
+      this.$i18n.locale = locale;
       this.$cookie.set("lang", locale, 1);
       document.documentElement.setAttribute("lang", locale);
+      this.loaded = true;
     },
     getLocale() {
       let selectetLang = "en";
@@ -72,7 +74,7 @@ export default {
       const availableLocales = ["en", "lv", "ru"];
       const userLang = this.getLocale();
 
-      if (availableLocales.includes(userLang)) {
+      if (!this.$cookie.get("lang") && availableLocales.includes(userLang)) {
         this.changeLanguage(userLang);
       }
     }

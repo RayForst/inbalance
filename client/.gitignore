@@ -1,5 +1,6 @@
 .DS_Store
 node_modules
+cleint.code-workspace
 /dist
 
 # local env files

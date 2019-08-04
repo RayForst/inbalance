@@ -18,8 +18,8 @@
           .col-xs-11.col-md-7.align-center.text-center.text-container
             template(v-if="item.preview")
               .preview
-                h2 {{ item.name }}
-                h1 {{ item.caption }}
+                h2 {{ toLocale(item, 'name') }}
+                h1 {{ toLocale(item, 'caption') }}
             template(v-else)
               router-link(:to="{ name: 'event', params: { slug: item.slug } }")
                 h2 {{ item.name }}
@@ -45,6 +45,20 @@ export default {
     carousel
   },
   methods: {
+    name(item) {
+      let name = item.name;
+
+      if (this.$i18n.locale === "lv") name = item.name_lv;
+      if (this.$i18n.locale === "ru") name = item.name_ru;
+
+      return name;
+    },
+    toLocale(item, field) {
+      if (this.$i18n.locale !== "en") field += `_${this.$i18n.locale}`;
+
+      console.log("res field", field);
+      return item[field];
+    },
     image(item) {
       const img = item.image != "" ? item.image : "default.png";
 
