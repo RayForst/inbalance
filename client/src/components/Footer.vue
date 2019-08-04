@@ -20,7 +20,7 @@
               app-social-buttons(:colorClass="socialColor")
             .col-xs-12.col-lg-8.first-md.align-center
               app-short-contacts
-            .col-xs-12.text-center.last-xs
+            .col-xs-12.text-center.last-xs.logo-wrap
               app-logo
             .col-xs-12.col-lg-2.text-center.last-md.first-lg.align-center
               .copyright © {{ this.$store.state.settings.copyright }}{{ new Date().getFullYear() }}
@@ -30,6 +30,7 @@
 import appSocialButtons from "@/components/social/SocialButtons";
 import appLogo from "@/components/Logo";
 import appShortContacts from "@/components/ShortContacts";
+import LocaleService from "@/services/LocaleService";
 
 export default {
   data() {
@@ -47,7 +48,7 @@ export default {
     categoryText(menuItem) {
       return menuItem.hasOwnProperty("i18n")
         ? this.$t(menuItem.category)
-        : menuItem.category;
+        : LocaleService.toLocale(menuItem, "category", this.$i18n.locale);
     },
     text(link) {
       return link.hasOwnProperty("i18n") ? this.$t(link.title) : link.title;
@@ -111,6 +112,16 @@ h4 {
   font-size: 16px;
   font-weight: 300;
   color: #4a4a4a;
+}
+
+.logo-wrap {
+  margin-top: 40px;
+  margin-bottom: 40px;
+
+  @media $media_lg {
+    margin-top: 70px;
+    margin-bottom: 0;
+  }
 }
 
 ul {

@@ -33,7 +33,7 @@ module.exports = {
                         include: [
                             {
                                 model: Models.ProductCategory,
-                                attributes: ['name'],
+                                attributes: ['name', 'name_lv', 'name_ru'],
                             },
                         ],
                     },

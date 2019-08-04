@@ -7,12 +7,13 @@
         :style="{ backgroundImage: 'url(/uploads/' + image + ')' }"
       )
     .vertical-container.item-details
-      .name {{ content.name }}
+      .name {{ toLocale(content, 'name') }}
       .date {{ date }}
 </template>
 
 <script>
 import moment from "moment";
+import LocaleService from "@/services/LocaleService";
 
 export default {
   props: ["content"],
@@ -31,6 +32,9 @@ export default {
     }
   },
   methods: {
+    toLocale(item, field) {
+      return LocaleService.toLocale(item, field, this.$i18n.locale);
+    },
     goArtcle(result) {
       this.$router.push({
         name: "article",

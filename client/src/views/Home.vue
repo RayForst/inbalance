@@ -21,6 +21,7 @@ import appProducts from "@/components/products/ListPreview";
 import appRecentPosts from "@/components/posts/ListPreview";
 import appSubscribe from "@/components/Subscribe";
 import contentService from "@/services/ContentService";
+import LocaleService from "@/services/LocaleService";
 
 export default {
   metaInfo: {
@@ -63,10 +64,13 @@ export default {
 
       this.products.splice(0, this.products.length);
 
+      console.log("response", response[0]);
       if (response.length) {
-        this.productsHeadingCategory += `<b>${
-          response[0]["ProductSubcategory.ProductCategory.name"]
-        }</b>`;
+        this.productsHeadingCategory += `<b>${LocaleService.toLocale(
+          response[0],
+          "ProductSubcategory.ProductCategory.name",
+          this.$i18n.locale
+        )}</b>`;
       }
       response.forEach(element => {
         this.products.push(element);

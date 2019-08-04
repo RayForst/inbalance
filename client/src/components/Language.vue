@@ -107,7 +107,6 @@ export default {
   mounted() {
     let userLang = this.$cookie.get("lang");
 
-    console.log("user lang in lang select", userLang);
     if (userLang && userLang !== "en") {
       const shortOption = this.findOptionByLocale(
         this.configShort.options,

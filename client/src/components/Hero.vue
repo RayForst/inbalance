@@ -22,8 +22,8 @@
                 h1 {{ toLocale(item, 'caption') }}
             template(v-else)
               router-link(:to="{ name: 'event', params: { slug: item.slug } }")
-                h2 {{ item.name }}
-                h1 {{ item.caption }}
+                h2 {{ toLocale(item, 'name') }}
+                h1 {{ toLocale(item, 'caption') }}
                 span.date {{ date(item.dateStart, item.dateEnd) }}
 </template>
 
@@ -32,6 +32,7 @@ import carousel from "vue-owl-carousel";
 import contentService from "@/services/ContentService";
 import moment from "moment";
 import DateService from "@/services/DateService";
+import LocaleService from "@/services/LocaleService";
 
 export default {
   props: ["titleTag"],
@@ -45,19 +46,8 @@ export default {
     carousel
   },
   methods: {
-    name(item) {
-      let name = item.name;
-
-      if (this.$i18n.locale === "lv") name = item.name_lv;
-      if (this.$i18n.locale === "ru") name = item.name_ru;
-
-      return name;
-    },
     toLocale(item, field) {
-      if (this.$i18n.locale !== "en") field += `_${this.$i18n.locale}`;
-
-      console.log("res field", field);
-      return item[field];
+      return LocaleService.toLocale(item, field, this.$i18n.locale);
     },
     image(item) {
       const img = item.image != "" ? item.image : "default.png";

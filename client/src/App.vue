@@ -19,6 +19,7 @@ import appHeader from "@/components/Header";
 import contentService from "@/services/ContentService";
 import EventBus from "@/event-bus";
 import { loadLanguageAsync } from "./i18n";
+import moment from "moment";
 
 export default {
   metaInfo: {
@@ -55,6 +56,7 @@ export default {
       this.loaded = false;
       await loadLanguageAsync(locale);
       this.$i18n.locale = locale;
+      moment.locale(locale);
       this.$cookie.set("lang", locale, 1);
       document.documentElement.setAttribute("lang", locale);
       this.loaded = true;
@@ -73,6 +75,7 @@ export default {
     firstVisitLocale() {
       const availableLocales = ["en", "lv", "ru"];
       const userLang = this.getLocale();
+      moment.locale(userLang);
 
       if (!this.$cookie.get("lang") && availableLocales.includes(userLang)) {
         this.changeLanguage(userLang);

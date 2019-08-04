@@ -42,7 +42,6 @@ export default {
       return route;
     },
     getLocaleCategoryName(item) {
-      console.log("locale: ", this.$i18n.locale, "for item", item);
       let field = "category";
 
       if (this.$i18n.locale === "lv") field += "_lv";

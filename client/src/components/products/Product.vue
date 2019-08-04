@@ -6,12 +6,14 @@
       :style="{ backgroundImage: 'url(/uploads/' + image + ')' }"
     )
     .vertical-container 
-      .name {{ content.name }}
+      .name {{ toLocale(content, 'name') }}
       .desc {{ content['ProductSubcategory.name'] }}
     router-link(:to="{ name: 'product', params: { slug: content.slug } }").ui-button {{ $t('links.discover') }}
 </template>
 
 <script>
+import LocaleService from "@/services/LocaleService";
+
 export default {
   props: ["content"],
   name: "product",
@@ -19,6 +21,9 @@ export default {
     return {};
   },
   methods: {
+    toLocale(item, field) {
+      return LocaleService.toLocale(item, field, this.$i18n.locale);
+    },
     goProduct(result) {
       this.$router.push({
         name: "product",

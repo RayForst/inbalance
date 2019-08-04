@@ -20,7 +20,7 @@
               .date {{ date(item.dateStart, item.dateEnd) }}
             .col-xs-12.col-lg-8
               .text-container
-                h2 {{ item.name }}
+                h2 {{ toLocale(item, 'name') }}
             .col-xs-12.col-lg-2
               router-link.ui-button.ui-button--white(:to="{ name: 'event', params: { slug: item.slug } }") {{ $t('links.discover') }}
 </template>
@@ -28,8 +28,8 @@
 <script>
 import carousel from "vue-owl-carousel";
 import contentService from "@/services/ContentService";
-import moment from "moment";
 import DateService from "@/services/DateService";
+import LocaleService from "@/services/LocaleService";
 
 export default {
   name: "event-calendar",
@@ -43,6 +43,9 @@ export default {
     carousel
   },
   methods: {
+    toLocale(item, field) {
+      return LocaleService.toLocale(item, field, this.$i18n.locale);
+    },
     date(dateStart, dateEnd) {
       return DateService.eventDate(dateStart, dateEnd);
     },
