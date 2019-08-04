@@ -1,10 +1,9 @@
 <template lang="pug">
 .editor
-  h5 {{ label.name }}
   v-jsoneditor(
     v-model="json" 
     :plus="false" 
-    :height="'800px'" 
+    :height="'600px'" 
     @error="onError"
   )
   br

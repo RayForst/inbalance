@@ -12,14 +12,17 @@
                   :icon="icon"
                   :title="title"
                 )
-              .row.list
-                .col-xs-12.col-lg-4
-                  appEditor(:locale="'en'")
-                .col-xs-12.col-lg-4
-                  appEditor(:locale="'ru'")
-                .col-xs-12.col-lg-4
-                  appEditor(:locale="'lv'")
+              .row
+                .col-xs-12
+                  tabs(:options="{ useUrlFragment: false }")
+                    tab(name="English")
+                      appEditor(:locale="'en'")
+                    tab(name="Russian")
+                      appEditor(:locale="'ru'")
+                    tab(name="Latvian")
+                      appEditor(:locale="'lv'")
 </template>
+
 
 <script>
 export default {

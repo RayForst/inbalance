@@ -256,3 +256,28 @@ h3
 .trix-content {
   min-height: 200px;
 }
+
+.tabs-component {
+  width: 100%;
+
+  &-tabs {
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+  }
+
+  &-tab {
+    color: $c_primary;
+    padding: 10px;
+    font-weight: bold;
+
+
+    &.is-active {
+      color: $c_accent;
+    }
+
+    a {
+      color:inherit;
+    }
+  }
+}

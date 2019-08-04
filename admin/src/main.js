@@ -3,28 +3,17 @@ import * as VueGoogleMaps from 'vue2-google-maps';
 import '@/scripts/fontLoader';
 import Tabs from 'vue-tabs-component';
 import SlideUpDown from 'vue-slide-up-down';
-// import CKEditor from '@ckeditor/ckeditor5-vue';
 import VJsoneditor from 'v-jsoneditor/src/index';
 import Notifications from 'vue-notification';
-// import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-// import VueCkeditor from 'vue-ckeditor5';
 import store from './store';
 import router from './router';
 import App from './App.vue';
 
+Vue.config.productionTip = false;
+
+Vue.use(Tabs);
 Vue.use(Notifications);
 Vue.use(VJsoneditor);
-// Vue.use(CKEditor);
-// const options = {
-//   editors: {
-//     classic: ClassicEditor,
-//   },
-//   name: 'ckeditor',
-// };
-
-// Vue.use(VueCkeditor.plugin, options);
-
-Vue.config.productionTip = false;
 Vue.use(Tabs);
 
 Vue.use(VueGoogleMaps, {
