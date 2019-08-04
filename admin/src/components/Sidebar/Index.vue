@@ -40,24 +40,19 @@ export default {
           route: "static-pages"
         },
         {
-          name: "Events subscribes",
-          icon: "nc-notification-70",
-          route: "event-subscribes"
-        },
-        {
           name: "Contacts Requests",
           icon: "nc-chat-round",
           route: "contact-requests"
         },
         {
-          name: "Translations",
-          icon: "nc-caps-small",
-          route: "translations"
-        },
-        {
           name: "Settings",
           icon: "nc-settings-90",
           route: "settings"
+        },
+        {
+          name: "Translations",
+          icon: "nc-caps-small",
+          route: "translations"
         },
         {
           name: "EXIT",

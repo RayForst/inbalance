@@ -4,10 +4,15 @@
       app-sidebar
       .card-container
         .row
-          .col-xs-7
-            app-contacts
-          .col-xs-5
-            app-newsletter
+          .col-xs-12
+            .card
+              tabs(:options="{ useUrlFragment: false }")
+                tab(name="Contact requests")
+                  app-contacts
+                tab(name="Newsletter subs")
+                  app-newsletter
+                tab(name="EVENTS SUBSCRIBES")
+                  app-event-subscribe
 </template>
 
 <script>
@@ -24,7 +29,9 @@ export default {
   components: {
     appContacts: () => import("@/components/ContactRequests/Contact/List"),
     appNewsletter: () => import("@/components/ContactRequests/Newsletter/List"),
-    appSidebar: () => import("@/components/Sidebar/Index")
+    appSidebar: () => import("@/components/Sidebar/Index"),
+    appEventSubscribe: () =>
+      import("@/components/ContactRequests/EventSubscribe/List")
   }
 };
 </script>
