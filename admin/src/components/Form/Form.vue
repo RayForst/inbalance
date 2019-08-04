@@ -93,7 +93,8 @@ export default {
         group: "main",
         title: "Saved!",
         type: "success",
-        text: `Item was succesfuly updated`
+        text: `Item was succesfuly updated`,
+        duration: 5000
       });
     }
   }

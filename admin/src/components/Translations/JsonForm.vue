@@ -57,9 +57,10 @@ export default {
 
       this.$notify({
         group: "main",
-        title: "Saved!",
+        title: `${this.label.name} updated!`,
         type: "success",
-        text: `${this.label.name} language was succesfuly updated`
+        text: `Translations list was succesfuly updated`,
+        duration: 5000
       });
     },
     async get() {
