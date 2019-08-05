@@ -21,12 +21,21 @@
           )
     .row.list(v-if="list")
       div(
-        v-for='(item, i) in items' 
+        v-for='(item, i) in items.slice(offset, onPage + offset)' 
         :key="i" 
         :class="{'col-xs-3': wide, 'col-xs-2': !wide }"
       )
         slot(name="item" v-bind:item="item")
-
+      
+      .col-xs-12
+        .row
+          .col-xs-12
+            app-pagination(
+              :total="items.length" 
+              :perPage="onPage" 
+              :current="page"
+              @newpage="changePage"
+            )
     .row(v-else)
       .col-xs-12
         .form-container
@@ -43,7 +52,9 @@ export default {
   data() {
     return {
       list: true,
-      edit: false
+      edit: false,
+      onPage: 12,
+      page: 0
     };
   },
   watch: {
@@ -58,6 +69,9 @@ export default {
       return !this.edit
         ? "Add New "
         : `Edit <a href="/" targer="_blank" class="ui-link">"${this.edit.name}"</a>`;
+    },
+    offset() {
+      return this.page > 0 ? this.page * this.onPage : 0;
     }
   },
   methods: {
@@ -74,6 +88,9 @@ export default {
       this.$store.commit("clearForm", {
         form: this.formKey
       });
+    },
+    changePage(event, lala) {
+      this.page = event;
     }
   },
   mounted() {
@@ -91,7 +108,8 @@ export default {
   },
   components: {
     appListHeader: () => import("@/components/List/Header"),
-    appListRemove: () => import("@/components/List/Remove")
+    appListRemove: () => import("@/components/List/Remove"),
+    appPagination: () => import("@/components/List/Pagination")
   }
 };
 </script>
