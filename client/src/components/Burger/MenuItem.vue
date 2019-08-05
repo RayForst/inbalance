@@ -19,11 +19,13 @@
           li(v-for="link in menuItem.links")
             router-link.submenu-link.text-upper(
               :to="url(link)"
-              v-text="text(link)"
+              v-text="toLocale(link, 'title')"
             )
 </template>
 
 <script>
+import LocaleService from "@/services/LocaleService";
+
 export default {
   name: "menu-item",
   props: ["menuItem", "isLast", "isFirst"],
@@ -41,18 +43,13 @@ export default {
 
       return route;
     },
-    getLocaleCategoryName(item) {
-      let field = "category";
-
-      if (this.$i18n.locale === "lv") field += "_lv";
-      if (this.$i18n.locale === "ru") field += "_ru";
-
-      return item[field];
+    toLocale(item, field) {
+      return LocaleService.toLocale(item, field, this.$i18n.locale);
     },
     categoryText(menuItem) {
       return menuItem.hasOwnProperty("i18n")
         ? this.$t(menuItem.category)
-        : this.getLocaleCategoryName(menuItem);
+        : this.toLocale(menuItem, "category");
     },
     text(link) {
       return link.hasOwnProperty("i18n") ? this.$t(link.title) : link.title;

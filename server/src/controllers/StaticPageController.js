@@ -59,7 +59,14 @@ module.exports = {
             const result = await Model.findAll({
                 raw: true,
                 order: [['createdAt', 'DESC']],
-                attributes: ['id', 'name', 'slug', 'menupos'],
+                attributes: [
+                    'id',
+                    'name',
+                    'name_lv',
+                    'name_ru',
+                    'slug',
+                    'menupos',
+                ],
             })
 
             res.send(result)

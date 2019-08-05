@@ -6,6 +6,7 @@
           app-menu(:slug="slug")
         .col-xs-12.col-lg-9
           app-products(:products="products")
+          app-pagination(:total="products.length" :perPage="onPage")
     app-subscribe
 </template>
 
@@ -14,6 +15,7 @@ import contentService from "@/services/ContentService";
 import appProducts from "@/components/products/List";
 import appSubscribe from "@/components/Subscribe";
 import appMenu from "@/components/products/Menu";
+import appPagination from "@/components/Pagination";
 
 export default {
   metaInfo: {
@@ -23,13 +25,16 @@ export default {
   props: ["slug", "subcategory"],
   data() {
     return {
-      products: []
+      products: [],
+      onPage: 3,
+      page: 0
     };
   },
   components: {
     appProducts,
     appSubscribe,
-    appMenu
+    appMenu,
+    appPagination
   },
   methods: {
     async get() {
@@ -40,6 +45,9 @@ export default {
         : {
             category: this.slug
           };
+
+      request.limit = this.onPage;
+      request.page = this.page;
       const response = (await contentService.products.get(request)).data;
 
       if (Object.keys(response).length < 1) {

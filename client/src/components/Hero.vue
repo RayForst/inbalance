@@ -94,7 +94,7 @@ export default {
   }
 
   @media $media_lg {
-    margin-top: 40px;
+    margin-top: 20px;
   }
 }
 

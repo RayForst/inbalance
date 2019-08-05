@@ -51,7 +51,14 @@ export default {
         : LocaleService.toLocale(menuItem, "category", this.$i18n.locale);
     },
     text(link) {
-      return link.hasOwnProperty("i18n") ? this.$t(link.title) : link.title;
+      console.log(
+        link.title,
+        LocaleService.toLocale(link, "title", this.$i18n.locale),
+        link
+      );
+      return link.hasOwnProperty("i18n")
+        ? this.$t(link.title)
+        : LocaleService.toLocale(link, "title", this.$i18n.locale);
     }
   },
   components: {

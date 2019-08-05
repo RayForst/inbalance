@@ -58,6 +58,10 @@ header.main {
   box-shadow: 0 2px 10px 0 rgba(24, 55, 92, 0.16);
   z-index: 9000;
 
+  & > .container {
+    padding-bottom: 10px;
+  }
+
   @media $media_lg {
     box-shadow: none;
   }

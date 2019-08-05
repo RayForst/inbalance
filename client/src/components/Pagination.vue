@@ -1,14 +1,18 @@
 <template lang="pug">
   ul.pagination
-    li(v-for="page, index in pages" :class="{ active: index === 0 }") {{ page }}
+    li(v-for="page, index in items" :class="{ active: index === 0 }") {{ page }}
 </template>
 
 <script>
 export default {
+  props: ["total", "perPage"],
   data() {
-    return {
-      pages: [1, 2, 3, 4, "...", 10]
-    };
+    return {};
+  },
+  computed: {
+    items() {
+      return Math.ceil(this.total / this.perPage);
+    }
   }
 };
 </script>

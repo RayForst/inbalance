@@ -119,6 +119,8 @@ export default new Vuex.Store({
       payload.forEach((element) => {
         state.menu[element.menupos].links.push({
           title: element.name,
+          title_lv: element.name_lv,
+          title_ru: element.name_ru,
           route: {
             name: 'static',
             slug: element.slug,
