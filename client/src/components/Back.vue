@@ -5,7 +5,7 @@
         img(
           :src="require('@/assets/img/arrow.svg')"
         )
-        | Back
+        | {{ $t('back') }}
 </template>
 
 <script>
@@ -30,7 +30,7 @@ export default {
   color: #7e8f97;
   font-family: 'Lora', sans-serif;
   display: flex;
-  padding-top: 20px;
+  padding-top: 5px;
   padding-bottom: 20px;
   transition: opacity 0.3s ease;
   text-decoration: none;

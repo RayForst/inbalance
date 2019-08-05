@@ -29,7 +29,7 @@ module.exports = {
                 include: [
                     {
                         model: Models.ProductSubcategory,
-                        attributes: ['name'],
+                        attributes: ['name', 'name_lv', 'name_ru'],
                         include: [
                             {
                                 model: Models.ProductCategory,
@@ -66,11 +66,11 @@ module.exports = {
                     include: [
                         {
                             model: Models.ProductSubcategory,
-                            attributes: ['name'],
+                            attributes: ['name', 'name_lv', 'name_ru'],
                             include: [
                                 {
                                     model: Models.ProductCategory,
-                                    attributes: ['name'],
+                                    attributes: ['name', 'name_lv', 'name_ru'],
                                 },
                             ],
                         },
@@ -90,7 +90,7 @@ module.exports = {
                     include: [
                         {
                             model: Models.ProductSubcategory,
-                            attributes: ['name'],
+                            attributes: ['name', 'name_lv', 'name_ru'],
                         },
                     ],
                     where: {
@@ -107,7 +107,7 @@ module.exports = {
                     include: [
                         {
                             model: Models.ProductSubcategory,
-                            attributes: ['name'],
+                            attributes: ['name', 'name_lv', 'name_ru'],
                         },
                     ],
                     where: {
@@ -155,11 +155,11 @@ module.exports = {
                     include: [
                         {
                             model: Models.ProductSubcategory,
-                            attributes: ['name'],
+                            attributes: ['name', 'name_lv', 'name_ru'],
                             include: [
                                 {
                                     model: Models.ProductCategory,
-                                    attributes: ['name'],
+                                    attributes: ['name', 'name_lv', 'name_ru'],
                                 },
                             ],
                         },
@@ -176,7 +176,7 @@ module.exports = {
                     include: [
                         {
                             model: Models.ProductSubcategory,
-                            attributes: ['name'],
+                            attributes: ['name', 'name_lv', 'name_ru'],
                         },
                     ],
                     where: {
@@ -190,7 +190,7 @@ module.exports = {
                     include: [
                         {
                             model: Models.ProductSubcategory,
-                            attributes: ['name'],
+                            attributes: ['name', 'name_lv', 'name_ru'],
                         },
                     ],
                 })
@@ -215,7 +215,7 @@ module.exports = {
                 include: [
                     {
                         model: Models.ProductSubcategory,
-                        attributes: ['name', 'slug'],
+                        attributes: ['name', 'name_lv', 'name_ru', 'slug'],
                         include: [
                             {
                                 model: Models.ProductCategory,

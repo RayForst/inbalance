@@ -68,7 +68,7 @@ export default {
 
 .products {
   @media $media_lg {
-    padding-top: 35px;
+    padding-top: 20px;
   }
 }
 

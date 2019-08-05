@@ -7,7 +7,7 @@
     )
     .vertical-container 
       .name {{ toLocale(content, 'name') }}
-      .desc {{ content['ProductSubcategory.name'] }}
+      .desc {{ toLocale(content, 'ProductSubcategory.name') }}
     router-link(:to="{ name: 'product', params: { slug: content.slug } }").ui-button {{ $t('links.discover') }}
 </template>
 

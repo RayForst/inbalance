@@ -15,12 +15,12 @@
                   :style="{ backgroundImage: 'url(/uploads/' + image + ')' }"
                 )
               .col-xs-6.sm-desc
-                .name {{ product.name }}
+                .name {{ toLocale(product, 'name') }}
                 router-link.desc(
                   :to="{ name: 'products-subcategory', params: { slug: product.ProductSubcategory.ProductCategory.slug, subcategory: product.ProductSubcategory.slug} }"
-                ) {{ product['ProductSubcategory.name'] }}
+                ) {{ toLocale(product.ProductSubcategory, 'name') }}
                 .share
-                  h5 SHARE ON
+                  h5 {{ $t('share') }}
                   .share-list
                     a(href="#").item
                       img(
@@ -33,10 +33,10 @@
           .media_desktop-and-mob
             .row.relative
               .col-xs-12.first-lg
-                .name {{ product.name }}
+                .name {{ toLocale(product, 'name') }}
                 router-link.desc(
                   :to="{ name: 'products-subcategory', params: { slug: product.ProductSubcategory.ProductCategory.slug, subcategory: product.ProductSubcategory.slug} }"
-                ) {{ product.ProductSubcategory.name }}
+                ) {{ toLocale(product.ProductSubcategory, 'name') }}
               .col-xs-12.first-xs
                 .carousel-wrap(v-if="gallery && gallery.length > 1")
                   carousel(
@@ -56,7 +56,7 @@
                   )
               .col-xs-12
                 .share
-                  h5 SHARE ON
+                  h5 {{ $t('share') }}
                   .share-list
                     a(href="#").item
                       img(
@@ -71,21 +71,26 @@
         .tabs-wrap
           tabs(:options="{ useUrlFragment: false }")
             tab(
-              name="DESCRIPTION AND BENEFIT"
-              v-html="product.description"
+              :name="$t('products.tab1')"
+              v-html="toLocale(product, 'description')"
             )
-            tab(name="how to use it")
+            tab(
+              :name="$t('products.tab2')"
+            )
               p(
-                v-html="product.howtouse"
+                v-html="toLocale(product, 'howtouse')"
               )
-            tab(name="ingredients")
+            tab(
+              :name="$t('products.tab3')"
+            )
               p(
-                v-html="product.ingridients"
+                v-html="toLocale(product, 'ingridients')"
               )
 </template>
 
 <script>
 import carousel from "vue-owl-carousel";
+import LocaleService from "@/services/LocaleService";
 
 export default {
   name: "product-preview",
@@ -98,6 +103,9 @@ export default {
     };
   },
   methods: {
+    toLocale(item, field) {
+      return LocaleService.toLocale(item, field, this.$i18n.locale);
+    },
     showImg(index, key) {
       this.index = index;
       this.galleryVisible = true;
@@ -231,6 +239,7 @@ export default {
     color: #7e8f97;
     margin-bottom: 20px;
     margin-top: 15px;
+    text-transform: uppercase;
   }
 }
 

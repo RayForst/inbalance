@@ -42,7 +42,7 @@ module.exports = {
                     include: [
                         {
                             model: Model,
-                            attributes: ['name'],
+                            attributes: ['name', 'name_lv', 'name_ru'],
                         },
                     ],
                     where: {

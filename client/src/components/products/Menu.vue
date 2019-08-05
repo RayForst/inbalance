@@ -1,34 +1,49 @@
 <template lang="pug">
   div.menu
     .menu-xs
-      slide-up-down(:active="active" :duration="400")
-        ul(@click="toggle")
-          li(v-for="link, index in links")
-            template(v-if="index===0")
+      slide-up-down(
+        :active="active"
+        :duration="400"
+      )
+        ul(
+          @click="toggle"
+        )
+          li(
+            v-for="link, index in links"
+          )
+            template(
+              v-if="index === 0"
+            )
               a(href="#") 
-                b {{ link.name }}     
-            template(v-else)
-              a(href="#") {{ link.name }} 
-      .trigger(@click="toggle")
+                b {{ toLocale(link, 'name') }}     
+            template(
+              v-else
+            )
+              a(href="#") 
+                | {{ toLocale(link, 'name') }} 
+      .trigger(
+        @click="toggle"
+      )
         .text
-          template(v-if="!active") Open menu
-          template(v-else) Close menu
+          template(v-if="!active") {{ $t('products.menu') }}
+          template(v-else) {{ $t('products.closemenu') }}
     .menu-lg
       ul(@click="toggle")
         li
           router-link(
             :to="{ name: 'products', params: { category: slug} }"
             exact
-          )  ALL PRODUCTS
+          )  {{ $t('products.all') }}
         li(v-for="link, index in links")
           router-link(
             :class="{ active: index === 0 }"
             :to="{ name: 'products-subcategory', params: { category: slug, subcategory: link.slug } }"
-          )  {{ link.name }} 
+          )  {{ toLocale(link, 'name') }} 
 </template>
 
 <script>
 import contentService from "@/services/ContentService";
+import LocaleService from "@/services/LocaleService";
 
 export default {
   props: ["slug"],
@@ -40,11 +55,15 @@ export default {
   },
   methods: {
     async get() {
-      const response = (await contentService.subcategories.get({
+      this.links = (await contentService.subcategories.get({
         category: this.slug
       })).data;
 
-      this.links = response;
+      console.log(this.links, "links");
+    },
+    toLocale(item, field) {
+      console.log("to loc", item);
+      return LocaleService.toLocale(item, field, this.$i18n.locale);
     },
     toggle: function() {
       this.active = !this.active;
