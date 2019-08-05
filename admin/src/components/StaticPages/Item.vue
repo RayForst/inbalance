@@ -55,6 +55,8 @@ export default {
 }
 
 .product-preview {
+  padding-bottom: 10px;
+
   .name {
     font-size: 14px;
     line-height: 1.33em;

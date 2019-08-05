@@ -17,7 +17,7 @@ module.exports = {
             res.send(article.toJSON())
         } catch (err) {
             res.status(400).send({
-                error: 'Something went wrong' + err,
+                error: 'Something went wrong! \r\n' + err.errors[0].message,
             })
         }
     },
@@ -32,6 +32,7 @@ module.exports = {
                 where: { id: req.body.id },
             })
 
+            console.log(req.body)
             item.update(req.body)
             res.send(item.toJSON())
         } catch (err) {

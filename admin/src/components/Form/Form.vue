@@ -3,15 +3,15 @@
     slot(
       :storeKey="storeKey"
     )
+    .ui-error.error-server(
+      v-html="error"
+    )
     .row
       .col-xs-4.col-xs-offset-4
         button.ui-button.ui-button--big.ui-button--full-green(
           type="submit"
           v-text="submitText"
         )
-    .ui-error.error-server(
-      v-html="error"
-    )
 </template>
 
 <script>

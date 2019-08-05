@@ -22,6 +22,7 @@
             app-form-text-editor(:name="'text_ru'" :label="'Text - RU'" :required="true" :key="'ru'")
 
       .col-xs-12.col-md-6
+        app-form-input(v-if="isEdit" :name="'slug'" :label="'URL'" :required="true")
         app-form-select(v-if="loaded" :name="'menupos'" :label="'Menu Category'" :options="menu" :required="true")
         app-form-image(:name="'image'" :label="'Main image'" :required="true")
         app-form-input-hidden(v-if="isEdit" :name="'id'")

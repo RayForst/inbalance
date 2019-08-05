@@ -191,6 +191,10 @@ export default new Vuex.Store({
       },
       static: {
         formLang: 'en',
+        slug: {
+          value: '',
+          error: null,
+        },
         name: {
           value: '',
           error: null,
@@ -346,7 +350,7 @@ export default new Vuex.Store({
     },
     changeForm(state, payload) {
       Object.keys(payload.item).map((objectKey) => {
-        const ignore = ['slug', 'createdAt', 'updatedAt', 'ProductSubcategory.name', ''];
+        const ignore = ['createdAt', 'updatedAt', 'ProductSubcategory.name', ''];
 
         if (!ignore.includes(objectKey)) {
           console.log('change form', payload.form, objectKey);

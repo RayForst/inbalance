@@ -37,4 +37,3 @@ module.exports = (sequelize, DataTypes) =>
             },
         })
         .beforeCreate(createSlug)
-        .beforeUpdate(createSlug)
