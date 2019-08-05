@@ -20,7 +20,7 @@
         tr(v-for="item, index in items")
           td {{ index + 1 }}
           td {{ item.name }}
-          td {{ item.category }}
+          td {{ item["ProductCategory.name"] }}
           td
             a.ui-link(href="#" @click.prevent="showEditModal(item.id)") Edit
             a.ui-link(href="#" @click.prevent="remove(item.id, item.name)") Remove
@@ -54,14 +54,10 @@ export default {
       const response = (await contentService.productSubcategories.get({})).data;
 
       response.forEach(element => {
-        this.items.push({
-          id: element.id,
-          name: element.name,
-          category: element["ProductCategory.name"],
-          categoryId: element["ProductCategoryId"]
-        });
+        this.items.push(element);
       });
 
+      console.log("loaded subcategories", this.items);
       this.loaded = true;
     },
     showModal() {

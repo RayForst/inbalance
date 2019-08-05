@@ -28,23 +28,11 @@ export default {
     appForm: () => import("./Form.vue")
   },
   methods: {
-    updateStore(name, id, categoryId) {
-      this.$store.commit("changeFormInput", {
+    updateStore(item) {
+      console.log("updating with data", item);
+      this.$store.commit("changeForm", {
         form: this.formKey,
-        input: "name",
-        value: name
-      });
-
-      this.$store.commit("changeFormInput", {
-        form: this.formKey,
-        input: "id",
-        value: id
-      });
-
-      this.$store.commit("changeFormInput", {
-        form: this.formKey,
-        input: "ProductCategoryId",
-        value: categoryId
+        item
       });
     }
   },
@@ -55,7 +43,7 @@ export default {
     });
 
     EventBus.$on("modal-edit-subcategory", category => {
-      this.updateStore(category.name, category.id, category.categoryId);
+      this.updateStore(category);
       this.isEdit = true;
       this.show = true;
     });
