@@ -19,7 +19,7 @@
           li(v-for="link in menuItem.links")
             router-link.submenu-link.text-upper(
               :to="url(link)"
-              v-text="toLocale(link, 'title')"
+              v-text="text(link)"
             )
 </template>
 
@@ -52,7 +52,9 @@ export default {
         : this.toLocale(menuItem, "category");
     },
     text(link) {
-      return link.hasOwnProperty("i18n") ? this.$t(link.title) : link.title;
+      return link.hasOwnProperty("i18n")
+        ? this.$t(link.title)
+        : this.toLocale(link, "title");
     },
     open() {
       this.hover = true;

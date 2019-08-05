@@ -52,7 +52,6 @@ export default {
       this.loaded = true;
     },
     async changeLanguage(locale) {
-      console.log("change language request! New locale:", locale);
       this.loaded = false;
       await loadLanguageAsync(locale);
       this.$i18n.locale = locale;

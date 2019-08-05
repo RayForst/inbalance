@@ -127,7 +127,6 @@ export default {
 
       const list = (await contentService.articles.get()).data;
 
-      console.log("list", list);
       this.list = list;
 
       // if (Object.keys(response).length < 1) {

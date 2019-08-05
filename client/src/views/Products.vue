@@ -5,8 +5,17 @@
         .col-xs-12.col-lg-3
           app-menu(:slug="slug")
         .col-xs-12.col-lg-9
-          app-products(:products="products")
-          app-pagination(:total="products.length" :perPage="onPage")
+          app-products(
+            :products="products"
+            :perPage="onPage"
+            :page="page"
+          )
+          app-pagination(
+            :total="products.length" 
+            :perPage="onPage" 
+            :current="page"
+            @newpage="changePage"
+          )
     app-subscribe
 </template>
 
@@ -26,7 +35,7 @@ export default {
   data() {
     return {
       products: [],
-      onPage: 3,
+      onPage: 9,
       page: 0
     };
   },
@@ -46,8 +55,9 @@ export default {
             category: this.slug
           };
 
-      request.limit = this.onPage;
-      request.page = this.page;
+      // request.limit = this.onPage;
+      // request.page = this.page;
+
       const response = (await contentService.products.get(request)).data;
 
       if (Object.keys(response).length < 1) {
@@ -55,6 +65,9 @@ export default {
       }
 
       this.products = response;
+    },
+    changePage(event, lala) {
+      this.page = event;
     }
   },
   mounted() {

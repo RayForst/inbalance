@@ -58,11 +58,8 @@ export default {
       this.links = (await contentService.subcategories.get({
         category: this.slug
       })).data;
-
-      console.log(this.links, "links");
     },
     toLocale(item, field) {
-      console.log("to loc", item);
       return LocaleService.toLocale(item, field, this.$i18n.locale);
     },
     toggle: function() {
