@@ -150,8 +150,21 @@ h1,h2,h3,h4,h5,h5
 .bg-hero
   min-height 416px
   display: flex
+  position: relative
   align-items: flex-end
 
+  & > .content-container
+    z-index: 2
+
+  &:before
+    content: ''
+    display block
+    position:absolute
+    background-image: linear-gradient(to bottom, rgba(97,118,127,0), rgba(0,0,0,0.61));
+    top: 0
+    left: 0
+    width: 100%
+    height 100%
 
 .sticky-footer-container
   display: flex

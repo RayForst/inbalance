@@ -69,6 +69,7 @@ export default {
   @media $media_lg {
     display: inline-flex;
     height: 80px;
+    margin-top: 15px;
   }
 }
 </style>

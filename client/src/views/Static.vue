@@ -9,36 +9,13 @@
         .content-container.content
           .row.center-xs.start-lg
             .col-xs-11.col-lg-10.text-start
-              h1 {{ item.name }}
+              h1 {{ toLocale(item, "name") }}
     .content-container.content
       div
         .container
           p(
-            v-html="item.text"
+            v-html="toLocale(item, 'text')"
           )
-        //- .container
-        //-   .row
-        //-     .col-xs-12.col-sm-6
-        //-       img.width-100(
-        //-         :src="require('@/assets/img/img-2.jpg')"
-        //-       )
-        //-     .col-xs-12.col-sm-6
-        //-       p.gray.padding-left Inbalans – это велнес студия, распологающаяся в историческом пешеходном комплексе Риги, чем-то походящем на маленький городок, в элегантном Berga Bazārs. Inbalans – это место единения души и тела, оазис спокойного благоденствия посреди стремительных будней.
-          
-        //- .container
-        //-   .row
-        //-     .col-xs-12.col-sm-6
-        //-       p.gray.padding-right Inbalans – это велнес студия, распологающаяся в историческом пешеходном комплексе Риги, чем-то походящем на маленький городок, в элегантном Berga Bazārs. Inbalans – это место единения души и тела, оазис спокойного благоденствия посреди стремительных будней.
-        //-     .col-xs-12.col-sm-6
-        //-       img.width-100(
-        //-         :src="require('@/assets/img/img-3.jpg')"
-        //-       )
-
-        //- .container
-        //-   p We welcomed our Community to places that reflect the highest expression of creativity and care, great value to us, such as Carlo and Camilla in Segheria, in Milan, and Rocca Meli Lupi di Soragna, to a medieval castle garnished with frescoes ceilings and baroque statues, for the Gala Dinner.<br/><br/>And, of course, we also fed the mind during the three days of Conference featuring on-stage international researchers with a cutting-edge perspective on social and beauty changes, as well as a new big product launch.<br/><br/>The four-day journey started in Milan, at Officine del Volo, with a very special evening dedicated to /skin regimen/ with top speakers and a very engaging brand immersion.
-        //-   img.width-100(
-        //-     :src="require('@/assets/img/img-4.jpg')"
-        //-   )
       .spacer
       app-products(:heading="productsHeading" :products="products")
       .spacer
@@ -50,6 +27,7 @@
 import contentService from "@/services/ContentService";
 import appProducts from "@/components/products/ListPreview";
 import appSubscribe from "@/components/Subscribe";
+import LocaleService from "@/services/LocaleService";
 
 export default {
   metaInfo: {
@@ -93,6 +71,9 @@ export default {
         return this.$router.push({ name: "error" });
       }
       this.item = response;
+    },
+    toLocale(item, field) {
+      return LocaleService.toLocale(item, field, this.$i18n.locale);
     },
     async getProducts() {
       const priority = (await contentService.priority.get()).data;

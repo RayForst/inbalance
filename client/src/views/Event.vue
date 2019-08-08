@@ -18,11 +18,11 @@
         .row
           .col-xs-12
             .ui-tag {{ date }}
-            h1 {{ item.name }}
+            h1 {{ toLocale(item, 'name') }}
   .content-container.content(v-if="item")
     .row
       .col-xs-12
-        p(v-html="item.description")
+        p(v-html="toLocale(item, 'description')")
       .col-xs-12
         .carousel-wrap(v-if="item")
           carousel(
@@ -48,6 +48,7 @@ import appSeminarSubscribe from "@/components/events/Subscribe";
 import contentService from "@/services/ContentService";
 import moment from "moment";
 import DateService from "@/services/DateService";
+import LocaleService from "@/services/LocaleService";
 
 export default {
   name: "event",
@@ -93,6 +94,9 @@ export default {
       this.galleryVisible = true;
 
       document.body.classList.add("hidden-scroll");
+    },
+    toLocale(item, field) {
+      return LocaleService.toLocale(item, field, this.$i18n.locale);
     },
     handleHide() {
       this.galleryVisible = false;

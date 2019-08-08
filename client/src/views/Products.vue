@@ -55,9 +55,6 @@ export default {
             category: this.slug
           };
 
-      // request.limit = this.onPage;
-      // request.page = this.page;
-
       const response = (await contentService.products.get(request)).data;
 
       if (Object.keys(response).length < 1) {

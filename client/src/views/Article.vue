@@ -5,14 +5,14 @@
       .row
         .col-xs-9.article-conntainer
           .container(v-if="item")
-            h1 {{ item.name }}
+            h1 {{ toLocale(item, 'name') }}
             img.width-100(
               :src="'/uploads/'+image"
             )
           .container
             p(
               v-if="item"
-              v-html="item.text"
+              v-html="toLocale(item, 'text')"
             )
             //- p.weight-300 
             //-   i Мы убеждены в том, что Мир целостен и отдельные его части не могут рассматриваться обособленно от других, поэтому во всех сферах жизни, в том числе в уходе за собой, холистический подход – самый эффективный.
@@ -30,28 +30,6 @@
             .offset-heading__text Recent POSTs
           .article-list
             app-recent-post(v-for="item,index in list" :key="index" :item="item")
-          //- .offset-heading
-          //-   .offset-heading__text Categories
-          //- ul.categories
-          //-   li
-          //-     a(href='#') What’s new
-          //-   li
-          //-     a(href='#') Tutorials
-          //-   li
-          //-     a(href='#') Interviews
-          //-   li
-          //-     a(href='#') Insights
-          //-   li
-          //-     a(href='#') Tips
-          //- .offset-heading
-          //-   .offset-heading__text Tags
-          //- .tag-list
-          //-   .ui-tag.ui-tag--white Fashion
-          //-   .ui-tag.ui-tag--white Fashion
-          //-   .ui-tag.ui-tag--white Fashion
-          //-   .ui-tag.ui-tag--white Fashion
-          //-   .ui-tag.ui-tag--white Fashion
-          //-   .ui-tag.ui-tag--white Fashion
       .spacer
 
 </template>
@@ -62,6 +40,7 @@ import appSubscribe from "@/components/Subscribe";
 import appBack from "@/components/Back";
 import appRecentPost from "@/components/articles/RecentPost";
 import contentService from "@/services/ContentService";
+import LocaleService from "@/services/LocaleService";
 
 export default {
   metaInfo: {
@@ -119,6 +98,9 @@ export default {
         return this.$router.push({ name: "error" });
       }
       this.item = response;
+    },
+    toLocale(item, field) {
+      return LocaleService.toLocale(item, field, this.$i18n.locale);
     },
     async getRecent() {
       // const response = (await contentService.articles.getOne({
