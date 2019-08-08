@@ -125,6 +125,33 @@ module.exports = {
             })
         }
     },
+    async getCategoryDesc(req, res) {
+        try {
+            let result
+
+            if (req.query.category) {
+                result = await Models.ProductCategory.findAll({
+                    raw: true,
+                    where: {
+                        slug: req.query.category,
+                    },
+                })
+            } else {
+                result = await Models.ProductSubcategory.findAll({
+                    raw: true,
+                    where: {
+                        slug: req.query.subcategory,
+                    },
+                })
+            }
+
+            res.send(result)
+        } catch (err) {
+            res.status(400).send({
+                error: 'Something went wrong' + err,
+            })
+        }
+    },
     async edit(req, res) {
         const errors = validationResult(req)
         if (!errors.isEmpty()) {

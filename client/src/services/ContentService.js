@@ -3,6 +3,7 @@ import Api from '@/services/Api';
 export default {
   products: {
     get: credentials => Api().get('/products', { params: credentials }),
+    getDesc: credentials => Api().get('/products/description', { params: credentials }),
     getOne: credentials => Api().get('/product', { params: credentials }),
     getByPriority: credentials => Api().get('/products/priority', { params: credentials }),
   },

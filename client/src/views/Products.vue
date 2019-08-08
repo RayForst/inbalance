@@ -5,6 +5,7 @@
         .col-xs-12.col-lg-3
           app-menu(:slug="slug")
         .col-xs-12.col-lg-9
+          p.desc {{ description }}
           app-products(
             :products="products"
             :perPage="onPage"
@@ -25,6 +26,7 @@ import appProducts from "@/components/products/List";
 import appSubscribe from "@/components/Subscribe";
 import appMenu from "@/components/products/Menu";
 import appPagination from "@/components/Pagination";
+import LocaleService from "@/services/LocaleService";
 
 export default {
   metaInfo: {
@@ -36,7 +38,8 @@ export default {
     return {
       products: [],
       onPage: 9,
-      page: 0
+      page: 0,
+      description: null
     };
   },
   components: {
@@ -56,12 +59,19 @@ export default {
           };
 
       const response = (await contentService.products.get(request)).data;
+      const desc = (await contentService.products.getDesc(request)).data;
 
       if (Object.keys(response).length < 1) {
         return this.$router.push({ name: "error" });
       }
 
+      console.log('desc', desc)
+
+      this.description = this.toLocale(desc[0], 'description');
       this.products = response;
+    },
+    toLocale(item, field) {
+      return LocaleService.toLocale(item, field, this.$i18n.locale);
     },
     changePage(event, lala) {
       this.page = event;
@@ -94,5 +104,12 @@ ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
+}
+
+p.desc {
+  margin: 0;
+  margin-bottom: 20px;
+  font-size: 16px;
+  line-height: 1.25em;
 }
 </style>
