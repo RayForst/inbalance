@@ -18,6 +18,7 @@
             @newpage="changePage"
           )
     app-subscribe
+    app-callback
 </template>
 
 <script>
@@ -26,6 +27,7 @@ import appProducts from "@/components/products/List";
 import appSubscribe from "@/components/Subscribe";
 import appMenu from "@/components/products/Menu";
 import appPagination from "@/components/Pagination";
+import appCallback from "@/components/Callback";
 import LocaleService from "@/services/LocaleService";
 
 export default {
@@ -46,7 +48,8 @@ export default {
     appProducts,
     appSubscribe,
     appMenu,
-    appPagination
+    appPagination,
+    appCallback
   },
   methods: {
     async get() {
@@ -64,8 +67,6 @@ export default {
       if (Object.keys(response).length < 1) {
         return this.$router.push({ name: "error" });
       }
-
-      console.log('desc', desc)
 
       this.description = this.toLocale(desc[0], 'description');
       this.products = response;
