@@ -68,7 +68,7 @@ export default {
         return this.$router.push({ name: "error" });
       }
 
-      this.description = this.toLocale(desc[0], 'description');
+      this.description = this.toLocale(desc[0], "description");
       this.products = response;
     },
     toLocale(item, field) {
@@ -96,6 +96,8 @@ export default {
 }
 
 .products {
+  position: relative;
+
   @media $media_lg {
     padding-top: 20px;
   }

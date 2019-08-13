@@ -34,7 +34,8 @@ export default {
 .callback {
   background: #103324;
   width: 270px;
-  position: fixed;
+  position: sticky;
+  margin-left: auto;
   bottom: 0;
   right: 18px;
   color: #fff;
@@ -55,9 +56,6 @@ export default {
   &-form {
     background: #e5e5e5;
     padding: 20px;
-    border: 1px solid #0f3324;
-    border-bottom: 0;
-    border-top: 0;
 
     input {
       width: 100%;
