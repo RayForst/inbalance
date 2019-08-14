@@ -1,6 +1,10 @@
 <template lang="pug">
-  .callback(@click="open = !open" :class="{open: open}")
-    .callback-header
+  .callback(
+    :class="{open: open}"
+  )
+    .callback-header(
+      @click="open = !open"
+    )
       img.callback-icon(
         :src="require('@/assets/img/widget-callback__icon.png')"
       )
@@ -8,9 +12,7 @@
         div Понравились продукты? 
         div Закажите звонок
     .callback-form
-      form
-        input(type="text" v-model='value')
-        button перезвоните мне
+      app-form
 </template>
 
 
@@ -23,6 +25,9 @@ export default {
       value: "+371"
     };
   },
+  components: {
+    appForm: () => import("@/components/forms/CallMeBack")
+  },
   methods: {}
 };
 </script>
@@ -34,13 +39,15 @@ export default {
 .callback {
   background: #103324;
   width: 270px;
-  position: sticky;
+  position: fixed;
   margin-left: auto;
   bottom: 0;
   right: 18px;
   color: #fff;
   border-radius: 10px 10px 0 0;
   cursor: pointer;
+  transform: translateY(120px);
+  transition: all 0.4s;
 
   &-header {
     padding: 11px 15px 11px 60px;
@@ -53,39 +60,8 @@ export default {
     left: 20px;
   }
 
-  &-form {
-    background: #e5e5e5;
-    padding: 20px;
-
-    input {
-      width: 100%;
-      box-sizing: border-box;
-      background-color: #fff;
-      border: 1px solid #cbcbcb;
-      border-radius: 4px;
-      height: 35px;
-      padding: 0 10px;
-      letter-spacing: 0.1em;
-    }
-
-    button {
-      height: 35px;
-      color: #fff;
-      font-size: 11px;
-      line-height: 1;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      width: 100%;
-      box-sizing: border-box;
-      border: none;
-      background: #103324;
-      margin-top: 10px;
-      border-radius: 3px;
-    }
-  }
-
   &.open {
-    bottom: 100px;
+    transform: translateY(0);
   }
 }
 </style>

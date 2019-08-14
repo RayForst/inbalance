@@ -7,6 +7,7 @@ const ProductCategoryController = require('./controllers/ProductCategoryControll
 const SettingsController = require('./controllers/SettingsController')
 const ContactController = require('./controllers/ContactController')
 const TranslationsController = require('./controllers/TranslationsController')
+const CallMeBackController = require('./controllers/CallMeBackController')
 const multer = require('multer')
 const crypto = require('crypto')
 const path = require('path')
@@ -67,6 +68,8 @@ const upload = multer({
 })
 
 module.exports = app => {
+    app.post('/call-me-back', CallMeBackController.save)
+
     app.post('/contact-request', ContactController.saveContactRequest)
     app.get('/translations', TranslationsController.get)
     app.post('/translations/save', TranslationsController.save)
@@ -127,11 +130,27 @@ module.exports = app => {
     // product categories
     app.get('/categories', ProductCategoryController.get)
     app.post('/admin/categories', ProductCategoryController.update)
-    app.get('/categories/subcategories', ProductCategoryController.getSubcategory)
-    app.post('/admin/categories/subcategories',ProductCategoryController.saveSubcategory)
-    app.post('/admin/categories/subcategories/edit', ProductCategoryController.editSubcategory)
-    app.post('/admin/categories/subcategories-remove', ProductCategoryController.removeSubcategory)
+    app.get(
+        '/categories/subcategories',
+        ProductCategoryController.getSubcategory
+    )
+    app.post(
+        '/admin/categories/subcategories',
+        ProductCategoryController.saveSubcategory
+    )
+    app.post(
+        '/admin/categories/subcategories/edit',
+        ProductCategoryController.editSubcategory
+    )
+    app.post(
+        '/admin/categories/subcategories-remove',
+        ProductCategoryController.removeSubcategory
+    )
 
-    app.post('/upload', upload.single('file'), (req, res) => {res.json({ file: req.file })})
-    app.post('/upload-editor', upload.single('file'), (req, res) => { res.send('200', `/uploads/${req.file.filename}`) })
+    app.post('/upload', upload.single('file'), (req, res) => {
+        res.json({ file: req.file })
+    })
+    app.post('/upload-editor', upload.single('file'), (req, res) => {
+        res.send('200', `/uploads/${req.file.filename}`)
+    })
 }

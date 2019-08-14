@@ -24,7 +24,7 @@
             @newpage="changePage"
           )
     app-subscribe
-    //- app-callback
+    app-callback
 </template>
 
 <script>
@@ -33,7 +33,7 @@ import appProducts from "@/components/products/List";
 import appSubscribe from "@/components/Subscribe";
 import appMenu from "@/components/products/Menu";
 import appPagination from "@/components/Pagination";
-import appCallback from "@/components/Callback";
+import appCallback from "@/components/CallMeBack";
 import LocaleService from "@/services/LocaleService";
 
 export default {
