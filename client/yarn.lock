@@ -8783,6 +8783,11 @@ vue-owl-carousel@^2.0.3:
     owl.carousel "^2.3.4"
     style-loader "^0.23.0"
 
+vue-read-more@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/vue-read-more/-/vue-read-more-1.1.1.tgz#fbdb3944eaf26728a118f7786908072fdbfe7c98"
+  integrity sha1-+9s5ROryZyihGPd4aQgHL9v+fJg=
+
 vue-router@^3.0.1:
   version "3.0.6"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.0.6.tgz#2e4f0f9cbb0b96d0205ab2690cfe588935136ac3"

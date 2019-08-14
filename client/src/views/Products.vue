@@ -5,7 +5,13 @@
         .col-xs-12.col-lg-3
           app-menu(:slug="slug")
         .col-xs-12.col-lg-9
-          p.desc {{ description }}
+          .product-desc(v-if="description")
+            read-more(
+              more-str="Read more..."
+              :text="description" 
+              link="#" 
+              less-str="Read less..." 
+              :max-chars="280")
           app-products(
             :products="products"
             :perPage="onPage"
@@ -18,7 +24,7 @@
             @newpage="changePage"
           )
     app-subscribe
-    app-callback
+    //- app-callback
 </template>
 
 <script>
@@ -107,12 +113,5 @@ ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
-}
-
-p.desc {
-  margin: 0;
-  margin-bottom: 20px;
-  font-size: 16px;
-  line-height: 1.25em;
 }
 </style>

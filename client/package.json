@@ -18,6 +18,7 @@
     "vue-i18n": "^8.11.2",
     "vue-meta": "^1.5.8",
     "vue-owl-carousel": "^2.0.3",
+    "vue-read-more": "^1.1.1",
     "vue-router": "^3.0.1",
     "vue-slide-up-down": "^1.7.2",
     "vue-tabs-component": "^1.5.0",
