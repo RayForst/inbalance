@@ -4,23 +4,28 @@
     @mouseover="open" 
     @mouseleave="close"
   )
-    span.main-link.text-upper(
-      @click.native="close" 
-      :to="{ name: menuItem.link }"
-      :class="{ active: hover }"
-    ) {{ categoryText(menuItem) }}
-    transition(name="fade" mode="out-in")
-      span.popup(
-        v-show="hover"
-        @mouseleave="close"
-        :class="{ first: this.isFirst, last: this.isLast }"
-      )
-        ul.popup-links
-          li(v-for="link in menuItem.links")
-            router-link.submenu-link.text-upper(
-              :to="url(link)"
-              v-text="text(link)"
-            )
+    template(v-if="menuItem.links")
+      span.main-link.text-upper(
+        @click.native="close" 
+        :to="{ name: menuItem.link }"
+        :class="{ active: hover }"
+      ) {{ categoryText(menuItem) }}
+      transition(name="fade" mode="out-in")
+        span.popup(
+          v-show="hover"
+          @mouseleave="close"
+          :class="{ first: this.isFirst, last: this.isLast }"
+        )
+          ul.popup-links
+            li(v-for="link in menuItem.links")
+              router-link.submenu-link.text-upper(
+                :to="url(link)"
+                v-text="text(link)"
+              )
+    template(v-else)
+      router-link.main-link.text-upper(
+        :to="{ name: menuItem.link }"
+      ) {{ categoryText(menuItem) }}
 </template>
 
 <script>

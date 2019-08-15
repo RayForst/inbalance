@@ -9,6 +9,8 @@
               tabs(:options="{ useUrlFragment: false }")
                 tab(name="Contact requests")
                   app-contacts
+                tab(name="Call me back")
+                  app-call-me-back
                 tab(name="Newsletter subs")
                   app-newsletter
                 tab(name="EVENTS SUBSCRIBES")
@@ -28,6 +30,7 @@ export default {
   },
   components: {
     appContacts: () => import("@/components/ContactRequests/Contact/List"),
+    appCallMeBack: () => import("@/components/ContactRequests/CallMeBack/List"),
     appNewsletter: () => import("@/components/ContactRequests/Newsletter/List"),
     appSidebar: () => import("@/components/Sidebar/Index"),
     appEventSubscribe: () =>

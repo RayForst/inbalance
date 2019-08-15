@@ -43,4 +43,7 @@ export default {
     get: credentials => Api().get('/translations', { params: credentials }),
     save: credentials => Api().post('/translations/save', credentials),
   },
+  callmeback: {
+    get: () => Api().get('/admin/call-me-back'),
+  },
 };

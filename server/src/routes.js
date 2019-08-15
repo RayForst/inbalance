@@ -68,6 +68,7 @@ const upload = multer({
 })
 
 module.exports = app => {
+    app.get('/admin/call-me-back', CallMeBackController.get)
     app.post('/call-me-back', CallMeBackController.save)
 
     app.post('/contact-request', ContactController.saveContactRequest)

@@ -60,15 +60,7 @@ export default new Vuex.Store({
         category: 'menu.categories.events',
         i18n: true,
         categoryIndex: 3,
-        links: [
-          {
-            title: 'menu.links.calendar',
-            i18n: true,
-            route: {
-              name: 'events',
-            },
-          },
-        ],
+        link: 'events',
       },
       {
         category: 'menu.categories.contacts',

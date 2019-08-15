@@ -35,9 +35,8 @@ export default {
 
       try {
         let data = {
-          fullname: this.form.fullname.value,
-          email: this.form.email.value,
-          text: this.form.text.value
+          phone: this.form.number.value,
+          userLang: this.$i18n.locale
         };
 
         const response = await contentService.contactRequest.save(data);

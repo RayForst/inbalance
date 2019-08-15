@@ -66,6 +66,7 @@ module.exports = {
                     'name_lv',
                     'name_ru',
                     'slug',
+                    'image',
                     'menupos',
                 ],
             })

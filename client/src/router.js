@@ -43,6 +43,16 @@ const router = new Router({
       component: () => import('./views/Contacts.vue'),
     },
     {
+      path: '/wellness-products',
+      name: 'wellness-products',
+      component: () => import('./views/WellnessProducts.vue'),
+    },
+    {
+      path: '/wellness-procedures',
+      name: 'wellness-procedures',
+      component: () => import('./views/WellnessProcedures.vue'),
+    },
+    {
       path: '/articles',
       name: 'articles',
       component: () => import('./views/Articles.vue'),
