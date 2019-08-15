@@ -4,7 +4,7 @@
     @mouseover="open" 
     @mouseleave="close"
   )
-    template(v-if="menuItem.links")
+    template(v-if="!menuItem.link")
       span.main-link.text-upper(
         @click.native="close" 
         :to="{ name: menuItem.link }"

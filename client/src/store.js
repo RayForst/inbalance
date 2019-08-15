@@ -38,6 +38,7 @@ export default new Vuex.Store({
       },
       {
         category: 'menu.categories.wellness',
+        link: 'wellness-procedures',
         i18n: true,
         categoryIndex: 3,
         links: [],
@@ -45,6 +46,7 @@ export default new Vuex.Store({
       {
         category: 'WELLNESS ТОВАРЫ',
         categoryIndex: 2,
+        link: 'wellness-products',
         links: [
           {
             title: 'menu.links.products',
@@ -66,6 +68,7 @@ export default new Vuex.Store({
         category: 'menu.categories.contacts',
         i18n: true,
         categoryIndex: 4,
+        link: 'contacts',
         links: [
           {
             title: 'menu.links.contacts',

@@ -1,7 +1,12 @@
 <template lang="pug">
-  .events
+  .page-preview
     .content-container.content
+      .row
+        .col-xs-12.heading
+          h1 Wellness Procedures
+          p SKIN REGIMEN – STRAUJAS IKDIENAS, LĒNA NOVECOŠANĀ /skin regimen/ – tā ir unisex ādas kopšanas sistēma lielo pilsētu iedzīvotājiem. Tīras, spēcīgas formulas, kuras atbilstaktīvo pilsētnieku ādas prasībām – pārvar ikdienas stresa un apkārtējās vides sekas, stiprina ādu un liek ta...
       app-list(:items="items")
+      .spacer
     app-subscribe
 </template>
 
@@ -12,28 +17,26 @@ import EventBus from "@/event-bus";
 export default {
   name: "wellness-procedures",
   metaInfo: {
-    title: "Events"
+    title: "Wellness Procedures"
   },
   data() {
     return {
-      items: [],
-      date: moment()
+      items: []
     };
   },
   components: {
-    appList: () => import("@/components/events/List"),
+    appList: () => import("@/components/pagePreview/List"),
     appSubscribe: () => import("@/components/Subscribe")
   },
   methods: {
     async get() {
-      const events = (await contentService.events.get({
-        year: this.date.year(),
-        month: this.date.month() + 1
-      })).data;
+      const menu = (await contentService.static.getMenu()).data;
+      const filtered = menu.filter(item => {
+        return item.menupos === 2;
+      });
+      const stateObj = this.$store.state.menu[2];
 
-      this.items = events;
-
-      EventBus.$emit("calendar-item-get", true);
+      this.items = filtered;
     }
   },
   mounted() {
@@ -55,6 +58,23 @@ export default {
     display: block;
     padding-top: 100%;
     background: #fff;
+  }
+}
+
+.heading {
+  h1 {
+    font-size: 32px;
+    margin: 0;
+    margin-bottom: 20px;
+  }
+
+  p {
+    margin: 0;
+    white-space: pre-wrap;
+    line-height: 1.7em;
+    font-size: 15px;
+    margin-bottom: 40px;
+    max-width: 900px;
   }
 }
 </style>

@@ -6,7 +6,7 @@
     .container
       .slide-container
         .name {{ toLocale(content, 'name') }}
-        router-link(:to="{name: 'static', params: { slug: content.slug } }").ui-button.ui-button--full-green {{ $t('links.discover') }}
+        router-link(:to="{name: content.route ? content.route : 'static', params: { slug: content.slug } }").ui-button.ui-button--full-green {{ $t('links.discover') }}
 </template>
 
 <script>
