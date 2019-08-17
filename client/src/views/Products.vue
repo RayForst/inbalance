@@ -7,10 +7,10 @@
         .col-xs-12.col-lg-9
           .product-desc(v-if="description")
             read-more(
-              more-str="Read more..."
+              :more-str="$t('readmore.open')" 
               :text="description" 
               link="#" 
-              less-str="Read less..." 
+              :less-str="$t('readmore.close')" 
               :max-chars="280")
           app-products(
             :products="products"
