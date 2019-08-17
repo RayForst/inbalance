@@ -1,10 +1,10 @@
 <template lang="pug">
   .page-preview
     .content-container.content
-      .row
-        .col-xs-12.heading
-          h1 Wellness Procedures
-          p SKIN REGIMEN – STRAUJAS IKDIENAS, LĒNA NOVECOŠANĀ /skin regimen/ – tā ir unisex ādas kopšanas sistēma lielo pilsētu iedzīvotājiem. Tīras, spēcīgas formulas, kuras atbilstaktīvo pilsētnieku ādas prasībām – pārvar ikdienas stresa un apkārtējās vides sekas, stiprina ādu un liek ta...
+      .row.center-xs
+        .col-xs-8.heading
+          h1 {{ $t('wellness_procedures_title') }}
+          p {{ $t('wellness_procedures_desc') }}
       app-list(:items="items")
       .spacer
     app-subscribe
@@ -63,18 +63,21 @@ export default {
 
 .heading {
   h1 {
-    font-size: 32px;
-    margin: 0;
-    margin-bottom: 20px;
+    font-size: 36px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.28em;
+    letter-spacing: normal;
+    color: #000;
   }
 
   p {
     margin: 0;
     white-space: pre-wrap;
-    line-height: 1.7em;
-    font-size: 15px;
-    margin-bottom: 40px;
-    max-width: 900px;
+    line-height: 1.5em;
+    font-size: 14px;
+    margin-bottom: 50px;
   }
 }
 </style>

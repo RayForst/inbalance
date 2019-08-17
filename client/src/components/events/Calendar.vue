@@ -2,7 +2,10 @@
   .event-calendar
     .row.center-xs
       .col-xs-12.col-sm-10.col-lg-12
-        h1 {{ $t('events.calendar.title')}}
+        .row.center-xs
+          .col-xs-8
+            h1 {{ $t('events.calendar.title')}}
+            p {{ $t('events.calendar.description') }}
         .month.container
           .control.left(@click="draw('past')")
             img.icon(:src="require('@/assets/img/calendar-arrow.svg')" alt="")
@@ -284,6 +287,13 @@ h1 {
   line-height: 1.28em;
   letter-spacing: normal;
   color: #000000;
+
+  & + p {
+    margin: 0;
+    white-space: pre-wrap;
+    line-height: 1.5em;
+    font-size: 14px;
+  }
 }
 
 .month {
