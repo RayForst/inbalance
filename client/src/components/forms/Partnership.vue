@@ -83,7 +83,7 @@ export default {
           email: this.form.email.value
         };
 
-        // const response = await contentService.partnership.save(data);
+        const response = await contentService.partnership.save(data);
 
         $this.success = true;
         $this.clearForm();

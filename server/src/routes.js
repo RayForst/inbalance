@@ -8,6 +8,7 @@ const SettingsController = require('./controllers/SettingsController')
 const ContactController = require('./controllers/ContactController')
 const TranslationsController = require('./controllers/TranslationsController')
 const CallMeBackController = require('./controllers/CallMeBackController')
+const PartnershipController = require('./controllers/PartnershipController')
 const multer = require('multer')
 const crypto = require('crypto')
 const path = require('path')
@@ -70,6 +71,7 @@ const upload = multer({
 module.exports = app => {
     app.get('/admin/call-me-back', CallMeBackController.get)
     app.post('/call-me-back', CallMeBackController.save)
+    app.post('/partnership', PartnershipController.save)
 
     app.post('/contact-request', ContactController.saveContactRequest)
     app.get('/translations', TranslationsController.get)
