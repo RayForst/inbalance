@@ -16,6 +16,8 @@
           p(
             v-html="toLocale(item, 'text')"
           )
+          template(v-if='showPartnerForm')
+            app-partnership-form
       .spacer
       app-products(:heading="productsHeading" :products="products")
       .spacer
@@ -24,6 +26,7 @@
 </template>
 
 <script>
+import appPartnershipForm from "@/components/events/Subscribe";
 import contentService from "@/services/ContentService";
 import appProducts from "@/components/products/ListPreview";
 import appSubscribe from "@/components/Subscribe";
@@ -38,26 +41,8 @@ export default {
   data() {
     return {
       productsHeading: "Мы рекомендуем также эти товары",
-      products: [
-        {
-          name: "Product 1"
-        },
-        {
-          name: "Product 2"
-        },
-        {
-          name: "Product 3"
-        },
-        {
-          name: "Product 4"
-        },
-        {
-          name: "Product 5"
-        },
-        {
-          name: "Product 6"
-        }
-      ],
+      showPartnerForm: false,
+      products: [],
       item: null
     };
   },
@@ -99,11 +84,17 @@ export default {
   },
   components: {
     appProducts,
+    appPartnershipForm,
     appSubscribe
   },
   mounted() {
     this.get();
     this.getProducts();
+
+    if (this.slug === "become-a-partner") {
+      this.showPartnerForm = true;
+    }
+    console.log("get slug", this.slug);
   }
 };
 </script>
