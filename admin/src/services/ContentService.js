@@ -46,4 +46,7 @@ export default {
   callmeback: {
     get: () => Api().get('/admin/call-me-back'),
   },
+  partnership: {
+    get: () => Api().get('/admin/partnership'),
+  },
 };
