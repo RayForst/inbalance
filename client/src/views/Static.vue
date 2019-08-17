@@ -16,9 +16,9 @@
           p(
             v-html="toLocale(item, 'text')"
           )
+          .spacer
           template(v-if='showPartnerForm')
             app-partnership-form
-      .spacer
       app-products(:heading="productsHeading" :products="products")
       .spacer
       .spacer
@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import appPartnershipForm from "@/components/events/Subscribe";
+import appPartnershipForm from "@/components/Partnership";
 import contentService from "@/services/ContentService";
 import appProducts from "@/components/products/ListPreview";
 import appSubscribe from "@/components/Subscribe";

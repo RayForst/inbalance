@@ -70,7 +70,6 @@ export default {
       const response = (await contentService.products.get(request)).data;
       const desc = (await contentService.products.getDesc(request)).data;
 
-      console.log(respose);
       // if (Object.keys(response).length < 1) {
       //   return this.$router.push({ name: "error" });
       // }

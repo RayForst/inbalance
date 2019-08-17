@@ -9,8 +9,7 @@
         :src="require('@/assets/img/widget-callback__icon.png')"
       )
       .callback-text
-        div Понравились продукты? 
-        div Закажите звонок
+        div {{ $t('callback.title') }}
     .callback-form
       app-form
 </template>

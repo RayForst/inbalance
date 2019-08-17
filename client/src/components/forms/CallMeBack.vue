@@ -5,14 +5,19 @@
     input(
       type="tel" 
       name="phone"
-      placeholder="Phone number"
+      :placeholder="$t('callback.placeholder')"
       v-model='form.number.value'
+      v-if="!success"
     )
-    button перезвоните мне  
+    template(v-if="success")
+      .success {{ $t('callback.successMessage') }}
+    template(v-else)
+      button {{ $t('callback.button') }}
 </template>
 
 <script>
 import contentService from "@/services/ContentService";
+import { setTimeout } from "timers";
 
 export default {
   name: "contact-request",
@@ -39,7 +44,7 @@ export default {
           userLang: this.$i18n.locale
         };
 
-        const response = await contentService.contactRequest.save(data);
+        const response = await contentService.callMeBack.save(data);
 
         $this.success = true;
         $this.clearForm();

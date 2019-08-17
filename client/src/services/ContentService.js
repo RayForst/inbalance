@@ -45,4 +45,10 @@ export default {
   translations: {
     get: credentials => Api().get('/translations', { params: credentials }),
   },
+  partnership: {
+    save: credentials => Api().post('/partnership', credentials),
+  },
+  callMeBack: {
+    save: credentials => Api().post('/call-me-back', credentials),
+  },
 };
