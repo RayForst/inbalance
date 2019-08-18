@@ -19,6 +19,8 @@ module.exports = {
         login: 'gtaadmin',
         password: '1234',
     },
-    smtpToken:
-        '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',
+    smtp: {
+        token:
+            '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',
+    },
 }

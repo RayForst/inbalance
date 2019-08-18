@@ -35,7 +35,6 @@ export default {
   props: ["items", "date"],
   data() {
     return {
-      daysOfWeek: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
       days: [
         {
           number: 25,
@@ -191,6 +190,17 @@ export default {
     },
     calendarMonth() {
       return this.date !== "" ? this.date.format("LL") : "";
+    },
+    daysOfWeek() {
+      return [
+        this.$t('monthDays.mon'), 
+        this.$t('monthDays.tue'), 
+        this.$t('monthDays.wed'), 
+        this.$t('monthDays.thu'), 
+        this.$t('monthDays.fri'), 
+        this.$t('monthDays.sat'), 
+        this.$t('monthDays.sun')
+      ];
     }
   },
   methods: {

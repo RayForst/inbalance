@@ -1,45 +1,5 @@
 const Models = require('../models')
 const { validationResult } = require('express-validator/check')
-const config = require('../../config')
-const nodemailer = require('nodemailer')
-const sgTransport = require('nodemailer-sendgrid-transport')
-
-async function sendMail(req) {
-    var options = {
-        auth: {
-            api_key: config.smtpToken,
-        },
-    }
-
-    var transporter = nodemailer.createTransport(sgTransport(options))
-
-    const settings = await Models.Settings.findAll({
-        limit: 1,
-        order: [['createdAt', 'DESC']],
-        raw: true,
-    })
-
-    const HelperOptions = {
-        from: 'GTA Website <admin@itdaddy.ca>',
-        to: settings[0].contactFormEmail,
-        subject: 'New contact request! + ' + req.body.type,
-        text: `Text from contact form${JSON.stringify(req.body)}`,
-        html: `<h1>Text from contact form</h1>
-            <div>Subject: ${req.body.type}</div>
-            <div>Client Fullname: ${req.body.fullname}</div>
-            <div>Client Email: ${req.body.email}</div>
-            <div>Client phone: ${req.body.phone}</div>
-            <div>Message: ${req.body.message}</div>
-        `, // html body
-    }
-
-    transporter.sendMail(HelperOptions, error => {
-        if (error) console.log(error)
-        else console.log('Mail send Success')
-
-        transporter.close()
-    })
-}
 
 module.exports = {
     async getSettings(req, res) {
