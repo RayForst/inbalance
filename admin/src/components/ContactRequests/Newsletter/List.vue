@@ -14,7 +14,7 @@
             th Email
             th Created At
           tr(v-for="item, index in items")
-            td {{ index + 1 }}
+            td {{ item.id }}
             td {{ item.email }}
             td {{ date(item.createdAt) }}
     .row(v-else)
@@ -40,7 +40,7 @@ export default {
       this.items = (await contentService.newsletter.get({})).data;
     },
     date(date) {
-      return moment(date).format("LL");
+      return moment(date).format("ll");
     }
   },
   components: {

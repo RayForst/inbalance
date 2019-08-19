@@ -16,7 +16,7 @@
             th Phone
             th Created At
           tr(v-for="item, index in items")
-            td {{ index + 1 }}
+            td {{ item.id }}
             td {{ item.firstname }} {{ item.lastname }}
             td {{ item.email }}
             td {{ item.phone }}
@@ -44,7 +44,7 @@ export default {
       this.items = (await contentService.partnership.get({})).data;
     },
     date(date) {
-      return moment(date).format("LL");
+      return moment(date).format("lll");
     }
   },
   mounted() {

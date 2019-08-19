@@ -13,10 +13,10 @@
                   app-call-me-back
                 tab(name="Become a partner")
                   app-partnership
-                tab(name="Newsletter subs")
-                  app-newsletter
                 tab(name="EVENTS SUBSCRIBES")
                   app-event-subscribe
+                tab(name="Newsletter subs")
+                  app-newsletter
 </template>
 
 <script>
@@ -34,11 +34,9 @@ export default {
     appContacts: () => import("@/components/ContactRequests/Contact/List"),
     appCallMeBack: () => import("@/components/ContactRequests/CallMeBack/List"),
     appNewsletter: () => import("@/components/ContactRequests/Newsletter/List"),
-    appPartnership: () =>
-      import("@/components/ContactRequests/Partnership/List"),
+    appPartnership: () => import("@/components/ContactRequests/Partnership/List"),
     appSidebar: () => import("@/components/Sidebar/Index"),
-    appEventSubscribe: () =>
-      import("@/components/ContactRequests/EventSubscribe/List")
+    appEventSubscribe: () => import("@/components/ContactRequests/EventSubscribe/List")
   }
 };
 </script>

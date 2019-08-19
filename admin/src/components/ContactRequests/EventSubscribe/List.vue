@@ -17,7 +17,7 @@
             th Event
             th Created At
           tr(v-for="item, index in items")
-            td {{ index + 1 }}
+            td {{ item.id }}
             td {{ item.firstname }} {{ item.lastname }}
             td {{ item.email }}
             td {{ item.phone }}
@@ -49,7 +49,7 @@ export default {
       this.items = response;
     },
     date(date) {
-      return moment(date).format("LL");
+      return moment(date).format("lll");
     }
   },
   components: {

@@ -102,5 +102,13 @@ export default {
 };
 </script>
 
-
-    
+<style lang="stylus" scoped>
+.success {
+  font-size: 22px;
+  font-family: 'Lora', sans-serif;
+  font-weight: bold;
+  color: green;
+  text-align: center;
+  letter-spacing: 0.025em;
+}
+</style>

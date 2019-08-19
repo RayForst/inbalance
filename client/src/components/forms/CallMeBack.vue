@@ -82,7 +82,7 @@ export default {
 
 <style lang="stylus" scoped>
 .success {
-  font-size: 22px;
+  font-size: 17px;
   font-family: 'Lora', sans-serif;
   font-weight: bold;
   color: green;

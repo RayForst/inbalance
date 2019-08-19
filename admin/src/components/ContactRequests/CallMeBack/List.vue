@@ -15,7 +15,7 @@
             th Client lang
             th Created At
           tr(v-for="item, index in items")
-            td {{ index + 1 }}
+            td {{ item.id }}
             td {{ item.phone }} 
             td {{ item.userLang }}
             td {{ date(item.createdAt) }}
@@ -39,10 +39,10 @@ export default {
   },
   methods: {
     async get() {
-      this.items = (await contentService.callmeback.get({})).data;
+      this.items = (await contentService.callmeback.get()).data;
     },
     date(date) {
-      return moment(date).format("LL");
+      return moment(date).format("lll");
     }
   },
   mounted() {

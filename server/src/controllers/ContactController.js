@@ -2,6 +2,7 @@ const Models = require('../models')
 const { validationResult } = require('express-validator/check')
 const Model = Models.Event
 const Sequelize = require('sequelize')
+const Email = require('../services/sendEmail')
 
 const Op = Sequelize.Op
 
@@ -19,6 +20,14 @@ module.exports = {
     async saveContactRequest(req, res) {
         try {
             const event = await Models.ContactRequest.create(req.body)
+
+            Email.send(
+                'Contact request!',
+                `<div>Client Fullname: ${req.body.fullname}</div>
+                <div>Client Email: ${req.body.email}</div>
+                <div>Client Text: ${req.body.text}</div>`
+            )
+
             res.send(event.toJSON())
         } catch (err) {
             res.status(400).send({
@@ -43,6 +52,14 @@ module.exports = {
     async saveEvent(req, res) {
         try {
             const event = await Models.EventSubscribtion.create(req.body)
+
+            Email.send(
+                'Event subscription!',
+                `<div>Client Fullname: ${req.body.firstname} ${req.body.lastname}</div>
+                <div>Client Phone: ${req.body.phone}</div>
+                <div>Client Email: ${req.body.email}</div>`
+            )
+
             res.send(event.toJSON())
         } catch (err) {
             res.status(400).send({
