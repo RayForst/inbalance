@@ -8,6 +8,7 @@
           :action="'/login'"
           :storeKey="'login'"
           :submitText="'Sign In'"
+          @submit.prevent="sign"
         )
           app-form-input(
             :name="'login'"
@@ -26,6 +27,8 @@
 </template>
 
 <script>
+import AuthenticationService from "@/services/AuthenticationService";
+
 export default {
   metaInfo: {
     title: "Login"
@@ -42,6 +45,23 @@ export default {
   },
   mounted() {
     this.show = true;
+  },
+  methods: {
+    async sign() {
+      try {
+        const response = (await AuthenticationService.login({
+          login: this.login,
+          password: this.password
+        })).data;
+
+        this.$store.dispatch("setToken", response.token);
+        this.$store.dispatch("setUser", response.user);
+
+        this.$router.push("products");
+      } catch (err) {
+        this.error = err.response.data.message;
+      }
+    }
   }
 };
 </script>

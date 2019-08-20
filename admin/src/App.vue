@@ -1,7 +1,5 @@
 <template lang="pug">
   #app.sticky-footer-container
-      //- app-burger
-      //-- transition(name="fade" mode="out-in")
       notifications(group="main")
       router-view
       app-footer
@@ -22,15 +20,13 @@ export default {
   },
   mounted() {},
   beforeCreate() {
-    // alert('hey 2', this.$store.state.isAuthorized)
-    // console.log( this.$store.state.isAuthorized)
-    // // if (
-    //   !this.$store.state.isAuthorized &&
-    //   this.$store.state.route.path != "/login"
-    // ) {
-    //   alert('push')
-    //   this.$router.push({ name: "login" });
-    // }
+    console.log(this.$router.currentRoute);
+    if (
+      !this.$store.state.isAuthorized &&
+      this.$router.currentRoute.path != "/login"
+    ) {
+      this.$router.push({ name: "login" });
+    }
   }
 };
 </script>

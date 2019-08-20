@@ -21,8 +21,10 @@ app.use('/img', express.static(__dirname + '/../../uploads'))
 app.use(fileValidator)
 
 require('./routes')(app)
+require('./commands')(app)
 
 log('SERVER', 'Database', 'DB Synchronization try...')
+
 models.sequelize.sync().then(() => {
     log('SERVER', 'Database', 'DB Synchronization successfuly complete!')
     app.listen(

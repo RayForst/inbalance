@@ -6,6 +6,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     isAuthorized: false,
+    token: null,
+    user: null,
     forms: {
       login: {
         login: {
@@ -344,6 +346,18 @@ export default new Vuex.Store({
     },
   },
   mutations: {
+    setToken(state, token) {
+      state.token = token;
+
+      if (token) {
+        state.isAuthorized = true;
+      } else {
+        state.isAuthorized = false;
+      }
+    },
+    setUser(state, token) {
+      state.user = token;
+    },
     changeFormInput(state, payload) {
       state.forms[payload.form][payload.input].value = payload.value;
       state.forms[payload.form][payload.input].error = null;
@@ -406,5 +420,12 @@ export default new Vuex.Store({
       state.forms[payload.key].formLang = payload.locale;
     },
   },
-  actions: {},
+  actions: {
+    setToken({ commit }, token) {
+      commit("setToken", token);
+    },
+    setUser({ commit }, token) {
+      commit("setUser", token);
+    },
+  },
 });
