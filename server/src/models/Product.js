@@ -53,6 +53,10 @@ module.exports = (sequelize, DataTypes) =>
             priority: {
                 type: DataTypes.BOOLEAN,
             },
+            show: {
+                type: DataTypes.BOOLEAN,
+                defaultValue: false,
+            },
         })
         .beforeCreate(createSlug)
         .beforeUpdate(createSlug)

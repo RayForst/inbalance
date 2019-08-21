@@ -81,6 +81,10 @@ export default new Vuex.Store({
           value: false,
           error: null,
         },
+        show: {
+          value: false,
+          error: null,
+        },
         id: {
           value: '',
           error: null,
@@ -158,6 +162,10 @@ export default new Vuex.Store({
       },
       article: {
         formLang: 'en',
+        show: {
+          value: false,
+          error: null,
+        },
         name: {
           value: '',
           error: null,
@@ -193,6 +201,10 @@ export default new Vuex.Store({
       },
       static: {
         formLang: 'en',
+        show: {
+          value: false,
+          error: null,
+        },
         slug: {
           value: '',
           error: null,
@@ -294,6 +306,10 @@ export default new Vuex.Store({
         },
         images: {
           value: '',
+          error: null,
+        },
+        show: {
+          value: false,
           error: null,
         },
         id: {

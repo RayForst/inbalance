@@ -25,6 +25,7 @@
         app-form-input(v-if="isEdit" :name="'slug'" :label="'URL'" :required="true")
         app-form-select(v-if="loaded" :name="'menupos'" :label="'Menu Category'" :options="menu" :required="true")
         app-form-image(:name="'image'" :label="'Main image'" :required="true")
+        app-form-checkbox(:name="'show'" :label="'Show'")
         app-form-input-hidden(v-if="isEdit" :name="'id'")
 </template>
 
@@ -63,6 +64,7 @@ export default {
     appForm: () => import("@/components/Form/Form.vue"),
     appFormInput: () => import("@/components/Form/Inputs/Input.vue"),
     appFormImage: () => import("@/components/Form/Inputs/Image.vue"),
+    appFormCheckbox: () => import("@/components/Form/Inputs/Checkbox.vue"),
     appFormSelect: () => import("@/components/Form/Inputs/Select.vue"),
     appFormInputHidden: () => import("@/components/Form/Inputs/Hidden.vue"),
     appFormTextEditor: () => import("@/components/Form/Inputs/TextEditor.vue"),

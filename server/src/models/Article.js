@@ -32,6 +32,10 @@ module.exports = (sequelize, DataTypes) =>
             image: {
                 type: DataTypes.STRING,
             },
+            show: {
+                type: DataTypes.BOOLEAN,
+                defaultValue: false,
+            },
         })
         .beforeCreate(createSlug)
         .beforeUpdate(createSlug)

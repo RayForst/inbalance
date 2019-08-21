@@ -29,6 +29,7 @@
         app-form-datepicker(:name="'dateEnd'" :label="'Date end'")
         app-form-checkbox(:name="'priority'" :label="'Priority'")
         app-form-checkbox(:name="'preview'" :label="'Only preview'")
+        app-form-checkbox(:name="'show'" :label="'Show'")
         app-form-image(:name="'image'" :label="'Main image'" :required="true")
         app-form-images(:name="'images'" :label="'Additional images'")
         app-form-input-hidden(v-if="isEdit" :name="'id'")

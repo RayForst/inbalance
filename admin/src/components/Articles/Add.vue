@@ -23,6 +23,7 @@
       
       .col-xs-12.col-md-6
         app-form-image(:name="'image'" :label="'Main image'" :required="true")
+        app-form-checkbox(:name="'show'" :label="'Show'")
         app-form-input-hidden(v-if="isEdit" :name="'id'")
 </template>
 
@@ -48,7 +49,8 @@ export default {
     appFormInput: () => import("@/components/Form/Inputs/Input.vue"),
     appFormImage: () => import("@/components/Form/Inputs/Image.vue"),
     appFormInputHidden: () => import("@/components/Form/Inputs/Hidden.vue"),
-    appFormTranslate: () => import("@/components/Form/Translations")
+    appFormTranslate: () => import("@/components/Form/Translations"),
+    appFormCheckbox: () => import("@/components/Form/Inputs/Checkbox.vue")
   },
   computed: {
     action() {

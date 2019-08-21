@@ -57,6 +57,10 @@ module.exports = (sequelize, DataTypes) =>
             preview: {
                 type: DataTypes.BOOLEAN,
             },
+            show: {
+                type: DataTypes.BOOLEAN,
+                defaultValue: false,
+            },
         })
         .beforeCreate(createSlug)
         .beforeUpdate(createSlug)

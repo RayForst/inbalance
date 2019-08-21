@@ -35,5 +35,9 @@ module.exports = (sequelize, DataTypes) =>
             menupos: {
                 type: DataTypes.INTEGER,
             },
+            show: {
+                type: DataTypes.BOOLEAN,
+                defaultValue: false,
+            },
         })
         .beforeCreate(createSlug)

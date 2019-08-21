@@ -33,6 +33,7 @@
           app-form-select(:name="'ProductSubcategoryId'" :label="'Category'" :options="categories" :required="true")
           app-form-images(:name="'images'" :label="'Images'" :required="true")
           app-form-checkbox(:name="'priority'" :label="'Priority'")
+          app-form-checkbox(:name="'show'" :label="'Show'")
           app-form-input-hidden( v-if="isEdit" :name="'id'")
 </template>
 
