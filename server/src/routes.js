@@ -54,7 +54,7 @@ module.exports = app => {
     app.get('/static', StaticPageController.getBySlug)
     app.get('/statics', StaticPageController.get)
     app.get('/static/menu', StaticPageController.getMenu)
-    app.get('/admin/statics', token.validate, StaticPageController.get)
+    app.get('/admin/statics', token.validate, StaticPageController.getAdmin)
     app.post(
         '/admin/static',
         token.validate,
@@ -73,7 +73,7 @@ module.exports = app => {
     app.get('/article', BlogController.getBySlug)
     app.get('/articles', BlogController.get)
     app.get('/articles/recent', BlogController.getRecent)
-    app.get('/admin/articles', token.validate, BlogController.get)
+    app.get('/admin/articles', token.validate, BlogController.getAdmin)
     app.post(
         '/admin/article',
         token.validate,

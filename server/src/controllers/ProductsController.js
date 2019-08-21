@@ -45,6 +45,7 @@ module.exports = {
                         [Op.ne]: null,
                     },
                     priority: 1,
+                    show: 1,
                 },
             })
 
@@ -81,6 +82,7 @@ module.exports = {
                         '$ProductSubcategory.id$': {
                             [Op.ne]: null,
                         },
+                        show: 1,
                     },
                 })
             } else if (req.query.subcategory) {
@@ -98,6 +100,7 @@ module.exports = {
                         '$ProductSubcategory.id$': {
                             [Op.ne]: null,
                         },
+                        show: 1,
                     },
                 })
             } else {
@@ -114,6 +117,7 @@ module.exports = {
                         '$ProductSubcategory.id$': {
                             [Op.ne]: null,
                         },
+                        show: 1,
                     },
                 })
             }
@@ -134,6 +138,7 @@ module.exports = {
                     raw: true,
                     where: {
                         slug: req.query.category,
+                        show: 1,
                     },
                 })
             } else {
@@ -141,6 +146,7 @@ module.exports = {
                     raw: true,
                     where: {
                         slug: req.query.subcategory,
+                        show: 1,
                     },
                 })
             }
@@ -160,7 +166,7 @@ module.exports = {
 
         try {
             const item = await Model.findOne({
-                where: { id: req.body.id },
+                where: { id: req.body.id, show: 1 },
             })
 
             item.update(req.body)
@@ -238,6 +244,7 @@ module.exports = {
                     '$ProductSubcategory.id$': {
                         [Op.ne]: null,
                     },
+                    show: 1,
                 },
                 include: [
                     {

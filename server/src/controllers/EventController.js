@@ -58,14 +58,14 @@ module.exports = {
                             Sequelize.fn('YEAR', Sequelize.col('dateStart')),
                             req.query.year
                         ),
-                        { preview: 0 }
+                        { preview: 0, show: 1 }
                     ),
                 })
             } else {
                 result = await Model.findAll({
                     raw: true,
                     order: [['dateStart', 'ASC']],
-                    where: [{ preview: 0 }],
+                    where: [{ preview: 0, show: 1 }],
                 })
             }
 
@@ -91,7 +91,7 @@ module.exports = {
                         Sequelize.fn('YEAR', Sequelize.col('dateStart')),
                         now.year()
                     ),
-                    { priority: 1 }
+                    { priority: 1, show: 1 }
                 ),
                 order: [['dateStart', 'DESC']],
             })
@@ -119,7 +119,7 @@ module.exports = {
                         now.year()
                     ),
                     { priority: 0 },
-                    { preview: 0 }
+                    { preview: 0, show: 1 }
                 ),
                 order: [['dateStart', 'DESC']],
             })
@@ -150,6 +150,7 @@ module.exports = {
             const result = await Model.findOne({
                 where: {
                     slug: req.query.slug,
+                    show: 1,
                 },
             })
             res.send(result ? result.toJSON() : {})

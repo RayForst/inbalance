@@ -32,7 +32,6 @@ module.exports = {
                 where: { id: req.body.id },
             })
 
-            console.log(req.body)
             item.update(req.body)
             res.send(item.toJSON())
         } catch (err) {
@@ -42,6 +41,23 @@ module.exports = {
         }
     },
     async get(req, res) {
+        try {
+            const result = await Model.findAll({
+                raw: true,
+                order: [['createdAt', 'DESC']],
+                where: {
+                    show: 1,
+                },
+            })
+
+            res.send(result)
+        } catch (err) {
+            res.status(400).send({
+                error: 'Something went wrong' + err,
+            })
+        }
+    },
+    async getAdmin(req, res) {
         try {
             const result = await Model.findAll({
                 raw: true,
@@ -83,6 +99,7 @@ module.exports = {
             const result = await Model.findOne({
                 where: {
                     slug: req.query.slug,
+                    show: 1,
                 },
             })
             res.send(result ? result.toJSON() : {})
