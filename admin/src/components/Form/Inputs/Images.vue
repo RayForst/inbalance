@@ -2,10 +2,11 @@
   .form-group
     .label 
       | {{ label }}
+      | test
       template(v-if="required")
         span.requied-mark *
     .container
-      .row
+      draggable.row(v-model="images")
         .preview.col-xs-4.col-lg-4(v-for="image in images")
           .image-wrap(
             class="uploaded-image"
@@ -38,6 +39,7 @@
 import contentService from "@/services/ContentService";
 import EventBus from "@/event-bus";
 import Form from "@/services/Form.js";
+import draggable from "vuedraggable";
 
 export default {
   props: ["name", "label", "required"],
@@ -59,13 +61,26 @@ export default {
         return Form.inputs.set(value, this.$store, this.formKey, this.name);
       }
     },
-    images() {
-      let value = this.$store.state.forms[this.formKey][this.name].value;
-      return value ? value.split(",") : [];
+    images: {
+      get() {
+        let value = this.$store.state.forms[this.formKey][this.name].value;
+        return value ? value.split(",") : [];
+      },
+      set(value) {
+        return Form.inputs.set(
+          value.join(","),
+          this.$store,
+          this.formKey,
+          this.name
+        );
+      }
     },
     error() {
       return this.$store.state.forms[this.formKey][this.name].error;
     }
+  },
+  components: {
+    draggable
   },
   methods: {
     remove(image) {
@@ -112,6 +127,10 @@ export default {
       ],
       this.clear
     );
+
+    this.uploaded = Form.inputs
+      .get(this.$store, this.formKey, this.name)
+      .split(",");
   }
 };
 </script>

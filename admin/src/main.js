@@ -8,6 +8,7 @@ import Notifications from 'vue-notification';
 import store from './store';
 import router from './router';
 import App from './App.vue';
+// import Sortable from 'vue-sortable'
 
 Vue.config.productionTip = false;
 
@@ -15,7 +16,7 @@ Vue.use(Tabs);
 Vue.use(Notifications);
 Vue.use(VJsoneditor);
 Vue.use(Tabs);
-
+// Vue.use(Sortable);
 Vue.use(VueGoogleMaps, {
   load: {
     key: 'AIzaSyBiqPVo8Anjm534FSZ4-89L1H1yZxfQWvU',

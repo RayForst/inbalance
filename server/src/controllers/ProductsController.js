@@ -166,7 +166,7 @@ module.exports = {
 
         try {
             const item = await Model.findOne({
-                where: { id: req.body.id, show: 1 },
+                where: { id: req.body.id },
             })
 
             item.update(req.body)
