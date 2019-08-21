@@ -57,7 +57,7 @@ export default {
         {
           name: "EXIT",
           icon: "nc-lock-circle-open",
-          route: "settings"
+          route: "logout"
         }
       ]
     };
