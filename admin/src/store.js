@@ -367,7 +367,6 @@ export default new Vuex.Store({
         const ignore = ['createdAt', 'updatedAt', 'ProductSubcategory.name', ''];
 
         if (!ignore.includes(objectKey)) {
-          console.log('change form', payload.form, objectKey);
           try {
             state.forms[payload.form][objectKey].value = payload.item[objectKey];
           } catch (err) {}
@@ -422,10 +421,10 @@ export default new Vuex.Store({
   },
   actions: {
     setToken({ commit }, token) {
-      commit("setToken", token);
+      commit('setToken', token);
     },
     setUser({ commit }, token) {
-      commit("setUser", token);
+      commit('setUser', token);
     },
   },
 });

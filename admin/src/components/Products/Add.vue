@@ -32,7 +32,7 @@
         .col-xs-12.col-md-6
           app-form-select(:name="'ProductSubcategoryId'" :label="'Category'" :options="categories" :required="true")
           app-form-images(:name="'images'" :label="'Images'" :required="true")
-          app-form-input(:name="'priority'" :label="'Priority'" :type="'checkbox'")
+          app-form-checkbox(:name="'priority'" :label="'Priority'")
           app-form-input-hidden( v-if="isEdit" :name="'id'")
 </template>
 
@@ -65,6 +65,7 @@ export default {
     appFormText: () => import("@/components/Form/Inputs/Text.vue"),
     appFormSelect: () => import("@/components/Form/Inputs/SelectGroup.vue"),
     appFormImages: () => import("@/components/Form/Inputs/Images.vue"),
+    appFormCheckbox: () => import("@/components/Form/Inputs/Checkbox.vue"),
     appFormInputHidden: () => import("@/components/Form/Inputs/Hidden.vue"),
     appFormTranslate: () => import("@/components/Form/Translations")
   },

@@ -27,8 +27,8 @@
       .col-xs-12.col-md-6
         app-form-datepicker(:name="'dateStart'" :label="'Date start'" :required="true")
         app-form-datepicker(:name="'dateEnd'" :label="'Date end'")
-        app-form-input(:name="'priority'" :label="'Priority'" :type="'checkbox'")
-        app-form-input(:name="'preview'" :label="'Only preview'" :type="'checkbox'")
+        app-form-checkbox(:name="'priority'" :label="'Priority'")
+        app-form-checkbox(:name="'preview'" :label="'Only preview'")
         app-form-image(:name="'image'" :label="'Main image'" :required="true")
         app-form-images(:name="'images'" :label="'Additional images'")
         app-form-input-hidden(v-if="isEdit" :name="'id'")
@@ -54,6 +54,7 @@ export default {
     appFormDatepicker: () => import("@/components/Form/Inputs/Datepicker.vue"),
     appFormTextEditor: () => import("@/components/Form/Inputs/TextEditor.vue"),
     appFormImage: () => import("@/components/Form/Inputs/Image.vue"),
+    appFormCheckbox: () => import("@/components/Form/Inputs/Checkbox.vue"),
     appFormImages: () => import("@/components/Form/Inputs/Images.vue"),
     appFormInputHidden: () => import("@/components/Form/Inputs/Hidden.vue"),
     appFormTranslate: () => import("@/components/Form/Translations")

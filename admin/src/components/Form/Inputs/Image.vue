@@ -112,7 +112,6 @@ export default {
 }
 
 .file-upload-wrapper {
-  $defaultColor = #4daf7c;
   $height = 60px;
   position: relative;
   width: 100%;
@@ -145,7 +144,7 @@ export default {
     right: 0;
     display: inline-block;
     height: 60px;
-    background: $defaultColor;
+    background: $c_accent;
     color: #fff;
     font-weight: 700;
     z-index: 25;
@@ -159,7 +158,7 @@ export default {
 
   &:hover {
     // &:before {
-    // background: darken($defaultColor, 10%);
+    // background: darken($c_accent, 10%);
     // }
   }
 

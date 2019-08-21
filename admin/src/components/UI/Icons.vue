@@ -387,7 +387,7 @@
       .col-xs-2
         span
           i.nc-icon.nc-tv-2 
-          spannc-tv-2 
+          span nc-tv-2 
       .col-xs-2
         span
           i.nc-icon.nc-umbrella-13
