@@ -3,7 +3,9 @@
     .image-wrap.bg-image(
       :style="image ? { backgroundImage: 'url(/uploads/' + image + ')'} : { backgroundColor: '#103324'}"
     )
-    .container
+    .container(
+      :class="{ small: small }"
+    )
       .slide-container
         .name {{ toLocale(content, 'name') }}
         router-link(:to="{name: content.route ? content.route : 'static', params: { slug: content.slug } }").ui-button.ui-button--full-green {{ $t('links.discover') }}
@@ -13,7 +15,7 @@
 import LocaleService from "@/services/LocaleService";
 
 export default {
-  props: ["content"],
+  props: ["content", "small"],
   name: "event-list-item",
   data() {
     return {};
@@ -64,6 +66,10 @@ export default {
     left: 0;
     padding: 30px;
     overflow: hidden;
+
+    &.small {
+      padding-top: 50px;
+    }
   }
 
   .slide-container {

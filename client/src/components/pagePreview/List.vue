@@ -4,13 +4,13 @@
       .col-xs-12.col-sm-10.col-lg-12
         .row.col-gap-3-sm
           .col-xs-12.col-sm-6.col-md-4(v-for="item in items")
-            app-post(:content="item")
+            app-post(:content="item" :small="small")
 </template>
 
 <script>
 export default {
   name: "page-preview",
-  props: ["items"],
+  props: ["items", "small"],
   data() {
     return {};
   },

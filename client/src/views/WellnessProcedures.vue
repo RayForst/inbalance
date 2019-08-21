@@ -5,7 +5,7 @@
         .col-xs-8.heading
           h1 {{ $t('wellness_procedures_title') }}
           p {{ $t('wellness_procedures_desc') }}
-      app-list(:items="items")
+      app-list(:items="items" :small="true")
       .spacer
     app-subscribe
 </template>
