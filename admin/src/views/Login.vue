@@ -1,27 +1,38 @@
 <template lang="pug">
   .content.color-background.flex_col.center-xs
     .content-container.login
-      //- transition(name="fadeslide" mode="out-in")
       .text-center.c_white(v-show="show")
         img.logo(:src="require('../assets/img/logo-footer.svg')" alt="")
-        app-form(
+       
+        form(
           :action="'/login'"
-          :storeKey="'login'"
-          :submitText="'Sign In'"
           @submit.prevent="sign"
         )
-          app-form-input(
-            :name="'login'"
-            :label="'Login'"
-            :type="'text'"
-            placeholder="Username"
-          )
-          app-form-input(
-            :name="'password'"
-            :label="'Password'"
-            :type="'password'"
-            placeholder="Password"
-          )
+          .form-group
+            input.form-control(
+              type="text"
+              placeholder="Username"
+              name="login"
+              v-model="login"
+            )
+          .form-group
+            input.form-control(
+              type="password"
+              placeholder="Password"
+              name="password"
+              v-model="password"
+            )
+          .row
+            .col-xs-12
+              .ui-error.error-server(
+                v-if="error"
+                v-html="error"
+              )
+            .col-xs-8.col-xs-offset-2
+              button.ui-button.ui-button--full-green(
+                type="submit"
+                v-text="'Sign In'"
+              )
     ul.bg-bubbles
       li(v-for="item in 10")
 </template>
@@ -36,7 +47,10 @@ export default {
   name: "login",
   data() {
     return {
-      show: false
+      show: false,
+      login: null,
+      password: null,
+      error: null
     };
   },
   components: {
@@ -56,10 +70,9 @@ export default {
 
         this.$store.dispatch("setToken", response.token);
         this.$store.dispatch("setUser", response.user);
-
         this.$router.push("products");
       } catch (err) {
-        this.error = err.response.data.message;
+        this.error = "Wrong credentials";
       }
     }
   }
@@ -90,6 +103,10 @@ export default {
 .fade-leave-active {
   transition: opacity 2s ease;
   opacity: 0;
+}
+
+button {
+  margin-top: 10px;
 }
 
 .login {

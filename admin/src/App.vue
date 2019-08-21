@@ -20,7 +20,6 @@ export default {
   },
   mounted() {},
   beforeCreate() {
-    console.log(this.$router.currentRoute);
     if (
       !this.$store.state.isAuthorized &&
       this.$router.currentRoute.path != "/login"

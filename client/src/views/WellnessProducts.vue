@@ -31,20 +31,10 @@ export default {
   methods: {
     async get() {
       const menu = (await contentService.static.getMenu()).data;
-      const filtered = menu.filter(item => {
+
+      this.items = menu.filter(item => {
         return item.menupos === 3;
       });
-      const stateObj = this.$store.state.menu[3];
-
-      this.items = filtered;
-      this.items.unshift({
-        image: null,
-        name: this.$t("menu.links.products"),
-        route: stateObj.links[0].route.name,
-        slug: stateObj.links[0].route.slug
-      });
-
-      console.log("items", this.items);
     }
   },
   mounted() {
