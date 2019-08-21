@@ -9,64 +9,8 @@ const ContactController = require('./controllers/ContactController')
 const TranslationsController = require('./controllers/TranslationsController')
 const CallMeBackController = require('./controllers/CallMeBackController')
 const PartnershipController = require('./controllers/PartnershipController')
-const multer = require('multer')
-const crypto = require('crypto')
-const path = require('path')
-const jwt = require('jsonwebtoken')
-const config = require('../config')
-const Models = require('./models')
+const upload = require('./services/fileUploader')
 const validation = require('./validation/validation')
-
-async function validateToken(req, res, next) {
-    if (!req.headers['authorization']) res.status(401).send()
-
-    try {
-        var decoded = jwt.verify(
-            req.headers['authorization'],
-            config.authentication.jwtSecret
-        )
-
-        const user = await Models.User.findOne({
-            where: {
-                login: decoded.login,
-            },
-        })
-
-        if (decoded.password === user.password) next()
-        else res.status(401).send()
-    } catch (err) {
-        res.status(401).send()
-    }
-}
-
-const storage = multer.diskStorage({
-    destination: function(req, file, cb) {
-        cb(null, path.join(__dirname, '/../../uploads'))
-    },
-    filename: function(req, file, cb) {
-        crypto.pseudoRandomBytes(16, function(err, raw) {
-            cb(
-                null,
-                raw.toString('hex') +
-                    Date.now() +
-                    path.extname(file.originalname)
-            )
-        })
-    },
-})
-
-const upload = multer({
-    storage: storage,
-    fileFilter: function(req, file, cb) {
-        if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/)) {
-            const error = new Error('Only image files are allowed!')
-            error.code = 'LIMIT_FILE_TYPES'
-
-            return cb(error, false)
-        }
-        cb(null, true)
-    },
-})
 
 module.exports = app => {
     app.get('/admin/call-me-back', CallMeBackController.get)

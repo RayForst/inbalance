@@ -8,12 +8,12 @@ Vue.use(VueI18n);
 const loadedLanguages = [];
 
 export const i18n = new VueI18n({
-  locale: 'en',
-  fallbackLocale: 'en',
+  locale: 'lv',
+  fallbackLocale: 'lv',
 });
 
 function getLocale() {
-  let selectetLang = 'en';
+  let selectetLang = 'lv';
 
   try {
     const userBrowserLang = navigator.language || navigator.userLanguage;
