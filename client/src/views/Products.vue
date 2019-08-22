@@ -41,7 +41,7 @@ export default {
     title: "Producs"
   },
   name: "products",
-  props: ["slug", "subcategory"],
+  props: ["slug", "subcategory", "line"],
   data() {
     return {
       products: [],
@@ -59,23 +59,35 @@ export default {
   },
   methods: {
     async get() {
-      let request = this.subcategory
-        ? {
-            subcategory: this.subcategory
-          }
-        : {
+      console.log(this.line, this.subcategory, this.slug);
+
+      if (!this.line) {
+        let request = this.subcategory
+          ? {
+              subcategory: this.subcategory
+            }
+          : {
+              category: this.slug
+            };
+
+        const response = (await contentService.products.get(request)).data;
+        const desc = (await contentService.products.getDesc(request)).data;
+
+        this.description = this.toLocale(desc[0], "description");
+        this.products = response;
+      } else {
+        let response;
+        if (this.line === "all") {
+          console.log("all lines request");
+          response = (await contentService.products.get({
             category: this.slug
-          };
+          })).data;
+        } else {
+        }
 
-      const response = (await contentService.products.get(request)).data;
-      const desc = (await contentService.products.getDesc(request)).data;
-
-      // if (Object.keys(response).length < 1) {
-      //   return this.$router.push({ name: "error" });
-      // }
-
-      this.description = this.toLocale(desc[0], "description");
-      this.products = response;
+        this.description = null;
+        this.products = response;
+      }
     },
     toLocale(item, field) {
       return LocaleService.toLocale(item, field, this.$i18n.locale);

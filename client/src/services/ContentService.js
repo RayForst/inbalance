@@ -29,6 +29,9 @@ export default {
   subcategories: {
     get: credentials => Api().get('/categories/subcategories', { params: credentials }),
   },
+  productLines: {
+    get: () => Api().get('/product-lines'),
+  },
   priority: {
     get: credentials => Api().get('/settings/priority', { params: credentials }),
   },

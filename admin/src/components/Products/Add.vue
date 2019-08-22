@@ -73,8 +73,10 @@ export default {
   methods: {
     async get() {
       let response = (await contentService.productSubcategories.get({})).data;
+      let responseLines = (await contentService.productLines.get({})).data;
 
       let result = [];
+      let lines = [];
 
       response.forEach((object, index) => {
         if (typeof result[object.ProductCategoryId - 1] === "undefined") {

@@ -38,7 +38,18 @@
           router-link(
             :class="{ active: index === 0 }"
             :to="{ name: 'products-subcategory', params: { category: slug, subcategory: link.slug } }"
-          )  {{ toLocale(link, 'name') }} 
+          )  {{ toLocale(link, 'name') }}
+      ul.lines
+        li
+          router-link(
+            :to="{ name: 'products-line', params: { line: 'all' } }"
+            exact
+          )  {{ $t('products.allLines') }}
+        li(v-for="link, index in lines")
+          router-link(
+            :class="{ active: index === 0 }"
+            :to="{ name: 'products-line', params: { category: slug, line: link.slug } }"
+          )  {{ toLocale(link, 'name') }}
 </template>
 
 <script>
@@ -50,6 +61,7 @@ export default {
   data() {
     return {
       active: false,
+      lines: [],
       links: []
     };
   },
@@ -58,6 +70,10 @@ export default {
       this.links = (await contentService.subcategories.get({
         category: this.slug
       })).data;
+
+      this.lines = (await contentService.productLines.get()).data;
+
+      console.log("lines", this.lines);
     },
     toLocale(item, field) {
       return LocaleService.toLocale(item, field, this.$i18n.locale);
@@ -121,6 +137,10 @@ ul {
   @media $media_lg {
     padding: 0;
   }
+
+  &.lines {
+    margin-top: 20px;
+  }
 }
 
 .trigger {
@@ -153,6 +173,7 @@ ul {
   display: none;
   height: 100%;
   border-right: 1px solid rgba(50, 65, 72, 0.2);
+  flex-direction: column;
 
   @media $media_lg {
     display: flex;

@@ -138,7 +138,6 @@ module.exports = {
                     raw: true,
                     where: {
                         slug: req.query.category,
-                        show: 1,
                     },
                 })
             } else {
@@ -146,7 +145,6 @@ module.exports = {
                     raw: true,
                     where: {
                         slug: req.query.subcategory,
-                        show: 1,
                     },
                 })
             }

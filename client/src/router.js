@@ -29,6 +29,10 @@ const router = new Router({
           path: ':subcategory',
           name: 'products-subcategory',
         },
+        {
+          path: 'lines/:line',
+          name: 'products-line',
+        },
       ],
     },
     {
