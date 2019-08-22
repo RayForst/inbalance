@@ -30,7 +30,8 @@
               app-form-text(:name="'ingridients_ru'" :label="'Ingridients - RU'")
 
         .col-xs-12.col-md-6
-          app-form-select(:name="'ProductSubcategoryId'" :label="'Category'" :options="categories" :required="true")
+          app-form-select-group(:name="'ProductSubcategoryId'" :label="'Category'" :options="categories" :required="true")
+          app-form-select(:name="'ProductLineId'" :label="'Product Line'" :options="lines" :required="true")
           app-form-images(:name="'images'" :label="'Images'" :required="true")
           app-form-checkbox(:name="'priority'" :label="'Priority'")
           app-form-checkbox(:name="'show'" :label="'Show'")
@@ -48,6 +49,7 @@ export default {
       loaded: false,
       storeKey: "product",
       categories: [],
+      lines: [],
       actions: {
         add: "/product",
         edit: "/product/edit"
@@ -64,7 +66,9 @@ export default {
     appFormInput: () => import("@/components/Form/Inputs/Input.vue"),
     appFormTextEditor: () => import("@/components/Form/Inputs/TextEditor.vue"),
     appFormText: () => import("@/components/Form/Inputs/Text.vue"),
-    appFormSelect: () => import("@/components/Form/Inputs/SelectGroup.vue"),
+    appFormSelectGroup: () =>
+      import("@/components/Form/Inputs/SelectGroup.vue"),
+    appFormSelect: () => import("@/components/Form/Inputs/Select.vue"),
     appFormImages: () => import("@/components/Form/Inputs/Images.vue"),
     appFormCheckbox: () => import("@/components/Form/Inputs/Checkbox.vue"),
     appFormInputHidden: () => import("@/components/Form/Inputs/Hidden.vue"),
@@ -75,6 +79,7 @@ export default {
       let response = (await contentService.productSubcategories.get({})).data;
       let responseLines = (await contentService.productLines.get({})).data;
 
+      console.log("response lines", responseLines);
       let result = [];
       let lines = [];
 
@@ -92,11 +97,19 @@ export default {
         });
       });
 
+      responseLines.forEach((object, index) => {
+        lines[index] = {
+          title: object.name,
+          value: object.id
+        };
+      });
+
       const filtered = result.filter(function(el) {
         return el != null;
       });
 
       this.categories = filtered;
+      this.lines = lines;
       this.loaded = true;
     }
   },

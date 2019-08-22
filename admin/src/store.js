@@ -37,6 +37,10 @@ export default new Vuex.Store({
           value: '',
           error: null,
         },
+        ProductLineId: {
+          value: '',
+          error: null,
+        },
         description: {
           value: '',
           error: null,
