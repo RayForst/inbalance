@@ -78,11 +78,14 @@ export default {
       } else {
         let response;
         if (this.line === "all") {
-          console.log("all lines request");
           response = (await contentService.products.get({
             category: this.slug
           })).data;
         } else {
+          response = (await contentService.products.getLine({
+            category: this.slug,
+            line: this.line
+          })).data;
         }
 
         this.description = null;

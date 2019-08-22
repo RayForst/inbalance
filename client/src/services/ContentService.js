@@ -6,6 +6,7 @@ export default {
     getDesc: credentials => Api().get('/products/description', { params: credentials }),
     getOne: credentials => Api().get('/product', { params: credentials }),
     getByPriority: credentials => Api().get('/products/priority', { params: credentials }),
+    getLine: credentials => Api().get('/products/lines', { params: credentials }),
   },
   static: {
     getOne: credentials => Api().get('/static', { params: credentials }),
