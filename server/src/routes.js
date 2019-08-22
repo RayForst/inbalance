@@ -17,6 +17,16 @@ const token = require('./validation/token')
 module.exports = app => {
     app.get('/product-lines', ProductLineController.get)
     app.post('/admin/product-lines', token.validate, ProductLineController.save)
+    app.post(
+        '/admin/product-lines/edit',
+        token.validate,
+        ProductLineController.edit
+    )
+    app.delete(
+        '/admin/product-lines',
+        token.validate,
+        ProductLineController.remove
+    )
 
     app.get('/admin/call-me-back', token.validate, CallMeBackController.get)
     app.get('/admin/partnership', token.validate, PartnershipController.get)
@@ -153,7 +163,7 @@ module.exports = app => {
         token.validate,
         ProductCategoryController.editSubcategory
     )
-    app.post(
+    app.delete(
         '/admin/categories/subcategories-remove',
         token.validate,
         ProductCategoryController.removeSubcategory

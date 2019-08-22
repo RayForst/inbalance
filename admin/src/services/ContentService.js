@@ -23,9 +23,11 @@ export default {
   },
   productLines: {
     get: () => Api().get('/product-lines'),
+    remove: credentials => Api().delete('/admin/product-lines', { data: credentials }),
   },
   productSubcategories: {
     get: () => Api().get('/categories/subcategories'),
+    remove: credentials => Api().delete('/admin/categories/subcategories-remove', { data: credentials }),
   },
   priority: {
     get: () => Api().get('/settings/priority'),

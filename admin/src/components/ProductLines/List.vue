@@ -16,7 +16,8 @@
           td {{ index + 1 }}
           td {{ item.name }}
           td
-            a.ui-link(href="#" @click.prevent="rename(item.id)") Edit
+            a.ui-link(href="#" @click.prevent="showEditModal(item.id)") Edit
+            a.ui-link(href="#" @click.prevent="remove(item.id, item.name)") Remove
     template(
       v-else
     )
@@ -62,8 +63,23 @@ export default {
     showModal() {
       EventBus.$emit("modal-add-line", true);
     },
+    showEditModal(id) {
+      const category = this.items.filter(obj => {
+        return obj.id === id;
+      });
+
+      EventBus.$emit("modal-edit-line", category[0]);
+    },
     newData() {
       this.get();
+    },
+    async remove(id, name) {
+      if (confirm(`You sure want to delete "${name}" product line?`)) {
+        const response = (await contentService.productLines.remove({
+          id
+        })).data;
+        this.get();
+      }
     }
   },
   mounted() {

@@ -41,7 +41,7 @@ export default {
       this.show = true;
     });
 
-    EventBus.$on("modal-edit-subcategory", category => {
+    EventBus.$on("modal-edit-line", category => {
       this.updateStore(category);
       this.isEdit = true;
       this.show = true;

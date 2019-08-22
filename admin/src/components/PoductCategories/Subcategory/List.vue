@@ -55,11 +55,11 @@ export default {
     async get() {
       const response = (await contentService.productSubcategories.get({})).data;
 
+      this.items = [];
       response.forEach(element => {
         this.items.push(element);
       });
 
-      console.log("loaded subcategories", this.items);
       this.loaded = true;
     },
     showModal() {
@@ -72,9 +72,12 @@ export default {
 
       EventBus.$emit("modal-edit-subcategory", category[0]);
     },
-    remove(id, name) {
+    async remove(id, name) {
       if (confirm(`You sure want to delete "${name}" subcategory?`)) {
-        alert("ok");
+        const response = (await contentService.productSubcategories.remove({
+          id
+        })).data;
+        this.get();
       }
     },
     newData() {

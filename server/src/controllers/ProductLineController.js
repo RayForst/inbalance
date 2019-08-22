@@ -26,4 +26,34 @@ module.exports = {
             })
         }
     },
+    async edit(req, res) {
+        try {
+            const item = await Model.findOne({
+                where: { id: req.body.id },
+            })
+
+            item.update(req.body)
+            res.send(item.toJSON())
+
+            res.send('ok')
+        } catch (err) {
+            res.status(400).send({
+                error: 'Something went wrong' + err,
+            })
+        }
+    },
+    async remove(req, res) {
+        try {
+            await Model.destroy({
+                where: {
+                    id: req.body.id,
+                },
+            })
+            res.send('deleted')
+        } catch (err) {
+            res.status(400).send({
+                error: 'Something went wrong' + err,
+            })
+        }
+    },
 }

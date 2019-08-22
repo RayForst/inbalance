@@ -18,7 +18,7 @@ export default {
       loaded: false,
       actions: {
         add: "/product-lines",
-        edit: "/categories/subcategories/edit"
+        edit: "/product-lines/edit"
       }
     };
   },
