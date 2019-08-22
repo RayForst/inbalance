@@ -9,11 +9,15 @@ const ContactController = require('./controllers/ContactController')
 const TranslationsController = require('./controllers/TranslationsController')
 const CallMeBackController = require('./controllers/CallMeBackController')
 const PartnershipController = require('./controllers/PartnershipController')
+const ProductLineController = require('./controllers/ProductLineController')
 const upload = require('./services/fileUploader')
 const validation = require('./validation/validation')
 const token = require('./validation/token')
 
 module.exports = app => {
+    app.get('/product-lines', ProductLineController.get)
+    app.post('/admin/product-lines', token.validate, ProductLineController.save)
+
     app.get('/admin/call-me-back', token.validate, CallMeBackController.get)
     app.get('/admin/partnership', token.validate, PartnershipController.get)
     app.post('/call-me-back', CallMeBackController.save)

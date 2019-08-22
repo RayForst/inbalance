@@ -53,7 +53,7 @@ export default {
     });
 
     EventBus.$on(`form-success-${this.formKey}`, () => {
-      this.$router.go();
+      this.$emit("update", true);
     });
   }
 };

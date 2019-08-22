@@ -13,6 +13,8 @@
                   app-product-categories
                 tab(name="Product Subcategories")
                   app-product-subcategories
+                tab(name="Product Lines")
+                  app-product-lines
                 tab(name="Prefered product category on main")
                   app-product-priority
 </template>
@@ -33,6 +35,7 @@ export default {
     appSettings: () => import("@/components/Settings/Settings"),
     appProductCategories: () =>
       import("@/components/PoductCategories/Main/List"),
+    appProductLines: () => import("@/components/ProductLines/List"),
     appProductSubcategories: () =>
       import("@/components/PoductCategories/Subcategory/List"),
     appProductPriority: () => import("@/components/Products/Priority/List")

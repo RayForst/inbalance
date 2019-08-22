@@ -21,7 +21,9 @@
       v-else
     )
       | Loading...
-    app-modal
+    app-modal(
+      @update="newData"
+    )
 </template>
 
 <script>
@@ -55,6 +57,9 @@ export default {
       });
 
       EventBus.$emit("modal-rename-category", category[0]);
+    },
+    newData() {
+      this.get();
     }
   },
   mounted() {

@@ -33,6 +33,14 @@ db['Product'].belongsTo(db['ProductSubcategory'], {
     foreignKey: 'ProductSubcategoryId',
 })
 
+db['ProductLine'].hasMany(db['Product'], {
+    foreignKey: 'ProductLineId',
+})
+
+db['Product'].belongsTo(db['ProductLine'], {
+    foreignKey: 'ProductLineId',
+})
+
 db['EventSubscribtion'].belongsTo(db['Event'], {
     foreignKey: 'SubId',
 })

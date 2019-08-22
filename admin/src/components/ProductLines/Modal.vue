@@ -6,7 +6,7 @@
       h4.card-title(
         v-html="heading"
       )
-      app-form
+      app-form(:isEdit="isEdit")
 </template>
 
 <script>
@@ -14,12 +14,13 @@ import contentService from "@/services/ContentService";
 import EventBus from "@/event-bus";
 
 export default {
-  name: "product-category-edit",
+  name: "product-line-modal",
   data() {
     return {
       show: false,
-      heading: "Edit category",
-      formKey: "productMainCategory"
+      heading: "Product Line",
+      formKey: "productLine",
+      isEdit: false
     };
   },
   components: {
@@ -35,9 +36,15 @@ export default {
     }
   },
   mounted() {
-    EventBus.$on("modal-rename-category", category => {
+    EventBus.$on("modal-add-line", () => {
+      this.isEdit = false;
       this.show = true;
+    });
+
+    EventBus.$on("modal-edit-subcategory", category => {
       this.updateStore(category);
+      this.isEdit = true;
+      this.show = true;
     });
 
     EventBus.$on(["modal-close", `form-success-${this.formKey}`], () => {

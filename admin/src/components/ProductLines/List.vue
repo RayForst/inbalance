@@ -3,13 +3,7 @@
     app-list-header(
       :icon="icon"
       :title="title"
-      :wide="true"
     )
-
-    app-modal(
-      @update="newData"
-    )
-
     template(
       v-if="loaded"
     )
@@ -17,19 +11,19 @@
         tr
           th #
           th Name
-          th Main category
           th Actions
         tr(v-for="item, index in items")
           td {{ index + 1 }}
           td {{ item.name }}
-          td {{ item["ProductCategory.name"] }}
           td
-            a.ui-link(href="#" @click.prevent="showEditModal(item.id)") Edit
-            a.ui-link(href="#" @click.prevent="remove(item.id, item.name)") Remove
+            a.ui-link(href="#" @click.prevent="rename(item.id)") Edit
     template(
       v-else
     )
       | Loading...
+    app-modal(
+      @update="newData"
+    )
     button.ui-button.ui-button--full-green(@click="showModal") Add new
 </template>
 
@@ -38,12 +32,12 @@ import contentService from "@/services/ContentService";
 import EventBus from "@/event-bus";
 
 export default {
-  name: "product-list-category",
+  name: "product-list-lines",
   data() {
     return {
-      title: "Product Subcategories",
-      icon: "nc-app",
       items: [],
+      title: "Product Lines",
+      icon: "nc-app",
       loaded: false
     };
   },
@@ -53,29 +47,20 @@ export default {
   },
   methods: {
     async get() {
-      const response = (await contentService.productSubcategories.get({})).data;
+      const response = (await contentService.productLines.get()).data;
 
-      response.forEach(element => {
-        this.items.push(element);
-      });
-
-      console.log("loaded subcategories", this.items);
+      this.items = response;
       this.loaded = true;
     },
-    showModal() {
-      EventBus.$emit("modal-add-subcategory", true);
-    },
-    showEditModal(id) {
+    rename(id) {
       const category = this.items.filter(obj => {
         return obj.id === id;
       });
 
-      EventBus.$emit("modal-edit-subcategory", category[0]);
+      EventBus.$emit("modal-rename-category", category[0]);
     },
-    remove(id, name) {
-      if (confirm(`You sure want to delete "${name}" subcategory?`)) {
-        alert("ok");
-      }
+    showModal() {
+      EventBus.$emit("modal-add-line", true);
     },
     newData() {
       this.get();

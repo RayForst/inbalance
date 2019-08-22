@@ -154,6 +154,24 @@ export default new Vuex.Store({
           error: null,
         },
       },
+      productLine: {
+        name: {
+          value: '',
+          error: null,
+        },
+        name_lv: {
+          value: '',
+          error: null,
+        },
+        name_ru: {
+          value: '',
+          error: null,
+        },
+        id: {
+          value: '',
+          error: null,
+        },
+      },
       productPriority: {
         id: {
           value: '',

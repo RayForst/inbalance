@@ -21,6 +21,9 @@ export default {
   productCategories: {
     get: () => Api().get('/categories'),
   },
+  productLines: {
+    get: () => Api().get('/product-lines'),
+  },
   productSubcategories: {
     get: () => Api().get('/categories/subcategories'),
   },
