@@ -1,4 +1,4 @@
-const DEFAULT_LOCALE = 'lv';
+const DEFAULT_LOCALE = 'en';
 
 export default {
   toLocale(item, field, locale) {
