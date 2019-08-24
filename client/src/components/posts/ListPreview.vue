@@ -20,24 +20,7 @@ export default {
   props: ["heading"],
   data() {
     return {
-      list: [
-        {
-          name: "Article 1",
-          image: "castle.jpg"
-        },
-        {
-          name: "Article 2",
-          image: "road.jpg"
-        },
-        {
-          name: "Article 3",
-          image: "nature.jpg"
-        },
-        {
-          name: "Article 4",
-          image: "castle.jpg"
-        }
-      ]
+      list: []
     };
   },
   components: {

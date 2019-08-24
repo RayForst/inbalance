@@ -94,6 +94,7 @@ export default new Vuex.Store({
         category: 'menu.categories.articles',
         i18n: true,
         categoryIndex: 4,
+        link: 'articles',
         links: [
           {
             title: 'menu.links.blog',
