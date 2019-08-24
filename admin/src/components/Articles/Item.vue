@@ -8,6 +8,8 @@
           class="uploaded-image"
           :style="{ backgroundImage: `url(${image})` }"
         )
+        .ui-badges
+          .badge.red(v-if="!item.show") hidden
       .name(v-html="item.name")
 </template>
 

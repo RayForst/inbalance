@@ -14,6 +14,7 @@
         .ui-badges
           .badge(v-if="item.priority") priority
           .badge.blue(v-if="item.preview") preview
+          .badge.red(v-if="!item.show") hidden
 </template>
 
 <script>

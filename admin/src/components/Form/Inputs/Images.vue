@@ -2,7 +2,6 @@
   .form-group
     .label 
       | {{ label }}
-      | test
       template(v-if="required")
         span.requied-mark *
     .container

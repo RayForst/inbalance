@@ -11,6 +11,7 @@
           )
           .ui-badges
             .badge(v-if="item.priority") priority
+            .badge.red(v-if="!item.show") hidden
         .name 
           | {{ item.name }}
           | / 
