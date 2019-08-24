@@ -11,6 +11,7 @@
       :name="name"
       :class="{ inputError: error }"
       v-model="value"
+      :disabled="disabled"
     )
 
     .error(v-if="error" v-html="error")
@@ -20,7 +21,7 @@
 import Form from "@/services/Form.js";
 
 export default {
-  props: ["name", "label", "type", "required"],
+  props: ["name", "label", "type", "required", "disabled"],
   inject: ["formKey"],
   data() {
     return {

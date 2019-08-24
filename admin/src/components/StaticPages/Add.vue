@@ -23,7 +23,14 @@
             app-form-text-editor(:name="'text_ru'" :label="'Text - RU'" :required="true" :key="'ru'")
 
       .col-xs-12.col-md-6
-        app-form-input(v-if="isEdit" :name="'slug'" :label="'URL'" :required="true")
+        template(
+          v-if="partner"
+        )
+          app-form-input(v-if="isEdit" :name="'slug'" :label="'URL'" :required="true")
+        template(
+          v-else
+        )
+          app-form-input(v-if="isEdit" :disabled="true" :name="'slug'" :label="'URL'" :required="true")
         app-form-select(v-if="loaded" :name="'menupos'" :label="'Menu Category'" :options="menu" :required="true")
         app-form-image(:name="'image'" :label="'Main image'" :required="true")
         app-form-checkbox(:name="'show'" :label="'Show'")
@@ -58,6 +65,12 @@ export default {
   computed: {
     action() {
       return this.isEdit ? this.actions.edit : this.actions.add;
+    },
+    partner() {
+      return (
+        this.slug === "become-a-partner" ||
+        this.slug === "become-a-partner-skin-regimen"
+      );
     }
   },
   components: {
