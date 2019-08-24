@@ -100,12 +100,22 @@ export default {
       let fd = new FormData();
       fd.append("file", this.file.value);
 
-      const image = (await contentService.upload.save(fd)).data;
-      const imagename = image.file.filename;
+      console.log("try to save");
+      try {
+        const image = (await contentService.upload.save(fd)).data;
+        const imagename = image.file.filename;
 
-      this.uploaded.push(imagename);
-
-      this.value = this.uploaded.join(",");
+        this.uploaded.push(imagename);
+        this.value = this.uploaded.join(",");
+      } catch (err) {
+        this.$notify({
+          group: "main",
+          title: "Error!",
+          type: "error",
+          text: `Max image size 2MB`,
+          duration: 5000
+        });
+      }
     },
     clear() {
       this.uploaded = [];

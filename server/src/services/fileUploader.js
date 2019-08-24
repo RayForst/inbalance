@@ -20,6 +20,10 @@ const storage = multer.diskStorage({
 
 module.exports = multer({
     storage: storage,
+    limits: {
+        fileSize: 3 * 1024 * 1024,
+        fieldSize: 3 * 1024 * 1024,
+    },
     fileFilter: function(req, file, cb) {
         if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/)) {
             const error = new Error('Only image files are allowed!')
