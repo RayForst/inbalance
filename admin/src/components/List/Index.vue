@@ -9,6 +9,11 @@
 
       .col-xs-6.end-xs
         .ui-button-group
+          app-view-on-site(
+            v-if="edit"
+            :item="edit"
+            :formKey="formKey"
+          )
           app-list-remove(
             v-if="edit"
             :item="edit"
@@ -66,9 +71,7 @@ export default {
     supheading() {
       if (this.list) return this.items.length;
 
-      return !this.edit
-        ? "Add New "
-        : `Edit <a href="/" targer="_blank" class="ui-link">"${this.edit.name}"</a>`;
+      return !this.edit ? "Add New " : `Edit`;
     },
     offset() {
       return this.page > 0 ? this.page * this.onPage : 0;
@@ -108,6 +111,7 @@ export default {
   },
   components: {
     appListHeader: () => import("@/components/List/Header"),
+    appViewOnSite: () => import("@/components/List/ViewOnSite"),
     appListRemove: () => import("@/components/List/Remove"),
     appPagination: () => import("@/components/List/Pagination")
   }
