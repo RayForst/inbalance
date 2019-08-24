@@ -85,6 +85,9 @@ module.exports = {
                     'image',
                     'menupos',
                 ],
+                where: {
+                    show: 1,
+                },
             })
 
             res.send(result)

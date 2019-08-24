@@ -8,6 +8,7 @@
       .col-xs-12.col-md-6
         app-form-translate(
           :storeKey="storeKey"
+          :isEdit="isEdit"
         )
           template(v-slot:en)
             app-form-input(:name="'name'" :label="'Name'" :required="true")
@@ -48,7 +49,6 @@ export default {
         null,
         null,
         "WELLNESS ПРОЦЕДУРЫ",
-        null,
         "МЕРОПРИЯТИЯ",
         "СВЯЗАТЬСЯ С НАМИ",
         "СТАТЬИ"
@@ -76,12 +76,11 @@ export default {
 
       this.menu[0] = response[0].name;
       this.menu[1] = response[1].name;
-      this.menu[3] = response[2].name;
 
       let selectOptions = this.menu.map((val, index) => {
         return {
           title: val,
-          value: index
+          value: index >= 3 ? index + 1 : index
         };
       });
 

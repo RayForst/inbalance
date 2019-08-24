@@ -64,7 +64,6 @@ export default {
 
       this.products.splice(0, this.products.length);
 
-      console.log("response", response[0]);
       if (response.length) {
         this.productsHeadingCategory += `<b>${LocaleService.toLocale(
           response[0],

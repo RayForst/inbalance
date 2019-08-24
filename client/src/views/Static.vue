@@ -91,10 +91,12 @@ export default {
     this.get();
     this.getProducts();
 
-    if (this.slug === "become-a-partner") {
+    if (
+      this.slug === "become-a-partner" ||
+      this.slug === "become-a-partner-skin-regimen"
+    ) {
       this.showPartnerForm = true;
     }
-    console.log("get slug", this.slug);
   }
 };
 </script>

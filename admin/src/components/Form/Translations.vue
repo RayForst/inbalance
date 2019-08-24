@@ -1,11 +1,21 @@
 <template lang="pug">
   span.translate
-    span Translate: 
-    a(:href="`#${locale}`" v-for="locale in locales" :class="{ active: active === locale }" @click.prevent="change") {{ locale.toUpperCase() }} 
- 
+    template(
+      v-if="isEdit"
+    )
+      span Translate: 
+      a(:href="`#${locale}`" v-for="locale in locales" :class="{ active: active === locale }" @click.prevent="change") {{ locale.toUpperCase() }} 
+    template(
+      v-else
+    )
+      span Translate will be available in edit
+
     slot(name="en" v-if="active === 'en'")
-    slot(name="lv" v-if="active === 'lv'")
-    slot(name="ru" v-if="active === 'ru'")
+    template(
+      v-if="isEdit"
+    )
+      slot(name="lv" v-if="active === 'lv'")
+      slot(name="ru" v-if="active === 'ru'")
 </template>
 
 
@@ -15,7 +25,7 @@ import Api from "@/services/Api";
 import EventBus from "@/event-bus";
 
 export default {
-  props: ["storeKey"],
+  props: ["storeKey", "isEdit"],
   data() {
     return {
       locales: ["en", "lv", "ru"]

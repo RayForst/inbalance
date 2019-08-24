@@ -10,6 +10,7 @@
         .col-xs-12.col-md-6
           app-form-translate(
             :storeKey="storeKey"
+            :isEdit="isEdit"
           )
             template(v-slot:en)
               app-form-input(:name="'name'" :label="'Name'" :required="true")
