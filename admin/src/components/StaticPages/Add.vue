@@ -89,11 +89,12 @@ export default {
 
       this.menu[0] = response[0].name;
       this.menu[1] = response[1].name;
+      this.menu[3] = "WELLNESS PRODUCTS";
 
       let selectOptions = this.menu.map((val, index) => {
         return {
           title: val,
-          value: index >= 3 ? index + 1 : index
+          value: index
         };
       });
 
