@@ -55,10 +55,17 @@ export default {
       if (Object.keys(response).length < 1) {
         return this.$router.push({ name: "error" });
       }
+
+      response.text = this.replaceAll(response.text, "&lt;", "<");
+      response.text = this.replaceAll(response.text, "&gt;", ">");
+
       this.item = response;
     },
     toLocale(item, field) {
       return LocaleService.toLocale(item, field, this.$i18n.locale);
+    },
+    replaceAll(target, search, replacement) {
+      return target.split(search).join(replacement);
     },
     async getProducts() {
       const priority = (await contentService.priority.get()).data;
