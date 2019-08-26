@@ -142,7 +142,7 @@ h1 {
 }
 
 p {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 300;
   line-height: 1.43em;
   color: #000000;
