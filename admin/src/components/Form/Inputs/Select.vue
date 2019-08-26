@@ -30,14 +30,10 @@ export default {
       }
     },
     error() {
-      // return '';
       return this.$store.state.forms[this.formKey]
         ? this.$store.state.forms[this.formKey][this.name].error
         : false;
     }
-  },
-  mounted() {
-    console.log(this.options)
   }
 };
 </script>

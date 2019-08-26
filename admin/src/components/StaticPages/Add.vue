@@ -24,13 +24,13 @@
 
       .col-xs-12.col-md-6
         template(
-          v-if="partner"
+          v-if="isPartner"
         )
-          app-form-input(v-if="isEdit" :name="'slug'" :label="'URL'" :required="true")
+          app-form-input(v-if="isEdit" :disabled="true" :name="'slug'" :label="'URL'" :required="true")
         template(
           v-else
         )
-          app-form-input(v-if="isEdit" :disabled="true" :name="'slug'" :label="'URL'" :required="true")
+          app-form-input(v-if="isEdit" :name="'slug'" :label="'URL'" :required="true")
         app-form-select(v-if="loaded" :name="'menupos'" :label="'Menu Category'" :options="menu" :required="true")
         app-form-image(:name="'image'" :label="'Main image'" :required="true")
         app-form-checkbox(:name="'show'" :label="'Show'")
@@ -70,6 +70,14 @@ export default {
       return (
         this.slug === "become-a-partner" ||
         this.slug === "become-a-partner-skin-regimen"
+      );
+    },
+    isPartner() {
+      const value = this.$store.state.forms.static.slug.value;
+
+      return (
+        value === "become-a-partner" ||
+        value === "become-a-partner-skin-regimen"
       );
     }
   },
