@@ -67,13 +67,26 @@ export default {
   },
   methods: {
     async get() {
-      this.links = (await contentService.subcategories.get({
+      const locale = this.$i18n.locale;
+
+      let links = (await contentService.subcategories.get({
         category: this.slug
       })).data;
 
-      this.lines = (await contentService.productLines.get()).data;
+      let lines = (await contentService.productLines.get()).data;
 
-      console.log("lines", this.lines);
+      let field = "name";
+      if (locale !== "en") field += `_${locale}`;
+
+      let alphabeticCompare = function(a, b) {
+        return a[field].localeCompare(b[field]);
+      };
+
+      links.sort(alphabeticCompare);
+      lines.sort(alphabeticCompare);
+
+      this.links = links;
+      this.lines = lines;
     },
     toLocale(item, field) {
       return LocaleService.toLocale(item, field, this.$i18n.locale);

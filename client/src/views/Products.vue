@@ -59,8 +59,6 @@ export default {
   },
   methods: {
     async get() {
-      console.log(this.line, this.subcategory, this.slug);
-
       if (!this.line) {
         let request = this.subcategory
           ? {
