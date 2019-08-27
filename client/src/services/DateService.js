@@ -1,6 +1,16 @@
 import moment from 'moment';
 
-const dateFormat = date => `${date.date()} ${date.format('MMMM')}`;
+const dateFormat = (date) => {
+  let data = date.format('LL');
+  const year = date.year();
+  data = data.replace(year, '');
+  data = data.replace(', ', '');
+  data = data.replace(' г.', '');
+  data = data.replace('. gada ', '');
+  data = data.replace('. ', ' ');
+
+  return data;
+};
 
 export default {
   eventDate(start, end) {
