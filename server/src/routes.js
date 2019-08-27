@@ -124,8 +124,10 @@ module.exports = app => {
 
     // products
     app.get('/products', ProductsController.get)
+    app.get('/products/lines', ProductsController.getLine)
     app.get('/products/description', ProductsController.getCategoryDesc)
     app.get('/product', ProductsController.getBySlug)
+
     app.get('/admin/products', token.validate, ProductsController.getAdmin)
     app.get('/products/priority', ProductsController.getByPriority)
     app.post(

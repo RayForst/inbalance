@@ -129,6 +129,45 @@ module.exports = {
             })
         }
     },
+    async getLine(req, res) {
+        try {
+            let result = await Model.findAll({
+                raw: true,
+                order: [['createdAt', 'DESC']],
+                include: [
+                    {
+                        model: Models.ProductSubcategory,
+                        attributes: ['name', 'name_lv', 'name_ru'],
+                        include: [
+                            {
+                                model: Models.ProductCategory,
+                                attributes: ['name', 'name_lv', 'name_ru'],
+                            },
+                        ],
+                    },
+                    {
+                        model: Models.ProductLine,
+                        attributes: ['slug'],
+                    },
+                ],
+                where: {
+                    '$ProductSubcategory.ProductCategory.slug$':
+                        req.query.category,
+                    '$ProductLine.slug$': req.query.line,
+                    '$ProductSubcategory.id$': {
+                        [Op.ne]: null,
+                    },
+                    show: 1,
+                },
+            })
+
+            res.send(result)
+        } catch (err) {
+            res.status(400).send({
+                error: 'Something went wrong' + err,
+            })
+        }
+    },
     async getCategoryDesc(req, res) {
         try {
             let result
