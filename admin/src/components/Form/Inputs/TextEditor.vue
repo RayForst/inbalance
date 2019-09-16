@@ -7,7 +7,7 @@
       template(v-if="required")
         span.requied-mark *
     VueTrix(
-      inputId="editor1" 
+      :inputId="'editor1'+name" 
       v-model="value"
       placeholder="enter your content..."
       @trix-file-accept="fileAccept"

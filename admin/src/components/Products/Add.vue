@@ -15,20 +15,20 @@
             template(v-slot:en)
               app-form-input(:name="'name'" :label="'Name'" :required="true")
               app-form-text-editor(:name="'description'" :label="'Description and benefit'" :required="true" :key="'en'")
-              app-form-text(:name="'howtouse'" :label="'How to use it'")
-              app-form-text(:name="'ingridients'" :label="'Ingridients'")
+              app-form-text-editor(:name="'howtouse'" :label="'How to use it'" :key="'en_2'")
+              app-form-text-editor(:name="'ingridients'" :label="'Ingridients'" :key="'en_3'")
 
             template(v-slot:lv)
               app-form-input(:name="'name_lv'" :label="'Name - LV'" :required="true")
               app-form-text-editor(:name="'description_lv'" :label="'Description and benefit - LV'" :required="true" :key="'lv'")
-              app-form-text(:name="'howtouse_lv'" :label="'How to use it - LV'")
-              app-form-text(:name="'ingridients_lv'" :label="'Ingridients - LV'")
+              app-form-text-editor(:name="'howtouse_lv'" :label="'How to use it - LV'" :key="'lv_2'")
+              app-form-text-editor(:name="'ingridients_lv'" :label="'Ingridients - LV'" :key="'lv_3'")
             
             template(v-slot:ru)
               app-form-input(:name="'name_ru'" :label="'Name - RU'" :required="true")
               app-form-text-editor(:name="'description_ru'" :label="'Description and benefit - RU'" :required="true" :key="'ru'")
-              app-form-text(:name="'howtouse_ru'" :label="'How to use it - RU'")
-              app-form-text(:name="'ingridients_ru'" :label="'Ingridients - RU'")
+              app-form-text-editor(:name="'howtouse_ru'" :label="'How to use it - RU'" :key="'ru_2'")
+              app-form-text-editor(:name="'ingridients_ru'" :label="'Ingridients - RU'" :key="'ru_3'")
 
         .col-xs-12.col-md-6
           app-form-select-group(:name="'ProductSubcategoryId'" :label="'Category'" :options="categories" :required="true")
