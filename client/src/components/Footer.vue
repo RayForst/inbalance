@@ -13,7 +13,10 @@
                     h4 {{ categoryText(column) }}
                     ul
                       li(v-for="link in column.links ")
-                        a.footer-link.ui-link(href="#") {{ text(link) }}               
+                        router-link.footer-link.ui-link(
+                          :to="url(link)"
+                          v-text="text(link)"
+                        )              
           hr  
           .row.contacts
             .col-xs-12.col-md-12.col-lg-2.center-xs.start-lg.first-lg.middle-xs
@@ -41,10 +44,19 @@ export default {
   },
   computed: {
     menu: function() {
+      console.log(this.$store.state.menu);
       return this.$store.state.menu;
     }
   },
   methods: {
+     url(link) {
+      let route = { name: link.route.name };
+
+      if (link.route.hasOwnProperty("slug"))
+        route.params = { slug: link.route.slug };
+
+      return route;
+    },
     categoryText(menuItem) {
       return menuItem.hasOwnProperty("i18n")
         ? this.$t(menuItem.category)
