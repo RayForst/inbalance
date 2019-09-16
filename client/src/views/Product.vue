@@ -10,10 +10,12 @@
     )
       .content-container.content
         app-products(:heading="productsHeading" :products="products")
+    app-callback
 </template>
 
 <script>
 import contentService from "@/services/ContentService";
+import appCallback from "@/components/CallMeBack";
 
 export default {
   metaInfo: {
@@ -50,7 +52,8 @@ export default {
   components: {
     appBack: () => import("@/components/Back.vue"),
     appProducts: () => import("@/components/products/ListPreview.vue"),
-    appProductPreview: () => import("@/components/products/Preview.vue")
+    appProductPreview: () => import("@/components/products/Preview.vue"),
+    appCallback
   },
   methods: {
     async getList(categoryId) {

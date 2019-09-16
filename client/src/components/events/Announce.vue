@@ -1,5 +1,7 @@
 <template lang="pug">
-  section.ca
+  section.ca(
+    v-if="items.length"
+  )
     .carousel-wrap
       carousel(
         v-if="loaded"
@@ -74,6 +76,9 @@ export default {
 <style lang="stylus" scoped>
 @import '~@/assets/css/_variables';
 
+.ca {
+  margin-bottom 20px;
+}
 h2, .date {
   font-size: 24px;
   line-height: 1.42;

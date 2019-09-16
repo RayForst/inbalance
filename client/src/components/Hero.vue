@@ -1,5 +1,7 @@
 <template lang="pug">
-  section.hero
+  section.hero(
+    v-if="items.length"
+  )
     carousel(
       v-if="loaded"
       loop=true 
@@ -84,6 +86,7 @@ export default {
 .hero {
   height: 520px;
   background: #f7f7f7;
+  margin-bottom 20px;
 
   @media $media_sm {
     height: 442px;

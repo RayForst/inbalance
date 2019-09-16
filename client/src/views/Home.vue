@@ -4,9 +4,7 @@
       app-hero(
         :titleTag="heroTitleTag"
       )
-      .spacer
       app-announce
-      .spacer
       app-products(:heading="productsHeading" :caption="productsCaption" :products="products")
       .spacer
       app-recent-posts(:heading="postsHeading")
