@@ -22,6 +22,7 @@ import Form from "@/services/Form.js";
 import VueTrix from "vue-trix";
 
 const HOST = "http://localhost:3000/upload-editor";
+const UPLOAD_HOST = "http://localhost:280";
 
 export default {
   props: ["name", "label", "type", "required"],
@@ -77,12 +78,14 @@ export default {
       });
 
       xhr.addEventListener("load", function(event) {
-        if (xhr.status == 204) {
+        console.log('LOAD FIRE 2', xhr)
+        if (xhr.status == 200) {
           var attributes = {
-            url: HOST + key,
-            href: HOST + key + "?content-disposition=attachment"
+            url: UPLOAD_HOST + xhr.response,
+            href: UPLOAD_HOST + xhr.response
           };
-          this.successCallback(attributes);
+
+          successCallback(attributes);
         }
       });
 
@@ -92,7 +95,7 @@ export default {
       var date = new Date();
       var day = date.toISOString().slice(0, 10);
       var name = date.getTime() + "-" + file.name;
-      return ["tmp", day, name].join("/");
+      return [day, name].join("/");
     },
     createFormData(key, file) {
       var data = new FormData();
