@@ -8,9 +8,9 @@
       :items=1
       :dots="false" 
       :nav="false"
-      :autoplay="false"
+      :autoplay="true"
       :autoplayTimeout="5300"
-      :autoplaySpeed="7000"
+      :autoplaySpeed="700"
     )
       div.container.bg-image.hero-main(
         v-for="item in items"
