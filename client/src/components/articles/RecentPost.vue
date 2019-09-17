@@ -6,11 +6,15 @@
     .image-wrap.article-small.bg-image(
       :style="{ backgroundImage: 'url(/uploads/' + item.image + ')' }"
     ) 
-    .name {{ item.name }}
+    .name(
+      v-text="toLocale(item, 'name')"
+    )
 </template>
 
 
 <script>
+import LocaleService from "@/services/LocaleService";
+
 export default {
   name: "recent-post",
   props: ["item"],
@@ -21,6 +25,11 @@ export default {
     image: function() {
       return require("../../assets/img/" + this.item.image);
     }
+  },
+  methods: {
+    toLocale(item, field) {
+      return LocaleService.toLocale(item, field, this.$i18n.locale);
+    },
   }
 };
 </script>

@@ -14,20 +14,12 @@
               v-if="item"
               v-html="toLocale(item, 'text')"
             )
-            //- p.weight-300 
-            //-   i Мы убеждены в том, что Мир целостен и отдельные его части не могут рассматриваться обособленно от других, поэтому во всех сферах жизни, в том числе в уходе за собой, холистический подход – самый эффективный.
-            //- p.weight-300 We welcomed our Community to places that reflect the highest expression of creativity and care, great value to us, such as Carlo and Camilla in Segheria, in Milan, and Rocca Meli Lupi di Soragna, to a medieval castle garnished with frescoes ceilings and baroque statues, for the Gala Dinner.<br><br>And, of course, we also fed the mind during the three days of Conference featuring on-stage international researchers with a cutting-edge perspective on social and beauty changes, as well as a new big product launch.<br><br>The four-day journey started in Milan, at Officine del Volo, with a very special evening dedicated to /skin regimen/ with top speakers and a very engaging brand immersion.
-            //- .spacer
-            //- .videoWrapper
-            //-   <iframe width="560" height="349" src="https://www.youtube.com/embed/n_dZNLr2cME?rel=0&hd=1" frameborder="0" allowfullscreen></iframe>
-            //- .spacer
-            //- .spacer
-            //-  .spacer
-            //- a.article-link(href='#') https://youtu.be/BjT-QOqsjz4?t=12m8s
             .spacer
         .col-xs-3.aside
           .offset-heading
-            .offset-heading__text Recent POSTs
+            .offset-heading__text(
+              v-html="$t('recentPosts')"
+            )
           .article-list
             app-recent-post(v-for="item,index in list" :key="index" :item="item")
       .spacer
@@ -103,18 +95,9 @@ export default {
       return LocaleService.toLocale(item, field, this.$i18n.locale);
     },
     async getRecent() {
-      // const response = (await contentService.articles.getOne({
-      //   slug: this.slug
-      // })).data;
-
       const list = (await contentService.articles.get()).data;
 
       this.list = list;
-
-      // if (Object.keys(response).length < 1) {
-      //   return this.$router.push({ name: "error" });
-      // }
-      // this.item = response;
     }
   },
   mounted() {
@@ -153,7 +136,7 @@ h1 {
 }
 
 .aside {
-  padding-top: 115px;
+  padding-top: 24px;
 }
 
 .article-link {
@@ -283,5 +266,15 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.article-conntainer {
+  & > .container {
+    padding-top: 5px;  
+  }
+
+  h1 {
+    margin-top: 0;
+  }
 }
 </style>
