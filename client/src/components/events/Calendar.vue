@@ -302,7 +302,7 @@ h1 {
     margin: 0;
     white-space: pre-wrap;
     line-height: 1.5em;
-    font-size: 14px;
+    font-size: 18px;
   }
 }
 
