@@ -40,7 +40,7 @@ export default {
     appForm: () => import("@/components/Form/Form.vue"),
     appFormInput: () => import("@/components/Form/Inputs/Input.vue"),
     appFormSelect: () => import("@/components/Form/Inputs/Select.vue"),
-    appFormText: () => import("@/components/Form/Inputs/Text.vue"),
+    appFormText: () => import("@/components/Form/Inputs/TextEditor.vue"),
     appFormInputHidden: () => import("@/components/Form/Inputs/Hidden.vue")
   },
   computed: {
