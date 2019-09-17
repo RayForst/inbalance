@@ -8,9 +8,9 @@
       :items=1
       :dots="false" 
       :nav="false"
-      :autoplay="true"
+      :autoplay="false"
       :autoplayTimeout="5300"
-      :autoplaySpeed="700"
+      :autoplaySpeed="7000"
     )
       div.container.bg-image.hero-main(
         v-for="item in items"
@@ -23,10 +23,12 @@
                 h2 {{ toLocale(item, 'name') }}
                 h1 {{ toLocale(item, 'caption') }}
             template(v-else)
-              router-link(:to="{ name: 'event', params: { slug: item.slug } }")
+              div
                 h2 {{ toLocale(item, 'name') }}
                 h1 {{ toLocale(item, 'caption') }}
                 span.date {{ date(item.dateStart, item.dateEnd) }}
+                div.button-wrap
+                  router-link(:to="{ name: 'event', params: { slug: item.slug } }").ui-button.ui-button--full-green {{ $t('links.discover') }}
 </template>
 
 <script>
@@ -118,7 +120,9 @@ h1 {
 .text-container {
   z-index: 200;
 }
-
+.button-wrap {
+  margin-top: 20px;
+}
 .date {
   font-family: 'Lora', sans-serif;
   font-weight: bold;
