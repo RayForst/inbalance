@@ -44,7 +44,6 @@ export default {
   },
   computed: {
     menu: function() {
-      console.log(this.$store.state.menu);
       return this.$store.state.menu;
     }
   },
