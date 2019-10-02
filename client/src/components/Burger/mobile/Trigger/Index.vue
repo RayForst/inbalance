@@ -1,5 +1,5 @@
 <template lang="pug">
-  #hamburger.burger-trigger.is-close(@click="burgerTime" ref="trigger")
+  #hamburger.burger-trigger(@click="burgerTime" ref="trigger")
     .burger-icon
       .burger-container
         .burger-bun-top
@@ -51,14 +51,16 @@ export default {
     },
     closeBurger() {
       this.visible = false;
-      document.body.classList.remove("open");
+      var root = document.getElementsByTagName( 'html' )[0]; 
+      root.classList.remove("open");
       this.$refs.trigger.classList.remove("is-open");
       this.$refs.trigger.classList.add("is-closed");
       this.isClosed = false;
     },
     openBurger() {
       this.visible = true;
-      document.body.classList.add("open");
+      var root = document.getElementsByTagName( 'html' )[0]; 
+      root.classList.add("open");
       this.$refs.trigger.classList.remove("is-closed");
       this.$refs.trigger.classList.add("is-open");
       this.isClosed = true;

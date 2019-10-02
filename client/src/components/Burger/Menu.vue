@@ -24,7 +24,8 @@ export default {
   },
   methods: {
     close() {
-      document.body.classList.remove("open");
+      var root = document.getElementsByTagName( 'html' )[0]; 
+      root.classList.remove("open");
       this.visible = false;
     },
     isLast(index) {

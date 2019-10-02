@@ -16,15 +16,7 @@ export default {
 <style lang="stylus">
 @import '~@/assets/css/_variables';
 
-body.open {
-  overflow: hidden;
-
-  &.open:before {
-    visibility: visible;
-    opacity: 1;
-    z-index: 6000;
-  }
-
+body {
   &:before {
     content: '';
     position: absolute;
@@ -42,13 +34,40 @@ body.open {
       content: none;
     }
   }
+}
+html.open {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
 
-  .burger {
-    width: 100%;
-  }
+  body {
+    overflow: hidden;
+    position: relative;
+    height: 100%;
 
-  .burger__menu {
-    position: initial;
+    &:before {
+      visibility: visible;
+      opacity: 1;
+      z-index: 6000;
+    }
+
+    .burger {
+      width: 100%;
+      height: 100%;
+    }
+
+    .burger__menu {
+      position: initial;
+      padding-bottom 40px;
+      overflow: auto;
+      height:100%;
+
+      @media $media_lg {
+        padding-bottom: 0;
+        height: auto;
+        overflow: initial;
+      }
+    }
   }
 }
 
