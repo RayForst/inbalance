@@ -26,6 +26,8 @@ export default {
   methods: {
     change(index) {
       this.active = index;
+      var list = document.getElementsByClassName("list")[0];
+      list.scrollIntoView();
       this.$emit("newpage", index);
     }
   }
