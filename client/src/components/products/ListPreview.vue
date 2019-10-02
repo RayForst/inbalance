@@ -39,7 +39,7 @@ export default {
 .product-list-preview {
   h2 {
     font-size: 32px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     font-weight: normal;
     margin-top: 0;
 

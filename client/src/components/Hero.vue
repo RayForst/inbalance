@@ -8,7 +8,7 @@
       :items=1
       :dots="false" 
       :nav="false"
-      :autoplay="true"
+      :autoplay="false"
       :autoplayTimeout="5300"
       :autoplaySpeed="700"
     )
@@ -111,7 +111,7 @@ export default {
 }
 
 h1 {
-  font-size: 32px;
+  font-size: 26px;
   line-height: 1.5em;
 
   @media $media_lg {
@@ -119,11 +119,21 @@ h1 {
   }
 }
 
+h2 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.5em;
+
+  @media $media_md {
+    font-size: 21px;
+  }
+}
+
 .text-container {
   z-index: 200;
 }
 .button-wrap {
-  margin-top: 20px;
+  margin-top: 35px;
 }
 .date {
   font-family: 'Lora', sans-serif;

@@ -5,7 +5,7 @@
         .col-xs-12.col-lg-3
           app-menu(:slug="slug")
         .col-xs-12.col-lg-9
-          .product-desc(v-if="description")
+          .product-desc.container.px-0-lg(v-if="description")
             read-more(
               :more-str="$t('readmore.open')" 
               :text="description" 
@@ -17,12 +17,15 @@
             :perPage="onPage"
             :page="page"
           )
-          app-pagination(
-            :total="products.length" 
-            :perPage="onPage" 
-            :current="page"
-            @newpage="changePage"
-          )
+          .container.px-0-lg
+            .row
+              .col-xs-12
+                app-pagination(
+                  :total="products.length" 
+                  :perPage="onPage" 
+                  :current="page"
+                  @newpage="changePage"
+                )
     app-subscribe
     app-callback
 </template>

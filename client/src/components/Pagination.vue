@@ -41,7 +41,7 @@ ul.pagination {
   display: inline-flex;
   list-style-type: none;
   padding: 50px 0;
-  padding-bottom: 40px !important;
+  padding-bottom: 20px !important;
 
   li {
     font-size: 20px;
@@ -50,9 +50,15 @@ ul.pagination {
     cursor: pointer;
     padding: 12px;
 
+    &:hover {
+      background: #103324;
+      color: #fff !important;
+      transition: all .3s ease;
+    }
+
     &.active {
       font-weight: bold;
-      color: #66bb6a;
+      text-decoration: underline;
     }
   }
 }
