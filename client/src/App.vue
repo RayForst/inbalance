@@ -49,7 +49,10 @@ export default {
       const response = (await contentService.settings.get()).data;
       this.$store.commit("setupSettings", response);
 
-      this.loaded = true;
+      let that = this;
+      setTimeout(function() {
+        that.loaded = true;
+      }, 700)
     },
     async changeLanguage(locale) {
       this.loaded = false;

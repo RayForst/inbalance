@@ -1,6 +1,6 @@
 <template lang="pug">
   section.hero(
-    v-if="items.length"
+    v-if="show"
   )
     carousel(
       v-if="loaded"
@@ -43,6 +43,7 @@ export default {
   data() {
     return {
       loaded: false,
+      show: true,
       items: []
     };
   },
@@ -66,6 +67,7 @@ export default {
         this.items.push(element);
       });
 
+      this.show = this.items.length > 0;
       this.loaded = true;
     },
     dateFormat(date) {
