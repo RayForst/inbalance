@@ -31,7 +31,7 @@ body.open {
     background-color: #fff;
     width: 100%;
     overflow: hidden;
-    top: 77px;
+    top: 68px;
     left: 0;
     bottom: 0;
     visibility: hidden;
