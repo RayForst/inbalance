@@ -4,7 +4,7 @@ import store from '../store';
 export default () => {
   const { token } = store.state;
   const config = {
-    baseURL: 'http://192.168.1.46:3000/',
+    baseURL: 'http://localhost:3000/',
   };
 
   if (token) {

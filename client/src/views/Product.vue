@@ -91,6 +91,15 @@ export default {
 .product {
   text-align: left;
   margin-bottom: 50px;
+  margin-top: 20px;
+
+  @media $media_md {
+    margin-top: 40px;  
+  }
+
+  @media $media_lg {
+    margin-top: 0;  
+  }
 }
 
 .border-bottom {

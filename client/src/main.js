@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import * as VueGoogleMaps from 'vue2-google-maps';
-import Tabs from 'vue-tabs-component';
 import ReadMore from 'vue-read-more';
 import SlideUpDown from 'vue-slide-up-down';
 import Lightbox from 'vue-easy-lightbox';
@@ -17,7 +16,6 @@ Vue.config.ignoredElements = ['vue-owl-carousel'];
 
 Vue.use(VueCookie);
 Vue.use(Lightbox);
-Vue.use(Tabs);
 Vue.use(ReadMore);
 Vue.use(VueGoogleMaps, {
   load: {

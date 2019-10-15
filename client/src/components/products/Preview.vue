@@ -11,9 +11,22 @@
         .product
           .media_sm.row
               .col-xs-6
-                .image-wrap.bg-image(
-                  :style="{ backgroundImage: 'url(/uploads/' + image + ')' }"
-                )
+                .carousel-wrap(v-if="gallery && gallery.length > 1")
+                  carousel(
+                    loop=true 
+                    :items=1
+                    :dots="true" 
+                    :nav="false"
+                  )
+                    .square-block(
+                      v-for="(src, index) in gallery"
+                      :style="{ backgroundImage: 'url(' + src + ')' }"
+                      @click="() => showImg(index)"
+                    )
+                .carousel-wrap(v-else)
+                  .square-block(
+                    :style="{ backgroundImage: 'url(' + image + ')' }"
+                  )
               .col-xs-6.sm-desc
                 .name {{ toLocale(product, 'name') }}
                 router-link.desc(
@@ -69,23 +82,32 @@
                 
       .col-xs-10.col-lg-6.pre-line.col-padding
         .tabs-wrap
-          tabs(:options="{ useUrlFragment: false }")
-            tab(
-              :name="$t('products.tab1')"
+          .tabs
+            .tabs-label(
+              v-text="$t('products.tab1')"
+              v-on:click="changeTab"
+              class="active"
+              data-index="1"
+            )
+            .tabs-content(
               v-html="toLocale(product, 'description')"
             )
-            tab(
-              :name="$t('products.tab2')"
+            .tabs-label(
+              v-text="$t('products.tab2')"
+              v-on:click="changeTab"
+              data-index="2"
             )
-              p(
-                v-html="toLocale(product, 'howtouse')"
-              )
-            tab(
-              :name="$t('products.tab3')"
+            .tabs-content(
+              v-html="toLocale(product, 'howtouse')"
             )
-              p(
-                v-html="toLocale(product, 'ingridients')"
-              )
+            .tabs-label(
+              v-text="$t('products.tab3')"
+              v-on:click="changeTab"
+              data-index="3"
+            )
+            .tabs-content(
+              v-html="toLocale(product, 'ingridients')"
+            ) 
 </template>
 
 <script>
@@ -116,6 +138,13 @@ export default {
       this.galleryVisible = false;
 
       document.body.classList.remove("hidden-scroll");
+    },
+    changeTab(e) {
+      for(let item of document.querySelectorAll('.tabs-label')) {
+        item.classList.remove('active');
+      }
+
+      e.target.classList.add('active');
     }
   },
   computed: {
@@ -132,7 +161,6 @@ export default {
     carousel
   },
   mounted() {
-    console.log("produt", this.product);
     if (
       this.product.images &&
       (this.product.images.indexOf(",") > -1 || this.product.images.length > 1)
@@ -208,9 +236,14 @@ export default {
   color: #000000;
   margin-bottom: 10px;
   text-transform: uppercase;
+  margin-top: 15px;
 
   @media $media_md {
     font-size: 22px;
+  }
+
+  @media $media_lg {
+    margin-top: 0;  
   }
 }
 
@@ -267,5 +300,78 @@ export default {
 
 .border-top {
   border-top: 1px solid rgba(50, 65, 72, 0.2);
+}
+
+.tabs {
+  position: relative;
+ 
+
+  &-label {
+    font-family: 'Lora', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.086em;
+    color: #000000;
+    padding: 10px 0
+    position: relative
+    transition: opacity .3s ease
+    font-weight: bold;
+
+    &:hover {
+      opacity 0.6
+    }
+
+    @media $media_md {
+      font-weight: normal;
+      position: absolute;
+      top: 0;
+      left: 0;
+      cursor: pointer;
+      margin-bottom: 15px
+
+      &.active {
+        font-weight: bold;
+        cursor: default;
+
+        &:before {
+          content: ''
+          width 100%;
+          position: absolute
+          bottom: 0;
+          height 1px
+          background: #103324;
+        }
+      }
+
+      &[data-index="2"] {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      &[data-index="3"] {
+        right: 0;
+        left: auto;
+      }
+    }
+  }
+
+  &-content {
+    margin-bottom: 30px;
+
+    @media $media_md {
+      margin-bottom: 0;
+    }
+  }
+
+  @media $media_md {
+    padding-top: 70px;  
+
+    &-content {
+      display: none;
+    }
+
+    &-label.active + &-content {
+      display: block;
+    }
+  }
 }
 </style>

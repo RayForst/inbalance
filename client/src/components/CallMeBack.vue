@@ -47,6 +47,8 @@ export default {
   cursor: pointer;
   transform: translateY(120px);
   transition: all 0.4s;
+  line-height: 1.5em;
+  display: none;
 
   &-header {
     padding: 11px 15px 11px 60px;
@@ -61,6 +63,10 @@ export default {
 
   &.open {
     transform: translateY(0);
+  }
+
+  @media $media_md {
+    display: block;
   }
 }
 </style>
