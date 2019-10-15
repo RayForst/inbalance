@@ -111,4 +111,9 @@ export default {
   text-align: center;
   letter-spacing: 0.025em;
 }
+
+form {
+  max-width: 600px;
+  margin:0 auto;
+}
 </style>

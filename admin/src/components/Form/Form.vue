@@ -36,6 +36,8 @@ export default {
     async save() {
       try {
         const storeObject = this.$store.state.forms[this.storeKey];
+        console.log('store object')
+        console.log(storeObject);
         const formData = {};
 
         Object.keys(storeObject).map(objectKey => {

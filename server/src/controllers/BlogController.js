@@ -13,6 +13,7 @@ module.exports = {
         }
 
         try {
+            console.log(req.body);
             const article = await Model.create(req.body)
             res.send(article.toJSON())
         } catch (err) {
@@ -26,10 +27,11 @@ module.exports = {
         if (!errors.isEmpty()) {
             return res.status(422).json({ errors: errors.array() })
         }
-
+        
+        
         try {
             const item = await Model.findOne({
-                where: { id: req.body.id, show: 1 },
+                where: { id: req.body.id },
             })
 
             item.update(req.body)

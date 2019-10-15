@@ -72,9 +72,15 @@ export default {
 .column-view {
   color: #7e8f97;
   padding-bottom: 15px;
+  width: 100%;
 
   .contact-item {
-    padding: 7px 0;
+    margin-bottom: 45px;
+
+    @media $media_lg {
+      margin-bottom: 0;
+      padding: 7px 0;
+    }
   }
 }
 
@@ -93,7 +99,7 @@ export default {
 }
 
 .contact-item {
-  font-size: 18px;
+  font-size: 20px;
   font-family: 'Lora', sans-serif;
   display: inline-flex;
   color: #858585;
@@ -106,6 +112,10 @@ export default {
 
   &:last-child {
     padding-right: 0;
+  }
+
+  @media $media_lg {
+    font-size: 18px;
   }
 }
 

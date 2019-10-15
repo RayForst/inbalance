@@ -1,27 +1,29 @@
 <template lang="pug">
-  div.static
+  .article
     .content-container.content
-      app-back
       .row
-        .col-xs-9.article-conntainer
-          .container(v-if="item")
+        .col-xs-12.start-xs
+          app-back
+      .row.center-xs
+        .col-xs-10.col-lg-9.article-conntainer
+          .container.text-start(v-if="item")
             h1 {{ toLocale(item, 'name') }}
             img.width-100(
               :src="'/uploads/'+image"
             )
-          .container
+          .container.text-start
             p(
               v-if="item"
               v-html="toLocale(item, 'text')"
             )
             .spacer
-        .col-xs-3.aside
+        .col-xs-10.col-lg-3.aside
           .offset-heading
             .offset-heading__text(
               v-html="$t('recentPosts')"
             )
           .article-list
-            app-recent-post(v-for="item,index in list" :key="index" :item="item")
+            app-recent-post(v-for="item,index in list.slice(0, 6)" :key="index" :item="item")
       .spacer
 
 </template>
@@ -39,7 +41,7 @@ export default {
     title: "Static page"
   },
   props: ["slug"],
-  name: "static",
+  name: "article",
   data() {
     return {
       item: null,
@@ -111,6 +113,13 @@ export default {
 <style lang="stylus" scoped>
 @import '~@/assets/css/_variables';
 
+.article {
+  margin-top: 20px;
+
+  @media $media_lg {
+    margin-top: 0;  
+  }  
+}
 h1 {
   font-size: 32px;
   line-height: 1.29em;
@@ -156,7 +165,9 @@ h1 {
 }
 
 .article-conntainer {
-  padding-right: 30px;
+  @media $media_lg {
+    padding-right: 30px;
+  }
 }
 
 .ui-tag {
@@ -266,6 +277,15 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
+}
+.container {
+  padding-left: 0;
+  padding-right:0;
+
+  @media $media_lg {
+    padding-left: 20px;
+    padding-right: 20px;
+  }  
 }
 
 .article-conntainer {

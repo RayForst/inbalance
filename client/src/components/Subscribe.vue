@@ -1,7 +1,7 @@
 <template lang="pug">
   .subscribe
     .content-container.content.vertical-container
-      .row.center-xs.text-start
+      .row.center-xs.text-center.text-start-md
         .col-xs-10.col-sm-10.col-lg-12
           .row.middle-md.sub-container
             .col-xs-12.col-md-6
@@ -26,6 +26,8 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+@import '~@/assets/css/_variables';
+
 .subscribe {
   border-top: 1px solid rgba(#324148, 0.2);
 }
