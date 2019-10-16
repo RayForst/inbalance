@@ -44,6 +44,8 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+@import '~@/assets/css/_variables';
+
 .page-list-item {
   cursor: pointer;
   margin: auto;
@@ -52,8 +54,10 @@ export default {
   margin-bottom: 40px;
 
   &:hover {
-    .slide-container {
-      transform: translateY(-80px);
+    @media $media_lg {
+      .slide-container {
+        transform: translateY(-80px);
+      }
     }
   }
 
@@ -104,8 +108,8 @@ export default {
   line-height: 1.42;
   letter-spacing: normal;
   color: #ffffff;
-  padding-top: 20px;
-  margin-top: 50px;
+  padding-top: 14px;
+  margin-top: 0;
   position: relative;
 
   &:before {
@@ -116,6 +120,10 @@ export default {
     top: 0;
     left: 0;
     background: #103324;
+  }
+
+  @media $media_lg {
+    margin-top: 50px;  
   }
 }
 

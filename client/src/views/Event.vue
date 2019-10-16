@@ -15,15 +15,15 @@
         :style="{ backgroundImage: `url(${image})` }"
       )
       .content-container.content
-        .row
-          .col-xs-12
+        .row.center-xs
+          .col-xs-10.col-lg-12.text-start
             .ui-tag {{ date }}
             h1 {{ toLocale(item, 'name') }}
   .content-container.content(v-if="item")
-    .row
-      .col-xs-12
+    .row.center-xs
+      .col-xs-10.col-lg-12.text-start
         p(v-html="toLocale(item, 'description')")
-      .col-xs-12
+      .col-xs-10.col-lg-12.text-start
         .carousel-wrap(v-if="item")
           carousel(
             loop=true 
@@ -162,6 +162,8 @@ p {
 }
 
 .event {
-  margin-top: 18px;
+  @media $media_lg {
+    margin-top: 18px;
+  }
 }
 </style>

@@ -3,7 +3,7 @@
     .row.center-xs
       .col-xs-12.col-sm-10.col-lg-12
         .row.center-xs
-          .col-xs-8
+          .col-xs-10.col-md-8
             h1 {{ $t('events.calendar.title')}}
             p {{ $t('events.calendar.description') }}
         .month.container
@@ -211,6 +211,7 @@ export default {
       if (this.date != "") {
         let date = this.date;
         let monthDates = this.days;
+        let momentDate = this.date.clone();
 
         this.days = [];
 
@@ -241,7 +242,15 @@ export default {
             monthDates[index].number = dayNumber;
 
             this.items.forEach(element => {
-              if (moment(element.dateStart).date() == dayNumber) {
+              momentDate.set('date', dayNumber);
+              momentDate.set({hour:0,minute:0,second:0,millisecond:0})
+
+              let start = moment(element.dateStart).set({hour:0,minute:0,second:0,millisecond:0})
+              let end = moment(element.dateEnd).set({hour:0,minute:0,second:0,millisecond:0})
+
+              if (
+                momentDate.isBetween(start, end, null, '[]')
+              ) {
                 monthDates[index].events.push({
                   name: element.name,
                   slug: element.slug
@@ -380,6 +389,7 @@ h1 {
 .calendar-day--not-month .calendar-day__content {
   background-color: #ffffff;
   background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23f9f9fa' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+  height: 100%;
 }
 
 .calendar-day--today .calendar-day__content {
@@ -532,5 +542,6 @@ h1 {
   box-sizing: border-box;
   margin-bottom: 10px;
   text-align: left;
+  display:block;
 }
 </style>

@@ -50,13 +50,27 @@ module.exports = {
                     raw: true,
                     order: [['dateStart', 'ASC']],
                     where: Sequelize.and(
-                        Sequelize.where(
-                            Sequelize.fn('MONTH', Sequelize.col('dateStart')),
-                            req.query.month
-                        ),
-                        Sequelize.where(
-                            Sequelize.fn('YEAR', Sequelize.col('dateStart')),
-                            req.query.year
+                        Sequelize.or(
+                            (
+                                Sequelize.where(
+                                    Sequelize.fn('MONTH', Sequelize.col('dateStart')),
+                                    req.query.month
+                                ),
+                                Sequelize.where(
+                                    Sequelize.fn('YEAR', Sequelize.col('dateStart')),
+                                    req.query.year
+                                )
+                            ),
+                            (
+                                Sequelize.where(
+                                    Sequelize.fn('MONTH', Sequelize.col('dateEnd')),
+                                    req.query.month
+                                ),
+                                Sequelize.where(
+                                    Sequelize.fn('YEAR', Sequelize.col('dateEnd')),
+                                    req.query.year
+                                )
+                            ),
                         ),
                         { preview: 0, show: 1 }
                     ),
