@@ -62,6 +62,9 @@ export default {
       mail: this.$store.state.settings.email,
       address: this.$store.state.settings.address
     };
+  },
+  mounted() {
+    if (!this.$store.state.settings.phone) window.location.reload();
   }
 };
 </script>
