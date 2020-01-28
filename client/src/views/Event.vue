@@ -81,7 +81,7 @@ export default {
     },
     gallery() {
       if (this.item.images === '') return false;
-      
+
       return this.item.images.split(",").map(function(image) {
         return "/uploads/" + image;
       });
@@ -153,7 +153,7 @@ h1 {
 }
 
 p {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 300;
   line-height: 1.83em;
   color: #000000;
