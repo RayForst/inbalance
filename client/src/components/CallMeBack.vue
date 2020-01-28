@@ -20,7 +20,7 @@ export default {
   name: "callMeBack",
   data() {
     return {
-      open: false,
+      open: true,
       value: "+371"
     };
   },

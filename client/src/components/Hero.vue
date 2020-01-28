@@ -8,7 +8,7 @@
       :items=1
       :dots="false" 
       :nav="false"
-      :autoplay="false"
+      :autoplay="true"
       :autoplayTimeout="5300"
       :autoplaySpeed="700"
     )

@@ -2,9 +2,10 @@
   .product(
     @click="goProduct"
   )
-    .image-wrap.bg-image(
-      :style="{ backgroundImage: 'url(/uploads/' + image + ')' }"
-    )
+    .image-wrap.scale-container
+      .scale-image.bg-image(
+        :style="{ backgroundImage: 'url(/uploads/' + image + ')' }"
+      )
     .vertical-container 
       .name {{ toLocale(content, 'name') }}
       .desc {{ toLocale(content, 'ProductSubcategory.name') }}
@@ -102,5 +103,27 @@ export default {
     padding-top: 100%;
     background: #fff;
   }
+}
+
+
+.scale-container {
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    .scale-image {
+      transform: translate(-50%, -50%) scale(1.15, 1.15);
+    }
+  }
+}
+
+.scale-image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.6s ease;
 }
 </style>

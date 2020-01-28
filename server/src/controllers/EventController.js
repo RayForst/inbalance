@@ -116,14 +116,11 @@ module.exports = {
             const result = await Model.findAll({
                 raw: true,
                 where: Sequelize.and(
-                    Sequelize.where(
-                        Sequelize.fn('MONTH', Sequelize.col('dateStart')),
-                        now.month() + 1
-                    ),
-                    Sequelize.where(
-                        Sequelize.fn('YEAR', Sequelize.col('dateStart')),
-                        now.year()
-                    ),
+                    {
+                        dateStart: {
+                            [Op.gte]: now
+                        }
+                    },
                     { priority: 0 },
                     { preview: 0, show: 1 }
                 ),
