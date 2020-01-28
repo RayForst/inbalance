@@ -53,12 +53,18 @@ export default {
         edit: "/static/edit"
       },
       menu: [
-        null,
-        null,
-        "WELLNESS ПРОЦЕДУРЫ",
-        "МЕРОПРИЯТИЯ",
-        "СВЯЗАТЬСЯ С НАМИ",
-        "СТАТЬИ"
+        {
+          value: 0,
+          title: 'comfort-zone'
+        },
+        {
+          value: 1,
+          title: '/skin regimen/'
+        },
+        {
+          value: 5,
+          title: 'contacts'
+        }
       ]
     };
   },
@@ -95,18 +101,18 @@ export default {
     async get() {
       const response = (await contentService.productCategories.get({})).data;
 
-      this.menu[0] = response[0].name;
-      this.menu[1] = response[1].name;
-      this.menu[3] = "WELLNESS PRODUCTS";
+      // this.menu[0] = response[0].name;
+      // this.menu[1] = response[1].name;
+      // this.menu[3] = "WELLNESS PRODUCTS";
 
-      let selectOptions = this.menu.map((val, index) => {
-        return {
-          title: val,
-          value: index
-        };
-      });
+      // let selectOptions = this.menu.map((val, index) => {
+      //   return {
+      //     title: val,
+      //     value: index
+      //   };
+      // });
 
-      this.menu = selectOptions;
+      // this.menu = selectOptions;
       this.loaded = true;
     }
   },

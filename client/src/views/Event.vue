@@ -80,6 +80,8 @@ export default {
       return DateService.eventDate(this.item.dateStart, this.item.dateEnd);
     },
     gallery() {
+      if (this.item.images === '') return false;
+      
       return this.item.images.split(",").map(function(image) {
         return "/uploads/" + image;
       });

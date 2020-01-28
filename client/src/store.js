@@ -79,7 +79,6 @@ export default new Vuex.Store({
         category: 'menu.categories.contacts',
         i18n: true,
         categoryIndex: 4,
-        link: 'contacts',
         links: [
           {
             title: 'menu.links.contacts',
