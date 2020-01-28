@@ -62,6 +62,14 @@ export default {
           title: '/skin regimen/'
         },
         {
+          value: 2,
+          title: 'wellness treatments'
+        },
+        {
+          value: 3,
+          title: 'wellness products'
+        },
+        {
           value: 5,
           title: 'contacts'
         }
