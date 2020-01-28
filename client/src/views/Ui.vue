@@ -20,7 +20,6 @@ export default {
   name: 'static',
   data() {
     return {
-      productsHeading: 'Мы рекомендуем также эти товары',
       products: [
         {
           name: 'Product 1',

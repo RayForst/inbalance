@@ -19,7 +19,7 @@
           .spacer
           template(v-if='showPartnerForm')
             app-partnership-form
-      app-products(:heading="productsHeading" :products="products")
+      app-products(:heading="$t('reccomendProducts')" :products="products")
       .spacer
       .spacer
     app-subscribe
@@ -40,7 +40,6 @@ export default {
   name: "static",
   data() {
     return {
-      productsHeading: "Мы рекомендуем также эти товары",
       showPartnerForm: false,
       products: [],
       item: null

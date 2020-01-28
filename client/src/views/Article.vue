@@ -45,7 +45,6 @@ export default {
   data() {
     return {
       item: null,
-      productsHeading: "Мы рекомендуем также эти товары",
       products: [
         {
           name: "Product 1"
@@ -254,7 +253,7 @@ h1 {
 }
 
 p {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 300;
   line-height: 1.83em;
   color: #000000;

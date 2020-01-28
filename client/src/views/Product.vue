@@ -9,7 +9,7 @@
       v-if="products.length" 
     )
       .content-container.content
-        app-products(:heading="productsHeading" :products="products")
+        app-products(:heading="$t('reccomendProducts')" :products="products")
     app-callback
 </template>
 
@@ -26,7 +26,6 @@ export default {
   data() {
     return {
       product: null,
-      productsHeading: "Мы рекомендуем также эти товары",
       products: [
         {
           name: "Product 1"
