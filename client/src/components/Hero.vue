@@ -20,12 +20,12 @@
           .col-xs-11.col-md-7.align-center.text-center.text-container
             template(v-if="item.preview")
               .preview
-                h2 {{ toLocale(item, 'name') }}
-                h1 {{ toLocale(item, 'caption') }}
+                h2(v-html="toLocale(item, 'name')")
+                h1(v-html="toLocale(item, 'caption')")
             template(v-else)
               div
-                h2 {{ toLocale(item, 'name') }}
-                h1 {{ toLocale(item, 'caption') }}
+                h2(v-html="toLocale(item, 'name')")
+                h1(v-html="toLocale(item, 'caption')")
                 span.date {{ date(item.dateStart, item.dateEnd) }}
                 div.button-wrap
                   router-link(:to="{ name: 'event', params: { slug: item.slug } }").ui-button.ui-button--full-green {{ $t('links.discover') }}
