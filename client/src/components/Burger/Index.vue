@@ -23,7 +23,7 @@ body {
     background-color: #fff;
     width: 100%;
     overflow: hidden;
-    top: 68px;
+    top: 67px;
     left: 0;
     bottom: 0;
     visibility: hidden;

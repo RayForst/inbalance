@@ -64,10 +64,14 @@ export default {
       this.$refs.trigger.classList.remove("is-closed");
       this.$refs.trigger.classList.add("is-open");
       this.isClosed = true;
+
+      EventBus.$emit('burgerToggle', true);
     }
   },
   mounted() {
     this.close();
+
+    EventBus.$on('langToggle', this.closeBurger);
   }
 };
 </script>

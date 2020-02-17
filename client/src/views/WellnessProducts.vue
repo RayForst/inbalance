@@ -2,7 +2,7 @@
   .page-preview
     .content-container.content
       .row.center-xs
-        .col-xs-8.heading
+        .col-xs-10.col-sm-8.heading
           h1 {{ $t('wellness_products_title') }}
           p {{ $t('wellness_products_desc') }}
       app-list(:items="items" :small="true")

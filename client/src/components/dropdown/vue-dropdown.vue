@@ -29,6 +29,8 @@
   </div>
 </template>
 <script>
+import EventBus from "@/event-bus";
+
 export default {
   name: "dropdown",
   data() {
@@ -52,6 +54,7 @@ export default {
     toggleRiskLevels() {
       this.isBottomSectionToggled = !this.isBottomSectionToggled;
       this.$refs.container.classList.toggle("open");
+      this.$emit("onToggle", true);
     },
     setCurrentSelectedOption(option) {
       this.$emit("setSelectedOption", option);
@@ -76,6 +79,10 @@ export default {
         this.borderRadius = this.config.borderRadius;
       }
     },
+    close() {
+      this.isBottomSectionToggled = false;
+      this.$refs.container.classList.remove("open");
+    },
     setOptionsHeight() {
       this.optionsHeight = this.optionHeight * this.configOptions.length;
     }
@@ -87,7 +94,9 @@ export default {
   beforeUdate() {
     // this.setOptionsHeight();
   },
-  mounted() {}
+  mounted() {
+    EventBus.$on('burgerToggle', this.close);
+  }
 };
 </script>
 

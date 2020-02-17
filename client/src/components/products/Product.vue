@@ -48,6 +48,11 @@ export default {
 <style lang="stylus" scoped>
 @import '~@/assets/css/_variables';
 
+.ui-button {
+  box-sizing: border-box;
+  width: 100%;
+}
+
 .product {
   max-width: 280px;
   margin: auto;

@@ -9,6 +9,11 @@ const dateFormat = (date) => {
   data = data.replace('. gada ', '');
   data = data.replace('. ', ' ');
 
+  // if format is MONTH DAY (it true for english dates)
+  if (!!parseInt(data.split(' ')[1])) {
+    data = data.split(' ').reverse().join(' ');
+  }
+
   return data;
 };
 

@@ -60,6 +60,14 @@ header.main {
 
   & > .container {
     padding-bottom: 10px;
+
+    @media $media_md {
+      padding-bottom: 20px;
+    }
+
+    @media $media_lg {
+      padding-bottom: 10px;
+    }
   }
 
   @media $media_lg {

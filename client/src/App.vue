@@ -6,6 +6,7 @@
       app-header
       app-burger
       transition(name="fade" mode="out-in")
+      .router-view-container
         router-view(:key="$route.fullPath")
       app-footer
     template(
@@ -50,8 +51,9 @@ export default {
       this.$store.commit("setupSettings", response);
 
       let that = this;
+
       setTimeout(function() {
-        that.loaded = true;
+        that.firstVisitLocale();
       }, 700)
     },
     async changeLanguage(locale) {
@@ -76,16 +78,19 @@ export default {
     },
     firstVisitLocale() {
       const availableLocales = ["en", "lv", "ru"];
-      const userLang = this.getLocale();
-      moment.locale(userLang);
+      const browserLang = this.getLocale();
+      const cookie = this.$cookie.get("lang");
 
-      if (!this.$cookie.get("lang") && availableLocales.includes(userLang)) {
-        this.changeLanguage(userLang);
+      if (!cookie && availableLocales.includes(browserLang)) {
+        this.changeLanguage(browserLang);
+      } else if (cookie && availableLocales.includes(cookie)) {
+        this.changeLanguage(cookie);
+      } else {
+        this.changeLanguage('lv');
       }
     }
   },
   mounted() {
-    this.firstVisitLocale();
     this.getSettings();
 
     EventBus.$on("lang-request", this.changeLanguage);

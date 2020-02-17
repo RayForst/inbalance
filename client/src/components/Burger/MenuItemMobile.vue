@@ -24,6 +24,8 @@
 </template>
 
 <script>
+import LocaleService from "@/services/LocaleService";
+
 export default {
   name: "menu-item-mobile",
   props: ["menuItem", "isLast"],
@@ -41,13 +43,18 @@ export default {
 
       return route;
     },
+    toLocale(item, field) {
+      return LocaleService.toLocale(item, field, this.$i18n.locale);
+    },
     categoryText(menuItem) {
       return menuItem.hasOwnProperty("i18n")
         ? this.$t(menuItem.category)
         : menuItem.category;
     },
     text(link) {
-      return link.hasOwnProperty("i18n") ? this.$t(link.title) : link.title;
+      return link.hasOwnProperty("i18n")
+        ? this.$t(link.title)
+        : this.toLocale(link, "title");
     },
     open() {
       this.hover = true;

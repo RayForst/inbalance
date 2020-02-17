@@ -6,6 +6,7 @@
       vue-dropdown(
         :config="configShort"
         @setSelectedOption="setShortNewSelectedOption($event);"
+        @onToggle="fireLangToggle"
       )
     .lang-md
       vue-dropdown(
@@ -77,6 +78,9 @@ export default {
     };
   },
   methods: {
+    fireLangToggle() {
+      EventBus.$emit("langToggle", true);
+    },
     setNewSelectedOption(selectedOption) {
       const option = this.findOption(this.config.options, selectedOption.value);
 
