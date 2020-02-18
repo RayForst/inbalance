@@ -14,12 +14,18 @@
             template(
               v-if="index === 0"
             )
-              a(href="#") 
+              router-link(
+                :to="{ name: 'products', params: { category: slug} }"
+                exact
+              ) 
                 b {{ toLocale(link, 'name') }}     
             template(
               v-else
             )
-              a(href="#") 
+              router-link(
+                :class="{ active: index === 0 }"
+                :to="{ name: 'products-subcategory', params: { category: slug, subcategory: link.slug } }"
+              )  
                 | {{ toLocale(link, 'name') }} 
       .trigger(
         @click="toggle"

@@ -17,6 +17,7 @@
 
 <script>
 import appHeader from "@/components/Header";
+import appBurger from "@/components/Burger/Index";
 import contentService from "@/services/ContentService";
 import EventBus from "@/event-bus";
 import { loadLanguageAsync } from "./i18n";
@@ -34,8 +35,8 @@ export default {
   },
   components: {
     appHeader,
+    appBurger,
     appFooter: () => import("@/components/Footer"),
-    appBurger: () => import("@/components/Burger/Index"),
     appLoader: () => import("@/components/Loader")
   },
   methods: {

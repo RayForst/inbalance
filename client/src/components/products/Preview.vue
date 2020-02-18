@@ -1,5 +1,5 @@
 <template lang="pug">
-    .row.center-xs
+    .row.center-xs.preview-container
       vue-easy-lightbox(
         v-if="gallery && gallery.length > 1"
         :visible="galleryVisible"
@@ -182,6 +182,9 @@ export default {
   margin-bottom: 50px;
 }
 
+.preview-container {
+  min-height: 80vh;
+}
 .media_sm {
   display: none;
 

@@ -16,6 +16,7 @@
 <script>
 import contentService from "@/services/ContentService";
 import appCallback from "@/components/CallMeBack";
+import appProductPreview from "@/components/products/Preview.vue";
 
 export default {
   metaInfo: {
@@ -51,7 +52,7 @@ export default {
   components: {
     appBack: () => import("@/components/Back.vue"),
     appProducts: () => import("@/components/products/ListPreview.vue"),
-    appProductPreview: () => import("@/components/products/Preview.vue"),
+    appProductPreview,
     appCallback
   },
   methods: {
