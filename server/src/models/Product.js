@@ -50,6 +50,24 @@ module.exports = (sequelize, DataTypes) =>
             ingridients_lv: {
                 type: DataTypes.TEXT,
             },
+            metatitle: {
+                type: DataTypes.STRING,
+            },
+            metadesc: {
+                type: DataTypes.TEXT,
+            },
+            metatitle_lv: {
+                type: DataTypes.STRING,
+            },
+            metadesc_lv: {
+                type: DataTypes.TEXT,
+            },
+            metatitle_ru: {
+                type: DataTypes.STRING,
+            },
+            metadesc_ru: {
+                type: DataTypes.TEXT,
+            },
             priority: {
                 type: DataTypes.BOOLEAN,
             },

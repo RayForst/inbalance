@@ -14,16 +14,22 @@
             app-form-input(:name="'name'" :label="'Name'" :required="true")
             app-form-text-editor(:name="'caption'" :label="'Caption - only for priority events'" :key="'caption_en'")
             app-form-text-editor(:name="'description'" :label="'Description'" :required="true" :key="'en'")
-         
+            app-form-input(:name="'metatitle'" :label="'meta title'" :key="'en_4'")
+            app-form-text(:name="'metadesc'" :label="'meta description'" :key="'en_5'")
+    
           template(v-slot:lv)
             app-form-input(:name="'name_lv'" :label="'Name - LV'" :required="true")
             app-form-text-editor(:name="'caption_lv'" :label="'Caption - only for priority events - LV'" :key="'caption_lv'")
             app-form-text-editor(:name="'description_lv'" :label="'Description - LV'" :required="true" :key="'lv'")
-
+            app-form-input(:name="'metatitle_lv'" :label="'meta title - LV'" :key="'lv_4'")
+            app-form-text(:name="'metadesc_lv'" :label="'meta description - LV'" :key="'lv_5'")
+            
           template(v-slot:ru)
             app-form-input(:name="'name_ru'" :label="'Name - RU'" :required="true")
             app-form-text-editor(:name="'caption_ru'" :label="'Caption - only for priority events - RU'" :key="'caption_ru'")
             app-form-text-editor(:name="'description_ru'" :label="'Description - RU'" :required="true" :key="'ru'")
+            app-form-input(:name="'metatitle_ru'" :label="'meta title - RU'" :key="'ru_4'")
+            app-form-text(:name="'metadesc_ru'" :label="'meta description - RU'" :key="'ru_5'")
 
       .col-xs-12.col-md-6
         app-form-datepicker(:name="'dateStart'" :label="'Date start'" :required="true")
@@ -53,6 +59,7 @@ export default {
   components: {
     appForm: () => import("@/components/Form/Form.vue"),
     appFormInput: () => import("@/components/Form/Inputs/Input.vue"),
+    appFormText: () => import("@/components/Form/Inputs/Text.vue"),
     appFormDatepicker: () => import("@/components/Form/Inputs/Datepicker.vue"),
     appFormTextEditor: () => import("@/components/Form/Inputs/TextEditor.vue"),
     appFormImage: () => import("@/components/Form/Inputs/Image.vue"),

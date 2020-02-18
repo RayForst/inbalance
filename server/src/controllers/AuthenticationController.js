@@ -53,7 +53,6 @@ module.exports = {
         }
     },
     async registerAdmin() {
-        console.log('requster admin')
         try {
             const user = await Models.User.create(config.admin)
             return user.toJSON()

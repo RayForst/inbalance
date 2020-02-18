@@ -35,6 +35,9 @@ export default {
   settings: {
     get: () => Api().get('/settings'),
   },
+  settingsSeo: {
+    get: () => Api().get('/settings-seo'),
+  },
   upload: {
     save: credentials => Api().post('upload', credentials),
   },

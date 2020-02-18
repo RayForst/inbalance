@@ -13,7 +13,6 @@ module.exports = {
         }
 
         try {
-            console.log(req.body);
             const article = await Model.create(req.body)
             res.send(article.toJSON())
         } catch (err) {

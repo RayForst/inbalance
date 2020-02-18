@@ -28,11 +28,6 @@ module.exports = {
         }
     },
     async save(req, res) {
-        // const errors = validationResult(req)
-        // if (!errors.isEmpty()) {
-        //     return res.status(422).json({ errors: errors.array() })
-        // }
-
         try {
             if (availableFormats.includes(req.body.lang)) {
                 fs.writeFileSync(
@@ -40,14 +35,7 @@ module.exports = {
                     JSON.stringify(req.body.json),
                     'utf-8'
                 )
-                console.log(req.body.json)
 
-                // const file = path.join(
-                //     __dirname,
-                //     '../../../client/src/locales/' + req.query.lang + '.json'
-                // )
-
-                // let result = JSON.parse(fs.readFileSync(file, 'utf8'))
                 res.send({
                     result: 'ok',
                 })
@@ -55,8 +43,6 @@ module.exports = {
                 throw 'Bad language'
             }
 
-            // const event = await Model.create(req.body)
-            // res.send(event.toJSON())
         } catch (err) {
             console.log(err)
             res.status(400).send({

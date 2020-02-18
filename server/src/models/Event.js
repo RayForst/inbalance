@@ -61,6 +61,24 @@ module.exports = (sequelize, DataTypes) =>
                 type: DataTypes.BOOLEAN,
                 defaultValue: false,
             },
+            metatitle: {
+                type: DataTypes.STRING,
+            },
+            metadesc: {
+                type: DataTypes.TEXT,
+            },
+            metatitle_lv: {
+                type: DataTypes.STRING,
+            },
+            metadesc_lv: {
+                type: DataTypes.TEXT,
+            },
+            metatitle_ru: {
+                type: DataTypes.STRING,
+            },
+            metadesc_ru: {
+                type: DataTypes.TEXT,
+            },
         })
         .beforeCreate(createSlug)
         .beforeUpdate(createSlug)

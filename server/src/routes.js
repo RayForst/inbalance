@@ -5,6 +5,7 @@ const StaticPageController = require('./controllers/StaticPageController')
 const EventController = require('./controllers/EventController')
 const ProductCategoryController = require('./controllers/ProductCategoryController')
 const SettingsController = require('./controllers/SettingsController')
+const SettingsSeoController = require('./controllers/SettingsSeoController')
 const ContactController = require('./controllers/ContactController')
 const TranslationsController = require('./controllers/TranslationsController')
 const CallMeBackController = require('./controllers/CallMeBackController')
@@ -63,6 +64,11 @@ module.exports = app => {
         token.validate,
         SettingsController.updatePriority
     )
+    
+    // seo settings
+    app.get('/settings-seo', token.validate, SettingsSeoController.get)
+    app.post('/admin/settings_seo', token.validate, SettingsSeoController.update)
+
 
     // static pages
     app.get('/static', StaticPageController.getBySlug)

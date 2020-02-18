@@ -93,6 +93,30 @@ export default new Vuex.Store({
           value: '',
           error: null,
         },
+        metatitle: {
+          value: '',
+          error: null,
+        },
+        metadesc: {
+          value: '',
+          error: null,
+        },
+        metatitle_lv: {
+          value: '',
+          error: null,
+        },
+        metadesc_lv: {
+          value: '',
+          error: null,
+        },
+        metatitle_ru: {
+          value: '',
+          error: null,
+        },
+        metadesc_ru: {
+          value: '',
+          error: null,
+        },
       },
       productMainCategory: {
         name: {
@@ -120,6 +144,30 @@ export default new Vuex.Store({
           error: null,
         },
         id: {
+          value: '',
+          error: null,
+        },
+        metatitle: {
+          value: '',
+          error: null,
+        },
+        metadesc: {
+          value: '',
+          error: null,
+        },
+        metatitle_lv: {
+          value: '',
+          error: null,
+        },
+        metadesc_lv: {
+          value: '',
+          error: null,
+        },
+        metatitle_ru: {
+          value: '',
+          error: null,
+        },
+        metadesc_ru: {
           value: '',
           error: null,
         },
@@ -157,6 +205,30 @@ export default new Vuex.Store({
           value: '',
           error: null,
         },
+        metatitle: {
+          value: '',
+          error: null,
+        },
+        metadesc: {
+          value: '',
+          error: null,
+        },
+        metatitle_lv: {
+          value: '',
+          error: null,
+        },
+        metadesc_lv: {
+          value: '',
+          error: null,
+        },
+        metatitle_ru: {
+          value: '',
+          error: null,
+        },
+        metadesc_ru: {
+          value: '',
+          error: null,
+        },
       },
       productLine: {
         name: {
@@ -172,6 +244,30 @@ export default new Vuex.Store({
           error: null,
         },
         id: {
+          value: '',
+          error: null,
+        },
+        metatitle: {
+          value: '',
+          error: null,
+        },
+        metadesc: {
+          value: '',
+          error: null,
+        },
+        metatitle_lv: {
+          value: '',
+          error: null,
+        },
+        metadesc_lv: {
+          value: '',
+          error: null,
+        },
+        metatitle_ru: {
+          value: '',
+          error: null,
+        },
+        metadesc_ru: {
           value: '',
           error: null,
         },
@@ -220,6 +316,30 @@ export default new Vuex.Store({
           value: '',
           error: null,
         },
+        metatitle: {
+          value: '',
+          error: null,
+        },
+        metadesc: {
+          value: '',
+          error: null,
+        },
+        metatitle_lv: {
+          value: '',
+          error: null,
+        },
+        metadesc_lv: {
+          value: '',
+          error: null,
+        },
+        metatitle_ru: {
+          value: '',
+          error: null,
+        },
+        metadesc_ru: {
+          value: '',
+          error: null,
+        },
       },
       static: {
         formLang: 'en',
@@ -264,6 +384,30 @@ export default new Vuex.Store({
           error: null,
         },
         id: {
+          value: '',
+          error: null,
+        },
+        metatitle: {
+          value: '',
+          error: null,
+        },
+        metadesc: {
+          value: '',
+          error: null,
+        },
+        metatitle_lv: {
+          value: '',
+          error: null,
+        },
+        metadesc_lv: {
+          value: '',
+          error: null,
+        },
+        metatitle_ru: {
+          value: '',
+          error: null,
+        },
+        metadesc_ru: {
           value: '',
           error: null,
         },
@@ -338,6 +482,30 @@ export default new Vuex.Store({
           value: '',
           error: null,
         },
+        metatitle: {
+          value: '',
+          error: null,
+        },
+        metadesc: {
+          value: '',
+          error: null,
+        },
+        metatitle_lv: {
+          value: '',
+          error: null,
+        },
+        metadesc_lv: {
+          value: '',
+          error: null,
+        },
+        metatitle_ru: {
+          value: '',
+          error: null,
+        },
+        metadesc_ru: {
+          value: '',
+          error: null,
+        },
       },
       settings: {
         email: {
@@ -377,6 +545,157 @@ export default new Vuex.Store({
           error: null,
         },
         instagram: {
+          value: '',
+          error: null,
+        },
+      },
+      settings_seo: {
+        index_title: {
+          value: '',
+          error: null,
+        },
+        index_title_lv: {
+          value: '',
+          error: null,
+        },
+        index_title_ru: {
+          value: '',
+          error: null,
+        },
+        index_desc: {
+          value: '',
+          error: null,
+        },
+        index_desc_lv: {
+          value: '',
+          error: null,
+        },
+        index_desc_ru: {
+          value: '',
+          error: null,
+        },
+
+        events_title: {
+          value: '',
+          error: null,
+        },
+        events_title_lv: {
+          value: '',
+          error: null,
+        },
+        events_title_ru: {
+          value: '',
+          error: null,
+        },
+        events_desc: {
+          value: '',
+          error: null,
+        },
+        events_desc_lv: {
+          value: '',
+          error: null,
+        },
+        events_desc_ru: {
+          value: '',
+          error: null,
+        },
+
+        articles_title: {
+          value: '',
+          error: null,
+        },
+        articles_title_lv: {
+          value: '',
+          error: null,
+        },
+        articles_title_ru: {
+          value: '',
+          error: null,
+        },
+        articles_desc: {
+          value: '',
+          error: null,
+        },
+        articles_desc_lv: {
+          value: '',
+          error: null,
+        },
+        articles_desc_ru: {
+          value: '',
+          error: null,
+        },
+
+        w_proc_title: {
+          value: '',
+          error: null,
+        },
+        w_proc_title_lv: {
+          value: '',
+          error: null,
+        },
+        w_proc_title_ru: {
+          value: '',
+          error: null,
+        },
+        w_proc_desc: {
+          value: '',
+          error: null,
+        },
+        w_proc_desc_lv: {
+          value: '',
+          error: null,
+        },
+        w_proc_desc_ru: {
+          value: '',
+          error: null,
+        },
+
+        w_prod_title: {
+          value: '',
+          error: null,
+        },
+        w_prod_title_lv: {
+          value: '',
+          error: null,
+        },
+        w_prod_title_ru: {
+          value: '',
+          error: null,
+        },
+        w_prod_desc: {
+          value: '',
+          error: null,
+        },
+        w_prod_desc_lv: {
+          value: '',
+          error: null,
+        },
+        w_prod_desc_ru: {
+          value: '',
+          error: null,
+        },
+
+        contacts_title: {
+          value: '',
+          error: null,
+        },
+        contacts_title_lv: {
+          value: '',
+          error: null,
+        },
+        contacts_title_ru: {
+          value: '',
+          error: null,
+        },
+        contacts_desc: {
+          value: '',
+          error: null,
+        },
+        contacts_desc_lv: {
+          value: '',
+          error: null,
+        },
+        contacts_desc_ru: {
           value: '',
           error: null,
         },
@@ -448,6 +767,16 @@ export default new Vuex.Store({
       Object.keys(payload).map((objectKey) => {
         if (objectKey !== 'id' && objectKey !== 'createdAt' && objectKey !== 'updatedAt') {
           state.forms.settings[objectKey].value = payload[objectKey];
+        }
+
+        return true;
+      });
+    },
+    setSeoSettings(state, payload) {
+      if (!payload) return; 
+      Object.keys(payload).map((objectKey) => {
+        if (objectKey !== 'id' && objectKey !== 'createdAt' && objectKey !== 'updatedAt') {
+          state.forms.settings_seo[objectKey].value = payload[objectKey];
         }
 
         return true;

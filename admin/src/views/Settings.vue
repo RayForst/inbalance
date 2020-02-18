@@ -9,14 +9,13 @@
               tabs(:options="{ useUrlFragment: false }")
                 tab(name="Main Settings")
                   app-settings
-                tab(name="Product Categories")
-                  app-product-categories
-                tab(name="Product Subcategories")
-                  app-product-subcategories
-                tab(name="Product Lines")
-                  app-product-lines
-                tab(name="Prefered product category on main")
                   app-product-priority
+                tab(name="Products Categories & Lines")
+                  app-product-categories
+                  app-product-subcategories
+                  app-product-lines
+                tab(name="SEO")
+                  app-meta
 </template>
 
 <script>
@@ -33,6 +32,7 @@ export default {
   components: {
     appSidebar: () => import("@/components/Sidebar/Index"),
     appSettings: () => import("@/components/Settings/Settings"),
+    appMeta: () => import("@/components/Metadata/Settings"),
     appProductCategories: () =>
       import("@/components/PoductCategories/Main/List"),
     appProductLines: () => import("@/components/ProductLines/List"),
