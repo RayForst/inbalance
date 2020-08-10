@@ -4,6 +4,7 @@
     :storeKey="'settings'" 
     :submitText="'Save'"
   )
+    app-form-input(:name="'couponCodes'" :label="'Coupon codes'")
     app-form-input(:name="'email'" :label="'Email on site'")
     app-form-input(:name="'contactFormEmail'" :label="'Emails for contact requests'")
     app-form-input(:name="'contactFormSubject'" :label="'Contact form subject'")
@@ -26,7 +27,7 @@ export default {
   },
   components: {
     appForm: () => import("@/components/Form/Form.vue"),
-    appFormInput: () => import("@/components/Form/Inputs/Input.vue"),
+    appFormInput: () => import("@/components/Form/Inputs/Input.vue"),g
   }
 };
 </script>

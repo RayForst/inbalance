@@ -31,6 +31,7 @@ module.exports = app => {
 
     app.get('/admin/call-me-back', token.validate, CallMeBackController.get)
     app.get('/admin/partnership', token.validate, PartnershipController.get)
+    app.get('/admin/checkouts', token.validate, ContactController.getCheckouts)
     app.post('/call-me-back', CallMeBackController.save)
     app.post('/partnership', PartnershipController.save)
 

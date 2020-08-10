@@ -48,6 +48,11 @@ export default new Router({
       component: () => import('./views/Translations.vue'),
     },
     {
+      path: '/checkouts',
+      name: 'checkouts',
+      component: () => import('./views/Checkouts.vue'),
+    },
+    {
       path: '/settings',
       name: 'settings',
       component: () => import('./views/Settings.vue'),

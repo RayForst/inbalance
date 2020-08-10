@@ -71,6 +71,15 @@ module.exports = (sequelize, DataTypes) =>
             priority: {
                 type: DataTypes.BOOLEAN,
             },
+            price: {
+                type: DataTypes.DECIMAL,
+            },
+            totalCount: {
+                type: DataTypes.INTEGER,
+            },
+            isNew: {
+                type: DataTypes.BOOLEAN,
+            },
             show: {
                 type: DataTypes.BOOLEAN,
                 defaultValue: false,
@@ -78,3 +87,6 @@ module.exports = (sequelize, DataTypes) =>
         })
         .beforeCreate(createSlug)
         .beforeUpdate(createSlug)
+// price
+// quantity
+// new product

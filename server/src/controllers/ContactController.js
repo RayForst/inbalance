@@ -49,6 +49,20 @@ module.exports = {
             })
         }
     },
+    async getCheckouts(req, res) {
+        try {
+            const result = await Models.Checkouts.findAll({
+                raw: true,
+                order: [['createdAt', 'DESC']],
+            })
+
+            res.send(result)
+        } catch (err) {
+            res.status(400).send({
+                error: 'Something went wrong' + err,
+            })
+        }
+    },
     async saveEvent(req, res) {
         try {
             const event = await Models.EventSubscribtion.create(req.body)

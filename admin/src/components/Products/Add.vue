@@ -36,12 +36,16 @@
               app-form-input(:name="'metatitle_ru'" :label="'meta title - RU'" :key="'ru_4'")
               app-form-text(:name="'metadesc_ru'" :label="'meta description - RU'" :key="'ru_5'")
 
-        .col-xs-12.col-md-6
+        .col-xs-12.col-md-6(style="padding-top: 16px;")
           app-form-select-group(:name="'ProductSubcategoryId'" :label="'Category'" :options="categories" :required="true")
           app-form-select(:name="'ProductLineId'" :label="'Product Line'" :options="lines" :required="true")
           app-form-images(:name="'images'" :label="'Images'" :required="true")
-          app-form-checkbox(:name="'priority'" :label="'Priority'")
-          app-form-checkbox(:name="'show'" :label="'Show'")
+          .checkboxes-grid
+              app-form-checkbox(:name="'priority'" :label="'Priority product'")
+              app-form-checkbox(:name="'isNew'" :label="'Is new'")
+              app-form-checkbox(:name="'show'" :label="'Show on site'")
+          app-form-input(:name="'totalCount'" :label="'In available'")
+          app-form-input(:name="'price'" :label="'Price'")
           app-form-input-hidden( v-if="isEdit" :name="'id'")
 </template>
 
@@ -128,4 +132,19 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~@/assets/css/_variables';
+
+.checkboxes-grid {
+    display: grid;
+    grid-auto-columns: max-content;
+    gap: 0 20px;
+
+  .form-group {
+    margin-bottom:5px;
+    margin-top 5px;
+
+    .label {
+      margin-right: 20px;
+    }
+  }
+}
 </style>

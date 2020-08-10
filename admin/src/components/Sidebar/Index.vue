@@ -50,6 +50,11 @@ export default {
           route: "settings"
         },
         {
+          name: "Checkouts",
+          icon: "nc-send",
+          route: "checkouts"
+        },
+        {
           name: "Translations",
           icon: "nc-caps-small",
           route: "translations"

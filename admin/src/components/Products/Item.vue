@@ -11,6 +11,9 @@
           )
           .ui-badges
             .badge(v-if="item.priority") priority
+            .badge.acent(v-if="item.isNew") new
+            .badge.red(v-if="item.totalCount == 0") OUT OF STOCK
+            .badge.blue(v-else) {{ item.totalCount }}
             .badge.red(v-if="!item.show") hidden
         .name 
           | {{ item.name }}
@@ -37,6 +40,7 @@ export default {
   },
   computed: {
     image() {
+      console.log(this.item);
       return this.item.hasOwnProperty("images") && this.item.images !== ""
         ? this.item.images.split(",")[0]
         : "default.png";

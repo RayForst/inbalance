@@ -57,4 +57,7 @@ export default {
   partnership: {
     get: () => Api().get('/admin/partnership'),
   },
+  checkouts: {
+    get: () => Api().get('/admin/checkouts'),
+  }
 };

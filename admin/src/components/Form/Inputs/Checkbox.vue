@@ -47,6 +47,11 @@ export default {
 <style lang="stylus" scoped>
 @import '~@/assets/css/_variables';
 
+.form-group {
+  display flex;
+  justify-content space-between;
+}
+
 .inputError {
   border-color: $c_error;
 }

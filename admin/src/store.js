@@ -85,6 +85,18 @@ export default new Vuex.Store({
           value: false,
           error: null,
         },
+        isNew: {
+          value: false,
+          error: null,
+        },
+        totalCount: {
+          value: 0,
+          error: null,
+        },
+        price: {
+          value: 0,
+          error: null,
+        },
         show: {
           value: false,
           error: null,
@@ -525,6 +537,10 @@ export default new Vuex.Store({
           error: null,
         },
         long: {
+          value: '',
+          error: null,
+        },
+        couponCodes: {
           value: '',
           error: null,
         },

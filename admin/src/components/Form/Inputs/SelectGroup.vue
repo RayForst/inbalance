@@ -42,9 +42,6 @@ export default {
 <style lang="stylus" scoped>
 @import '~@/assets/css/_variables';
 
-.form-group {
-  margin: 10px 0;
-}
 
 input {
   border: 1px solid #e3e3e3;

@@ -2,14 +2,14 @@
   "development": {
     "username": "root",
     "password": "1234",
-    "database": "inbalance",
+    "database": "inbalance_dump",
     "host": "localhost",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
     "password": "1234",
-    "database": "inbalance",
+    "database": "inbalance_dump",
     "host": "localhost",
     "dialect": "mysql"
   }

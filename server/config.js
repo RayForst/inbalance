@@ -1,7 +1,7 @@
 module.exports = {
     port: process.env.PORT || 3000,
     db: {
-        database: process.env.DB_NAME || 'inbalance',
+        database: process.env.DB_NAME || 'inbalance_dump',
         user: process.env.DB_USER || 'root',
         password: process.env.DB_PASS || '1234',
         options: {
