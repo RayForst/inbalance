@@ -30,8 +30,14 @@ module.exports = {
     async save(req, res) {
         try {
             if (availableFormats.includes(req.body.lang)) {
+                const file = path.join(
+                    __dirname,
+                    '../../../client/src/locales/' + req.query.lang + '.json'
+                )
+
+
                 fs.writeFileSync(
-                    `./../client/src/locales/${req.body.lang}.json`,
+                    file,
                     JSON.stringify(req.body.json),
                     'utf-8'
                 )
