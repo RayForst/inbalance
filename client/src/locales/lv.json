@@ -1,1 +1,195 @@
-{"menu":{"categories":{"wellness":"WELLNESS PROCEDŪRAS","products":"WELLNESS PRECES","events":"PASĀKUMI","contacts":"KONTAKTI","articles":"RAKSTI"},"links":{"products":"PRODUKTI","calendar":"PASĀKUMU KALENDĀRS","contacts":"KONTAKTI","blog":"JAUNUMI"}},"products":{"all":"VISI PRODUKTI","allLines":"VISAS LĪNIJAS","menu":"ATVĒRT MENU","closemenu":"SLĒGT MENU","tab1":"APRAKSTS","tab2":"LIETOŠANA","tab3":"SASTĀVDĻAS"},"events":{"calendar":{"title":"PASĀKUMU KALENDĀRS","description":"SPA un wellness (labsajūta) ir mūsu fokuss. Mēs regulāri rīkojam  [ comfort zone ] un /skin regimen/ prezentācijas speciālistiem, atklātus pasākumus zīmola faniem, kā arī dažādas lekcijas un nodarbības, kuru mērķis ir paplašināt redzesloku un palīdzēt labāk izprast sevi. Sekojiet kalendāram un pievienojieties!"},"subscribe":{"title":"PIETEIKTIES PASĀKUMAM","caption":"Vienkārši aizpildiet pieteikuma formu vai zvaniet mums pa tālruni +371 22 182 188","form":{"firstname":"Jūsu vārds","lastname":"Jūsu uzvārds","phone":"Tālruņa numurs","email":"E-pasta adrese","success":"Paldies par pieteikumu! Gaidiet mūsu zvanu :)","button":"Pieteikties"}},"bestsellers":{"title":"PĀRDOŠANAS TOPS","caption":"Mūsu klienti ir īpaši iemīlējuši šos produktus"}},"articles":{"recent":"Pēdējās publikācijas"},"links":{"discover":"Uzzināt vairāk"},"newsletter":{"subscribe":"ESIET PRIORITĀTĒ!","caption":"Pierakstieties ziņu saņemšanai, lai prioritārajā kārtā saņemtu vērtīgu informāciju par jaunumiem!","form":{"placeholder":"E-pasta adrese","success":"Izcili! Tagad Jūs esat mūsu prioritāro klientu sarakstā!","button":"Pierakstīties"}},"contacts":{"title":"Vēlaties sazināties?","workTime":"Strādājam pēc pieraksta no pirmdienas līdz sestdienai","form":{"fullname":"Jūsu vārds","email":"E-pasta adrese","message":"Jūsu ziņojums","success":"Jūsu ziņojums ir veiksmīgi nosūtīts. Gaidiet mūsu zvanu :)","button":"Sūtīt"}},"back":"ATPAKAĻ","share":"DALĪTIES","wellness_procedures_title":"WELLNESS PROCEDŪRAS","wellness_procedures_desc":"Jau vairāk par 15 gadiem esam SPA un labklājības jomā, mums ir izveidojies loks ar mūsu mīļākajiem dažādu virzienu speciālistiem. Tas ir gods dot Jums iespēju iepazīties ar viņiem mūsu telpās Bezga Bazārā.","wellness_products_title":"WELLNESS PRECES","wellness_products_desc":"Apraksts","partnership":{"title":"KĻŪT PAR PARTNERI","description":"Neatkarīgi no tā, vai esat SPA kompleksa pārstāvis vai Jums ir privātprakse, ja vēlaties strādāt ar [ comfort zone ] un/vai /skin regimen/ zīmoliem, mēs Jums tajā palīdzēsim un kļūsim, iespējams, par Jūsu labāko partneri!"},"callback":{"title":"Iepatikās produkti vai ir jautājumi?\n Piesakiet zvanu!","placeholder":"Jūsu tālruņa numurs","button":"Pārzvaniet man","successMessage":"Jūsu pieteikums ir nosūtīts. Noteikti piezvanīsim darba laikā"},"readmore":{"open":"Lasīt vairāk","close":"Paslēpt tekstu"},"monthDays":{"mon":"P","tue":"O","wed":"T","thu":"C","fri":"Pk","sat":"S","sun":"Sv"},"recentPosts":"Jaunākās publikācijas","reccomendProducts":"Мы рекомендуем также эти товары LV"}
+{
+  "menu": {
+    "categories": {
+      "wellness": "WELLNESS PROCEDŪRAS",
+      "products": "WELLNESS PRECES",
+      "events": "PASĀKUMI",
+      "contacts": "KONTAKTI",
+      "articles": "RAKSTI"
+    },
+    "links": {
+      "products": "PRODUKTI",
+      "calendar": "PASĀKUMU KALENDĀRS",
+      "contacts": "KONTAKTI",
+      "blog": "JAUNUMI"
+    }
+  },
+  "products": {
+    "all": "VISI PRODUKTI",
+    "allLines": "VISAS LĪNIJAS",
+    "menu": "ATVĒRT MENU",
+    "closemenu": "SLĒGT MENU",
+    "tab1": "APRAKSTS",
+    "tab2": "LIETOŠANA",
+    "tab3": "SASTĀVDĻAS"
+  },
+  "events": {
+    "calendar": {
+      "title": "PASĀKUMU KALENDĀRS",
+      "description": "SPA un wellness (labsajūta) ir mūsu fokuss. Mēs regulāri rīkojam  [ comfort zone ] un /skin regimen/ prezentācijas speciālistiem, atklātus pasākumus zīmola faniem, kā arī dažādas lekcijas un nodarbības, kuru mērķis ir paplašināt redzesloku un palīdzēt labāk izprast sevi. Sekojiet kalendāram un pievienojieties!"
+    },
+    "subscribe": {
+      "title": "PIETEIKTIES PASĀKUMAM",
+      "caption": "Vienkārši aizpildiet pieteikuma formu vai zvaniet mums pa tālruni +371 22 182 188",
+      "form": {
+        "firstname": "Jūsu vārds",
+        "lastname": "Jūsu uzvārds",
+        "phone": "Tālruņa numurs",
+        "email": "E-pasta adrese",
+        "success": "Paldies par pieteikumu! Gaidiet mūsu zvanu :)",
+        "button": "Pieteikties"
+      }
+    },
+    "bestsellers": {
+      "title": "PĀRDOŠANAS TOPS",
+      "caption": "Mūsu klienti ir īpaši iemīlējuši šos produktus"
+    }
+  },
+  "articles": {
+    "recent": "Pēdējās publikācijas"
+  },
+  "links": {
+    "discover": "Uzzināt vairāk"
+  },
+  "newsletter": {
+    "subscribe": "ESIET PRIORITĀTĒ!",
+    "caption": "Pierakstieties ziņu saņemšanai, lai prioritārajā kārtā saņemtu vērtīgu informāciju par jaunumiem!",
+    "form": {
+      "placeholder": "E-pasta adrese",
+      "success": "Izcili! Tagad Jūs esat mūsu prioritāro klientu sarakstā!",
+      "button": "Pierakstīties"
+    }
+  },
+  "contacts": {
+    "title": "Vēlaties sazināties?",
+    "workTime": "Strādājam tikai pēc iepriekšējā pieraksta",
+    "form": {
+      "fullname": "Jūsu vārds",
+      "email": "E-pasta adrese",
+      "message": "Jūsu ziņojums",
+      "success": "Jūsu ziņojums ir veiksmīgi nosūtīts. Gaidiet mūsu zvanu :)",
+      "button": "Sūtīt"
+    }
+  },
+  "back": "ATPAKAĻ",
+  "share": "DALĪTIES",
+  "wellness_procedures_title": "WELLNESS PROCEDŪRAS",
+  "wellness_procedures_desc": "Jau vairāk par 15 gadiem esam SPA un labklājības jomā, mums ir izveidojies loks ar mūsu mīļākajiem dažādu virzienu speciālistiem. Tas ir gods dot Jums iespēju iepazīties ar viņiem mūsu telpās Bezga Bazārā.",
+  "wellness_products_title": "WELLNESS PRECES",
+  "wellness_products_desc": "Apraksts",
+  "partnership": {
+    "title": "KĻŪT PAR PARTNERI",
+    "description": "Neatkarīgi no tā, vai esat SPA kompleksa pārstāvis vai Jums ir privātprakse, ja vēlaties strādāt ar [ comfort zone ] un/vai /skin regimen/ zīmoliem, mēs Jums tajā palīdzēsim un kļūsim, iespējams, par Jūsu labāko partneri!"
+  },
+  "callback": {
+    "title": "Iepatikās produkti vai ir jautājumi?\n Piesakiet zvanu!",
+    "placeholder": "Jūsu tālruņa numurs",
+    "button": "Pārzvaniet man",
+    "successMessage": "Jūsu pieteikums ir nosūtīts. Noteikti piezvanīsim darba laikā"
+  },
+  "readmore": {
+    "open": "Lasīt vairāk",
+    "close": "Paslēpt tekstu"
+  },
+  "monthDays": {
+    "mon": "P",
+    "tue": "O",
+    "wed": "T",
+    "thu": "C",
+    "fri": "Pk",
+    "sat": "S",
+    "sun": "Sv"
+  },
+  "recentPosts": "Jaunākās publikācijas",
+  "reccomendProducts": "Mēs iesakām arī šos produktus",
+  "cart": {
+    "title": "Your Cart",
+    "emptyCart": "No items in yout cart yet",
+    "shippingInfo": "Shipping and taxes calculated at checkout",
+    "tableCellPrice": "Price",
+    "tableCellQuantity": "Quantity",
+    "tableCellTotal": "Total",
+    "goToCheckoutButton": "Buy Now",
+    "goBackButton": "Go back",
+    "deleteButton": "Delete",
+    "subtotal": "Subtotal",
+    "addButton": "Add to cart",
+    "addButtonDone": "Added to cart",
+    "addButtonSuccess": "Продукт успешно добавлен в",
+    "addButtonSuccessLink": "корзину"
+  },
+  "orderDetails": {
+    "tiitle": "Your Order",
+    "promoCodeInputPlaceholder": "Discount code",
+    "promoCodeButton": "Apply",
+    "promoDescription": "Промокод спрашивайте у своего косметолога или следите за акциями на сайте.",
+    "listSubtotal": "subtotal",
+    "listShipping": "shipping",
+    "listTotal": "total",
+    "shippingStepDescription": "Calculated at next step"
+  },
+  "cartPopup": {
+    "subtotal": "Предварительная цена",
+    "goToCheckoutButton": "Перейти в корзину",
+    "viewAll": "View all products in cart"
+  },
+  "checkout": {
+    "quantityPrefix": "gab.",
+    "history": {
+      "cart": "Cart",
+      "information": "Information",
+      "shipping": "Shipping",
+      "payment": "Payment"
+    },
+    "customerInformation": "Информация о покупателе",
+    "emailLabel": "Эл. почта",
+    "emailPlaceholder": "Введите ваш e-mail",
+    "identityLabel": "Your identity",
+    "identityPhys": "Physical person",
+    "identityJur": "Juridical person",
+    "ruleLinkStart": "Iepazinos un piekritu",
+    "ruleLinkLink1": "noteikumiem",
+    "ruleLinkDelimeter": "un",
+    "ruleLinkLink2": "privatuma politikai",
+    "shippingAddress": "Shipping Address",
+    "firstNameLabel": "First name",
+    "firstNamePlaceholder": "First name",
+    "lastNameLabel": "Фамилия",
+    "lastNamePlaceholder": "Введите вашу фамилию",
+    "companyLabel": "Company",
+    "companyPlaceholder": "Company (optional)",
+    "companyRegLabel": "Company registration number",
+    "companyRegPlaceholder": "Company registration numer (optional)",
+    "taxpayLabel": "Taxpay number",
+    "taxpayPlaceholder": "Taxpay number (optional)",
+    "juridicalAddressLabel": "Juridical address",
+    "juridicalAddressPlaceholder": "Juridical address (optional)",
+    "facticalAddressLabel": "Factical address",
+    "facticalAddressPlaceholder": "Factical address (optional)",
+    "addressLineOneLabel": "Address line 1",
+    "addressLineOnePlaceholder": "Address line 1",
+    "addressLineTwoLabel": "Address line 1",
+    "addressLineTwoPlaceholder": "Address line 1",
+    "cityLabel": "City",
+    "cityPlaceholder": "City",
+    "countryLabel": "Country",
+    "countryLabel_lv": "Latvia",
+    "countryLabel_lt": "Lithuania",
+    "countryLabel_ee": "Estonia",
+    "postCodeLabel": "Post code",
+    "postCodePlaceholder": "Post code * with spacing",
+    "phoneLabel": "Phone",
+    "phonePlaceholder": "Phone",
+    "continueToShipping": "Continue to shipping",
+    "continueToPayment": "Continue to payment",
+    "changeData": "change",
+    "shippingMethod": "Shipping Method",
+    "free": "FREE",
+    "paymentTitle": "Payment",
+    "paymentCaption": "All transactions are secure and encrypted",
+    "redirect": "Redirecting to payment",
+    "contact": "Ваша почта",
+    "shipTo": "Отправить на",
+    "method": "Способ доставки"
+  }
+}

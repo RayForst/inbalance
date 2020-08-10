@@ -1,1 +1,195 @@
-{"menu":{"categories":{"wellness":"WELLNESS TREATMENTS","products":"WELLNESS PRODUCTS","events":"EVENTS","contacts":"CONTACT US","articles":"ARTICLES"},"links":{"products":"PRODUCTS","calendar":"EVENT CALENDAR","contacts":"CONTACTS","blog":"NEWS"}},"products":{"all":"ALL PRODUCTS","allLines":"ALL LINES","menu":"OPEN MENU","closemenu":"CLOSE MENU","tab1":"DESCRIPTION","tab2":"HOW TO USE","tab3":"INGREDIENTS"},"events":{"calendar":{"title":"EVENT CALENDAR","description":"SPA and wellness is our focus. We regularly conduct presentations of [ comfort zone ] and /skin regimen/ for professionals, open events for brand fans, as well as various lectures and classes aimed at expanding one's horizons and better understanding ourselves. Follow the calendar and join!"},"subscribe":{"title":"SIGN UP FOR AN EVENT!","caption":"Just fill in the form below or call us: +371 22 182 188","form":{"firstname":"First name","lastname":"Last name","phone":"Mobile phone","email":"E-mail address","success":"Thank you for signing up! Wait for our call :)","button":"Subscribe"}},"bestsellers":{"title":"FAVORITES","caption":"Our clients especially like these products"}},"articles":{"recent":"Recent posts"},"links":{"discover":"Discover more"},"newsletter":{"subscribe":"BE OUR PRIORITY!","caption":"Subscribe for newsletters to be the first to get the information about our novelties!","form":{"placeholder":"E-mail address","success":"Excellent! Now you are in the list of our priority clients!","button":"Subscribe"}},"contacts":{"title":"WANT TO CONTACT US?","workTime":"We work by appointment from Monday to Saturday","form":{"fullname":"Your name","email":"E-mail address","message":"Your message","success":"Your message is successfully sent","button":"Send"}},"back":"BACK","share":"SHARE","wellness_procedures_title":"WELLNESS TREATMENTS","wellness_procedures_desc":"For over 15 years of active search and experience of the best in the wellness arena it is an honor for us to share with you some of the experiences available in Bergs Bazaar.","wellness_products_title":"WELLNESS PRODUCTS","wellness_products_desc":"XXX","partnership":{"title":"BECOME A PARTNER","description":"Doesn't matter whether you represent a SPA complex or have personal practice, if you want to work with [ comfort zone ] and/or /skin regimen/, we will help you with this and, perhaps, will become your best partner!"},"callback":{"title":"Do you like the products or have a question? \n Order a call!","placeholder":"Your phone number","button":"Сall me back","successMessage":"Your application has been sent successfully! We shall call you on working hours"},"readmore":{"open":"Read more","close":"Read less"},"monthDays":{"mon":"Mon","tue":"Tue","wed":"Wed","thu":"Thu","fri":"Fri","sat":"Sat","sun":"Sun"},"recentPosts":"Recent posts","reccomendProducts":"Мы рекомендуем также эти товары EN"}
+{
+  "menu": {
+    "categories": {
+      "wellness": "WELLNESS TREATMENTS",
+      "products": "WELLNESS PRODUCTS",
+      "events": "EVENTS",
+      "contacts": "CONTACT US",
+      "articles": "ARTICLES"
+    },
+    "links": {
+      "products": "PRODUCTS",
+      "calendar": "EVENT CALENDAR",
+      "contacts": "CONTACTS",
+      "blog": "NEWS"
+    }
+  },
+  "products": {
+    "all": "ALL PRODUCTS",
+    "allLines": "ALL LINES",
+    "menu": "OPEN MENU",
+    "closemenu": "CLOSE MENU",
+    "tab1": "DESCRIPTION",
+    "tab2": "HOW TO USE",
+    "tab3": "INGREDIENTS"
+  },
+  "events": {
+    "calendar": {
+      "title": "EVENT CALENDAR",
+      "description": "SPA and wellness is our focus. We regularly conduct presentations of [ comfort zone ] and /skin regimen/ for professionals, open events for brand fans, as well as various lectures and classes aimed at expanding one's horizons and better understanding ourselves. Follow the calendar and join!"
+    },
+    "subscribe": {
+      "title": "SIGN UP FOR AN EVENT!",
+      "caption": "Just fill in the form below or call us: +371 22 182 188",
+      "form": {
+        "firstname": "First name",
+        "lastname": "Last name",
+        "phone": "Mobile phone",
+        "email": "E-mail address",
+        "success": "Thank you for signing up! Wait for our call :)",
+        "button": "Subscribe"
+      }
+    },
+    "bestsellers": {
+      "title": "FAVORITES",
+      "caption": "Our clients especially like these products"
+    }
+  },
+  "articles": {
+    "recent": "Recent posts"
+  },
+  "links": {
+    "discover": "Discover more"
+  },
+  "newsletter": {
+    "subscribe": "BE OUR PRIORITY!",
+    "caption": "Subscribe for newsletters to be the first to get the information about our novelties!",
+    "form": {
+      "placeholder": "E-mail address",
+      "success": "Excellent! Now you are in the list of our priority clients!",
+      "button": "Subscribe"
+    }
+  },
+  "contacts": {
+    "title": "WANT TO CONTACT US?",
+    "workTime": "We work by appointment only",
+    "form": {
+      "fullname": "Your name",
+      "email": "E-mail address",
+      "message": "Your message",
+      "success": "Your message is successfully sent",
+      "button": "Send"
+    }
+  },
+  "back": "BACK",
+  "share": "SHARE",
+  "wellness_procedures_title": "WELLNESS TREATMENTS",
+  "wellness_procedures_desc": "For over 15 years of active search and experience of the best in the wellness arena it is an honor for us to share with you some of the experiences available in Bergs Bazaar.",
+  "wellness_products_title": "WELLNESS PRODUCTS",
+  "wellness_products_desc": "XXX",
+  "partnership": {
+    "title": "BECOME A PARTNER",
+    "description": "Doesn't matter whether you represent a SPA complex or have personal practice, if you want to work with [ comfort zone ] and/or /skin regimen/, we will help you with this and, perhaps, will become your best partner!"
+  },
+  "callback": {
+    "title": "Do you like the products or have a question? \n Order a call!",
+    "placeholder": "Your phone number",
+    "button": "Сall me back",
+    "successMessage": "Your application has been sent successfully! We shall call you on working hours"
+  },
+  "readmore": {
+    "open": "Read more",
+    "close": "Read less"
+  },
+  "monthDays": {
+    "mon": "Mon",
+    "tue": "Tue",
+    "wed": "Wed",
+    "thu": "Thu",
+    "fri": "Fri",
+    "sat": "Sat",
+    "sun": "Sun"
+  },
+  "recentPosts": "Recent posts",
+  "reccomendProducts": "We recommend also these products",
+  "cart": {
+    "title": "Your Cart",
+    "emptyCart": "No items in yout cart yet",
+    "shippingInfo": "Shipping and taxes calculated at checkout",
+    "tableCellPrice": "Price",
+    "tableCellQuantity": "Quantity",
+    "tableCellTotal": "Total",
+    "goToCheckoutButton": "Buy Now",
+    "goBackButton": "Go back",
+    "deleteButton": "Delete",
+    "subtotal": "Subtotal",
+    "addButton": "Add to cart",
+    "addButtonDone": "Added to cart",
+    "addButtonSuccess": "Product successfully added to your",
+    "addButtonSuccessLink": "shopping cart"
+  },
+  "orderDetails": {
+    "tiitle": "Your Order",
+    "promoCodeInputPlaceholder": "Discount code",
+    "promoCodeButton": "Apply",
+    "promoDescription": "Промокод спрашивайте у своего косметолога или следите за акциями на сайте.",
+    "listSubtotal": "subtotal",
+    "listShipping": "shipping",
+    "listTotal": "total",
+    "shippingStepDescription": "Calculated at next step"
+  },
+  "cartPopup": {
+    "subtotal": "subtotal",
+    "goToCheckoutButton": "Go to cart",
+    "viewAll": "View all products in cart"
+  },
+  "checkout": {
+    "quantityPrefix": "gab.",
+    "history": {
+      "cart": "Cart",
+      "information": "Information",
+      "shipping": "Shipping",
+      "payment": "Payment"
+    },
+    "customerInformation": "Customer information",
+    "emailLabel": "Your Email",
+    "emailPlaceholder": "Your Email",
+    "identityLabel": "Your identity",
+    "identityPhys": "Physical person",
+    "identityJur": "Juridical person",
+    "ruleLinkStart": "Iepazinos un piekritu",
+    "ruleLinkLink1": "noteikumiem",
+    "ruleLinkDelimeter": "un",
+    "ruleLinkLink2": "privatuma politikai",
+    "shippingAddress": "Shipping Address",
+    "firstNameLabel": "First name",
+    "firstNamePlaceholder": "First name",
+    "lastNameLabel": "Фамилия",
+    "lastNamePlaceholder": "Введите вашу фамилию",
+    "companyLabel": "Company",
+    "companyPlaceholder": "Company (optional)",
+    "companyRegLabel": "Company registration number",
+    "companyRegPlaceholder": "Company registration numer (optional)",
+    "taxpayLabel": "Taxpay number",
+    "taxpayPlaceholder": "Taxpay number (optional)",
+    "juridicalAddressLabel": "Juridical address",
+    "juridicalAddressPlaceholder": "Juridical address (optional)",
+    "facticalAddressLabel": "Factical address",
+    "facticalAddressPlaceholder": "Factical address (optional)",
+    "addressLineOneLabel": "Address line 1",
+    "addressLineOnePlaceholder": "Address line 1",
+    "addressLineTwoLabel": "Address line 1",
+    "addressLineTwoPlaceholder": "Address line 1",
+    "cityLabel": "City",
+    "cityPlaceholder": "City",
+    "countryLabel": "Country",
+    "countryLabel_lv": "Latvia",
+    "countryLabel_lt": "Lithuania",
+    "countryLabel_ee": "Estonia",
+    "postCodeLabel": "Post code",
+    "postCodePlaceholder": "Post code * with spacing",
+    "phoneLabel": "Phone",
+    "phonePlaceholder": "Phone",
+    "continueToShipping": "Continue to shipping",
+    "continueToPayment": "Continue to payment",
+    "changeData": "change",
+    "shippingMethod": "Shipping Method",
+    "free": "FREE",
+    "paymentTitle": "Payment",
+    "paymentCaption": "All transactions are secure and encrypted",
+    "redirect": "Redirecting to payment",
+    "contact": "contact",
+    "shipTo": "ship to",
+    "method": "method"
+  }
+}

@@ -1,1 +1,195 @@
-{"menu":{"categories":{"wellness":"WELLNESS ПРОЦЕДУРЫ","products":"WELLNESS ТОВАРЫ","events":"МЕРОПРИЯТИЯ","contacts":"КОНТАКТЫ","articles":"СТАТЬИ"},"links":{"products":"ПРОДУКЦИЯ","calendar":"КАЛЕНДАРЬ МЕРОПРИЯТИЙ","contacts":"КОНТАКТЫ","blog":"НОВОСТИ"}},"products":{"all":"ВСЕ ПРОДУКТЫ","allLines":"ВСЕ ЛИНИИ","menu":"ОТКРЫТЬ МЕНЮ","closemenu":"ЗАКРЫТЬ МЕНЮ","tab1":"ОПИСАНИЕ","tab2":"ПРИМЕНЕНИЕ","tab3":"ИНГРЕДИЕНТЫ"},"events":{"calendar":{"title":"КАЛЕНДАРЬ МЕРОПРИЯТИЙ","description":"СПА и велнес (хорошее самочувствие) – вот наш фокус. Мы регулярно проводим презентации [ comfort zone ] и /skin regimen/ для специалистов, открытые мероприятия для поклонников брендов, а также разного рода лекции и занятия, цель которых – расширить кругозор и помочь лучше понять себя. Следите за календарём и присоединяйтесь!"},"subscribe":{"title":"ЗАПИСАТЬСЯ НА МЕРОПРИЯТИЕ","caption":"Просто заполните форму ниже или звоните нам по номеру +371 22 182 188","form":{"firstname":"Ваше имя","lastname":"Ваша фамилия","phone":"Телефон","email":"Э-почта","success":"Благодарим за заявку. Ждите наш звонок :)","button":"Отправить"}},"bestsellers":{"title":"ХИТЫ ПРОДАЖ","caption":"Нашим клиентам особенно полюбились эти продукты"}},"articles":{"recent":"Недавние публикации"},"links":{"discover":"Узнать больше"},"newsletter":{"subscribe":"БУДЬТЕ В ПРИОРИТЕТЕ!","caption":"Подпишитесь на нашу рыссылку и будье первыми, кто получит ценную информацию о новинках!","form":{"placeholder":"Э-почта","success":"Великолепно! Теперь Вы в списке наших приоритетных клиентов!","button":"Подписаться"}},"contacts":{"title":"Хотите связаться с нами?","workTime":"Мы работаем по предварительной записи с понедельника по субботу","form":{"fullname":"Ваше имя","email":"Э-почта","message":"Ваше сообщение","success":"Ваше сообщение успешно отправленно! ","button":"Отправить"}},"back":"НАЗАД","share":"ПОДЕЛИТЬСЯ","wellness_procedures_title":"WELLNESS ПРОЦЕДУРЫ","wellness_procedures_desc":"Будучи уже более 15 лет в индустрии СПА и веллнесс, у нас сформировался круг ниших любимых специалистов разных направлений. Это честь дать Вам возможность познакомиться с ними в наших помещениях в Berga Bazārs.","wellness_products_title":"WELLNESS ТОВАРЫ","wellness_products_desc":"Описание","partnership":{"title":"СТАТЬ ПАРТНЁРОМ","description":"Независимо от того, представляете Вы СПА комплекс или ведёте личную практику, если хотите работать с [ comfort zone ] и/или /skin regimen/, мы поможем Вам в этм и, возможно, станем Вашим лучшим партнёром!"},"callback":{"title":" Понравились продукты или хотите задать вопрос? \n Закажите звонок!","placeholder":"Ваш номер телефона","button":"Перезвоните мне","successMessage":"Ваша заявка успешно отправлена! Непременно перезвоним в рабочее время :)"},"readmore":{"open":"Читать больше","close":"Скрыть текст"},"monthDays":{"mon":"Пн","tue":"Вт","wed":"Ср","thu":"Чт","fri":"Пт","sat":"Сб","sun":"Вс"},"recentPosts":"Недавние посты","reccomendProducts":"Мы рекомендуем также эти товары"}
+{
+  "menu": {
+    "categories": {
+      "wellness": "WELLNESS ПРОЦЕДУРЫ",
+      "products": "WELLNESS ТОВАРЫ",
+      "events": "МЕРОПРИЯТИЯ",
+      "contacts": "КОНТАКТЫ",
+      "articles": "СТАТЬИ"
+    },
+    "links": {
+      "products": "ПРОДУКЦИЯ",
+      "calendar": "КАЛЕНДАРЬ МЕРОПРИЯТИЙ",
+      "contacts": "КОНТАКТЫ",
+      "blog": "НОВОСТИ"
+    }
+  },
+  "products": {
+    "all": "ВСЕ ПРОДУКТЫ",
+    "allLines": "ВСЕ ЛИНИИ",
+    "menu": "ОТКРЫТЬ МЕНЮ",
+    "closemenu": "ЗАКРЫТЬ МЕНЮ",
+    "tab1": "ОПИСАНИЕ",
+    "tab2": "ПРИМЕНЕНИЕ",
+    "tab3": "ИНГРЕДИЕНТЫ"
+  },
+  "events": {
+    "calendar": {
+      "title": "КАЛЕНДАРЬ МЕРОПРИЯТИЙ",
+      "description": "СПА и велнес (хорошее самочувствие) – вот наш фокус. Мы регулярно проводим презентации [ comfort zone ] и /skin regimen/ для специалистов, открытые мероприятия для поклонников брендов, а также разного рода лекции и занятия, цель которых – расширить кругозор и помочь лучше понять себя. Следите за календарём и присоединяйтесь!"
+    },
+    "subscribe": {
+      "title": "ЗАПИСАТЬСЯ НА МЕРОПРИЯТИЕ",
+      "caption": "Просто заполните форму ниже или звоните нам по номеру +371 22 182 188",
+      "form": {
+        "firstname": "Ваше имя",
+        "lastname": "Ваша фамилия",
+        "phone": "Телефон",
+        "email": "Э-почта",
+        "success": "Благодарим за заявку. Ждите наш звонок :)",
+        "button": "Отправить"
+      }
+    },
+    "bestsellers": {
+      "title": "ХИТЫ ПРОДАЖ",
+      "caption": "Нашим клиентам особенно полюбились эти продукты"
+    }
+  },
+  "articles": {
+    "recent": "Недавние публикации"
+  },
+  "links": {
+    "discover": "Узнать больше"
+  },
+  "newsletter": {
+    "subscribe": "БУДЬТЕ В ПРИОРИТЕТЕ!",
+    "caption": "Подпишитесь на нашу рыссылку и будьте первыми, кто получит ценную информацию о новинках!",
+    "form": {
+      "placeholder": "Э-почта",
+      "success": "Великолепно! Теперь Вы в списке наших приоритетных клиентов!",
+      "button": "Подписаться"
+    }
+  },
+  "contacts": {
+    "title": "Хотите связаться с нами?",
+    "workTime": "Мы работаем только по предварительной записи",
+    "form": {
+      "fullname": "Ваше имя",
+      "email": "Э-почта",
+      "message": "Ваше сообщение",
+      "success": "Ваше сообщение успешно отправленно! ",
+      "button": "Отправить"
+    }
+  },
+  "back": "НАЗАД",
+  "share": "ПОДЕЛИТЬСЯ",
+  "wellness_procedures_title": "WELLNESS ПРОЦЕДУРЫ",
+  "wellness_procedures_desc": "Будучи уже более 15 лет в индустрии СПА и веллнесс, у нас сформировался круг ниших любимых специалистов разных направлений. Это честь дать Вам возможность познакомиться с ними в наших помещениях в Berga Bazārs.",
+  "wellness_products_title": "WELLNESS ТОВАРЫ",
+  "wellness_products_desc": "Описание",
+  "partnership": {
+    "title": "СТАТЬ ПАРТНЁРОМ",
+    "description": "Независимо от того, представляете Вы СПА комплекс или ведёте личную практику, если хотите работать с [ comfort zone ] и/или /skin regimen/, мы поможем Вам в этм и, возможно, станем Вашим лучшим партнёром!"
+  },
+  "callback": {
+    "title": " Понравились продукты или хотите задать вопрос? \n Закажите звонок!",
+    "placeholder": "Ваш номер телефона",
+    "button": "Перезвоните мне",
+    "successMessage": "Ваша заявка успешно отправлена! Непременно перезвоним в рабочее время :)"
+  },
+  "readmore": {
+    "open": "Читать больше",
+    "close": "Скрыть текст"
+  },
+  "monthDays": {
+    "mon": "Пн",
+    "tue": "Вт",
+    "wed": "Ср",
+    "thu": "Чт",
+    "fri": "Пт",
+    "sat": "Сб",
+    "sun": "Вс"
+  },
+  "recentPosts": "Недавние посты",
+  "reccomendProducts": "Мы рекомендуем также эти товары",
+  "cart": {
+    "title": "Корзина",
+    "emptyCart": "В корзине нет товаров",
+    "shippingInfo": "Цена с доставкой рассчитывается в конце",
+    "tableCellPrice": "Цена",
+    "tableCellQuantity": "Количество",
+    "tableCellTotal": "Всего",
+    "goToCheckoutButton": "Оформить покупку",
+    "goBackButton": "Вернуться назад",
+    "deleteButton": "Удалить",
+    "subtotal": "Предварительная цена",
+    "addButton": "Добавить в корзину",
+    "addButtonDone": "Добавлено в корзину",
+    "addButtonSuccess": "Продукт успешно добавлен в",
+    "addButtonSuccessLink": "корзину"
+  },
+  "orderDetails": {
+    "tiitle": "Ваш заказ",
+    "promoCodeInputPlaceholder": "Скидочный код",
+    "promoCodeButton": "применить",
+    "promoDescription": "Промокод спрашивайте у своего косметолога или следите за акциями на сайте.",
+    "listSubtotal": "предварительная цена",
+    "listShipping": "доставка",
+    "listTotal": "всего",
+    "shippingStepDescription": "Высчитывается на следующем этапе"
+  },
+  "cartPopup": {
+    "subtotal": "Предварительная цена",
+    "goToCheckoutButton": "Перейти в корзину",
+    "viewAll": "Все продукты доступны в корзине"
+  },
+  "checkout": {
+    "quantityPrefix": "шт.",
+    "history": {
+      "cart": "Корзина",
+      "information": "Информация",
+      "shipping": "Доставка",
+      "payment": "Оплата"
+    },
+    "customerInformation": "Информация о покупателе",
+    "emailLabel": "Эл. почта",
+    "emailPlaceholder": "Введите ваш e-mail",
+    "identityLabel": "Ваша субъектность",
+    "identityPhys": "Физическая лицо",
+    "identityJur": "Юридическое лицо",
+    "ruleLinkStart": "Ознакомился с",
+    "ruleLinkLink1": "правилами",
+    "ruleLinkDelimeter": "и",
+    "ruleLinkLink2": "политикой конфиденциальности",
+    "shippingAddress": "Адрес доставки",
+    "firstNameLabel": "Имя",
+    "firstNamePlaceholder": "Введите ваше имя",
+    "lastNameLabel": "Фамилия",
+    "lastNamePlaceholder": "Введите вашу фамилию",
+    "companyLabel": "Компания",
+    "companyPlaceholder": "Введите название вашей компании (не обязательно)",
+    "companyRegLabel": "Регистрационный номер компании",
+    "companyRegPlaceholder": "Введите регистрационный номер компании (не обязательно)",
+    "taxpayLabel": "Номер налогоплательщика",
+    "taxpayPlaceholder": "Введите номер налогоплательщика (не обязательно)",
+    "juridicalAddressLabel": "Юридический адрес",
+    "juridicalAddressPlaceholder": "Юридический адрес (не обязательно)",
+    "facticalAddressLabel": "Фактический адрес",
+    "facticalAddressPlaceholder": "Фактический адрес (не обязательно)",
+    "addressLineOneLabel": "Адрес 1",
+    "addressLineOnePlaceholder": "Адрес 1",
+    "addressLineTwoLabel": "Адрес 2",
+    "addressLineTwoPlaceholder": "Адрес 2",
+    "cityLabel": "Город",
+    "cityPlaceholder": "Город",
+    "countryLabel": "Страна",
+    "countryLabel_lv": "Латвия",
+    "countryLabel_lt": "Литва",
+    "countryLabel_ee": "Эстония",
+    "postCodeLabel": "Почтовый код",
+    "postCodePlaceholder": "Почтовый код",
+    "phoneLabel": "Телефон",
+    "phonePlaceholder": "Телефон",
+    "continueToShipping": "Продолжить",
+    "continueToPayment": "Продолжить",
+    "changeData": "изменить",
+    "shippingMethod": "Способ доставки",
+    "free": "Бесплатно",
+    "paymentTitle": "Оплата",
+    "paymentCaption": "Все транзакции безопасны и зашифрованы",
+    "redirect": "Переход на страницу оплаты",
+    "contact": "Ваша почта",
+    "shipTo": "Отправить на",
+    "method": "Способ доставки"
+  }
+}
