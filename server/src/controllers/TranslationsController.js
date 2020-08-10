@@ -32,7 +32,7 @@ module.exports = {
             if (availableFormats.includes(req.body.lang)) {
                 const file = path.join(
                     __dirname,
-                    '../../../client/src/locales/' + req.query.lang + '.json'
+                    '../../../client/src/locales/' + req.body.lang + '.json'
                 )
 
 
