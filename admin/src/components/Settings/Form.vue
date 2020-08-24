@@ -27,7 +27,7 @@ export default {
   },
   components: {
     appForm: () => import("@/components/Form/Form.vue"),
-    appFormInput: () => import("@/components/Form/Inputs/Input.vue"),g
+    appFormInput: () => import("@/components/Form/Inputs/Input.vue"),
   }
 };
 </script>

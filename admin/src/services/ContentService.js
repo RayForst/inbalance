@@ -4,6 +4,7 @@ export default {
   products: {
     get: credentials => Api().get('/admin/products', { params: credentials }),
     remove: credentials => Api().delete('/admin/product', { data: credentials }),
+    getById: credentials => Api().get('/admin/products/byid', { params: credentials }),
   },
   articles: {
     get: credentials => Api().get('/admin/articles', { params: credentials }),
@@ -59,5 +60,6 @@ export default {
   },
   checkouts: {
     get: () => Api().get('/admin/checkouts'),
+    save: credentials => Api().post('/admin/checkout/status', credentials),
   }
 };

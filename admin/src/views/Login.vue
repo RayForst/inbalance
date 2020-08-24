@@ -48,8 +48,8 @@ export default {
   data() {
     return {
       show: false,
-      login: null,
-      password: null,
+      login: '',
+      password: '',
       error: null
     };
   },

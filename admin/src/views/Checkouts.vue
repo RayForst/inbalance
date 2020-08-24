@@ -2,7 +2,6 @@
   .content.color-background.flex_col
     .content-container.admin-page
       app-sidebar
-
       .card-container
         .row
           .col-xs-12
@@ -15,15 +14,39 @@
                 )
               .row
                 .col-xs-12
-                  .ui-table
-                    tr(v-for="item in items" :key="item.id")
-                      | {{ item.details }}
-                      | {{ item.createdAt }}
+                  table.ui-table
+                    tr
+                      th id
+                      th date
+                      th customer
+                      th phone
+                      th email
+                      th amount
+                      th shipping
+                      th total
+                      th products
+                      th status
+                      th action
+                    appCheckoutItem(
+                      v-for="item, index in items" 
+                      :key="item.id" 
+                      :item="item"
+                      :index="index"
+                      @view="drawViewModal"
+                    )
+              app-modal(
+                v-if="show"
+              )
+                .card
+                  h4.card-title Order details
+                  div(v-html="modalData")
 </template>
 
 
 <script>
 import contentService from "@/services/ContentService";
+import appCheckoutItem from "@/components/Checkouts/Item";
+import EventBus from "@/event-bus";
 
 
 export default {
@@ -37,24 +60,120 @@ export default {
       icon: "nc-send",
       show: false,
       items: [],
+      modalData: ''
     };
   },
   components: {
     appSidebar: () => import("@/components/Sidebar/Index"),
     appEditor: () => import("@/components/Translations/JsonForm"),
-    appListHeader: () => import("@/components/List/Header")
+    appListHeader: () => import("@/components/List/Header"),
+    appModal: () => import("@/components/Modal/Default.vue"),
+    appCheckoutItem
   },
   methods: {
     async get() {
       this.items = (await contentService.checkouts.get({})).data;
+    },
+    drawViewModal(itemId, shipping, amount, total) {
+      this.show = true;
+
+      try {
+        const item = this.items.find( item => item.id === itemId) ;
+        const details = JSON.parse(item.details);
+        console.log(details);
+
+        const personType = details.form.status == 'phiz' ? 'physical' : 'juridical';
+
+        this.modalData = `
+          <table class="ui-table">
+            <tr>
+              <td><b>Person type</b></td>
+              <td>${personType}</td>
+            </tr>
+            <tr>
+              <td><b>First Name</b></td>
+              <td>${details.first_name}</td>
+            </tr>
+            <tr>
+              <td><b>Last Name</b></td>
+              <td>${details.last_name}</td>
+            </tr>
+            <tr>
+              <td><b>E-mail</b></td>
+              <td>${details.email}</td>
+            </tr>
+            <tr>
+              <td><b>Phone</b></td>
+              <td>${details.phone}</td>
+            </tr>
+            <tr>
+              <td><b>Coutry</b></td>
+              <td>${details.phone}</td>
+            </tr>
+            <tr>
+              <td><b>City</b></td>
+              <td>${details.phone}</td>
+            </tr>
+            <tr>
+              <td><b>Address</b></td>
+              <td>${details.address_line_1} ${details.address_line_2}</td>
+            </tr>
+            <tr>
+              <td><b>Post code</b></td>
+              <td>${details.postcode}</td>
+            </tr>
+            <tr>
+              <td><b>Company</b></td>
+              <td>${details.company}</td>
+            </tr>
+            <tr>
+              <td><b>Company reg. number</b></td>
+              <td>${details.company_rn}</td>
+            </tr>
+            <tr>
+              <td><b>Taxpay number</b></td>
+              <td>${details.taxnum}</td>
+            </tr>
+            <tr>
+              <td><b>Juridical address</b></td>
+              <td>${details.jur_addr}</td>
+            </tr>
+            <tr>
+              <td><b>Factical address</b></td>
+              <td>${details.jur_addr}</td>
+            </tr>
+            <tr>
+              <td><b>Amount</b></td>
+              <td>${amount}</td>
+            </tr>
+            <tr>
+              <td><b>Shipping</b></td>
+              <td>${shipping}</td>
+            </tr> 
+            <tr>
+              <td><b>Total</b></td>
+              <td>${total}</td>
+            </tr>  
+          </table>
+        `
+      } catch (e) {
+        this.modalData = `data corrupted`;
+      }
     }
   },
   mounted() {
     this.get();
+
+    EventBus.$on(["modal-close"], () => {
+      this.show = false;
+    });
   }
 };
 </script>
 
 <style lang="stylus" scoped>
 @import '~@/assets/css/_variables';
+th {
+  text-transform:capitalize;
+}
 </style>

@@ -2,6 +2,7 @@ const Models = require('../models')
 const { validationResult } = require('express-validator/check')
 const Model = Models.Product
 const Sequelize = require('sequelize')
+const { query } = require('express')
 
 const Op = Sequelize.Op
 
@@ -123,6 +124,32 @@ module.exports = {
             }
 
             res.send(result)
+        } catch (err) {
+            res.status(400).send({
+                error: 'Something went wrong' + err,
+            })
+        }
+    },
+    async byid(req, res) {
+        console.log('HIT');
+        try {
+            console.log(req.query.poducts);
+            const reqData = JSON.parse(req.query.poducts);
+            let ids = [];
+            reqData.forEach(element => ids.push(element.id));
+
+            console.log(ids);
+
+            const result = await Model.findAll({
+                raw: true,
+                order: [['createdAt', 'DESC']],
+            })
+            
+            const filtered = result.filter(product => {
+                return ids.includes(product.id);
+            });
+
+            res.send(filtered)
         } catch (err) {
             res.status(400).send({
                 error: 'Something went wrong' + err,

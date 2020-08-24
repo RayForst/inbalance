@@ -11,6 +11,7 @@ const TranslationsController = require('./controllers/TranslationsController')
 const CallMeBackController = require('./controllers/CallMeBackController')
 const PartnershipController = require('./controllers/PartnershipController')
 const ProductLineController = require('./controllers/ProductLineController')
+const CheckoutController = require('./controllers/CheckoutController')
 const upload = require('./services/fileUploader')
 const validation = require('./validation/validation')
 const token = require('./validation/token')
@@ -23,6 +24,12 @@ module.exports = app => {
         token.validate,
         ProductLineController.edit
     )
+    app.get(
+        '/admin/products/byid',
+        ProductsController.byid
+    )
+    
+    app.post('/admin/checkout/status', token.validate, CheckoutController.saveStatus)
     app.delete(
         '/admin/product-lines',
         token.validate,

@@ -40,7 +40,6 @@ export default {
   },
   computed: {
     image() {
-      console.log(this.item);
       return this.item.hasOwnProperty("images") && this.item.images !== ""
         ? this.item.images.split(",")[0]
         : "default.png";

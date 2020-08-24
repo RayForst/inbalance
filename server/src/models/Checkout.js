@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) =>
       type: DataTypes.TEXT
     },
     proceed: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false
+      type: DataTypes.TINYINT,
+      defaultValue: 0
     }
   });
