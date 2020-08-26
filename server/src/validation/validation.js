@@ -70,7 +70,7 @@ module.exports = {
         check('text')
             .isLength({ min: 1 })
             .withMessage('Cannot be empty')
-            .isLength({ max: 3000 })
-            .withMessage('Should be max 3000 chars long'),
+            .isLength({ max: 20000 })
+            .withMessage('Should be max 20000 chars long'),
     ],
 }
