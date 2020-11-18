@@ -6,5 +6,9 @@ module.exports = (sequelize, DataTypes) =>
     proceed: {
       type: DataTypes.TINYINT,
       defaultValue: 0
+    },
+    status: {
+      type: DataTypes.TINYINT,
+      defaultValue: 0
     }
   });

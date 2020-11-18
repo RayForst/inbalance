@@ -25,6 +25,7 @@
                       th shipping
                       th total
                       th products
+                      th payment status
                       th status
                       th action
                     appCheckoutItem(

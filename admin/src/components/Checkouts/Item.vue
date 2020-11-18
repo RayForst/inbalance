@@ -15,6 +15,7 @@ tr(
     td(
         v-html="products.join('<br/> ')"
     )
+    td {{ paymentStatus }}
     td
         select(v-model="item.proceed" @change="saveStatus")
             option(value="0") new
@@ -112,6 +113,19 @@ export default {
             }
 
             return details;
+        },
+        paymentStatus() {
+            let textStatus = 'Pending';
+
+            if (this.item.status === 1) {
+                textStatus = 'Done';
+            }
+
+              if (this.item.status === 2) {
+                textStatus = 'Rejected';
+            }
+
+            return textStatus;
         },
          coupon() {
             let details = 'data are corrupted'
