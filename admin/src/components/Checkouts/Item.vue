@@ -10,12 +10,13 @@ tr(
     td {{ customerPhone }}
     td {{ customerEmail }}
     td {{ orderAmount }}
-    td {{ shipping }}
+    td(v-if="omniviaFree") Omnivia Free!
+    td(v-else) {{ shipping }}
     td {{ total }}
     td(
         v-html="products.join('<br/> ')"
     )
-    td {{ paymentStatus }}
+    td(:class="'payment-status-'+paymentStatus") {{ paymentStatus }}
     td
         select(v-model="item.proceed" @change="saveStatus")
             option(value="0") new
@@ -38,6 +39,7 @@ export default {
     data() {
         return {
             productsRaw:null,
+            omniviaFree: false,
             products: [
 
             ]
@@ -60,7 +62,7 @@ export default {
 
             this.productsRaw = products;
             this.products = products.map(function(elem){
-                return `<a href="http://inbalans.lv/product/${elem.slug}" target="_blank">${elem.name}</a>`;
+                return `<a href="http://www.inbalans.lv/product/${elem.slug}" target="_blank">${elem.name}</a>`;
             });
         },
         async saveStatus() {
@@ -142,11 +144,14 @@ export default {
         },
         shipping() {
             let details = 'data are corrupted'
+
+            if (this.omniviaFree) {
+                return 'Omnivia Free!';
+            }
             
             try {
                 let data = JSON.parse(this.item.details);
                 
-                console.log(data);
                 let shipping = data.shippingPrice;
 
                 if (shipping == 0) shipping = 'Free!';
@@ -165,7 +170,10 @@ export default {
             try {
                  let euro = value =>
                 currency(value, { symbol: "€ ", separator: " ", decimal: "." });
+                 let euroEmpty = value =>
+                currency(value, { symbol: " ", separator: " ", decimal: " " });
                 let total = euro(0);
+                let totalRaw = euroEmpty(0);
 
                 let data = JSON.parse(this.item.details);
 
@@ -178,10 +186,18 @@ export default {
                         qnt = qnt.quantity;
     
     
-                        total = total.add(euro(x.price).multiply(qnt));;
+                        total = total.add(euro(x.price).multiply(qnt));
+                        totalRaw = totalRaw.add(euro(x.price).multiply(qnt));
+
                     })
 
-                    total = total.add(euro(data.shippingPrice));
+                    var totalRawValue = totalRaw.format().replace(/ /g, "").slice(0, -2);
+                    
+                    if (data.shippingPrice === 3 && totalRawValue >= 50) {
+                        this.omniviaFree = true;
+                    } else {
+                        total = total.add(euro(data.shippingPrice));
+                    }
                 }
 
                 details = `${total.format()} EUR`;
@@ -258,7 +274,16 @@ tr {
 th, .ui-link {
     text-transform: capitalize;
 }
-
+.payment-status-Rejected {
+    background:#f44336;
+    color:#fff;
+    font-weight bold;
+}
+.payment-status-Done {
+    background:#4caf50;
+    color:#fff;
+    font-weight bold;
+}
 .coupon {
     background: #009688;
     padding: 2px 9px;

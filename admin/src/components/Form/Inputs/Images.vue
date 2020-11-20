@@ -99,7 +99,6 @@ export default {
       let fd = new FormData();
       fd.append("file", this.file.value);
 
-      console.log("try to save");
       try {
         const image = (await contentService.upload.save(fd)).data;
         const imagename = image.file.filename;

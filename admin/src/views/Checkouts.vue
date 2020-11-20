@@ -29,12 +29,20 @@
                       th status
                       th action
                     appCheckoutItem(
-                      v-for="item, index in items" 
+                      v-for="item, index in items.slice(offset, onPage + offset)" 
                       :key="item.id" 
                       :item="item"
                       :index="index"
                       @view="drawViewModal"
                     )
+              .row
+                .col-xs-12
+                  app-pagination(
+                    :total="items.length" 
+                    :perPage="onPage" 
+                    :current="page"
+                    @newpage="changePage"
+                  )
               app-modal(
                 v-if="show"
               )
@@ -61,19 +69,30 @@ export default {
       icon: "nc-send",
       show: false,
       items: [],
-      modalData: ''
+      modalData: '',
+      onPage: 12,
+      page: 0
     };
+  },
+  computed: {
+    offset() {
+      return this.page > 0 ? this.page * this.onPage : 0;
+    }
   },
   components: {
     appSidebar: () => import("@/components/Sidebar/Index"),
     appEditor: () => import("@/components/Translations/JsonForm"),
     appListHeader: () => import("@/components/List/Header"),
     appModal: () => import("@/components/Modal/Default.vue"),
+    appPagination: () => import("@/components/List/Pagination"),
     appCheckoutItem
   },
   methods: {
     async get() {
       this.items = (await contentService.checkouts.get({})).data;
+    },
+    modalHideClass(value) {
+      return !value ? 'style="display:none"' : '';
     },
     drawViewModal(itemId, shipping, amount, total) {
       this.show = true;
@@ -123,25 +142,25 @@ export default {
               <td><b>Post code</b></td>
               <td>${details.postcode}</td>
             </tr>
-            <tr>
+            <tr ${this.modalHideClass(details.company)}>
               <td><b>Company</b></td>
               <td>${details.company}</td>
             </tr>
-            <tr>
+            <tr ${this.modalHideClass(details.company_rn)}>
               <td><b>Company reg. number</b></td>
               <td>${details.company_rn}</td>
             </tr>
-            <tr>
+            <tr ${this.modalHideClass(details.taxnum)}>
               <td><b>Taxpay number</b></td>
               <td>${details.taxnum}</td>
             </tr>
-            <tr>
+            <tr ${this.modalHideClass(details.jur_addr)}>
               <td><b>Juridical address</b></td>
               <td>${details.jur_addr}</td>
             </tr>
-            <tr>
+            <tr ${this.modalHideClass(details.fac_addr)}>
               <td><b>Factical address</b></td>
-              <td>${details.jur_addr}</td>
+              <td>${details.fac_addr}</td>
             </tr>
             <tr>
               <td><b>Amount</b></td>
@@ -160,6 +179,9 @@ export default {
       } catch (e) {
         this.modalData = `data corrupted`;
       }
+    },
+    changePage(event, lala) {
+      this.page = event;
     }
   },
   mounted() {

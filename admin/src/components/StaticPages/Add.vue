@@ -68,6 +68,10 @@ export default {
           title: '/skin regimen/'
         },
         {
+          value: 10,
+          title: 'Davines'
+        },
+        {
           value: 2,
           title: 'wellness treatments'
         },

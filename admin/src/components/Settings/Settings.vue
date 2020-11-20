@@ -27,10 +27,6 @@ export default {
     async get() {
       const response = (await contentService.settings.get({})).data;
 
-
-      console.log('settings');
-      console.log(response);
-
       this.$store.commit("setSettings", response[0]);
     }
   },

@@ -131,7 +131,6 @@ module.exports = {
         }
     },
     async byid(req, res) {
-        console.log('HIT');
         try {
             console.log(req.query.poducts);
             const reqData = JSON.parse(req.query.poducts);

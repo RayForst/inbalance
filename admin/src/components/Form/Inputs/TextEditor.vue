@@ -78,7 +78,6 @@ export default {
       });
 
       xhr.addEventListener("load", function(event) {
-        console.log('LOAD FIRE 2', xhr)
         if (xhr.status == 200) {
           var attributes = {
             url: UPLOAD_HOST + xhr.response,

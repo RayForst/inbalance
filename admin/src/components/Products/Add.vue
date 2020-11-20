@@ -90,7 +90,6 @@ export default {
       let response = (await contentService.productSubcategories.get({})).data;
       let responseLines = (await contentService.productLines.get({})).data;
 
-      console.log("response lines", responseLines);
       let result = [];
       let lines = [];
 
