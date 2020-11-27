@@ -110,6 +110,10 @@ export default {
               <td><b>Person type</b></td>
               <td>${personType}</td>
             </tr>
+            <tr ${this.modalHideClass(details.coupon)}>
+              <td><b>Coupon</b></td>
+              <td>${details.coupon}</td>
+            </tr>
             <tr>
               <td><b>First Name</b></td>
               <td>${details.first_name}</td>
