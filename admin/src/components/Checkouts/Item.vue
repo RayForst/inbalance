@@ -6,13 +6,18 @@ tr(
     td {{ orderDate }}
     td 
         | {{ customerName }}
-        span.coupon(v-if="coupon") Coupon
     td {{ customerPhone }}
     td {{ customerEmail }}
-    td {{ orderAmount }}
+    td(style="min-width: 80px;" v-if="coupon")
+        s {{ orderAmount }}
+        br
+        span.coupon(v-if="coupon") Coupon
+        br
+        | {{ totalDiscount }}
+    td(v-else) {{ orderAmount }}
     td(v-if="omniviaFree") Omnivia Free!
     td(v-else) {{ shipping }}
-    td {{ total }}
+    td(style="min-width: 80px;") {{ total }}
     td(
         v-html="products.join('<br/> ')"
     )
@@ -24,13 +29,14 @@ tr(
             option(value="2") rejected
             option(value="3") in progress
     td 
-        a.ui-link(@click.prevent="$emit('view', item.id, shipping, orderAmount, total)") view
+        a.ui-link(@click.prevent="$emit('view', item.id, shipping, orderAmount, total, coupon, totalDiscount)") view
 </template>
 
 <script>
 import moment from "moment";
 import contentService from "@/services/ContentService";
 import currency from "currency.js";
+import Prices from "@/services/Prices.js";
 
 
 export default {
@@ -39,10 +45,7 @@ export default {
     data() {
         return {
             productsRaw:null,
-            omniviaFree: false,
-            products: [
-
-            ]
+            products: []
         }
     },
     methods: {
@@ -109,7 +112,7 @@ export default {
                     })
                 }
 
-                details = `${total.format()} EUR`;
+                details = `${total.format()}`;
             } catch(e) {
                 console.warn(e);
             }
@@ -129,8 +132,8 @@ export default {
 
             return textStatus;
         },
-         coupon() {
-            let details = 'data are corrupted'
+        coupon() {
+            let details = false;
             
             try {
                 let data = JSON.parse(this.item.details);
@@ -141,6 +144,41 @@ export default {
             }
 
             return details;
+        },
+        omniviaFree() {
+            let res = false;
+
+            
+            try {
+                let data = JSON.parse(this.item.details);
+                let shipping = data.shippingPrice;
+                let shippingTotalAmount = 0;
+
+                if (this.productsRaw) {
+                    let preperadProducts = this.productsRaw.map(product => {
+                        let qnt = data.products.find(el => {
+                            return el.id === product.id;
+                        });
+
+                        return {
+                            price: product.price,
+                            quantity: qnt.quantity
+                        }
+                    });
+
+                    shippingTotalAmount = Prices.calculate(preperadProducts, this.coupon, true, false, false, false);
+                }
+
+
+                if (shipping === 3 && shippingTotalAmount >= 5000) {
+                    res = true;
+                }
+            } catch(e) {
+                console.warn(e);
+            }
+
+            return res;
+
         },
         shipping() {
             let details = 'data are corrupted'
@@ -155,7 +193,7 @@ export default {
                 let shipping = data.shippingPrice;
 
                 if (shipping == 0) shipping = 'Free!';
-                else shipping = `€  ${shipping}.00 EUR`;
+                else shipping = `€  ${shipping}.00`;
 
                 details = shipping;
             } catch(e) {
@@ -165,42 +203,55 @@ export default {
             return details;
         },
         total() {
-            let details = 'data are corrupted'
+           let details = 'data are corrupted'
             
             try {
-                 let euro = value =>
-                currency(value, { symbol: "€ ", separator: " ", decimal: "." });
-                 let euroEmpty = value =>
-                currency(value, { symbol: " ", separator: " ", decimal: " " });
-                let total = euro(0);
-                let totalRaw = euroEmpty(0);
 
                 let data = JSON.parse(this.item.details);
 
                 if (this.productsRaw) {
-                    this.productsRaw.forEach(x => {
-                        let qnt =  data.products.find(el => {
-                            return el.id === x.id;
+                    let preperadProducts = this.productsRaw.map(product => {
+                        let qnt = data.products.find(el => {
+                            return el.id === product.id;
                         });
 
-                        qnt = qnt.quantity;
-    
-    
-                        total = total.add(euro(x.price).multiply(qnt));
-                        totalRaw = totalRaw.add(euro(x.price).multiply(qnt));
+                        return {
+                            price: product.price,
+                            quantity: qnt.quantity
+                        }
+                    });
 
-                    })
-
-                    var totalRawValue = totalRaw.format().replace(/ /g, "").slice(0, -2);
-                    
-                    if (data.shippingPrice === 3 && totalRawValue >= 50) {
-                        this.omniviaFree = true;
-                    } else {
-                        total = total.add(euro(data.shippingPrice));
-                    }
+                    details = Prices.calculate(preperadProducts, this.coupon, false, false, false, data.shippingPrice);
                 }
 
-                details = `${total.format()} EUR`;
+            } catch(e) {
+                console.warn(e);
+            }
+
+            return details;
+        },
+        totalDiscount() {
+            let details = 'data are corrupted'
+            
+            try {
+
+                let data = JSON.parse(this.item.details);
+
+                if (this.productsRaw) {
+                    let preperadProducts = this.productsRaw.map(product => {
+                        let qnt = data.products.find(el => {
+                            return el.id === product.id;
+                        });
+
+                        return {
+                            price: product.price,
+                            quantity: qnt.quantity
+                        }
+                    });
+
+                    details = Prices.calculate(preperadProducts, this.coupon, false, false, false, false);
+                }
+
             } catch(e) {
                 console.warn(e);
             }

@@ -56,6 +56,7 @@
 import contentService from "@/services/ContentService";
 import appCheckoutItem from "@/components/Checkouts/Item";
 import EventBus from "@/event-bus";
+import Prices from "@/services/Prices.js";
 
 
 export default {
@@ -94,7 +95,7 @@ export default {
     modalHideClass(value) {
       return !value ? 'style="display:none"' : '';
     },
-    drawViewModal(itemId, shipping, amount, total) {
+    drawViewModal(itemId, shipping, amount, total, coupon, totalDiscount) {
       this.show = true;
 
       try {
@@ -109,10 +110,6 @@ export default {
             <tr>
               <td><b>Person type</b></td>
               <td>${personType}</td>
-            </tr>
-            <tr ${this.modalHideClass(details.coupon)}>
-              <td><b>Coupon</b></td>
-              <td>${details.coupon}</td>
             </tr>
             <tr>
               <td><b>First Name</b></td>
@@ -166,9 +163,24 @@ export default {
               <td><b>Factical address</b></td>
               <td>${details.fac_addr}</td>
             </tr>
-            <tr>
+            <tr ${this.modalHideClass(details.coupon)}>
+              <td><b>Coupon</b></td>
+              <td>${details.coupon}</td>
+            </tr>
+            <tr ${this.modalHideClass(!details.coupon)}>
               <td><b>Amount</b></td>
               <td>${amount}</td>
+            </tr>
+             <tr ${this.modalHideClass(details.coupon)}>
+              <td><b>Total</b></td>
+              <td>
+                <s>
+                ${amount}
+                </s>
+                <span class="coupon"></span>
+                <br>
+                ${totalDiscount}
+              </td>
             </tr>
             <tr>
               <td><b>Shipping</b></td>
@@ -177,7 +189,7 @@ export default {
             <tr>
               <td><b>Total</b></td>
               <td>${total}</td>
-            </tr>  
+            </tr> 
           </table>
         `
       } catch (e) {
