@@ -1,7 +1,7 @@
 import currency from "currency.js";
 
 const PVN = 21;
-const COUPON = 20;
+const COUPON = 10;
 const EUR = function(value) {
   return currency(value, { symbol: "€ ", separator: " ", decimal: "." });
 };
