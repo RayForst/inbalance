@@ -45,7 +45,8 @@ export default {
     data() {
         return {
             productsRaw:null,
-            products: []
+            products: [],
+            productsTemp: []
         }
     },
     methods: {
@@ -66,6 +67,10 @@ export default {
             this.productsRaw = products;
             this.products = products.map(function(elem){
                 return `<a href="http://www.inbalans.lv/product/${elem.slug}" target="_blank">${elem.name}</a>`;
+            });
+
+            this.productsTemp = products.map(function(elem){
+                return `${elem.name}`;
             });
         },
         async saveStatus() {
@@ -303,6 +308,21 @@ export default {
     },
     mounted() {
         this.getProducts();
+
+        // td(v-if="omniviaFree") Omnivia Free!
+        // td(v-else) {{ shipping }}
+        let shipping = this.omniviaFree ? 'Omnivia Free' : this.shipping;
+
+        const statuses = [
+            'new',
+            'done',
+            'rejected',
+            'in progress'
+        ];
+        let coupon = this.coupon ? 'COUPON' : 'NO COUPON';
+        setTimeout(() => {
+            console.log(`${this.item.id},${this.orderDate},${this.customerName},${this.customerPhone},${this.customerEmail},${coupon},${this.orderAmount},${shipping},${this.total},${this.productsTemp.join('|')},${this.paymentStatus},${statuses[this.item.proceed]}`);
+        }, 500);
     }
 }
 </script>
