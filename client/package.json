@@ -10,7 +10,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "moment": "2.13",
-    "pug": "^2.0.3",
+    "pug": "^3.0.1",
     "pug-plain-loader": "^1.0.0",
     "vue": "^2.6.6",
     "vue-cookie": "^1.1.4",
